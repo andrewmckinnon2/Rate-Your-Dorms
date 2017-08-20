@@ -1,0 +1,110 @@
+html{
+  background:url("../images/belltower.jpeg");
+  background-size:cover;
+  -webkit-background-size:cover;
+  -moz-backgound-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  width:100%;
+}
+
+body{
+  width:100%;
+  margin:0;
+}
+
+
+/*Styling for header and its components*/
+.contactButtons{
+  color:black;
+  text-decoration:none;
+  vertical-align:top;
+  margin-bottom:0;
+}
+
+.socialMediaLink{
+  text-align:right;
+  display:inline-block;
+  width:3vw;
+  height:4vh;
+  vertical-align:top;
+  margin-top:1vh;
+}
+
+.socialMediaLink img{
+  width:3vw;
+  height:4vh;
+}
+
+#header{
+  text-align:right;
+  background-color:white;
+  margin:auto;
+  height:6vh;
+}
+
+#header p{
+  display:inline-block;
+  margin-top:2vh;
+  margin-bottom:0;
+  margin-left:1vw;
+  margin-right:1vw;
+  vertical-align:top;
+}
+
+#logo{
+  display:inline-block;
+  width:10vw;
+  height:6vh;
+  margin-right:50vw;
+}
+
+
+
+/*Styling for main content and its components*/
+#mainContentHolder{
+  width:50vw;
+  height:50vh;
+  margin-top:19vh;
+  margin-bottom:25vh;
+  margin-left:25vw;
+  margin-right:25vw;
+  text-align:center;
+}
+
+#mainContentHolder h1{
+  margin-bottom:0;
+  font-family:hiragino kaku gothic proN;
+  font-size:7vh;
+}
+
+#mainContentHolder p{
+  margin-top:0;
+  font-family:hiragino kaku gothic proN;
+  font-size:4vh;
+}
+
+#mainContentHolder input[type=text]{
+  background-image:url("../images/searchButton.png");
+  background-repeat:no-repeat;
+  background-position:left center;
+  background-size:3vw 4vh;
+  display:inline-block;
+  width:40vw;
+  height:4vh;
+  margin-right:0;
+  vertical-align:top;
+  font-size:2vh;
+  padding-left:4vw;
+}
+
+#mainContentHolder button{
+  width:10vw;
+  height:5vh;
+  margin-right:5vw;
+  margin-left:5vw;
+  margin-top:5vh;
+  color:white;
+  background-color:black;
+  border-radius:5% 5% 5% 5%;
+}

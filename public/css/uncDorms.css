@@ -1,0 +1,135 @@
+body{
+  margin:0;
+}
+
+/*Styling for the header*/
+.contactButtons{
+  color:black;
+  text-decoration:none;
+  vertical-align:top;
+  margin-bottom:0;
+}
+
+.socialMediaLink{
+  text-align:right;
+  display:inline-block;
+  width:3vw;
+  height:4vh;
+  vertical-align:top;
+  margin-top:1vh;
+}
+
+.socialMediaLink img{
+  width:3vw;
+  height:4vh;
+}
+
+#header{
+  text-align:left;
+  background-color:white;
+  margin:auto;
+  height:6vh;
+}
+
+#header p{
+  display:inline-block;
+  margin-top:2vh;
+  margin-bottom:0;
+  margin-left:1vw;
+  margin-right:1vw;
+  vertical-align:top;
+}
+
+#logo{
+  display:inline-block;
+  width:10vw;
+  height:6vh;
+  margin-right:50vw;
+  margin-left:0;
+}
+
+
+/*Styling for left side displaying dorms*/
+#navigation{
+  display:inline-block;
+  margin:0;
+  width:30vw;
+  height:94vh;
+}
+
+#leftLogo{
+  height:5vh;
+  width:20vh;
+}
+
+#allDormsHolder{
+  height:90vh;
+  width:100%;
+  overflow-y:scroll;
+}
+.dormPicHolder{
+  vertical-align:top;
+  background-image: url("../images/dormPics/thumbBlank.jpg");
+  display:inline-block;
+  width:14.8vw;
+  height:20vh;
+  border:0.1vw solid black;
+  border-left:0;
+  text-align:center;
+}
+
+.dormPicHolder h3{
+  display:inline-block;
+  vertical-align:bottom;
+  margin-top:15vh;
+  margin-left:0;
+  margin-right:0;
+  font-size:2vh;
+  font-weight:normal;
+}
+
+#koury{
+  background-image: url("../images/dormPics/Koury.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  color:white;
+}
+#horton{
+  background-image: url("../images/dormPics/Horton.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  color:white;
+}
+#hardin{
+  background-image: url("../images/dormPics/Hardin.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  color:white;
+}
+
+
+
+
+/*Styling for information in the middle of page*/
+#infoDisplay{
+  display:inline-block;
+  margin:0;
+  width:70vw;
+  height:94vh;
+  vertical-align:top;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:cover;
+  box-shadow:inset 0vh 0vh 5vh 5vh rgba(100,100,100,0.75);
+}
+
+#infoDisplay img{
+  width:100%;
+  height:100%;
+  box-shadow:inset 0vh 0vh 5vh 5vh rgba(100,100,100,0.75);
+  position:relative;
+  z-index:-1;
+}

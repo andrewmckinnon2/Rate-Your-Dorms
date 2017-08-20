@@ -1,0 +1,40 @@
+<!Doctype html>
+<html>
+<header>
+  <title>Rate Your Dorms UNC</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/uncDorms.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</header>
+<body>
+  <div id="header">
+    <img src="../images/logo.png" id="logo">
+    <p><a href="contactUs.html" class="contactButtons">Contact us</a></p>
+    <p><a href="aboutUs.html" class="contactButtons">About us</a></p>
+    <a href="#comingsoon" class="socialMediaLink"><img src="../images/twitterIcon.png"></a>
+    <a href="#comingsoon" class="socialMediaLink"><img src="../images/facebookIcon.png"></a>
+    <a href="#comingsoon" class="socialMediaLink"><img src="../images/instagramIcon.png"></a>
+  </div>
+  <div id="navigation">
+    <img src="../images/logo.png" id="leftLogo">
+    <div id="allDormsHolder">
+
+    </div>
+  </div><div id="infoDisplay">
+  </div>
+</body>
+<script src="../javascript/uncDorms.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+</script>
+</html>

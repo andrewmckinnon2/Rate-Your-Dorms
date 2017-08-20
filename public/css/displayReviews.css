@@ -1,0 +1,160 @@
+html{
+  height:100%;
+  width:100%;
+  margin:none;
+}
+
+body{
+  margin:0;
+  background-color:#b3b3b3;
+  height:100%;
+  width:100%;
+  margin:none;
+}
+
+
+/*Styling for the header*/
+.contactButtons{
+  color:black;
+  text-decoration:none;
+  vertical-align:top;
+  margin-bottom:0;
+}
+
+.socialMediaLink{
+  text-align:right;
+  display:inline-block;
+  width:3vw;
+  height:4vh;
+  vertical-align:top;
+  margin-top:1vh;
+}
+
+.socialMediaLink img{
+  width:3vw;
+  height:4vh;
+}
+
+#header{
+  text-align:left;
+  background-color:white;
+  margin:auto;
+  height:6vh;
+}
+
+#header p{
+  display:inline-block;
+  margin-top:2vh;
+  margin-bottom:0;
+  margin-left:1vw;
+  margin-right:1vw;
+  vertical-align:top;
+}
+
+#logo{
+  display:inline-block;
+  width:10vw;
+  height:6vh;
+  margin-right:50vw;
+  margin-left:0;
+}
+
+/*styling for main content of page*/
+#dormName{
+  margin-left:35vw;
+  margin-right:35vw;
+  margin-top:2vh;
+  color:white;
+  background-color:#DCDCDC;
+  height:5vh;
+  width:30vw;
+}
+
+
+
+/*Styling for average scores*/
+#averagesDisplay{
+  background-color:grey;
+  width:100vw;
+  height:40vh;
+  margin:0;
+}
+#averageDisplay h1{
+  margin-bottom:0;
+}
+
+.averageScores{
+  display:inline-block;
+  border:1vw black solid;
+  background-color:white;
+  width:40vw;
+  height:20vh;
+  margin-top:3vh;
+  text-align:center;
+  margin-right:3.5vw;
+  margin-left:3.5vw;
+}
+
+.score{
+  display:inline-block;
+  height:6vh;
+  width:35vw;
+  margin-top:0.5vh;
+  background-color:grey;
+}
+
+/*Styling for holder of all reviews*/
+#writtenReviewsDisplay{
+  width:100vw;
+  margin-right:0;
+  margin-left:0;
+  margin-top:5vh;
+  text-align:center;
+}
+
+/*Styling for an individual review*/
+.writtenReview{
+  width:90vw;
+  margin-top:0;
+  margin-bottom:0;
+  border: 0.2vh black solid;
+  margin-right:3vw;
+  margin-left:3vw;
+}
+
+.headOfReview{
+  width:100%;
+  margin-top:0;
+  padding-bottom:3vh;
+  padding-top:3vh;
+}
+
+.headOfReview p{
+  display:inline-block;
+  margin-top:0;
+  margin-bottom:0;
+  margin-left:10vw;
+  margin-right:10vw;
+}
+
+.scoresOfReview{
+  width:90vw;
+  margin-top:0;
+  margin-bottom:0;
+
+}
+
+.scoresOfReview p{
+  display:inline-block;
+  margin-top:0;
+  margin-bottom:0;
+  margin-left:10vw;
+  margin-right:10vw;
+  margin-bottom:2vh;
+  margin-top:1vh;
+}
+
+.actualReview{
+  margin-top:1vh;
+  margin-bottom:0;
+}
