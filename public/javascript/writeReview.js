@@ -48,9 +48,9 @@ $("#submit").click(function(){
     var reviewerName = $("#name").val();
     var yearInDorm = $("#yearSelector").find(":selected").text();
     var dorm = $("#dormName").find(":selected").text();
-    var bathroomRating = getValChecked(bathroomRadios);
-    var cleanlinessRating = getValChecked(cleanlinessRadios);
-    var kitchenRating = getValChecked(kitchenRadios);
+    var bathroomRating = $("#slider3").val();
+    var cleanlinessRating = $("#slider5").val();
+    var kitchenRating = $("#slider4").val();
     var studyProximityRating = $("#slider1").val();
     var partyProximityRating = $("#slider2").val();
     var cultureReview = $("#cultureSelector").find(":selected").text();

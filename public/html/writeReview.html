@@ -86,7 +86,7 @@
          <div class="inputcenter"><select id="dormName" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
         </select></div>
         <h6>YEAR IN DORM</h6>
-         <div class="inputcenter"><select style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+         <div class="inputcenter"><select id="yearSelector" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
              <option selected="selected">Select</option>
             <option value="firstYear" id="firstYear">First Year</option>
              <option value="sophomore" id="sophomore">Sophmore</option>
@@ -99,59 +99,46 @@
          <div class="inputcenter"><input id="email" 4autofocus type="text" name="search" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4;" class="searchBar"  style="font-family: 'Muli', sans-serif; margin: 1em;"></div>
     </div>
     <div id="writereview">
+      <div class="reviewquestion">
+              <div class="subject"><h5>Building Cleanliness</h5></div>
+              <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
+              <div class="slider">
+                  <input id="slider5" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue5(this.value)" />
+                          <span id="range5">1</span>
+                          <script type="text/javascript">
+                          function showValue5(newValue)
+                          {
+                              document.getElementById("range5").innerHTML=newValue;
+                          }
+                          </script>
+              </div>
+      </div>
         <div class="reviewquestion">
-                <h7 style="margin: 1em;">STEP 2: About your Dorm</h7>
-                <div class="subject"><h5>Building Cleanliness</h5></div>
-                <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
-                <div class="stars">
-                  <form action="">
-                    <input class="star star-5 cleanlinessRating" id="cleanliness1" type="radio" name="star"/>
-                    <label class="star star-5" for="cleanliness1"></label>
-                    <input class="star star-4 cleanlinessRating" id="cleanliness2" type="radio" name="star"/>
-                    <label class="star star-4" for="cleanliness2"></label>
-                    <input class="star star-3 cleanlinessRating" id="cleanliness3" type="radio" name="star"/>
-                    <label class="star star-3" for="cleanliness3"></label>
-                    <input class="star star-2 cleanlinessRating" id="cleanliness4" type="radio" name="star"/>
-                    <label class="star star-2" for="cleanliness4"></label>
-                    <input class="star star-1 cleanlinessRating" id="cleanliness5" type="radio" name="star"/>
-                    <label class="star star-1" for="cleanliness5"></label>
-                  </form>
-                </div>
-        </div>
-       <div class="reviewquestion">
                 <div class="subject"><h5>Kitchen</h5></div>
                 <div class="description"><h4>Was it clean? Did you have access to a kitchen?</h4></div>
-                <div class="stars">
-                  <form action="">
-                    <input class="star star-15 kitchenRating" id="kitchen1" type="radio" name="star"/>
-                    <label class="star star-15" for="kitchen1"></label>
-                    <input class="star star-14 kitchenRating" id="kitchen2" type="radio" name="star"/>
-                    <label class="star star-14" for="kitchen2"></label>
-                    <input class="star star-13 kitchenRating" id="kitchen3" type="radio" name="star"/>
-                    <label class="star star-13" for="kitchen3"></label>
-                    <input class="star star-12 kitchenRating" id="kitchen4" type="radio" name="star"/>
-                    <label class="star star-12" for="kitchen4"></label>
-                    <input class="star star-11 kitchenRating" id="kitchen5" type="radio" name="star"/>
-                    <label class="star star-11" for="kitchen5"></label>
-                  </form>
+                <div class="slider">
+                    <input id="slider4" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue4(this.value)" />
+                            <span id="range4">1</span>
+                            <script type="text/javascript">
+                            function showValue4(newValue)
+                            {
+                                document.getElementById("range4").innerHTML=newValue;
+                            }
+                            </script>
                 </div>
         </div>
         <div class="reviewquestion">
                 <div class="subject"><h5>Bathroom</h5></div>
                 <div class="description"><h4>Were there enough showers and toilets? Was it clean?</h4></div>
-                <div class="stars">
-                  <form action="">
-                    <input class="star star-25 bathroomRating" id="bathroom1" type="radio" name="star"/>
-                    <label class="star star-25" for="bathroom1"></label>
-                    <input class="star star-24 bathroomRating" id="bathroom2" type="radio" name="star"/>
-                    <label class="star star-24" for="bathroom2"></label>
-                    <input class="star star-23 bathroomRating" id="bathroom3" type="radio" name="star"/>
-                    <label class="star star-23" for="bathroom3"></label>
-                    <input class="star star-22 bathroomRating" id="bathroom4" type="radio" name="star"/>
-                    <label class="star star-22" for="bathroom4"></label>
-                    <input class="star star-21 bathroomRating" id="bathroom5" type="radio" name="star"/>
-                    <label class="star star-21" for="bathroom5"></label>
-                  </form>
+                <div class="slider">
+                    <input id="slider3" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue3(this.value)" />
+                            <span id="range3">1</span>
+                            <script type="text/javascript">
+                            function showValue3(newValue)
+                            {
+                                document.getElementById("range3").innerHTML=newValue;
+                            }
+                            </script>
                 </div>
         </div>
         <div class="reviewquestion">
@@ -214,7 +201,7 @@
         <div class="reviewquestion">
                 <div class="subject"><h5>Culture</h5></div>
                 <div class="description"><h4>Select a tag that best describe what it is like living in your dorm</h4></div>
-                <div class="divider"><select style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                <div class="divider"><select id="cultureSelector" style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
                      <option selected="selected">Select</option>
                     <option id="rowdyOption">Rowdy</option>
                     <option  id="workHardOption">Work-hard</option>
