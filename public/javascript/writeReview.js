@@ -11,8 +11,6 @@ for(var i=0; i<dormNames.length; i++){
 var bathroomRadios = $(".bathroomRating");
 var cleanlinessRadios = $(".cleanlinessRating");
 var kitchenRadios = $(".kitchenRating");
-var partyProximityRadios = $(".partyProximityRating");
-var studyProximityRadios = $(".studyProximityRating");
 
 function addListeners(classElements){
   classElements.each(function(){
@@ -21,6 +19,8 @@ function addListeners(classElements){
       removeClicks(classElements);
       var optionNumber = parseInt(Radio.attr("id").slice(-1));
       var idMinusNum = Radio.attr("id").slice(0, Radio.attr("id").length-1);
+      console.log("id is " + idMinusNum);
+      console.log("option number is " + optionNumber);
       for(var i=0; i<=optionNumber; i++){
         //console.log("#" + idMinusNum + i)
         $("#" + idMinusNum + i).prop("checked", true);
@@ -32,7 +32,6 @@ function removeClicks(classElements){
   console.log("remove clicks was triggered");
   classElements.each(function(){
     var currentId = $(this).attr("id")
-    console.log(currentId);
     $(this).prop('checked', false);
   })
 }
@@ -40,26 +39,33 @@ function removeClicks(classElements){
 addListeners(bathroomRadios);
 addListeners(cleanlinessRadios);
 addListeners(kitchenRadios);
-addListeners(studyProximityRadios);
-addListeners(partyProximityRadios);
 
 $("#submit").click(function(){
   console.log("submit event click fired");
-  if(checkForInputs() == false){
-    alert("Please make sure all fields are filled in.");
-  }else{
+  //if(checkForInputs() == false){
+    //alert("Please make sure all fields are filled in.");
+  //}else{
     var reviewerName = $("#name").val();
     var yearInDorm = $("#yearSelector").find(":selected").text();
     var dorm = $("#dormName").find(":selected").text();
     var bathroomRating = getValChecked(bathroomRadios);
     var cleanlinessRating = getValChecked(cleanlinessRadios);
     var kitchenRating = getValChecked(kitchenRadios);
-    var studyProximityRating = getValChecked(studyProximityRadios);
-    var partyProximityRating = getValChecked(partyProximityRadios);
+    var studyProximityRating = $("#slider1").val();
+    var partyProximityRating = $("#slider2").val();
     var cultureReview = $("#cultureSelector").find(":selected").text();
     var hasLaundry = false;
-    if($("hasLaundry").is(":checked")){
+    var email = $("#email").val();
+    var bathStyle = $("#dormStyle").find(":selected").text();
+    var writtenReview = $("#textReview").val();
+    if($("#hasLaundry").find(":selected").text() == "Yes"){
       hasLaundry = true;
+    }
+    var wouldLiveAgain;
+    if($("#wouldLiveHereAgain").find(":selected").text() == "Yes"){
+      wouldLiveAgain = true;
+    }else {
+      wouldLiveAgain = false;
     }
     alert(reviewerName + yearInDorm + dorm + bathroomRating + cleanlinessRating + kitchenRating +
       studyProximityRating + partyProximityRating + cultureReview + hasLaundry);
@@ -69,6 +75,7 @@ $("#submit").click(function(){
     //set new data fields for this review
     thisPush.set({
       name: reviewerName,
+      email: email,
       year: yearInDorm,
       bathroom: bathroomRating,
       cleanliness: cleanlinessRating,
@@ -76,7 +83,10 @@ $("#submit").click(function(){
       studyProximity: studyProximityRating,
       partyProximity: partyProximityRating,
       culture: cultureReview,
-      laundry: hasLaundry
+      laundry: hasLaundry,
+      wouldLiveHereAgain: wouldLiveAgain,
+      bathroomStyle: bathStyle,
+      review: writtenReview
     });
 
     //update the number of ratings
@@ -85,7 +95,7 @@ $("#submit").click(function(){
       currentNumberOfRatings = currentNumberOfRatings+1;
       dormRatingNode.child("numReviews").set(currentNumberOfRatings);
     });
-  }
+  //}
 })
 
 function checkForInputs(){
@@ -118,9 +128,19 @@ function getValChecked(classElements){ //Gets the highest checked radio out of t
   for(var i=0; i<classElements.length; i++){
     var radio = $(classElements[i]);
     var rating = parseInt(radio.attr("id").slice(-1));
+    console.log("rating is " + rating)
     if($(classElements[i]).is(":checked") && rating>highestChecked){
       highestChecked = rating;
     }
   }
   return highestChecked;
 }
+
+$("#hamburger").click(function(){
+    $("#mobilepopup").show();
+});
+
+$("#exitMobilePopup").click(function(){
+    console.log("button presed");
+    $("#mobilepopup").hide();
+})
