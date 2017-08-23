@@ -1,31 +1,120 @@
-<!Doctype html>
+<!doctype html>
 <html>
-<header>
-  <title>NextUp Music - party Hosting</title>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/index.css"/>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="css/RateYourDormsMain.css">
+    <link rel="stylesheet" href="css/writereview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
 
-</header>
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</head>
 <body>
-  <div id="header">
-    <img src="images/logo.png" id="logo">
-    <p><a href="html/contactUs.html" class="contactButtons">Contact us</a></p>
-    <p><a href="html/aboutUs.html" class="contactButtons">About us</a></p>
-    <a href="#comingsoon" class="socialMediaLink"><img src="images/twitterIcon.png"></a>
-    <a href="#comingsoon" class="socialMediaLink"><img src="images/facebookIcon.png"></a>
-    <a href="#comingsoon" class="socialMediaLink"><img src="images/instagramIcon.png"></a>
-  </div>
+<div class="main">
+        <div id="logobar">
+            <div class="socialmedia">
+                <button href="Write%20a%20Review.html" style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                <!--a href="#" class="fa fa-pinterest"></a-->
+            </div>
+            <div id="logo">
+                <a href="#"><img id="navlogo" class="navlogo" src="rateyourdorms.png" ></a>
+            </div>
+            <div class="signup">
+                <div><button type="button" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
+                <div><button type="button">Sign Up</button></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div id="navbar">
+                <input autofocus type="text" name="search" style="width:40%;" placeholder="FIND A DORM OR A SCHOOL" class="searchBar" style="font-family: 'Muli', sans-serif;">
+            </div>
+            <h2>Looking for the perfect dorm? We're here to help.</h2>
+        </div>
+<div id="id01" class="modal">
 
-  <div id="mainContentHolder">
-    <h1>Rate your dorms</h1>
-    <p>Review. Read. Be happy.</p>
-    <form>
-      <input type="text" placeholder="Search dorms here"><br>
-      <button type="button">Rate a dorm</button>
-      <button type="button">Read reviews</button><br>
-    </form>
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="RateYourDormBlack.png" class="popuplogo">
+    </div>
 
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+    <div class="infographic">
+        <div id="read">
+            <div class="infoheading"><h3>Read.</h3></div>
+            <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
+            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+        </div>
+        <div id="review">
+            <div class="infoheading"><h3>Review.</h3></div>
+            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+
+        </div>
+        <div id="livebetter">
+            <div class="infoheading"><h3>Live Better.</h3></div>
+            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+        </div>
+    </div>
+    <div id="theteam">
+    </div>
+    <div class="mailinglist">
+        <div class="topcontainer">
+        <h1>Interested in having us at your school? Let us know!</h1>
+        </div >
+        <div class="bottomcontainer">
+        <button class="contactus">Contact Us</button>
+        </div>
+    </div>
+    <div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
+</div>
 
 </body>
-<script type="text/javascript" src="jscript/index.js"></script>
+
 </html>
