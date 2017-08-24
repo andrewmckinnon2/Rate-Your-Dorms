@@ -3,9 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
     <link rel="stylesheet" href="css/RateYourDormsMain.css">
-    <link rel="stylesheet" href="css/writereview.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title>Rate Your Dorms</title>
     <script>
         // Get the modal
@@ -17,29 +18,65 @@
                 modal.style.display = "none";
             }
         }
-    </script>
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+
+    /*$("#hamburger").click(function() {
+    var this = $("#mobilepopup");
+    if (this.hasClass("clicked-once")) {
+        // already been clicked once, hide it
+        this.hide();
+        this.removeClass("clicked-once");
+    }
+    else {
+        // first time this is clicked, mark it
+        this.addClass("clicked-once");
+    }*/
+});
+</script>
 </head>
 <body>
 <div class="main">
-        <div id="logobar">
+      <div id="logobar">
             <div class="socialmedia">
-                <button href="Write%20a%20Review.html" style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <button id="writeReview"style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <div id="socialicons">
                 <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
                 <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                <!--a href="#" class="fa fa-pinterest"></a-->
+                </div>
             </div>
             <div id="logo">
                 <a href="index.html"><img id="navlogo" class="navlogo" src="images/rateyourdorms.png" ></a>
             </div>
             <div class="signup">
-                <div><button type="button" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
-                <div><button type="button">Sign Up</button></div>
+                <div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
+                <div><button type="button" class="loginsignup">Sign Up</button>
+                </div>
             </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="images/hamburger.png"></div>
         </div>
+<div id="mobilepopup">
+    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
+    <div id="mobilemenu">
+        <h7>LOGIN</h7>
+        <h7>SIGNUP</h7>
+        <h7>READ A REVIEW</h7>
+        <h7>WRITE A REVIEW</h7>
+        <h7>ABOUT</h7>
+        <h7>CONTACT</h7>
+    </div>
+</div>
         <div class="bottom">
             <div id="navbar">
-                <input autofocus type="text" name="search" style="width:40%;" placeholder="FIND A DORM OR A SCHOOL" class="searchBar" style="font-family: 'Muli', sans-serif;">
+                <input autofocus type="text" name="search" placeholder="FIND A DORM OR A SCHOOL" class="searchBar">
             </div>
             <h2>Looking for the perfect dorm? We're here to help.</h2>
         </div>
@@ -71,16 +108,25 @@
 
     <div class="infographic">
         <div id="read">
+            <div class="iconcontainer">
+                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/read.png">
+            </div>
             <div class="infoheading"><h3>Read.</h3></div>
             <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
             <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
         </div>
         <div id="review">
+             <div class="iconcontainer">
+                <img style="width: 63px; height: 70px; margin: .75em;" class="" src="images/review.png">
+            </div>
             <div class="infoheading"><h3>Review.</h3></div>
             <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
 
         </div>
         <div id="livebetter">
+             <div class="iconcontainer">
+                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/livebetter.png">
+            </div>
             <div class="infoheading"><h3>Live Better.</h3></div>
             <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
         </div>
@@ -116,5 +162,5 @@
 </div>
 
 </body>
-
+<script src="javascript/index.js"></script>
 </html>

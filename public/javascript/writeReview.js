@@ -53,11 +53,13 @@ $("#submit").click(function(){
     var kitchenRating = $("#slider4").val();
     var studyProximityRating = $("#slider1").val();
     var partyProximityRating = $("#slider2").val();
+    var gymProximityRating = $("#slider5").val();
     var cultureReview = $("#cultureSelector").find(":selected").text();
     var hasLaundry = false;
     var email = $("#email").val();
     var bathStyle = $("#dormStyle").find(":selected").text();
     var writtenReview = $("#textReview").val();
+
     if($("#hasLaundry").find(":selected").text() == "Yes"){
       hasLaundry = true;
     }
@@ -67,8 +69,6 @@ $("#submit").click(function(){
     }else {
       wouldLiveAgain = false;
     }
-    alert(reviewerName + yearInDorm + dorm + bathroomRating + cleanlinessRating + kitchenRating +
-      studyProximityRating + partyProximityRating + cultureReview + hasLaundry);
     var database = firebase.database();
     var dormRatingNode = database.ref("/ratings/" + dorm + "/");
     var thisPush = dormRatingNode.push();
@@ -82,6 +82,7 @@ $("#submit").click(function(){
       kitchen: kitchenRating,
       studyProximity: studyProximityRating,
       partyProximity: partyProximityRating,
+      gymProximity: gymProximityRating,
       culture: cultureReview,
       laundry: hasLaundry,
       wouldLiveHereAgain: wouldLiveAgain,
@@ -90,11 +91,12 @@ $("#submit").click(function(){
     });
 
     //update the number of ratings
-    dormRatingNode.once("value", function(snap){
+    dormRatingNode.once("value").then(function(snap){
       currentNumberOfRatings = parseInt(snap.val().numReviews);
       currentNumberOfRatings = currentNumberOfRatings+1;
       dormRatingNode.child("numReviews").set(currentNumberOfRatings);
-    });
+      window.location="../html/exitReview.html"
+    })
   //}
 })
 
@@ -144,3 +146,17 @@ $("#exitMobilePopup").click(function(){
     console.log("button presed");
     $("#mobilepopup").hide();
 })
+
+$("#writeReview").click(function(){
+  window.location = "writeReview.html";
+})
+
+var clicked = false;
+$("#textReview").click(function(){
+
+  if(clicked == false){
+    $(this).val("");
+    clicked = true;
+  }
+  console.log("text box was clicked");
+});

@@ -1,0 +1,24 @@
+#buttonsHolder{
+  display:inline-block;
+  margin-top:20vh;
+  margin-left:35vw;
+  margin-right:35vw;
+  background-color:grey;
+  box-shadow: 0 0 10px black;
+  width:30vw;
+  height:60vh;
+  text-align:center;
+}
+
+#seeReviews{
+  display:inline-block;
+  margin-top:12vh;
+  height:10vh;
+  width:15vw;
+}
+#writeAnotherReview{
+  display:inline-block;
+  margin-top:8vh;
+  height:10vh;
+  width:15vw;
+}
