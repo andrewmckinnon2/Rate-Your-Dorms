@@ -15,6 +15,11 @@ body {
     font-family: helvetica neue, sans-serif;
 }
 
+select {
+    font-size: 15px;
+    font-weight: 600px;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -25,12 +30,12 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 65px;
+    min-height: 79px;
     width: 100%;
     background: #97C0E4;
     padding-left: 0px;
     position: fixed;
-    box-shadow: 0px 1px 0px rgba(0,0,0,.15);
+
 }
 
 .signup {
@@ -57,18 +62,15 @@ body {
 
 
 
-#navbar {
+#searchbar {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     max-height: 50px;
     width: 100%;
-    background-color: lightgrey;
-    box-shadow:  2px 3px rgba(0,0,0,.25);
-    border-color: #e0e1e2;
-    opacity: .9;
-    position: fixed;
+    position: inherit;
+    margin-top: 180px;
 }
 
 .bottom {
@@ -86,12 +88,10 @@ body {
 .searchBar {
     display: flex;
     width: 40%;
-    height: 35px;
-    border: 2px solid white;
+    height: 50px;
     font-family: sans-serif;
     font-size: 15px;
     text-align: left;
-    border-radius: 100px;
     font-weight: bold;
     flex-direction: row;
     justify-content: center;
@@ -133,7 +133,7 @@ h2 {
     color: white;
     font-size: 35px;
     text-align: center;
-    padding-top: 100px;
+    margin: .2em;
 }
 
 #homecontainer {
@@ -166,7 +166,7 @@ h2 {
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -337,8 +337,8 @@ ul {
 }
 
 li {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     color: white;
     justify-content: center;
     display: flex;
@@ -381,6 +381,7 @@ p {
     justify-content: center;
     text-align: center;
     flex: 4;
+
 }
 
 .infobody {
@@ -391,6 +392,7 @@ p {
     padding-left: 20px;
     padding-right: 20px;
     flex: 6;
+
 }
 
 .infoicon {
@@ -398,11 +400,21 @@ p {
     justify-content: center;
     flex-direction: row;
     flex; 1;
+
 }
 
 .book {
     width: 90px;
     height: 80px;
+}
+
+.distanceicon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    margin: .1em .8em;
 }
 
 @media only screen and (max-width: 500px) {
@@ -412,6 +424,7 @@ p {
     #logobar {
         flex-direction: row;
     }
+
 }
 
 #list {
@@ -438,7 +451,7 @@ li {
     flex-direction: row;
     width: 100%;
     min-height: 550px;
-    background-image: url(http://www.limpetlabels.co.uk/assets/Meet-the-Team.jpg)
+    background-image: url(images/realdorm.JPG)
 }
 
 @media only screen and (max-width: 800px) {
@@ -456,8 +469,8 @@ li {
 #writereview {
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
-    width: 70%;
+    justify-content: flex-start;
+    width: 60%;
     height: auto;
     background-color: white;
 }
@@ -517,7 +530,6 @@ h5 {
 h4 {
     color: grey;
     display: flex;
-    margin: 1em;
     font-weight: 300;
 }
 
@@ -577,6 +589,28 @@ textarea {
     box-shadow: 0px 1px 0px lightgrey;
 }
 
+.dormmetrics {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: auto;
+}
+
+.commentcontainer {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    margin: 1em;
+}
+
+.commentrate {
+    display: flex;
+    width: auto;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+
 @media only screen and (max-width: 730px) {
     #reviewcontainer {
         flex-direction: column;
@@ -589,9 +623,12 @@ textarea {
     .reviewinfo {
         width: 100%;
     }
-    #dormmetrics {
-        width: 100%
+    .dormmetrics {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
+
  }
 
 #dormiconcontainer {
@@ -627,11 +664,31 @@ h7 {
     }
     #hamburger {
     display: flex;
+    position: fixed;
+    right: 7px;
+    top: 25px;
+    }
+    #logo {
+        position: fixed;
+    }
+    #container2 {
+        display: none;
+    }
+     .commentcontainer {
+        flex-direction: column;
+    }
+    .commentrate {
+        flex-direction: row;
     }
 }
 
+
 @media only screen and (max-width: 907px) {
     #socialicons {
+        display: none;
+    }
+
+    #container3 {
         display: none;
     }
 }
@@ -725,6 +782,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     background: lightgrey;
 }
 
+
 input[type=checkbox] {
 	visibility: hidden;
 }
@@ -762,7 +820,7 @@ input[type=checkbox] {
 h8 {
     margin: 0 .5em;
     font-size: 17px;
-    color: grey;
+    color: black;
 }
 
 .inputcenter {
@@ -781,7 +839,7 @@ h8 {
     height: 100%;
     overflow: auto;
     background-color: white;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 
 
@@ -820,17 +878,6 @@ h8 {
 
 }
 
-.circle {
-display: flex;
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  font-size: 15px;
-  color: #97C0E4;
-  line-height: 500px;
-  background: #fff;
-    border: solid 15px;
-}
 
 .iconcontainer {
     display: flex;
@@ -849,13 +896,6 @@ h9 {
     text-align: center;
 }
 
-#dormmetrics {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: auto;
-}
-
 #distance {
     display: flex;
     flex-direction: row;
@@ -864,7 +904,7 @@ h9 {
     height: auto;
 }
 
-.distancestudy {
+#distancestudy {
     width: auto;
     display: flex;
      background: #97C0E4;
@@ -873,14 +913,6 @@ h9 {
     margin: 1em;
 }
 
-.distanceicon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 35px;
-    width: 30px;
-    margin: .1em .8em;
-}
 
 .dormheader {
     display: flex;
@@ -890,27 +922,32 @@ h9 {
 
 .dormtitle {
     display: flex;
-    justify-content: center;
     flex-direction: row;
-
-    width: 100%
+    justify-content: center;
+    width: auto;
+    background: grey;
+    height: auto;
+    flex: 5;
+     border-right: solid 2px white;
+    border-bottom: solid 2px lightgrey;
 }
 
 p2 {
     display: inline-block;
     color: white;
     font-weight: bold;
-    margin-top: .65em;
+    margin-top: .4em;
     margin-right: 1em;
     font-size: 15px;
+    text-align: center;
 }
 
 h8 {
-    text-align: center;
-    font-size: 35px;
+  text-align: center;
+    font-size: 30px;
     font-weight: 600;
-    margin: .5em;
-    color: gray;
+    margin: .1em 1em;
+    color: white;
 }
 
 h9 {
@@ -922,18 +959,18 @@ h9 {
 
 .left {
     display: inline-flex;
-    width: 50%;
+    width: auto;
     justify-content: center;
     flex-direction: column;
-    border-right: solid 2px lightgrey;
-    color: white;
+    margin: 0em .75em;
 }
 
 .right {
     display: flex;
-    width: 50%;
+    width: auto;
     justify-content: flex-end;
     flex-direction: column;
+ border-left: solid 2px lightgrey;
 
 }
 
@@ -955,6 +992,8 @@ p1 {
 #dormmain {
     display: flex;
     flex-direction: row;
+    margin: .5em 0em;
+    justify-content: center;
 }
 
 .info1 {
@@ -965,7 +1004,7 @@ p1 {
 
 h10 {
     color: #97C0E4;
-    font-size: 45px;
+    font-size: 55px;
     text-align: center;
     margin: none;
     font-weight: bold;
@@ -977,34 +1016,39 @@ p3 {
     font-weight: bold;
 }
 
-.info2 {
-    margin: .3em 1em;
-}
 
 .row {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
 
 }
 
 p4 {
     color: #97C0E4;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: bold;
-    margin: .5em;
+}
+
+p11 {
+    color: grey;
+    margin: 0em .5em;
+    font-weight: bold;
 }
 
 #commentheader {
     display: flex;
     width: 100%;
+    flex-direction: row;
     justify-content: center;
-    background-color: lightgrey;
-    align-self:flex-start;
+    background-color: white;
+    flex-direction: row;
+    max-height: 100%;
 }
 
 .comment {
     width: 100%;
-    box-shadow: 0px 1px 0px lightgrey;
+    border-top: solid 1px lightgrey;
     min-height: 150px;
 }
 
@@ -1033,6 +1077,15 @@ p4 {
     flex-direction: row;
 }
 
+.year {
+     background: lightgrey;
+    min-width: 70px;
+    border-right: solid 2px white;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
 p5 {
     color: white;
     font-size: 15px;
@@ -1043,8 +1096,9 @@ p5 {
 .dormrating {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: auto;
     height: 100%;
+    margin-right: 2em;
 }
 
 .overall1 {
@@ -1069,13 +1123,490 @@ p5 {
 
 .commentsection {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: auto;
 }
 
-.commentcontainer {
+
+#graph {
     display: flex;
-    width: 90%;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+    margin: 1em 0em;
+}
+
+.bar {
+    display: flex;
     flex-direction: row;
-    margin: 1em;
+    height: atuo;
+    margin: .5em;
+}
+
+#distToStudy {
+    width: 80%;
+    background: #c2d9ed;
+}
+
+#distToParty {
+    width: 70%;
+    background: #97C0E4;
+}
+
+#distToGym {
+    width: 60%;
+    background: #84b9e8;
+}
+
+.label {
+    display: flex;
+    flex-direction: row;
+    height: 30px;
+    margin-left: .5em;
+
+}
+
+#graphcontainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-top: solid 2px lightgrey;
+    border-bottom: solid 2px lightgrey;
+}
+
+#headercontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.mapcontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+}
+
+.mapcontent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%; /* Could be more or less, depending on screen size */
+    height: 100%;
+
+}
+
+#fixwidth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.closemap {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: none;
+}
+
+.closemap:hover,
+.closemap:focus {
+    color: lightgrey;
+    cursor: pointer;
+}
+
+.locationbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: none;
+    height: auto;
+    padding: 0px;
+    background: grey;
+    flex: 1;
+    border-bottom: solid 2px lightgrey;
+}
+
+.locationbutton:hover {
+    background: lightgrey;
+    border-bottom: solid 2px grey;
+}
+
+.locationicon {
+    width: 32px;
+    height: 32px;
+    margin: .35em 1em;
+
+}
+
+.circle {
+    width: 130px;
+    height: 130px;
+    background: black;
+    border-radius: 100px;
+}
+
+.overall {
+    display: flex;
+    justify-content: center;
+    background: white;
+    flex-direction: column;
+
+
+}
+
+#maininfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.barcontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.box {
+    background: grey;
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: .3em 1em;
+}
+
+p6 {
+    display: inline-block;
+    color: white;
+    font-weight: bold;
+    margin: .5em;
+    font-size: 15px;
+    text-align: center;
+}
+
+.description1 {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.box2 {
+    background:#97C0E4;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: .3em .2em;
+}
+
+#generalinfo {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: center;
+
+
+}
+
+.description2 {
+    width: auto;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-right: 1em;
+}
+
+#viewtagscontain {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border: solid 2px lightgrey;
+}
+
+.box4 {
+    border: solid 2px grey;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: .5em .2em;
+}
+
+p8 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: grey;
+    font-weight: bold;
+    margin: .3em;
+    font-size: 10px;
+    text-align: center;
+}
+
+
+.box3 {
+    border: solid 2px #97C0E4;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: .5em .2em;
+}
+
+p7 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: #97C0E4;
+    font-weight: bold;
+    margin: .3em;
+    font-size: 10px;
+    text-align: center;
+}
+
+p9 {
+    color: grey;
+    font-size: 15px;
+}
+
+.imagecontainer {
+  -ms-flex: auto;
+  flex: auto;
+  width: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 1em .5em;
+
+}
+
+.arrow {
+     -ms-flex: auto;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+}
+
+#leftarrow{
+    width: 40px;
+    height: 40px;
+}
+
+.arrow:hover {
+    opacity: .3;
+}
+
+#rightarrow{
+    width: 40px;
+    height: 40px;
+}
+
+.img1 {
+    box-shadow: 2px 2px 2px lightgrey;
+    width: 100%;
+    height: auto;
+}
+
+.gencontainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#geninfo {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    justify-content: center;
+}
+
+#margin {
+     margin: 0em .5em;
+}
+
+.popupimage {
+    -ms-flex: auto;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.img1:hover {
+    box-shadow: 2px 2px 2px grey;
+}
+
+#dormsearch {
+    width: 70%;
+    height: 80%;
+    display: flex;
+    background: white;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #f4f5f7;
+    overflow-y:scroll;
+}
+
+.ranking {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 1px 0px rgba(0,0,0,.15);
+    height: auto;
+    justify-content: center;
+    background: white;
+    border-bottom: solid 1px lightgrey;
+
+}
+
+.rankingheader {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    justify-content: center;
+
+}
+
+.number {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    height: auto;
+}
+
+.name {
+    display: flex;
+    flex: 4;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left: 2em;
+    height: auto;
+}
+
+
+.overallscore {
+    display: flex;
+    flex-direction: row;
+    flex: 2;
+    justify-content: center;
+    height: auto;
+}
+
+h11 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: grey;
+}
+
+h12 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+h13 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #97C0E4;
+}
+
+h14 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.ranking:hover {
+    background: lightgrey;
+}
+
+#viewmore2 {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    margin-top: 1em;
+}
+
+#viewmore1 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: baseline;
+
+}
+
+.centerelement {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#viewright:hover {
+   opacity: .3;
+}
+
+#viewleft:hover {
+    opacity: .3;
+}
+
+@media screen and (max-width: 750px) {
+    #dormsearch {
+        width: 100%;
+    }
+}
+
+#maincontain {
+    height: 500px;
+    padding-top: 70px;
+    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/bikes.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#writebutton:hover{
+    background: lightgrey;
+}
+
+#legal {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
 }

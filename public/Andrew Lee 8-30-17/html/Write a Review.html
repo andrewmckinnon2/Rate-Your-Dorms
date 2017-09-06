@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+    
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+    
+    /*$("#hamburger").click(function() {
+    var this = $("#mobilepopup");
+    if (this.hasClass("clicked-once")) {
+        // already been clicked once, hide it
+        this.hide();
+        this.removeClass("clicked-once");
+    }
+    else {
+        // first time this is clicked, mark it
+        this.addClass("clicked-once");
+    }*/
+});
+</script>
+</head>
+<body>
+<div class="main">
+        <div id="logobar">
+            <div class="socialmedia">
+                <button id="writebutton" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
+                <div id="socialicons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div id="logo">
+                <a href="#"><img id="navlogo" class="navlogo" src="../images/rateyourdorms.png" ></a>
+            </div>
+            <div class="signup">
+                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
+                </div>
+            </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+        </div>
+<div id="mobilepopup"> 
+    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
+    <div id="mobilemenu">
+        <h7>LOGIN</h7>
+        <h7>SIGNUP</h7>
+        <h7>READ A REVIEW</h7>
+        <h7>WRITE A REVIEW</h7>
+        <h7>ABOUT</h7>
+        <h7>CONTACT</h7>
+    </div>
+</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="../images/RateYourDormBlack.png" class="popuplogo">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot<a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</div> 
+<div id=reviewcontainer>
+    <div class="reviewinfo">
+        <h7>STEP 1: About you</h7>
+        <div id="dormiconcontainer"><img src="../images/apartment%20(1).png" style="width: 50px; height: 50px; margin-left: 1em;"><h4 style="margin-bottom: 1em;">Please complete the following fields before begining your review.</h4></div>
+        <h6>SELECT A DORM</h6>
+         <div class="inputcenter"><select id="dormName" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+        </select></div>
+        <h6>YEAR IN DORM</h6>
+         <div class="inputcenter"><select style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+             <option selected="selected">Select</option>
+            <option value="firstYear" id="firstYear">First Year</option>           
+             <option value="sophomore" id="sophomore">Sophmore</option>
+             <option value="junior" id="junior">Junior</option>
+             <option value="senior" id="senior">Senior</option>
+        </select></div>     
+        <h6>NAME (optional)</h6>
+         <div class="inputcenter"><input autofocus type="text" name="search" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4;" class="searchBar" style="font-family: 'Muli', sans-serif; margin: 1em;"></div>
+        <h6>EMAIL ADDRESS (optional)</h6>
+         <div class="inputcenter"><input autofocus type="text" name="search" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4;" class="searchBar" id="name" style="font-family: 'Muli', sans-serif; margin: 1em;"></div>
+    </div>
+    <div id="writereview">
+        <div class="reviewquestion">
+                <h7 style="margin: 1em;">STEP 2: About your Dorm</h7>
+                <div class="subject"><h5>Building Cleanliness</h5></div>
+                <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
+                <div class="stars">
+                  <form action="">
+                    <input class="star star-5" id="cleanliness1" type="radio" name="star"/>
+                    <label class="star star-5" for="cleanliness1"></label>
+                    <input class="star star-4" id="cleanliness2" type="radio" name="star"/>
+                    <label class="star star-4" for="cleanliness2"></label>
+                    <input class="star star-3" id="cleanliness3" type="radio" name="star"/>
+                    <label class="star star-3" for="cleanliness3"></label>
+                    <input class="star star-2" id="cleanliness4" type="radio" name="star"/>
+                    <label class="star star-2" for="cleanliness4"></label>
+                    <input class="star star-1" id="cleanliness5" type="radio" name="star"/>
+                    <label class="star star-1" for="cleanliness5"></label>
+                  </form>
+                </div>
+        </div>
+       <div class="reviewquestion"> 
+                <div class="subject"><h5>Kitchen</h5></div>
+                <div class="description"><h4>Was it clean? Did you have access to a kitchen?</h4></div>
+                <div class="stars">
+                  <form action="">
+                    <input class="star star-15" id="kitchen1" type="radio" name="star"/>
+                    <label class="star star-15" for="kitchen1"></label>
+                    <input class="star star-14" id="kitchen2" type="radio" name="star"/>
+                    <label class="star star-14" for="kitchen2"></label>
+                    <input class="star star-13" id="kitchen3" type="radio" name="star"/>
+                    <label class="star star-13" for="kitchen3"></label>
+                    <input class="star star-12" id="kitchen4" type="radio" name="star"/>
+                    <label class="star star-12" for="kitchen4"></label>
+                    <input class="star star-11" id="kitchen5" type="radio" name="star"/>
+                    <label class="star star-11" for="kitchen5"></label>
+                  </form>
+                </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Bathroom</h5></div>
+                <div class="description"><h4>Were there enough showers and toilets? Was it clean?</h4></div>
+                <div class="stars">
+                  <form action="">
+                    <input class="star star-25" id="bathroom1" type="radio" name="star"/>
+                    <label class="star star-25" for="bathroom1"></label>
+                    <input class="star star-24" id="bathroom2" type="radio" name="star"/>
+                    <label class="star star-24" for="bathroom2"></label>
+                    <input class="star star-23" id="bathroom3" type="radio" name="star"/>
+                    <label class="star star-23" for="bathroom3"></label>
+                    <input class="star star-22" id="bathroom4" type="radio" name="star"/>
+                    <label class="star star-22" for="bathroom4"></label>
+                    <input class="star star-21" id="bathroom5" type="radio" name="star"/>
+                      <label class="star star-21" for="bathroom5"></label>
+                  </form>
+                </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Suite or hall style</h5></div>
+                <div class="description"><h4>Did you bond with hall mates or suite mates?</h4></div>
+                <div class="divider"><select style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                    <option selected="selected">Select</option>
+                    <option value="Suite Style">Suite style</option>  
+                    <option value="Hall Style">Hall style</option>  
+                </select>
+                </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Laundry</h5></div>
+                <div class="description"><h4>Did you have a laundry room inside of the dorm building?</h4></div>
+                <div class="divider"><select style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                        <option selected="selected">Select</option>
+                        <option value="Yes">Yes</option>  
+                        <option value="No">No</option>  
+                    </select>
+                    </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Proximity to study</h5></div>
+                <div class="description"><h4>How far were you from the library and classes? (in minutes)</h4></div>
+                <div class="description"><div><span id="range1">1</span></div></div>
+                <div class="slider">
+                    <input id="slider1" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue1(this.value)" />
+                            <script type="text/javascript">
+                            function showValue1(newValue)
+                            {
+                                document.getElementById("range1").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Proximity to party</h5></div>
+                <div class="description"><h4>How far were you from frats and bars? (in minutes)</h4></div>
+                <div class="description"><div><span id="range1">1</span></div></div>
+                <div class="slider">
+                    <input id="slider2" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue2(this.value)" />
+                            <script type="text/javascript">
+                            function showValue2(newValue)
+                            {
+                                document.getElementById("range2").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Would you live here again?</h5></div>
+                      <div class="divider"><select style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                        <option selected="selected">Select</option>
+                        <option value="Yes">Yes</option>  
+                        <option value="No">No</option>  
+                    </select>
+                    </div> 
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Culture</h5></div>
+                <div class="description"><h4>Select a tag that best describe what it is like living in your dorm</h4></div> 
+                <div class="divider"><select style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                     <option selected="selected">Select</option>
+                    <option id="rowdyOption">Rowdy</option>
+                    <option  id="workHardOption">Work-hard</option>
+                    <option id="playHardOption">Play-hard</option>
+                    <option id="greekOption">Greek</option>
+                    <option id="chill">Chill</option>
+                    </select>
+                    </div>
+        </div>
+        <div class="reviewquestion"> 
+                <div class="subject"><h5>Review</h5></div>
+                <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
+                <div class="subject"> 
+                    <textarea style="border: solid 2px #97C0E4;" rows="10" cols="100" onclick="clearText(this)">
+                    Additional Comments...
+                    </textarea>
+                    <script>
+                        function clearText(element){
+                            element.innerHTML = "";
+                        }
+                    </script>
+                    
+                    </div>
+        </div>
+        <div id="submitcontainer">
+            <button id="submit" style="border: none; width: 25%;">Submit</button>
+        </div>
+    </div>
+</div>
+   <div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+                    <li>|</li>
+                    <li>© Copyright 2017 Rate Your Dorms</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
+    
+</body>
+    
+</html>
+    

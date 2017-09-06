@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
@@ -44,9 +44,9 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="main">
-      <div id="logobar">
+        <div id="logobar">
             <div class="socialmedia">
-                <button id="writeReview"style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <button id="writeReview"style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
                 <div id="socialicons">
                 <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
@@ -57,29 +57,30 @@ $(document).ready(function(){
                 <a href="index.html"><img id="navlogo" class="navlogo" src="images/rateyourdorms.png" ></a>
             </div>
             <div class="signup">
-                <div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
-                <div><button type="button" class="loginsignup">Sign Up</button>
+                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
                 </div>
             </div>
             <div id="hamburgercontainer"><img id="hamburger" src="images/hamburger.png"></div>
         </div>
+
 <div id="mobilepopup">
     <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
     <div id="mobilemenu">
-        <h7>LOGIN</h7>
-        <h7>SIGNUP</h7>
-        <h7>READ A REVIEW</h7>
         <h7>WRITE A REVIEW</h7>
+        <h7>READ A REVIEW</h7>
         <h7>ABOUT</h7>
+        <h7>LEGAL</h7>
         <h7>CONTACT</h7>
     </div>
 </div>
         <div class="bottom">
-            <div id="navbar">
-                <input autofocus type="text" name="search" placeholder="FIND A DORM OR A SCHOOL" class="searchBar">
+            <div id="searchbar">
+                <input autofocus type="text" name="search" placeholder="Find your future home" class="searchBar" style="border: solid 2px white">
+                <button style="border-radius:0px; border: solid 2px #97C0E4; height: 50px;">SEARCH</button>
             </div>
-            <h2>Looking for the perfect dorm? We're here to help.</h2>
         </div>
+
 <div id="id01" class="modal">
 
   <form class="modal-content animate" action="/action_page.php">
@@ -138,7 +139,7 @@ $(document).ready(function(){
         <h1>Interested in having us at your school? Let us know!</h1>
         </div >
         <div class="bottomcontainer">
-        <button class="contactus">Contact Us</button>
+        <button style="border: solid 2px #97C0E4">Contact Us</button>
         </div>
     </div>
     <div class="footer">
@@ -160,7 +161,7 @@ $(document).ready(function(){
             </div-->
     </div>
 </div>
-
-</body>
 <script src="javascript/index.js"></script>
+</body>
+
 </html>

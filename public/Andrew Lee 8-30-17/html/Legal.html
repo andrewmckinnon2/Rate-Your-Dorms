@@ -1,0 +1,173 @@
+ <!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="RateYourDormsMain.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+    
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+    
+    /*$("#hamburger").click(function() {
+    var this = $("#mobilepopup");
+    if (this.hasClass("clicked-once")) {
+        // already been clicked once, hide it
+        this.hide();
+        this.removeClass("clicked-once");
+    }
+    else {
+        // first time this is clicked, mark it
+        this.addClass("clicked-once");
+    }*/
+});
+</script>
+</head>
+<body>
+<div class="main">
+        <div id="logobar">
+            <div class="socialmedia">
+                <button style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
+                <div id="socialicons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div id="logo">
+                <a href="#"><img id="navlogo" class="navlogo" src="rateyourdorms.png" ></a>
+            </div>
+            <div class="signup">
+                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
+                </div>
+            </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="hamburger.png"></div>
+        </div>
+        <div id="legal">
+            <p3>
+            <div id="viewmore2"><h3>Rate Your Dorms Terms of Service</h3></div>
+Updated August 22nd, 2017
+
+These Terms of Service govern your access to and use of our services, including our various websites. By using the Services you agree to be bound by these Terms.
+                <break></break>
+In this Agreement, the term "Site" includes all websites and web pages within or associated with Rate Your Dorms (such as third level domain names and other subdomains) as well as any equivalent, mirror, replacement, substitute or backup websites and web pages that are associated with the Site. The term “Service” includes all rating and reviewing features offered by the Site.
+
+1. Eligibility
+Rate Your Dorms is designed and targeted to audiences residing in, and is governed by and operated in accordance with the laws of, the United States of America, its territories and possessions ("U.S."). You must be at least 17 years of age or older ("Site Minimum Age") and reside in or attend, have attended or teach at a university in the U.S. to use this Site, but certain features on this Site may be subject to heightened age and/or other eligibility requirements. For example, if this Site requires you to be at least 17 years of age, please be aware that certain areas on the Site may contain content for which you must be greater than the Site Minimum Age to access and view even if this Site's age eligibility requirements are less than the Site Minimum Age. If you are not yet the Site Minimum Age or the required greater age for certain features, do not meet the Site School Requirements and/or do not meet any other eligibility requirements, or, if for any reason, you do not agree with all of the terms and conditions contained in this Agreement, please discontinue using the Site immediately because by using or attempting to use the Site, you certify that you are at least the Site Minimum Age or other required greater age for certain features, meet the Site School Requirements, meet any other eligibility and residency requirements of the Site and agree to all of the terms and conditions of this Agreement.
+These terms and conditions regarding your use of the Site constitute a legally binding agreement between you, on the one hand, and Rate Your Dorms, on the other hand.
+
+
+
+2. Privacy Policy
+Contact Information: You may use your contact information, such as your email address, to customize your account or enable certain account features, for example, for login verification. We may use your contact information to send you information about our Services, to market to you, to help prevent spam, fraud, or abuse, and to help others find your account, including through third-party services and client applications. You may use your settings for email and mobile notifications to control notifications you receive from Rate Your Dorms.
+
+Cookies: Like many websites, we use cookies and similar technologies to collect additional website usage data and to improve our Services, but we do not require cookies for many parts of our Services such as searching and looking at public user profiles. A cookie is a small data file that is transferred to your computer or mobile device. We may use both session cookies and persistent cookies to better understand how you interact with our Services, to monitor aggregate usage by our users and web traffic routing on our Services, and to customize and improve our Services. Although most web browsers automatically accept cookies, some browsers’ settings can be modified to decline cookies or alert you when a website is attempting to place a cookie on your computer. However, some Services may not function properly if you disable cookies.
+
+3. Content on the Services
+You are responsible for your use of the Services and for any Content you provide, including compliance with applicable laws, rules, and regulations. You should only provide Content that you are comfortable sharing with others.
+
+Any use or reliance on any Content or materials posted via the Services or obtained by you through the Services is at your own risk. We do not endorse, support, represent or guarantee the completeness, truthfulness, accuracy, or reliability of any Content or communications posted via the Services or endorse any opinions expressed via the Services. You understand that by using the Services, you may be exposed to Content that might be offensive, harmful, inaccurate or otherwise inappropriate, or in some cases, postings that have been mislabeled or are otherwise deceptive. All Content is the sole responsibility of the person who originated such Content. We may not monitor or control the Content posted via the Services and, we cannot take responsibility for such Content.
+
+Your Rights
+You retain your rights to any Content you submit, post or display on or through the Services. 
+By submitting Content on or through the Services, you grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such Content in any and all media or distribution methods (now known or later developed). This license authorizes us to make your Content available to the rest of the world and to let others do the same. You agree that this license includes the right for Rate Your Dorms to provide, promote, and improve the Services and to make Content submitted to or through the Services available to other companies, organizations or individuals for the syndication, broadcast, distribution, promotion or publication of such Content on other media and services, subject to our terms and conditions for such Content use. Such additional uses by Rate Your Dorms, or other companies, organizations or individuals, may be made with no compensation paid to you with respect to the Content that you submit, post, transmit or otherwise make available through the Services.
+
+4. Using the Services
+Please review the Rate Your Dorms Site Guidelines, which are part of the User Agreement and outline what is prohibited on the Services. You may use the Services only in compliance with these Terms and all applicable laws, rules and regulations.
+Our Services evolve constantly. As such, the Services may change from time to time, at our discretion. We may stop (permanently or temporarily) providing the Services or any features within the Services to you or to users generally. We also retain the right to create limits on use and storage at our sole discretion at any time.
+In consideration for Rate Your Dorms granting you access to and use of the Services, you agree that Rate Your Dorms and its third-party providers and partners may place advertising on the Services or in connection with the display of Content or information from the Services whether submitted by you or others. You also agree not to misuse our Services, for example, by interfering with them or accessing them using a method other than the interface and the instructions that we provide.
+
+Your Account
+You may need to create an account to use some of our Services. You are responsible for safeguarding your account, so use a strong password and limit its use to this account. We cannot and will not be liable for any loss or damage arising from your failure to comply with the above.
+
+Ending These Terms
+You may end your legal agreement with Rate Your Dorms at any time by deactivating your account and discontinuing your use of the Services. We may suspend or terminate your account or cease providing you with all or part of the Services at any time for any or no reason, including, but not limited to, if we reasonably believe: (i) you have violated these Terms or the Rate Your Dorms Site Guidelines, (ii) you create risk or possible legal exposure for us; (iii) your account should be removed due to prolonged inactivity; or (iv) our provision of the Services to you is no longer commercially viable. We will make reasonable efforts to notify you by the email address associated with your account or the next time you attempt to access your account, depending on the circumstances. 
+
+5. Rate Your Dorms Site Guidelines
+Please review the following guidelines before posting a rating and/or comment on the Site:
+DO:
+Be honest and objective in your assessment of a dormitory, college, or university;
+Proof your comments before submitting. Poor spelling will not cause your rating to be removed. However, poor spelling may result in your rating being discredited by those who read it;
+Refer to the "rating categories" to help you better elaborate your comments;
+Submit helpful comments that mention the livability of dorms, including specific information on bathrooms, proximities, and living spaces.
+Submit helpful comments that mention the college or university's campus facilities, grounds, classrooms, parking, etc.
+
+DO NOT:
+Use "definitive" language, (e.g., "always","never","etc.");
+Include any piece of information that may identify you or other students;
+State your opinion as fact;
+Post a rating if you have not lived in the dorm.
+Rate a specific dorm more than once.
+Reference existing comments or comments that have been deleted by our moderators;
+Speak on behalf of other people; or
+Post hyperlinks and/or URLs;
+Leave your Name, Initials, Pseudo Name, or any sort of identifying mark when posting.
+
+The Site reserves the right to remove any comments deemed as inappropriate, libelous, defamatory, indecent, vulgar or obscene, pornographic, sexually explicit or sexually suggestive, racially, culturally, or ethnically offensive, harmful, harassing, intimidating, threatening, hateful, objectionable, discriminatory, or abusive, or which may or may not appear to impersonate anyone else or that otherwise violate the Terms of Use Agreement.
+
+COMMENTS THAT CONTAIN THE FOLLOWING WILL BE REMOVED :
+Profanity, name-calling, and/or vulgarity, derogatory remarks about religion, and/or ethnicity or race; or,
+A language other than English. Comments must be written in English only.
+
+The "Do Not" section of these Site Guidelines will be strictly enforced and the Site reserves all rights to delete or otherwise take appropriate action regarding any violations. If you see a rating that you believe violates these Site Guidelines, please click the "report this rating" at the bottom of the comment and state the problem. Such comments will be evaluated by the Site's personnel.
+
+6. Disclaimers and Limitations of Liability
+The Services are Available “AS-IS”
+Your access to and use of the Services or any Content are at your own risk. You understand and agree that the Services are provided to you on an “AS IS” and “AS AVAILABLE” basis. The “Rate Your Dorms Entities” refers to Rate Your Dorms, its parents, affiliates, related companies, officers, directors, employees, agents, representatives, partners, and licensors. Without limiting the foregoing, to the maximum extent permitted under applicable law, THE RATE YOUR DORMS ENTITIES DISCLAIM ALL WARRANTIES AND CONDITIONS, WHETHER EXPRESS OR IMPLIED, OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. The Rate Your Dorms Entities make no warranty or representation and disclaim all responsibility and liability for: (i) the completeness, accuracy, availability, timeliness, security or reliability of the Services or any Content; (ii) any harm to your computer system, loss of data, or other harm that results from your access to or use of the Services or any Content; (iii) the deletion of, or the failure to store or to transmit, any Content and other communications maintained by the Services; and (iv) whether the Services will meet your requirements or be available on an uninterrupted, secure, or error-free basis. No advice or information, whether oral or written, obtained from the Rate Your Dorms Entities or through the Services, will create any warranty or representation not expressly made herein.
+
+Limitation of Liability
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE RATE YOUR DORMS ENTITIES SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, OR ANY LOSS OF PROFITS OR REVENUES, WHETHER INCURRED DIRECTLY OR INDIRECTLY, OR ANY LOSS OF DATA, USE, GOOD-WILL, OR OTHER INTANGIBLE LOSSES, RESULTING FROM (i) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES; (ii) ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES, INCLUDING WITHOUT LIMITATION, ANY DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF OTHER USERS OR THIRD PARTIES; (iii) ANY CONTENT OBTAINED FROM THE SERVICES; OR (iv) UNAUTHORIZED ACCESS, USE OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT. IN NO EVENT SHALL THE AGGREGATE LIABILITY OF THE TWITTER ENTITIES EXCEED THE GREATER OF TEN U.S. DOLLARS (U.S. $10.00) OR THE AMOUNT YOU PAID RATE YOUR DORMS, IF ANY, IN THE PAST SIX MONTHS FOR THE SERVICES GIVING RISE TO THE CLAIM. THE LIMITATIONS OF THIS SUBSECTION SHALL APPLY TO ANY THEORY OF LIABILITY, WHETHER BASED ON WARRANTY, CONTRACT, STATUTE, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, AND WHETHER OR NOT THE RATE YOUR DORMS ENTITIES HAVE BEEN INFORMED OF THE POSSIBILITY OF ANY SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
+
+
+
+            </p3>
+        </div>
+ 
+</div>
+   <div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+                    <li>|</li>
+                    <li>© Copyright 2017 Rate Your Dorms</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
+    
+</body>
+    
+</html>
+    
+    
+    

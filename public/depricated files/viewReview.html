@@ -1,0 +1,241 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+
+    /*$("#hamburger").click(function() {
+    var this = $("#mobilepopup");
+    if (this.hasClass("clicked-once")) {
+        // already been clicked once, hide it
+        this.hide();
+        this.removeClass("clicked-once");
+    }
+    else {
+        // first time this is clicked, mark it
+        this.addClass("clicked-once");
+    }*/
+});
+</script>
+</head>
+<body>
+<div class="main">
+        <div id="logobar">
+            <div class="socialmedia">
+                <button id="writeReview"style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <div id="socialicons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div id="logo">
+                <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rateyourdorms.png" ></a>
+            </div>
+            <div class="signup">
+                <div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
+                <div><button type="button" class="loginsignup">Sign Up</button>
+                </div>
+            </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+        </div>
+<div id="mobilepopup">
+    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
+    <div id="mobilemenu">
+        <h7>LOGIN</h7>
+        <h7>SIGNUP</h7>
+        <h7>READ A REVIEW</h7>
+        <h7>WRITE A REVIEW</h7>
+        <h7>ABOUT</h7>
+        <h7>CONTACT</h7>
+    </div>
+</div>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="../images/RateYourDormBlack.png" class="popuplogo">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot<a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</div>
+<div id=reviewcontainer>
+    <div id="dormmetrics">
+      <div class="inputcenter"><select id="dormName" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+     </select></div>
+        <div class="dormheader"><img src="../images/dormicon.png" style="width: 100px; height: 100px; margin-top: 1.5em;"></div>
+        <div class="dormtitle">
+            <h8>Hinton James "hojo"</h8>
+        </div>
+        <div id="dormmain">
+            <div class="left">
+                <p3 class="info1">OVERALL SCORE:</p3>
+                <h10 class="info1">69%</h10>
+            </div>
+            <div class="right">
+                <div class="row"><p3 class="info2">Dorm Style:</p3><p4>Suite</p4></div>
+                <div class="row"><p3 class="info2">Laundry:</p3><p4>Yes</p4></div>
+                <div class="row"><p3 class="info2">Study Rooms</p3><p4>Yes</p4></div>
+                <div class="row"><p3 class="info2">Size</p3><p4>100+ residents</p4></div>
+            </div>
+        </div>
+        <div id=distance>
+            <div class="d1"><div class="distancestudy"><img src="../images/book.png" class="distanceicon"><p2 id="distToStudy">6 min</p2></div></div>
+            <div class="d2"><div class="distancestudy"><img src="../images/cup.png" class="distanceicon"><p2 id="distToParty">9 min</p2></div></div>
+            <div class="d3"><div class="distancestudy"><img src="../images/weight.png" class="distanceicon"><p2 id="distToGym">15 min</p2></div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <div id="writereview">
+        <div id="commentheader"><h3 style="color: white; margin 1em;">Comments</h3></div>
+        <div id="reviewHolder">
+        <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+                <div class="tag"><p5>Clean</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                    <div class="overall1"><p3>Overall Score:</p3></div>
+                    <div class="indiv1"><p4>69%</p4></div>
+                </div>
+                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+                <div class="tag"><p5>Clean</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                    <div class="overall1"><p3>Overall Score:</p3></div>
+                    <div class="indiv1"><p4>69%</p4></div>
+                </div>
+                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+                <div class="tag"><p5>Clean</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                    <div class="overall1"><p3>Overall Score:</p3></div>
+                    <div class="indiv1"><p4>69%</p4></div>
+                </div>
+                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+                <div class="tag"><p5>Clean</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                    <div class="overall1"><p3>Overall Score:</p3></div>
+                    <div class="indiv1"><p4>69%</p4></div>
+                </div>
+                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+                <div class="tag"><p5>Clean</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                    <div class="overall1"><p3>Overall Score:</p3></div>
+                    <div class="indiv1"><p4>69%</p4></div>
+                </div>
+                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+   <div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../javascript/viewReview.js"></script>
+</html>

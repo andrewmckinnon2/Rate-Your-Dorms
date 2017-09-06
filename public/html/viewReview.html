@@ -46,7 +46,7 @@ $(document).ready(function(){
 <div class="main">
         <div id="logobar">
             <div class="socialmedia">
-                <button id="writeReview"style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
+                <button id="writeReview" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
                 <div id="socialicons">
                 <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
@@ -54,15 +54,100 @@ $(document).ready(function(){
                 </div>
             </div>
             <div id="logo">
-                <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rateyourdorms.png" ></a>
+                <a href="#"><img id="navlogo" class="navlogo" src="../images/rateyourdorms.png" ></a>
             </div>
             <div class="signup">
-                <div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
-                <div><button type="button" class="loginsignup">Sign Up</button>
+                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
                 </div>
             </div>
             <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
         </div>
+ <div id="findadorm" class="modal">
+                  <div class="mapcontent animate">
+                      <div id="dormsearch">
+                        <div  class="rankingheader">
+                        <h7>FIND A DORM</h7></div>
+                        <div class="rankingheader">
+                            <select style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;"><option>Sort by</option>
+                                <option>Overall Rating</option>
+                                <option>Room Rating</option>
+                                <option>Bathroom Rating</option>
+                                <option>Kitchen Rating</option>
+                                <option>Proximity to Study</option>
+                                <option>Proximity to Party</option>
+                                <option>Proximity to Workout</option>
+                            </select>
+                            <button id="sortButton"style="border:none; margin: .5em;">Sort</button>
+                            <select style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+                                <option>Filter by</option>
+                                <option>Rowdy</option>
+                                <option>Work-Hard</option>
+                                <option>Play-hard</option>
+                                <option>Greek</option>
+                                <option>Chill</option>
+                            </select>
+                            <button id="filter" style="border:none; margin: .5em;">Filter</button>
+                        </div>
+                        <!--div class="ranking" style="background: grey; height: 20px;">
+                            <div class="number"><h14>RANKING:</h14></div>
+                            <div class="name"><h14>NAME:</h14></div>
+                            <div class="overallscore"><h14>RATING:</h14></div>
+                        </div-->
+                        <div class="rankings">
+
+                        </div>
+                        <!--
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#2</h12></div>
+                            <div class="name"><h11>Craig</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#3</h12></div>
+                            <div class="name"><h11>Carmichael</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#4</h12></div>
+                            <div class="name"><h11>Cobb</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#5</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#6</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#7</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>
+                         <div class="ranking">
+                            <div class="number"><h12>#8</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                        </div>-->
+                        <div id="viewmore1">
+                            <div id="viewmore2" style="background: #f4f5f7;">
+                             <div id="viewleft" class="centerelement"><img src="../images/left.png" style="width: 30px; height:30px;"></div><div class="centerelement"><p3>VIEW MORE</p3></div><div id="viewright"class="centerelement"><img src="../images/right.png" style="width: 30px; height:30px;"></div></div>
+                        </div>
+
+                        </div>
+                      </div>
+                    <span id="closeReviewNav"onclick="document.getElementById('findadorm').style.display='none'" class="closemap" title="Close Modal">&times;</span>
+</div>
+</div>
 <div id="mobilepopup">
     <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
     <div id="mobilemenu">
@@ -74,12 +159,12 @@ $(document).ready(function(){
         <h7>CONTACT</h7>
     </div>
 </div>
-<div id="id01" class="modal">
+<!--div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="../images/RateYourDormBlack.png" class="popuplogo">
+      <img src="RateYourDormBlack.png" class="popuplogo">
     </div>
 
     <div class="container">
@@ -98,110 +183,393 @@ $(document).ready(function(){
       <span class="psw">Forgot<a href="#">password?</a></span>
     </div>
   </form>
-</div>
+</div-->
+<div id="id02" class="modal">
+
+  <form class="mapcontent animate">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.822539835505!2d-79.04545833534235!3d35.90236172542127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acc2ed5d0b493b%3A0xf6aa5c6dbe021e3b!2sHinton+James+Residence+Hall%2C+515+Hinton+James+Dr%2C+Chapel+Hill%2C+NC+27514!5e0!3m2!1sen!2sus!4v1503599259625" width="90%" height="80%%" frameborder="0" style="border:0; margin: 0px;" allowfullscreen></iframe>
+    <span onclick="document.getElementById('id02').style.display='none'" class="closemap" title="Close Modal">&times;</span>
+  </form>
 </div>
 <div id=reviewcontainer>
-    <div id="dormmetrics">
-      <div class="inputcenter"><select id="dormName" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
-     </select></div>
-        <div class="dormheader"><img src="../images/dormicon.png" style="width: 100px; height: 100px; margin-top: 1.5em;"></div>
-        <div class="dormtitle">
-            <h8>Hinton James "hojo"</h8>
-        </div>
-        <div id="dormmain">
-            <div class="left">
-                <p3 class="info1">OVERALL SCORE:</p3>
-                <h10 class="info1">69%</h10>
+    <div class="dormmetrics">
+        <div id="maininfo">
+            <div id="fixwidth">
+                <div id="headercontainer">
+                    <!--div class="dormheader"><img src="dormicon.png" style="width: 100px; height: 100px; margin: 1.5em;"></div-->
+                    <div class="dormtitle">
+                            <h2>HINTON JAMES</h2>
+                    </div>
+                    <div class="locationbutton" type="button" onclick="document.getElementById('id02').style.display='flex'" ><div class="footerlogo"><img src="../images/location.png" class="locationicon"></div></div>
+                    <div>
+                    </div>
+                </div>
+
+
+                        <div id="dormmain">
+                            <div class="left">
+                                <p3>OVERALL RATING:</p3>
+                                <h10>4.2</h10>
+
+                            </div>
+                            <div class="right">
+                                     <div class="row">
+                                    <div class="box"><p6>5</p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3 class="info2">ROOM</p3>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box"><p6>5</p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3 class="info2">BATHROOM</p3>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box"><p6>2.6</p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3 class="info2">KITCHEN</p3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
             </div>
-            <div class="right">
-                <div class="row"><p3 class="info2">Dorm Style:</p3><p4>Suite</p4></div>
-                <div class="row"><p3 class="info2">Laundry:</p3><p4>Yes</p4></div>
-                <div class="row"><p3 class="info2">Study Rooms</p3><p4>Yes</p4></div>
-                <div class="row"><p3 class="info2">Size</p3><p4>100+ residents</p4></div>
+        </div>
+             <div id="dormmain">
+
+                    <div class="description2"><p3>TAGS:</p3></div>
+
+                    <div class="box2"><p6>ROWDY</p6>
+                    </div>
+
+                    <div class="box2"><p6>FRAT</p6>
+                    </div>
+
+                    <div class="box2"><p6>COOL</p6>
+                    </div>
+
+            </div>
+
+        <div id=graphcontainer>
+            <div id="graph">
+                <div class="label"><p3 style="margin: none;">PROXIMITY TO:</p3></div>
+                <div class="barcontainer"><div class="bar" id="distToStudy"><img src="../images/book.png" class="distanceicon"><p2>STUDY</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;">15 min</p3></div>
+                <div class="barcontainer"><div class="bar" id="distToParty"><img src="../images/cup.png" class="distanceicon"><p2>PARTY</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;">10 min</p3></div>
+                <div class="barcontainer"><div class="bar" id="distToGym"><img src="../images/weight.png" class="distanceicon"><p2>WORKOUT</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;">5 min</p3></div>
             </div>
         </div>
-        <div id=distance>
-            <div class="d1"><div class="distancestudy"><img src="../images/book.png" class="distanceicon"><p2 id="distToStudy">6 min</p2></div></div>
-            <div class="d2"><div class="distancestudy"><img src="../images/cup.png" class="distanceicon"><p2 id="distToParty">9 min</p2></div></div>
-            <div class="d3"><div class="distancestudy"><img src="../images/weight.png" class="distanceicon"><p2 id="distToGym">15 min</p2></div></div>
+            <div id=dormmain>
+                <div id="geninfo">
+                    <div class="gencontainer"><div class="bar"><p3>GENERAL INFO:</p3></div><div id="margin"><p4 id="hallStyle">SUITE STYLE</p4><p11>|</p11><p4 id="population">69 RESIDENTS</p4><p11>|</p11><p4>STUDY ROOMS</p4><p11>|</p11>
+                      <p4 id="laundry">LAUNDRY ROOMS</p4></div></div>
+
+                </div>
+            </div>
+        <!--div id="dormmain">
+
+                    <div class="description2"><p3>GENERAL INFO:</p3></div>
+
+                    <div class="box2"><p6>SUITE</p6>
+                    </div>
+
+                    <div class="box2"><p6>STUDY ROOMS</p6>
+                    </div>
+
+                    <div class="box2"><p6>LAUNDRY</p6>
+                    </div>
+
+            </div-->
+
+        <!--div id=distance>
+            <div class="d1"><div id="distancestudy"><img src="book.png" class="distanceicon"><p2>6 min</p2></div></div>
+            <div class="d2"><div id="distancestudy"><img src="cup.png" class="distanceicon"><p2>9 min</p2></div></div>
+            <div class="d3"><div id="distancestudy"><img src="weight.png" class="distanceicon"><p2>15 min</p2></div></div>
             <div></div>
             <div></div>
-        </div>
+        </div-->
     </div>
     <div id="writereview">
-        <div id="commentheader"><h3 style="color: white; margin 1em;">Comments</h3></div>
-        <div id="reviewHolder">
-        <div class="comment">
+        <div id="id03" class="modal">
+          <form class="mapcontent animate">
+              <img class="popupimage" src="bikes.JPG">
+            <span onclick="document.getElementById('id03').style.display='none'" class="closemap" title="Close Modal">&times;</span>
+          </form>
+        </div>
+        <div id="commentheader">
+
+            <div class="arrow"><div class="description"><img id="leftarrow" src="../images/left.png"></div></div>
+            <div class="imagecontainer" onclick="document.getElementById('id03').style.display='flex'"><img src="../images/bikes.JPG" class="img1"></div>
+            <div class="imagecontainer" id="container2" onclick="document.getElementById('id03').style.display='flex'"><img src="../images/bikes.JPG" class="img1"></div>
+            <div class="imagecontainer" id="container3" onclick="document.getElementById('id03').style.display='flex'"><img src="../images/bikes.JPG" class="img1"></div>
+            <div class="arrow"><div class="description"><img id="rightarrow" src="../images/right.png"></div></div>
+        </div>
+        <div id="id02" class="modal">
+          <form class="mapcontent animate">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.822539835505!2d-79.04545833534235!3d35.90236172542127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89acc2ed5d0b493b%3A0xf6aa5c6dbe021e3b!2sHinton+James+Residence+Hall%2C+515+Hinton+James+Dr%2C+Chapel+Hill%2C+NC+27514!5e0!3m2!1sen!2sus!4v1503599259625" width="90%" height="80%%" frameborder="0" style="border:0; margin: 0px;" allowfullscreen></iframe>
+            <span onclick="document.getElementById('id02').style.display='none'" class="closemap" title="Close Modal">&times;</span>
+          </form>
+        </div>
+        <div id="commentsHolder">
+
+        </div>
+       <div class="comment">
             <div class=tagscontainer>
-                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
                 <div class="tag"><p5>Rowdy</p5></div>
-                <div class="tag"><p5>Clean</p5></div>
             </div>
             <div class="commentcontainer">
                 <div class="dormrating">
-                    <div class="overall1"><p3>Overall Score:</p3></div>
-                    <div class="indiv1"><p4>69%</p4></div>
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
             </div>
         </div>
         <div class="comment">
             <div class=tagscontainer>
-                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
                 <div class="tag"><p5>Rowdy</p5></div>
-                <div class="tag"><p5>Clean</p5></div>
             </div>
             <div class="commentcontainer">
                 <div class="dormrating">
-                    <div class="overall1"><p3>Overall Score:</p3></div>
-                    <div class="indiv1"><p4>69%</p4></div>
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
             </div>
-        </div>
-        <div class="comment">
+        </div> <div class="comment">
             <div class=tagscontainer>
-                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
                 <div class="tag"><p5>Rowdy</p5></div>
-                <div class="tag"><p5>Clean</p5></div>
             </div>
             <div class="commentcontainer">
                 <div class="dormrating">
-                    <div class="overall1"><p3>Overall Score:</p3></div>
-                    <div class="indiv1"><p4>69%</p4></div>
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
             </div>
-        </div>
-        <div class="comment">
+        </div> <div class="comment">
             <div class=tagscontainer>
-                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
                 <div class="tag"><p5>Rowdy</p5></div>
-                <div class="tag"><p5>Clean</p5></div>
             </div>
             <div class="commentcontainer">
                 <div class="dormrating">
-                    <div class="overall1"><p3>Overall Score:</p3></div>
-                    <div class="indiv1"><p4>69%</p4></div>
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
             </div>
-        </div>
-        <div class="comment">
+        </div> <div class="comment">
             <div class=tagscontainer>
-                <div class="tagstitle"><p5>Andrew Lee</p5></div>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
                 <div class="tag"><p5>Rowdy</p5></div>
-                <div class="tag"><p5>Clean</p5></div>
             </div>
             <div class="commentcontainer">
                 <div class="dormrating">
-                    <div class="overall1"><p3>Overall Score:</p3></div>
-                    <div class="indiv1"><p4>69%</p4></div>
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
-                <div class="commentsection">I lived in Hojo and it sucked alot. I wish I could drop out of this school.</div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
+            </div>
+        </div> <div class="comment">
+            <div class=tagscontainer>
+                <div class="tagstitle"><p5>4/20/69</p5></div>
+                <div class="year"><p5>First Year</p5></div>
+                <div class="tag"><p5>Cool</p5></div>
+                <div class="tag"><p5>Rowdy</p5></div>
+            </div>
+            <div class="commentcontainer">
+                <div class="dormrating">
+                               <div class="commentrate">
+                                   <div class="row">
+                                    <div class="box4"><p8>96</p8>
+                                    </div>
+                                    <div class="description1">
+                                    <p8 class="info2">OVERALL</p8>
+                                    </div>
+                                </div>
+                                     <div class="row">
+                                    <div class="box3"><p7>15</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">ROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>69</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">BATHROOM</p7>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="box3"><p7>91</p7>
+                                    </div>
+                                    <div class="description1">
+                                    <p7 class="info2">KITCHEN</p7>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <div class="commentsection"><p9>I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.I lived in Ehaus last year and it was horrible. I really want to drop out but I can't. Oh well. I guess I'll have to get tem next time.</p9></div>
             </div>
         </div>
-      </div>
     </div>
 </div>
    <div class="footer">
@@ -212,6 +580,8 @@ $(document).ready(function(){
                     <li>Legal</li>
                     <li>|</li>
                     <li>About</li>
+                    <li>|</li>
+                    <li>© Copyright 2017 Rate Your Dorms</li>
             </div>
             <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
             <!--div id=footersocialcontainer>
