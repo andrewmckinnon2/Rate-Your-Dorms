@@ -1,3 +1,10 @@
+#rankings{/*needs styling. Just added this so I could test*/
+  margin-top:10vh;
+  margin-right:0;
+  margin-left:0;
+  margin-bottom:0;
+}
+
 html {
     padding: 0;
     margin: 0;
@@ -313,7 +320,7 @@ span.psw {
     width: 100%;
     height: auto;
     background: white;
-    background-image: url("http://static6.businessinsider.com/image/52d4580369bedd544bb245a4-1024-512/university-of-wisconsin-madison-4.jpg")
+    background-image: url("https://static6.businessinsider.com/image/52d4580369bedd544bb245a4-1024-512/university-of-wisconsin-madison-4.jpg")
 
 }
 .footer {
@@ -1284,6 +1291,8 @@ p5 {
     justify-content: center;
     margin: .3em 1em;
 }
+
+
 
 p6 {
     display: inline-block;
