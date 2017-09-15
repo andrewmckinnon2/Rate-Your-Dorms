@@ -1,8 +1,15 @@
-$("#seeReviews").click(function(){
-  console.log('see reviews was triggered');
-  window.location = "../html/viewReview.html";
+$("#findADorm").click(function(){
+  window.location = "../html/Landingpage.html";
 })
 
-$("#writeAnotherReview").click(function(){
+$("#returnHome").click(function(){
+  window.location = "../index.html";
+})
+
+$("#writeReview").click(function(){
+  window.location = "../html/writeReview.html";
+})
+
+$("#writeReviews").click(function(){
   window.location = "../html/writeReview.html";
 })

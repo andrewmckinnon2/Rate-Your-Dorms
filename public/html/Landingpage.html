@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+
+    /*$("#hamburger").click(function() {
+    var this = $("#mobilepopup");
+    if (this.hasClass("clicked-once")) {
+        // already been clicked once, hide it
+        this.hide();
+        this.removeClass("clicked-once");
+    }
+    else {
+        // first time this is clicked, mark it
+        this.addClass("clicked-once");
+    }*/
+});
+</script>
+</head>
+<body>
+<div class="main">
+        <div id="logobar">
+            <div class="socialmedia">
+                <button id="writebutton" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
+                <div id="socialicons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+            <div id="logo">
+                <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rydlogo.png" ></a>
+            </div>
+            <div class="signup">
+                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
+                </div>
+            </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+        </div>
+<div id="mobilepopup">
+    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
+    <div id="mobilemenu">
+        <h7>LOGIN</h7>
+        <h7>SIGNUP</h7>
+        <h7>READ A REVIEW</h7>
+        <h7>WRITE A REVIEW</h7>
+        <h7>ABOUT</h7>
+        <h7>CONTACT</h7>
+    </div>
+</div>
+    <div id="dormsearchwide">
+            <div id="collegebackground">
+                <div id="resolvewidth">
+                    <div id="viewmore2"><h3 style="color: white;">UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL</h3></div>
+                    <div id="viewmore2"><h14>OVERALL:</h14><h15 style="margin: .2em; border: solid 4px white;"><div style="margin: .2em;">4.5</div></h15></div>
+                </div>
+            </div>
+                        <div class="rankingheader" style="border-bottom: solid 1px lightgrey;">
+                            <select style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;"><option>Sort by</option>
+                                <option>Overall Rating</option>
+                                <option>Room Rating</option>
+                                <option>Bathroom Rating</option>
+                                <option>Kitchen Rating</option>
+                                <option>Proximity to Study</option>
+                                <option>Proximity to Party</option>
+                                <option>Proximity to Workout</option>
+                            </select>
+                            <button id="submit" style="border:none; margin: .5em;">Sort</button>
+                            <select style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+                                <option>Filter by</option>
+                                <option>Rowdy</option>
+                                <option>Work-Hard</option>
+                                <option>Play-hard</option>
+                                <option>Greek</option>
+                                <option>Chill</option>
+                            </select>
+                            <button id="submit" style="border:none; margin: .5em;">Filter</button>
+                        </div>
+                        <!--div class="ranking" style="background: grey; height: 20px;">
+                            <div class="number"><h14>RANKING:</h14></div>
+                            <div class="name"><h14>NAME:</h14></div>
+                            <div class="overallscore"><h14>RATING:</h14></div>
+                        </div-->
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                         <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div class="ranking">
+                            <div class="number"><h12>#1</h12></div>
+                            <div class="name"><h11>Hinton James</h11></div>
+                            <div class="overallscore"><h13>4.5</h13></div>
+                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
+                        </div>
+                        <div id="viewmore1">
+                            <div id="viewmore2" style="background: #f4f5f7;">
+                             <div id="viewleft" class="centerelement"><img src="../images/left.png" style="width: 30px; height:30px;"></div><div class="centerelement"><p3>VIEW MORE</p3></div><div id="viewright"class="centerelement"><img src="../images/right.png" style="width: 30px; height:30px;"></div></div>
+                        </div>
+
+                        </div>
+    </div>
+<div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+                    <li>|</li>
+                    <li>© Copyright 2017 Rate Your Dorms</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
+
+</body>
+
+</html>

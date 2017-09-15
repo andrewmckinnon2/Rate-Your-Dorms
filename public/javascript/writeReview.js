@@ -211,3 +211,7 @@ $("#textReview").click(function(){
   }
   console.log("text box was clicked");
 });
+
+$("#findADorm").click(function(){
+  window.location="Landingpage.html";
+});

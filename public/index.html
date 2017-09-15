@@ -27,18 +27,6 @@ $(document).ready(function(){
         console.log("button presed");
         $("#mobilepopup").hide();
     })
-
-    /*$("#hamburger").click(function() {
-    var this = $("#mobilepopup");
-    if (this.hasClass("clicked-once")) {
-        // already been clicked once, hide it
-        this.hide();
-        this.removeClass("clicked-once");
-    }
-    else {
-        // first time this is clicked, mark it
-        this.addClass("clicked-once");
-    }*/
 });
 </script>
 </head>
@@ -46,7 +34,7 @@ $(document).ready(function(){
 <div class="main">
         <div id="logobar">
             <div class="socialmedia">
-                <button id="writeReview"style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
+                <button id="writeReview" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
                 <div id="socialicons">
                 <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
@@ -54,11 +42,11 @@ $(document).ready(function(){
                 </div>
             </div>
             <div id="logo">
-                <a href="index.html"><img id="navlogo" class="navlogo" src="images/rateyourdorms.png" ></a>
+                <a href="#"><img id="navlogo" class="navlogo" src="images/rydlogo.png" ></a>
             </div>
             <div class="signup">
                 <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
-                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
+                <div><button id="findADorm" style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
                 </div>
             </div>
             <div id="hamburgercontainer"><img id="hamburger" src="images/hamburger.png"></div>
@@ -114,14 +102,14 @@ $(document).ready(function(){
             </div>
             <div class="infoheading"><h3>Read.</h3></div>
             <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
-            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+            <div class="infobody"><p>Hear what student’s have to say about their dorm experience.</p></div>
         </div>
         <div id="review">
              <div class="iconcontainer">
                 <img style="width: 63px; height: 70px; margin: .75em;" class="" src="images/review.png">
             </div>
             <div class="infoheading"><h3>Review.</h3></div>
-            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+            <div class="infobody"><p>Tell incoming students what to expect from their dorms.</p></div>
 
         </div>
         <div id="livebetter">
@@ -129,17 +117,60 @@ $(document).ready(function(){
                 <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/livebetter.png">
             </div>
             <div class="infoheading"><h3>Live Better.</h3></div>
-            <div class="infobody"><p>Hear what other students have to say about heir experience in a dorm.</p></div>
+            <div class="infobody"><p>Enjoy a healthy, happy, and prosperous year living on campus.</p></div>
         </div>
     </div>
     <div id="theteam">
+        <div id="teamheader">
+            <h3 style="margin-top: .5em;color: white;">ABOUT</h3>
+        </div>
+        <div id="teamheader">
+            <div class="barline" style="background: white;"></div>
+        </div>
+        <div id="teamheader">
+            <div style="width: 70%; text-align: center;">
+            <p style="color:white;">Rate Your Dorms was conceptualized in January of 2017 by two first year students. While in a study room of Ehinghaus dorm, the two students discussed the various needs of other first year students. The most common complaint of our peers was the first year living situation and the lack of information. It is now our mission to provide students the information they need on campus dorms to live a happy and healthy college career.
+            </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="infographic"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
+    <div class="infographic">
+        <div class="barline"></div>
+    </div>
+    <div class="infographic">
+        <div id="read">
+            <div class="iconcontainer">
+                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/jasper.jpg">
+            </div>
+            <div class="infoheading"><h11>Jasper Brindis</h11></div>
+            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
+            <div class="infobody2"><p13>Jasper is a real big numers guy. He loves big data, and fine women. My name is Jasper and I am a puse for sure.</p13></div>
+        </div>
+          <div id="read">
+            <div class="iconcontainer">
+                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewm.jpg">
+            </div>
+            <div class="infoheading"><h11>Andrew Mckinnon</h11></div>
+            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
+            <div class="infobody2"><p13>Jasper is a real big numers guy. He loves big data, and fine women. What is up fam. how is it going?</p13></div>
+        </div>
+          <div id="read">
+            <div class="iconcontainer">
+                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewl.png">
+            </div>
+            <div class="infoheading"><h11>Andrew Lee</h11></div>
+            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
+            <div class="infobody2"><p13>Jasper is a real big numers guy. He loves big data, and fine women. Andrew is a real great guy. One of the best guys.</p13></div>
+        </div>
     </div>
     <div class="mailinglist">
         <div class="topcontainer">
-        <h1>Interested in having us at your school? Let us know!</h1>
+        <h1 style="font-weight: normal;">Interested in having us at your school? Let us know!</h1>
         </div >
         <div class="bottomcontainer">
-        <button style="border: solid 2px #97C0E4">Contact Us</button>
+        <button style="border: #97C0E4" id="submit">Contact Us</button>
         </div>
     </div>
     <div class="footer">
@@ -175,6 +206,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 </script>
 <script src="javascript/index.js"></script>
+
 </body>
 
 </html>

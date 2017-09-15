@@ -1,89 +1,82 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link href="../css/exitReview.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<title>Rate Your Dorms</title>
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
+   <meta name="viewport" content="width=device-width, initial-scale=1"-->
+   <link rel="stylesheet" href="../css/RateYourDormsMain.css">
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <title>Rate Your Dorms</title>
+   <script>
+       // Get the modal
+       var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+       // When the user clicks anywhere outside of the modal, close it
+       window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
+$(document).ready(function(){
+   $("#hamburger").click(function(){
+       $("#mobilepopup").show();
+   });
+
+   $("#exitMobilePopup").click(function(){
+       console.log("button presed");
+       $("#mobilepopup").hide();
+   })
+});
 </script>
 </head>
 <body>
 <div class="main">
-        <div id="logobar">
-            <div class="socialmedia">
-                <button id="writeReview"style="width: 130px; background-color: lightgray; border-color: lightgray; color;white;">Write a Review</button>
-                <div id="socialicons">
-                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                </div>
-            </div>
-            <div id="logo">
-                <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rateyourdorms.png" ></a>
-            </div>
-            <div class="signup">
-                <div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div>
-                <div><button type="button" class="loginsignup">Sign Up</button>
-                </div>
-            </div>
-            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
-        </div>
-<div id="mobilepopup">
-    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
-    <div id="mobilemenu">
-        <h7>LOGIN</h7>
-        <h7>SIGNUP</h7>
-        <h7>READ A REVIEW</h7>
-        <h7>WRITE A REVIEW</h7>
-        <h7>ABOUT</h7>
-        <h7>CONTACT</h7>
-    </div>
+       <div id="logobar">
+           <div class="socialmedia">
+               <button id="writeReview" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
+               <div id="socialicons">
+               <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+               <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+               <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+               </div>
+           </div>
+           <div id="logo">
+               <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rydlogo.png" ></a>
+           </div>
+           <div class="signup">
+               <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
+               <div><button id="findADorm"style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
+               </div>
+           </div>
+           <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+       </div>
+       <div id="maincontain">
+           <div id="viewmore2"><h3 style="color: white;">THANKS FOR RATING!</h3></div>
+           <div id="viewmore2"><button id="writeReviews" style="width:120px; border:#97C0E4;margin: 1em .5em;">Write Another</button><button id="returnHome" style="width:120px; border:#97C0E4; margin: 1em .5em;">Return Home</button></div>
+       </div>
+
 </div>
-<div id="id01" class="modal">
-
-  <form class="modal-content animate" action="/action_page.php">
-  <div class="imgcontainer">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-    <img src="../images/RateYourDormBlack.png" class="popuplogo">
-  </div>
-
-      <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-
-        <button type="submit">Login</button>
-
-      </div>
-
-      <div class="container" style="background-color:#f1f1f1">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <span class="psw">Forgot<a href="#">password?</a></span>
-      </div>
-    </form>
-  </div>
-  </div>
-
-  <div id="buttonsHolder">
-    <button id="seeReviews">See Reviews</button></br>
-    <button id="writeAnotherReview">Write Another One</button>
-  </div>
+  <div class="footer">
+           <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+           <div id="list">
+                   <li>Contact</li>
+                   <li>|</li>
+                   <li>Legal</li>
+                   <li>|</li>
+                   <li>About</li>
+                   <li>|</li>
+                   <li>© Copyright 2017 Rate Your Dorms</li>
+           </div>
+           <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+           <!--div id=footersocialcontainer>
+               <div id="footersocial">
+                   <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                   <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                   <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+               </div>
+           </div-->
+   </div>
 
 </body>
 <script src="../javascript/exitReview.js"></script>

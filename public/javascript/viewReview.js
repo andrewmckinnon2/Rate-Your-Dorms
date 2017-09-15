@@ -1,6 +1,6 @@
 var roomObjects = []; //This is where objects representing all the dorms will be placed
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
-const topPossibleScore = 60;
+const topPossibleScore = 20; //4 different areas of quantitative review therefore, with each one out of 5, top score possible is 20;
 $("#writeReview").click(function(){
   window.location="../html/writeReview.html";
 })
@@ -103,9 +103,6 @@ function getCurrentInfo(){
             var studyDist = parseInt(ratingInfo.studyProximity);
             var gymDist = parseInt(ratingInfo.gymProximity);
             var overall = Math.round(((bathroom + cleanliness + kitchen + partyDist + studyDist + gymDist)/(15*6))*100);
-            var roomPerc = Math.round((room/15)*100);
-            var bathroomPerc = Math.round((bathroom/15)*100);
-            var kitchenPerc = Math.round((kitchen/15)*100);
 
             var clean = "dirty";
             if(cleanliness >=7){
@@ -125,15 +122,15 @@ function getCurrentInfo(){
             "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
             "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
             "<p8>" + overall + "</p8></div><div class=\"description1\"><p8 class=\"info2\">OVERALL</p8></div></div>" +
-            "<div class=\"row\"><div class=\"box3\"><p7>" + roomPerc + "</p7></div><div class=\"description1\"><p7 class=\"info2\">ROOM</p7></div></div>" +
-            "<div class=\"row\"><div class=\"box3\"><p7>" + bathroomPerc + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BATHROOM</p7></div></div>" +
-            "<div class=\"row\"><div class=\"box3\"><p7>" + kitchenPerc + "</p7></div><div class=\"description1\"><p7 class=\"info2\">KITCHEN</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + room + "</p7></div><div class=\"description1\"><p7 class=\"info2\">ROOM</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + bathroom + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BATHROOM</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + kitchen + "</p7></div><div class=\"description1\"><p7 class=\"info2\">KITCHEN</p7></div></div>" +
             "</div></div>" + "<div class=\"commentsection\"><p9>" + writtenReview + "</p9></div></div></div>");
           }
         })
     }).then(function(){
       console.log("grand score is " + grandScore + " top possible score is " + topTotalScorePossible);
-      var finalPercentage = Math.round((grandScore/topTotalScorePossible)*100);
+      var finalPercentage = Number(grandScore/topTotalScorePossible).toFixed(2);
       $(".dormtitle").empty();
       $(".dormtitle").append("<h8>" + currentDormSelected + "</h8>");
       $(".left > h10").empty();
@@ -146,15 +143,15 @@ function getCurrentInfo(){
       $("#bathroomPar").text(avgBathroom);
       $("#kitchenPar").text(avgKitchen);
 
-      var studyDistPerc = Math.round((avgStudyDist/15)*100);
+      var studyDistPerc = Math.round((avgStudyDist/15)*50) + 50;
       $("#distToStudy").width(studyDistPerc+"%");
       $("#graph div:nth-child(2) > p3").text(avgStudyDist + "min");
 
-      var partyDistPerc = Math.round((avgPartyDist/15)*100);
+      var partyDistPerc = Math.round((avgPartyDist/15)*50) + 50;
       $("#distToParty").width(partyDistPerc+"%")
       $("#graph div:nth-child(3) > p3").text(avgPartyDist + "min");
 
-      var gymDistPerc = Math.round((avgGymDist/15)*100);
+      var gymDistPerc = Math.round((avgGymDist/15)*50) + 50;
       $("#distToGym").width(gymDistPerc+"%");
       $("#graph div:nth-child(4) > p3").text(avgGymDist + "min");
 

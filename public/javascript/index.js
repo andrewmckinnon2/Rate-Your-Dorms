@@ -7,12 +7,17 @@ $(document).ready(function(){
 
 $("#writeReview").click(function(){
   window.location="html/writeReview.html"
+  console.log('event fired');
 })
 
 $("#searchbar > input").click(function(){
   for(var i=0; i<dormNames.length; i++){
     console.log(dormNames[i]);
   }
+})
+
+$("#findADorm").click(function(){
+  window.location="html/Landingpage.html";
 })
 
 var currentOptions = [];
