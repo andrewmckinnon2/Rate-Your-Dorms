@@ -20,6 +20,10 @@ $("#findADorm").click(function(){
   window.location="html/Landingpage.html";
 })
 
+$("#contactUs").click(function(){
+  window.location = "html/contact.html";
+})
+
 var currentOptions = [];
 $("#searchbar").keyup(function(event){
   var keyPress;
