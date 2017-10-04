@@ -1171,6 +1171,21 @@ p5 {
     margin: .5em;
 }
 
+#distToStudy {
+    width: 80%;
+    background: #c2d9ed;
+}
+
+#distToParty {
+    width: 70%;
+    background: #97C0E4;
+}
+
+#distToGym {
+    width: 60%;
+    background: #84b9e8;
+}
+
 #bar1 {
     width: 80%;
     background: #c2d9ed;

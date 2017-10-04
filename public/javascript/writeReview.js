@@ -23,16 +23,16 @@ $("#submit").click(function(){
     var reviewerName = $("#name").val();
     var yearInDorm = $("#yearSelector").find(":selected").text();
     var dorm = $("#dormName").find(":selected").text();
-    var bathroomRating = $("#slider3").val();
-    var cleanlinessRating = $("#slider6").val();
-    var kitchenRating = $("#slider4").val();
-    var studyProximityRating = $("#slider1").val();
-    var partyProximityRating = $("#slider2").val();
-    var gymProximityRating = $("#slider5").val();
+    var bathroomRating = parseInt($("#slider3").val());
+    var cleanlinessRating = parseInt($("#slider6").val());
+    var kitchenRating = parseInt($("#slider4").val());
+    var studyProximityRating = parseInt($("#slider1").val());
+    var partyProximityRating = parseInt($("#slider2").val());
+    var gymProximityRating = parseInt($("#slider5").val());
     var cultureReview = $("#cultureSelector").find(":selected").text();
     var email = $("#email").val();
     var writtenReview = $("#textReview").val();
-    var roomRating = $("#slider7").val();
+    var roomRating = parseInt($("#slider7").val());
 
     if($("#hasLaundry").find(":selected").text() == "Yes"){
       hasLaundry = true;
@@ -71,8 +71,8 @@ $("#submit").click(function(){
         currentCulture = currentCulture + 1;
         dormRatingNode.child("culture").child(cultureReview).set(currentCulture);
         var currentHighestVotes = snap.child("avgCulture").val();
-        if(currentCulture > snap.child("culture").child(currentHighestVotes)){
-          snap.child("avgCulture").set(cultureReview);
+        if(currentCulture > currentHighestVotes){
+          dormRatingNode.child("avgCulture").set(cultureReview);
         }
       }else{
         for(var i=0; i<cultureArr.length; i++){
