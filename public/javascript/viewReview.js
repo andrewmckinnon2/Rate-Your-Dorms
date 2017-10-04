@@ -34,10 +34,6 @@ $(".ranking").click(function(){
   getCurrentInfo();
 })
 
-$("#sortButton").click(function(){
-
-})
-
 function getCurrentInfo(){
   var cultureArr = [4];
   var sortedCulture = [4]
@@ -244,7 +240,7 @@ $("#filterButton").click(function(){
       newDorms.push(roomObjects[i]);
     }
   }
-  if(sortParam == "Proximity to Study" && sortParam == "Proximity to Party" && sortParam == "Proximity to Workout"){
+  if(sortParam == "Proximity to Study" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
     for(var n=0; n<newDorms.length; n++){
       for(var i=newDorms.length-1; i>0; i--){
         if(newDorms[i].get(sortParam) > newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
@@ -257,7 +253,7 @@ $("#filterButton").click(function(){
   }else{//Sort the list of dorms after filtering
     for(var n=0;n<newDorms.length; n++){
       for(var i=0;i<newDorms.length-1; i++){
-        if(newDorms[i].get(sortParam) > newDorms[i+1].get(sortParam) || newDorms[i+1].get(sortParam) == undefined){
+        if(newDorms[i].get(sortParam) < newDorms[i+1].get(sortParam) || newDorms[i].get(sortParam) == undefined){
           var temp = newDorms[i];
           newDorms[i] = newDorms[i+1];
           newDorms[i+1] = temp;
@@ -312,6 +308,8 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
       return this.party;
     }else if(aspect == "Proximity to Workout"){
       return this.gym;
+    }else if(aspect == this.culture){
+      return this.culture;
     }
   }
 

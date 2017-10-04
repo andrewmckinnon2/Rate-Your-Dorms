@@ -564,7 +564,7 @@ h4 {
     align-self: center;
     background: white;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-    margin: .5em;
+    margin-bottom: 1em;
 }
 
 
@@ -1141,17 +1141,17 @@ p5 {
     margin: .5em;
 }
 
-#bar1 {
+#distToStudy {
     width: 80%;
     background: #c2d9ed;
 }
 
-#bar2 {
+#distToParty {
     width: 70%;
     background: #97C0E4;
 }
 
-#bar3 {
+#distToGym {
     width: 60%;
     background: #84b9e8;
 }
@@ -1834,4 +1834,19 @@ p14:hover {
         max-height: 100%;
     }
 
+}
+
+#reviewcontainer2 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.stepHeader {
+  background: grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

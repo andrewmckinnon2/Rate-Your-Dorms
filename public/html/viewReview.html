@@ -41,6 +41,16 @@ $(document).ready(function(){
     }*/
 });
 </script>
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script>
+    var client = filestack.init('ASW8Bcl6YSNKtbhYbNt7Xz');
+    function showPicker() {
+        client.pick({
+        }).then(function(result) {
+            console.log(JSON.stringify(result.filesUploaded))
+        });
+    }
+</script>
 </head>
 <body>
 <div class="main">
@@ -301,6 +311,9 @@ $(document).ready(function(){
             <div class="imagecontainer" id="container2" onclick="document.getElementById('id03').style.display='flex'"><img src="../images/bikes.JPG" class="img1"></div>
             <div class="imagecontainer" id="container3" onclick="document.getElementById('id03').style.display='flex'"><img src="../images/bikes.JPG" class="img1"></div>
             <div class="arrow"><div class="description"><img id="rightarrow" src="../images/right.png"></div></div>
+        </div>
+        <div id="commentheader">
+            <button value="Upload" onclick="showPicker()" id="submit" style="background: white; border: dotted 2px grey; color: grey; margin: .5em; display: flex; flex-direction: row; justify-content: center;"><img src="../images/upload.png" style="width: 18px; height: 18px;">Upload image</button>
         </div>
         <div id="id02" class="modal">
           <form class="mapcontent animate">
