@@ -1,3 +1,10 @@
+#rankings{/*needs styling. Just added this so I could test*/
+  margin-top:10vh;
+  margin-right:0;
+  margin-left:0;
+  margin-bottom:0;
+}
+
 html {
     padding: 0;
     margin: 0;
@@ -75,7 +82,7 @@ select {
 
 .bottom {
     display: flex;
-    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../images/RateYourDormsHome1.jpg');
+    background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) ), url('../images/RateYourDormsHome.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -125,11 +132,9 @@ image: hover {
 
 h1 {
     color: white;
-    font-size: 25px;
+    font-size: 35px;
     text-align: center;
-    margin: .5em;
 }
-
 
 h2 {
     color: white;
@@ -275,7 +280,6 @@ span.psw {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 #read {
@@ -316,7 +320,8 @@ span.psw {
     width: 100%;
     height: auto;
     background: white;
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("http://static6.businessinsider.com/image/52d4580369bedd544bb245a4-1024-512/university-of-wisconsin-madison-4.jpg");
+    background-image: url("https://static6.businessinsider.com/image/52d4580369bedd544bb245a4-1024-512/university-of-wisconsin-madison-4.jpg")
+
 }
 .footer {
     width: 100%;
@@ -393,17 +398,8 @@ p {
     text-align: center;
     padding-left: 20px;
     padding-right: 20px;
-    flex: 10;
+    flex: 6;
 
-}
-
-.infobody2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
 }
 
 .infoicon {
@@ -459,10 +455,10 @@ li {
 
 #theteam {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    min-height: 500px;
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../images/realdorm.JPG');
+    min-height: 550px;
+    background-image: url(images/realdorm.JPG)
 }
 
 @media only screen and (max-width: 800px) {
@@ -536,16 +532,12 @@ h5 {
     display: flex;
     margin: .5em;
     color: #97C0E4;
-    margin-top: .5em;
-    margin-bottom: 0px;
 }
 
 h4 {
     color: grey;
     display: flex;
     font-weight: 300;
-    text-align: center;
-    margin: .5em;
 }
 
 .reviewquestion {
@@ -580,9 +572,6 @@ h6 {
 textarea {
     width: 80%;
     border: solid 1.5px lightgrey;
-    font-family: helvetica neue;
-    font-size: 15px;
-    color: grey;
 }
 
 .reviewinfo {
@@ -629,15 +618,6 @@ textarea {
 
 }
 
-.landtags {
-    display: flex;
-    flex: 4;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left: 2em;
-    height: auto;
-}
-
 @media only screen and (max-width: 730px) {
     #reviewcontainer {
         flex-direction: column;
@@ -655,9 +635,6 @@ textarea {
         flex-direction: column;
         width: 100%;
     }
-    .landtags {
-        display: none;
-    }
 
  }
 
@@ -665,15 +642,16 @@ textarea {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    margin-bottom: .75em;
 }
 
 h7 {
     text-align: center;
     font-size: 25px;
     font-weight: 600;
-    margin: .75em .5em;
+    margin: 1em;
     color: grey;
 }
 
@@ -683,7 +661,6 @@ h7 {
     height: 30px;
     margin-right: 2em;
 }
-
 
 @media only screen and (max-width: 500px) {
     .signup {
@@ -710,7 +687,6 @@ h7 {
     .commentrate {
         flex-direction: row;
     }
-
 }
 
 
@@ -848,6 +824,12 @@ input[type=checkbox] {
 	background: #97C0E4;
 }
 
+h8 {
+    margin: 0 .5em;
+    font-size: 17px;
+    color: black;
+}
+
 .inputcenter {
     display: flex;
     flex-direction: row;
@@ -969,7 +951,7 @@ p2 {
 
 h8 {
   text-align: center;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 600;
     margin: .1em 1em;
     color: white;
@@ -1186,21 +1168,6 @@ p5 {
     background: #84b9e8;
 }
 
-#bar1 {
-    width: 80%;
-    background: #c2d9ed;
-}
-
-#bar2 {
-    width: 70%;
-    background: #97C0E4;
-}
-
-#bar3 {
-    width: 60%;
-    background: #84b9e8;
-}
-
 .label {
     display: flex;
     flex-direction: row;
@@ -1325,6 +1292,8 @@ p5 {
     margin: .3em 1em;
 }
 
+
+
 p6 {
     display: inline-block;
     color: white;
@@ -1332,9 +1301,6 @@ p6 {
     margin: .5em;
     font-size: 15px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
 }
 
 .description1 {
@@ -1506,17 +1472,7 @@ p9 {
     flex-direction: column;
     justify-content: flex-start;
     background: #f4f5f7;
-}
-
-#dormsearchwide {
-    padding-top: 70px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    background: white;
-    flex-direction: column;
-    justify-content: flex-start;
-    background: #f4f5f7;
+    overflow-y:scroll;
 }
 
 .ranking {
@@ -1524,6 +1480,7 @@ p9 {
     height: auto;
     display: flex;
     flex-direction: row;
+    box-shadow: 0px 1px 0px rgba(0,0,0,.15);
     height: auto;
     justify-content: center;
     background: white;
@@ -1544,14 +1501,14 @@ p9 {
 .number {
     display: flex;
     flex-direction: row;
-    flex: 2;
+    flex: 1;
     justify-content: center;
     height: auto;
 }
 
 .name {
     display: flex;
-    flex: 5;
+    flex: 4;
     flex-direction: row;
     justify-content: flex-start;
     margin-left: 2em;
@@ -1562,7 +1519,7 @@ p9 {
 .overallscore {
     display: flex;
     flex-direction: row;
-    flex: 4;
+    flex: 2;
     justify-content: center;
     height: auto;
 }
@@ -1571,10 +1528,7 @@ h11 {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    color: #97C0E4;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+    color: grey;
 }
 
 h12 {
@@ -1588,10 +1542,7 @@ h13 {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    color: grey;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
+    color: #97C0E4;
 }
 
 h14 {
@@ -1602,7 +1553,7 @@ h14 {
 }
 
 .ranking:hover {
-    background:  #f4f5f7;
+    background: lightgrey;
 }
 
 #viewmore2 {
@@ -1611,7 +1562,7 @@ h14 {
     flex-direction: row;
     justify-content: center;
     height: auto;
-    margin: 1em 0em;
+    margin-top: 1em;
 }
 
 #viewmore1 {
@@ -1667,101 +1618,4 @@ h14 {
     display: flex;
     justify-content: center;
     padding-top: 100px;
-}
-
-#collegebackground {
-    height: 300px;
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/rateyourdormshome1.JPG');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-
-#resolvewidth {
-    width: 80%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-}
-
-h15 {
-    color: #97C0E4;
-    font-size: 40px;
-    text-align: center;
-    margin: none;
-    font-weight: bold;
-}
-
-#contactcontainer {
-    width: 100%;
-    height: 540px;
-    background: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: 77px;
-}
-
-#contactwidth {
-    width: 50%;
-    height: auto;
-}
-
-@media screen and (max-width: 900px) {
-    #contactwidth {
-        width: 65%;
-    }
-
-}
-@media screen and (max-width: 500px) {
-    #contactwidth {
-        width: 95%;
-    }
-
-}
-
-.contactfeild {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.contactlabel {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.barline {
-    height: 2px;
-    width: 50px;
-    background: black;
-    margin: 1em;
-}
-
-p12 {
-    font-weight: bold;
-    font-size: 16px;
-    color: black;
-}
-
-p13 {
-    font-size: 15px;
-    color: black;
-    margin-bottom: 40px;
-}
-
-#teamheader {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
 }

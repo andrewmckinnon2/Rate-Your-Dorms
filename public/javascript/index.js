@@ -4,6 +4,8 @@ $(document).ready(function(){
     dormNames.push(snap.key);
   })
 })
+$("#dropdown").hide();
+$("#dropdown").empty();
 
 $("#writeReview").click(function(){
   window.location="html/writeReview.html"
@@ -26,6 +28,7 @@ $("#contactUs").click(function(){
 
 var currentOptions = [];
 $("#searchbar").keyup(function(event){
+  $("#dropdown").show();
   var keyPress;
   if(window.event){//IE
     keyPress = event.which;
@@ -38,6 +41,7 @@ $("#searchbar").keyup(function(event){
       console.log("redirect to " + currentOptions[0] + " review page");
     }
   }else{
+    $("#dropdown").empty();
     currentOptions = [];
   }
 
@@ -49,8 +53,13 @@ $("#searchbar").keyup(function(event){
     }
 
     if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
-      console.log(dormNames[i]);
       currentOptions.push(dormNames[i]);
+      $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
     }
+
   }
+})
+
+$("#searchbar").focusout(function(){
+  $("#dropdown").hide();
 })

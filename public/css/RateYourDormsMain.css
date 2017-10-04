@@ -20,6 +20,11 @@ select {
     font-weight: 600px;
 }
 
+#rankings{
+  overflow-y:scroll;
+  height:100%;
+}
+
 .main {
     display: flex;
     flex-direction: column;
@@ -35,6 +40,7 @@ select {
     background: #97C0E4;
     padding-left: 0px;
     position: fixed;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1)
 
 }
 
@@ -48,7 +54,7 @@ select {
 
 #logo {
     display: flex;
-    flex: 3;
+    flex: 2;
     justify-content: center;
     flex-direction: row;
 }
@@ -67,10 +73,10 @@ select {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    max-height: 50px;
+    height: auto;
     width: 100%;
     position: inherit;
-    margin-top: 180px;
+
 }
 
 .bottom {
@@ -80,8 +86,9 @@ select {
     background-repeat: no-repeat;
     width: 100%;
     height: 450px;
-    flex-direction: column;
+    flex-direction: row;
     padding-top: 79px;
+    justify-content: center;
 }
 
 
@@ -89,12 +96,12 @@ select {
     display: flex;
     width: 40%;
     height: 50px;
-    font-family: sans-serif;
+    font-family: helvetica neue;
     font-size: 15px;
     text-align: left;
-    font-weight: bold;
     flex-direction: row;
     justify-content: center;
+    margin-top: 180px;
 }
 
 
@@ -108,9 +115,9 @@ button {
     background-color: #97C0E4;
     border-radius: 100px;
     height: 35px;
-    width: 100px;
+    width: auto;
     color: white;
-    font-family: sans-serif;
+    font-family: helvetica neue;
     text-align: center;
 }
 
@@ -168,9 +175,9 @@ h2 {
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 30%;
+    width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 0px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -278,6 +285,12 @@ span.psw {
     justify-content: center;
 }
 
+@media only screen and (max-width: 600px) {
+    .infographic {
+        flex-direction: column;
+    }
+}
+
 #read {
     display: flex;
     justify-content: center;
@@ -315,8 +328,6 @@ span.psw {
     justify-content: center;
     width: 100%;
     height: auto;
-    background: white;
-    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("http://static6.businessinsider.com/image/52d4580369bedd544bb245a4-1024-512/university-of-wisconsin-madison-4.jpg");
 }
 .footer {
     width: 100%;
@@ -429,9 +440,7 @@ p {
 }
 
 @media only screen and (max-width: 500px) {
-    .socialmedia {
-        display: none;
-    }
+
     #logobar {
         flex-direction: row;
     }
@@ -465,6 +474,7 @@ li {
     background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../images/realdorm.JPG');
 }
 
+
 @media only screen and (max-width: 800px) {
 
     .modal-content {
@@ -483,7 +493,6 @@ li {
     justify-content: flex-start;
     width: 60%;
     height: auto;
-    background-color: white;
 }
 
 #reviewcontainer {
@@ -551,6 +560,11 @@ h4 {
 .reviewquestion {
     display: flex;
     flex-direction: column;
+    width: 95%;
+    align-self: center;
+    background: white;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    margin: .5em;
 }
 
 
@@ -587,9 +601,11 @@ textarea {
 
 .reviewinfo {
     display: flex;
-    width: 40%;
+    width: 75%;
     flex-direction: column;
     margin-bottom: 1em;
+    height: auto;
+    background: white;
 }
 
 #submitcontainer {
@@ -638,28 +654,6 @@ textarea {
     height: auto;
 }
 
-@media only screen and (max-width: 730px) {
-    #reviewcontainer {
-        flex-direction: column;
-    }
-
-    #writereview {
-        width: 100%;
-    }
-
-    .reviewinfo {
-        width: 100%;
-    }
-    .dormmetrics {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .landtags {
-        display: none;
-    }
-
- }
 
 #dormiconcontainer {
     width: 100%;
@@ -672,45 +666,15 @@ textarea {
 h7 {
     text-align: center;
     font-size: 25px;
-    font-weight: 600;
+    font-weight:500;
     margin: .75em .5em;
-    color: grey;
+    color: white;
 }
 
 #hamburger {
     display: none;
     width: 30px;
     height: 30px;
-    margin-right: 2em;
-}
-
-
-@media only screen and (max-width: 500px) {
-    .signup {
-        display: none;
-    }
-    .socialmedia {
-        display: none;
-    }
-    #hamburger {
-    display: flex;
-    position: fixed;
-    right: 7px;
-    top: 25px;
-    }
-    #logo {
-        position: fixed;
-    }
-    #container2 {
-        display: none;
-    }
-     .commentcontainer {
-        flex-direction: column;
-    }
-    .commentrate {
-        flex-direction: row;
-    }
-
 }
 
 
@@ -848,6 +812,12 @@ input[type=checkbox] {
 	background: #97C0E4;
 }
 
+h8 {
+    margin: 0 .5em;
+    font-size: 17px;
+    color: black;
+}
+
 .inputcenter {
     display: flex;
     flex-direction: row;
@@ -969,7 +939,7 @@ p2 {
 
 h8 {
   text-align: center;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 600;
     margin: .1em 1em;
     color: white;
@@ -1169,21 +1139,6 @@ p5 {
     flex-direction: row;
     height: atuo;
     margin: .5em;
-}
-
-#distToStudy {
-    width: 80%;
-    background: #c2d9ed;
-}
-
-#distToParty {
-    width: 70%;
-    background: #97C0E4;
-}
-
-#distToGym {
-    width: 60%;
-    background: #84b9e8;
 }
 
 #bar1 {
@@ -1501,11 +1456,11 @@ p9 {
 #dormsearch {
     width: 70%;
     height: 80%;
-    display: flex;
     background: white;
     flex-direction: column;
     justify-content: flex-start;
     background: #f4f5f7;
+    overflow: hidden;
 }
 
 #dormsearchwide {
@@ -1521,22 +1476,22 @@ p9 {
 
 .ranking {
     width: 100%;
-    height: auto;
+    height: 50px;
     display: flex;
     flex-direction: row;
     height: auto;
     justify-content: center;
     background: white;
     border-bottom: solid 1px lightgrey;
+    cursor: default;
 
 }
 
 .rankingheader {
     width: 100%;
-    height: auto;
+    height: 10vh;
     display: flex;
     flex-direction: row;
-    height: auto;
     justify-content: center;
 
 }
@@ -1569,8 +1524,9 @@ p9 {
 
 h11 {
     text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 500;
+    font-weight: 500;
     color: #97C0E4;
     display: flex;
     flex-direction: column;
@@ -1582,6 +1538,7 @@ h12 {
     font-size: 30px;
     font-weight: bold;
     color: black;
+    margin: .1em;
 }
 
 h13 {
@@ -1747,8 +1704,8 @@ h15 {
 }
 
 p12 {
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
     color: black;
 }
 
@@ -1764,4 +1721,117 @@ p13 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+#dropdown {
+width: 100%;
+max-height: 245px;
+background: white;
+display: flex;
+flex-direction: column;
+align-self: center;
+border-top: solid lightgrey 1px;
+    background: #f4f5f7;
+    overflow: scroll;
+}
+
+#dropdowncontainer {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin-top: 100px;
+}
+
+.dropdowncontent {
+    width: 100%;
+    text-align: left;
+    box-shadow: 0px 1px 0px lightgrey;
+}
+
+p14 {
+   text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: .5em;
+}
+
+.dropdowncontent {
+    cursor: default;
+}
+.dropdowncontent:hover {
+    background: #97C0E4;
+    : white;
+}
+p14:hover {
+    color: white;
+}
+
+@media only screen and (max-width: 730px) {
+    #reviewcontainer {
+        flex-direction: column;
+    }
+
+    #writereview {
+        width: 100%;
+    }
+
+    .reviewinfo {
+        width: 100%;
+    }
+    .dormmetrics {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+ }
+
+#barsearch {
+    display: none;
+    flex-direction: row;
+    align-self: center;
+    width: 30px;
+    height: 30px;
+    margin: .5em;
+}
+
+#barsearch:hover {
+    opacity: .6;
+}
+
+@media only screen and (max-width: 500px) {
+    #hamburger {
+    display: flex;
+    top: 25px;
+    }
+    .respond {
+        display: none;
+    }
+    #barsearch{
+        display: flex;
+    }
+    #container2 {
+        display: flex;
+    }
+     .commentcontainer {
+        flex-direction: column;
+    }
+    .commentrate {
+        flex-direction: row;
+    }
+    #dropdowncontainer {
+        width: 100%;
+        margin-top: 0px;
+        position: fixed;
+    }
+    #dropdown {
+        padding-top: 50px;
+        max-height: 100%;
+    }
+
 }

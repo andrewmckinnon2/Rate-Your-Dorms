@@ -147,10 +147,12 @@ function getCurrentInfo(){
         })
     }).then(function(){
       var finalPercentage = Number(grandScore/topTotalScorePossible).toFixed(2);
+      console.log(finalPercentage);
+      console.log("here is where we write to dorm title");
       $(".dormtitle").empty();
       $(".dormtitle").append("<h8>" + currentDormSelected + "</h8>");
       $(".left > h10").empty();
-      $(".left > h10").append((finalPercentage*5));
+      $(".left > h10").append((finalPercentage*5).toFixed(2));
 
       $("#roomPar").text(avgRoom);
       $("#bathroomPar").text(avgBathroom);
