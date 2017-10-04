@@ -1,20 +1,269 @@
-<!Doctype html>
+<!doctype html>
 <html>
-<header>
-  <title>Rate Your Dorms UNC</title>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/writeReview.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</header>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+</script>
+</head>
 <body>
-  <div id="header">
-    <img src="../images/logo.png" id="logo">
-    <p><a href="contactUs.html" class="contactButtons">Contact us</a></p>
-    <p><a href="aboutUs.html" class="contactButtons">About us</a></p>
-    <a href="#comingsoon" class="socialMediaLink"><img src="../images/twitterIcon.png"></a>
-    <a href="#comingsoon" class="socialMediaLink"><img src="../images/facebookIcon.png"></a>
-    <a href="#comingsoon" class="socialMediaLink"><img src="../images/instagramIcon.png"></a>
+<div class="main">
+  <div id="logobar">
+              <div class="socialmedia">
+                  <div><button id="findADorm" class="respond"style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find a Dorm</button>
+                  </div>
+                  <img id="barsearch" src="../images/glasswhite.png">
+              </div>
+              <div id="logo">
+                  <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rydlogo.png" ></a>
+              </div>
+        <div class="signup">
+              <button id="writeReview" class="respond" style="width: 130px; border-color:white; " class="loginsignup">Write a Review</button>
+              <div id="socialicons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+              </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+        </div>
+    </div>
+<div id="mobilepopup">
+    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
+    <div id="mobilemenu">
+        <h7>LOGIN</h7>
+        <h7>SIGNUP</h7>
+        <h7>READ A REVIEW</h7>
+        <h7>WRITE A REVIEW</h7>
+        <h7>ABOUT</h7>
+        <h7>CONTACT</h7>
+    </div>
+</div>
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="../images/RateYourDormBlack.png" class="popuplogo">
+    </div>
+
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <button type="submit">Login</button>
+
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot<a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+</div>
+<div id=reviewcontainer>
+  <div id="reviewcontainer2">
+    <div class="reviewinfo">
+      <div class="stepHeader">
+        <h7 style="margin: .25em; color: white;">STEP 1: About you</h7>
+      </div>
+        <div id="dormiconcontainer"><img src="../images/person.png" style="width: 70px; height: 70px; margin-left: 1em; display: flex; align-self: center;f"><h4 style="margin-bottom: 1em; display: flex; align-self: center;">Please complete the following fields before begining your review.</h4></div>
+        <h6>SELECT A DORM</h6>
+         <div class="inputcenter"><select id="dormName" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+        </select></div>
+        <h6>YEAR IN DORM</h6>
+         <div class="inputcenter"><select id="yearSelector" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
+             <option selected="selected">Select</option>
+            <option value="firstYear" id="firstYear">First Year</option>
+             <option value="sophomore" id="sophomore">Sophmore</option>
+             <option value="junior" id="junior">Junior</option>
+             <option value="senior" id="senior">Senior</option>
+        </select></div>
+        <h6>NAME (optional)</h6>
+         <div class="inputcenter"><input id="name"autofocus type="text" name="search" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; margin: 1em 0em;"  style="font-family: 'Muli', sans-serif; margin: 1em;"></div>
+        <h6>EMAIL ADDRESS (optional)</h6>
+         <div class="inputcenter"><input id="email"autofocus type="text" name="search" style="width:90%; border-radius: 0px; border: solid 2px #97C0E4; margin: 1em 0em;"  id="name" style="font-family: 'Muli', sans-serif; margin: 1em;"></div>
+         <input type="checkbox" name="sports" value="soccer"/>
+    </div>
   </div>
+    <div id="writereview">
+      <div class="reviewquestion">
+            <div class="stepHeader">
+              <h7 style="margin: .25em; color: white;">STEP 2: About your Dorm</h7>
+            </div>
+              <div class="subject"><h5>Building Cleanliness</h5></div>
+              <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
+              <div class="description"><div><span id="range5">1</span></div></div>
+              <div class="slider">
+                  <input id="slider5" style="margin: 3em;" type="range" min="1" max="5" value="0" step="1" onchange="showValue5(this.value)" />
+                          <script type="text/javascript">
+                          function showValue5(newValue)
+                          {
+                              document.getElementById("range5").innerHTML=newValue;
+                          }
+                          </script>
+              </div>
+      </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Kitchen</h5></div>
+                <div class="description"><h4>Was it clean? Did you have access to a kitchen?</h4></div>
+                <div class="description"><div><span id="range4">1</span></div></div>
+                <div class="slider">
+                    <input id="slider4" style="margin: 3em;" type="range" min="1" max="5" value="0" step="1" onchange="showValue4(this.value)" />
+                            <script type="text/javascript">
+                            function showValue4(newValue)
+                            {
+                                document.getElementById("range4").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Bathroom</h5></div>
+                <div class="description"><h4>Were there enough showers and toilets? Was it clean?</h4></div>
+                <div class="description"><div><span id="range3">1</span></div></div>
+                <div class="slider">
+                    <input id="slider3" style="margin: 3em;" type="range" min="1" max="5" value="0" step="1" onchange="showValue3(this.value)" />
+                            <script type="text/javascript">
+                            function showValue3(newValue)
+                            {
+                                document.getElementById("range3").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Proximity to study</h5></div>
+                <div class="description"><h4>How far were you from the library and classes? (in minutes)</h4></div>
+                <div class="description"><div><span id="range1">1</span></div></div>
+                <div class="slider">
+                    <input id="slider1" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue1(this.value)" />
+                            <script type="text/javascript">
+                            function showValue1(newValue)
+                            {
+                                document.getElementById("range1").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Proximity to party</h5></div>
+                <div class="description"><h4>How far were you from frats and bars? (in minutes)</h4></div>
+                <div class="description"><div><span id="range2">1</span></div></div>
+                <div class="slider">
+                    <input id="slider2" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue2(this.value)" />
+                            <script type="text/javascript">
+                            function showValue2(newValue)
+                            {
+                                document.getElementById("range2").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Proximity to gym</h5></div>
+                <div class="description"><h4>Were you getting swole? Could you have?</h4></div>
+                <div class="description"><div><span id="range6">1</span></div></div>
+                <div class="slider">
+                    <input id="slider6" style="margin: 3em;" type="range" min="1" max="15" value="0" step="1" onchange="showValue6(this.value)" />
+                            <script type="text/javascript">
+                            function showValue6(newValue)
+                            {
+                                document.getElementById("range6").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+
+        <div class="reviewquestion">
+                <div class="subject"><h5>Room itself</h5></div>
+                <div class="description"><h4>How was your room overall? Hella small? Hella big? Sick layout? Not so sick layout?</h4></div>
+                <div class="description"><div><span id="range7">1</span></div></div>
+                <div class="slider">
+                    <input id="slider7" style="margin: 3em;" type="range" min="1" max="5" value="0" step="1" onchange="showValue7(this.value)" />
+                            <script type="text/javascript">
+                            function showValue7(newValue)
+                            {
+                                document.getElementById("range7").innerHTML=newValue;
+                            }
+                            </script>
+                </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Culture</h5></div>
+                <div class="description"><h4>Select a tag that best describe what it is like living in your dorm</h4></div>
+                <div class="divider"><select id="cultureSelector" style="width: 25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; margin: 2em;">
+                     <option selected="selected">Select</option>
+                    <option id="rowdyOption">Rowdy</option>
+                    <option  id="workHardOption">Work-hard</option>
+                    <option id="playHardOption">Play-hard</option>
+                    <option id="greekOption">Greek</option>
+                    <option id="chill">Chill</option>
+                    </select>
+                    </div>
+        </div>
+        <div class="reviewquestion">
+                <div class="subject"><h5>Review</h5></div>
+                <div class="description"><h4>Got any more to say? Love your dorm or hate it, let everyone know!</h4></div>
+                <div class="subject">
+                    <textarea  id="textReview" style="border: solid 2px #97C0E4; margin-bottom: 2em;" rows="10" cols="100">Additional Comments...
+                    </textarea>
+                    </div>
+        </div>
+        <div id="submitcontainer">
+            <button id="submit" style="border: none; width: 25%;">Submit</button>
+        </div>
+    </div>
+</div>
+   <div class="footer">
+            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
+            <div id="list">
+                    <li>Contact</li>
+                    <li>|</li>
+                    <li>Legal</li>
+                    <li>|</li>
+                    <li>About</li>
+                    <li>|</li>
+                    <li>© Copyright 2017 Rate Your Dorms</li>
+            </div>
+            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
+            <!--div id=footersocialcontainer>
+                <div id="footersocial">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div-->
+    </div>
 
 </body>
-</html>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../javascript/writeReview.js"></script>

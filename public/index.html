@@ -32,25 +32,25 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="main">
-        <div id="logobar">
-            <div class="socialmedia">
-                <button id="writeReview" style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
-                <div id="socialicons">
+  <div id="logobar">
+              <div class="socialmedia">
+                  <div><button id="findADorm" class="respond"style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find a Dorm</button>
+                  </div>
+                  <img id="barsearch" src="../images/glasswhite.png">
+              </div>
+              <div id="logo">
+                  <a href="#"><img id="navlogo" class="navlogo" src="images/rydlogo.png" ></a>
+              </div>
+        <div class="signup">
+              <button id="writeReview" class="respond" style="width: 130px; border-color:white; " class="loginsignup">Write a Review</button>
+              <div id="socialicons">
                 <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
                 <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
                 <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                </div>
-            </div>
-            <div id="logo">
-                <a href="#"><img id="navlogo" class="navlogo" src="images/rydlogo.png" ></a>
-            </div>
-            <div class="signup">
-                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
-                <div><button id="findADorm" style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
-                </div>
-            </div>
-            <div id="hamburgercontainer"><img id="hamburger" src="images/hamburger.png"></div>
+              </div>
+            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
         </div>
+    </div>
 
 <div id="mobilepopup">
     <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
@@ -66,7 +66,7 @@ $(document).ready(function(){
           <div id="dropdowncontainer">
           <div id="searchbar">
               <input autofocus type="text" name="search" placeholder="Find your future home" class="searchBar" style="border: solid 2px white">
-              <button id="submit" style="border-radius:0px; border: solid 2px #97C0E4; height: 50px;"><img id="dropdownImg"src="images/down.png" style="display: flex; flex-direction: row; align-self: center; width: 25px; height: 25px; margin: .5em;"></button>
+              <button id="submit" style="border-radius:0px; border: solid 2px #97C0E4; height: 50px; width: auto; min-width: 0px;"><img id="dropdownImg"src="images/down.png" style="display: flex; flex-direction: row; align-self: center; width: 25px; height: 25px; margin: .5em;"></button>
           </div>
           <div id="dropdown">
               <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
@@ -160,8 +160,8 @@ $(document).ready(function(){
         </div>
     </div>
     </div>
-    <div class="infographic"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
-    <div class="infographic">
+    <div class="inputcenter"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
+    <div class="inputcenter">
         <div class="barline"></div>
     </div>
     <div class="infographic">

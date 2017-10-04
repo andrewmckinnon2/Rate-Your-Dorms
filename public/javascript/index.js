@@ -52,9 +52,11 @@ $("#searchbar").keyup(function(event){
       continue;
     }
 
+
     if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
       currentOptions.push(dormNames[i]);
       $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      console.log(dormNames[i]);
     }
 
   }

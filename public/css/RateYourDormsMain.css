@@ -113,12 +113,12 @@ button {
     font-size: 15px;
     border: 3px solid white;
     background-color: #97C0E4;
-    border-radius: 100px;
     height: 35px;
     width: auto;
     color: white;
     font-family: helvetica neue;
     text-align: center;
+    min-width:100px;
 }
 
 .loginsignup:hover {
@@ -176,11 +176,12 @@ h2 {
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 6px 7px;
     margin: 0px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    font-size:16px;
 }
 
 /* Extra styles for the cancel button */
@@ -560,7 +561,7 @@ h4 {
 .reviewquestion {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 100%;
     align-self: center;
     background: white;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
@@ -601,11 +602,12 @@ textarea {
 
 .reviewinfo {
     display: flex;
-    width: 75%;
+    width: 85%;
     flex-direction: column;
     margin-bottom: 1em;
     height: auto;
     background: white;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
 
 #submitcontainer {
@@ -668,7 +670,7 @@ h7 {
     font-size: 25px;
     font-weight:500;
     margin: .75em .5em;
-    color: white;
+    color: grey;
 }
 
 #hamburger {
@@ -1596,6 +1598,15 @@ h14 {
     opacity: .3;
 }
 
+
+#reviewcontainer2 {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 @media screen and (max-width: 750px) {
     #dormsearch {
         width: 100%;
@@ -1732,7 +1743,7 @@ flex-direction: column;
 align-self: center;
 border-top: solid lightgrey 1px;
     background: #f4f5f7;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #dropdowncontainer {
@@ -1772,6 +1783,10 @@ p14:hover {
 }
 
 @media only screen and (max-width: 730px) {
+    #reviewcontainer2{
+      width:100%;
+    }
+
     #reviewcontainer {
         flex-direction: column;
     }
@@ -1836,13 +1851,6 @@ p14:hover {
 
 }
 
-#reviewcontainer2 {
-  width: 40%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
 
 .stepHeader {
   background: grey;
