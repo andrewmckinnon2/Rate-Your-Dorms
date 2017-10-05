@@ -155,7 +155,6 @@ function getCurrentInfo(){
       $("#kitchenPar").text(avgKitchen);
 
       var studyDistPerc = Math.round((avgStudyDist/15)*50) + 50;
-      alert("studyDistPerc is " + studyDistPerc);
       $("#distToStudy").width(studyDistPerc+"%");
       $("#graph div:nth-child(2) > p3").text(avgStudyDist + "min");
 
@@ -193,57 +192,30 @@ function getCurrentInfo(){
 $("#sortButton").click(function(){
   var sortParam = $("#sortOption").find(":selected").text();
   var filterParam = $("#filterOption").find(":selected").text();
+  var noSortParam = false; //should be true if no sort parameter is selected
+  var noFilterParam = false; // should be true if no filter parameter is selected
+  if(sortParam == "Sort by"){
+    noSortParam = true;
+  }
+
+  if(filterParam == "Filter by"){
+    noFilterParam = true;
+  }
+
   var newDorms = [];
   for(var i = 0; i<roomObjects.length; i++){ //Filter out the dorms with mismatching culture from the one requested
     if(filterParam == roomObjects[i].getCulture()){
       newDorms.push(roomObjects[i]);
-    }
-  }
-  if(sortParam == "Proximity to Study" && sortParam == "Proximity to Party" && sortParam == "Proximity to Workout"){
-    for(var n=0; n<newDorms.length; n++){
-      for(var i=newDorms.length-1; i>0; i--){
-        if(newDorms[i].get(sortParam) > newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
-          var temp = newDorms[i];
-          newDorms[i] = newDorms[i-1];
-          newDorms[i-1] = temp;
-        }
-      }
-    }
-  }else{//Sort the list of dorms after filtering
-    for(var n=0;n<newDorms.length; n++){
-      for(var i=0;i<newDorms.length-1; i++){
-        if(newDorms[i].get(sortParam) > newDorms[i+1].get(sortParam) || newDorms[i+1].get(sortParam) == undefined){
-          var temp = newDorms[i];
-          newDorms[i] = newDorms[i+1];
-          newDorms[i+1] = temp;
-        }
-      }
-    }
-  }
-
-  //Now that dorms are sorted, we write them to page
-  //Remove all children of rankings to make space for new filter
-  $("#rankings").empty();
-  for(var i=0; i<newDorms.length; i++){
-      $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + parseInt(i+1) + "<h/12></div>" +
-    "<div class=\'name\'><h11>" + currentRooms[i].getDormName() + "</h11></div>" + "<div class=\'overallscore\'><h13>" + currentRooms[i].get(sortParam) + "</h13></div></div>");
-  }
-
-})
-
-$("#filterButton").click(function(){
-  var sortParam = $("#sortOption").find(":selected").text();
-  var filterParam = $("#filterOption").find(":selected").text();
-  var newDorms = [];
-  for(var i = 0; i<roomObjects.length; i++){ //Filter out the dorms with mismatching culture from the one requested
-    if(filterParam == roomObjects[i].getCulture()){
+    }else if(noFilterParam){ //if no filter parameter is selected, display results for all dorms
       newDorms.push(roomObjects[i]);
     }
   }
+
   if(sortParam == "Proximity to Study" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
+    console.log("if statement for sorting was entered");
     for(var n=0; n<newDorms.length; n++){
       for(var i=newDorms.length-1; i>0; i--){
-        if(newDorms[i].get(sortParam) > newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
+        if(newDorms[i].get(sortParam) < newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
           var temp = newDorms[i];
           newDorms[i] = newDorms[i-1];
           newDorms[i-1] = temp;
@@ -251,7 +223,13 @@ $("#filterButton").click(function(){
       }
     }
   }else{//Sort the list of dorms after filtering
+    console.log("else statement for sorting was entered");
     for(var n=0;n<newDorms.length; n++){
+      var debuggingString = ""
+      for(var j=0; j<newDorms.length; j++){
+        debuggingString = debuggingString + " " + newDorms[j].getDormName() + "-" + newDorms[j].get(sortParam);
+      }
+      console.log("array is " + debuggingString + " after " + n + "th iteration");
       for(var i=0;i<newDorms.length-1; i++){
         if(newDorms[i].get(sortParam) < newDorms[i+1].get(sortParam) || newDorms[i].get(sortParam) == undefined){
           var temp = newDorms[i];
@@ -270,6 +248,12 @@ $("#filterButton").click(function(){
     "<div class=\'name\'><h11>" + newDorms[i].getDormName() + "</h11></div>" + "<div class=\'overallscore\'><h13>" + newDorms[i].get(sortParam) + "</h13></div></div>");
   }
 
+})
+
+$("#filterButton").click(function(){
+    $("#sortButton").click();
+});
+
   //Need to add listener for if any of the dorms are clicked after they are filtered and displayed.
   $("#rankings").children().click(function(){
     currentDormSelected = $("#rankings > .ranking > .name > h11").text();
@@ -277,8 +261,6 @@ $("#filterButton").click(function(){
     $("#closeReviewNav").click();
   })
   //Need to close pop up and return to newly rendered information
-
-})
 
 function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, study, culture){
     this.dormName = dormName;

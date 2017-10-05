@@ -1,6 +1,6 @@
 var currentNumberOfRatings;
 var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
-"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes",
+"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes", "Granville",
 "Hardin", "Hinton James", "Horton", "Joyner", "Kenan", "Koury", "Lewis", "Mangum", "Manly",
 "McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
 "Winston", ];
