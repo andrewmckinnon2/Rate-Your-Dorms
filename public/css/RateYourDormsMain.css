@@ -18,6 +18,10 @@ body {
 select {
     font-size: 15px;
     font-weight: 600px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
 }
 
 #rankings{
@@ -35,13 +39,12 @@ select {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    min-height: 79px;
     width: 100%;
     background: #97C0E4;
     padding-left: 0px;
     position: fixed;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1)
-
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    height: 50px;
 }
 
 .signup {
@@ -106,7 +109,7 @@ select {
 
 
 .navlogo {
-    width: 150px;
+    width: 250px;
 }
 
 button {
@@ -142,7 +145,8 @@ h2 {
     color: white;
     font-size: 35px;
     text-align: center;
-    margin: .2em;
+    margin: .1em;
+    font-weight:500;
 }
 
 #homecontainer {
@@ -500,9 +504,9 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    padding-top: 75px;
+    padding-top: 63px;
     height: auto;
-    background-color: #f4f5f7;
+    background-color: #e5e9f1;
 }
 
 div.stars {
@@ -561,11 +565,11 @@ h4 {
 .reviewquestion {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 95%;
     align-self: center;
     background: white;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
 }
 
 
@@ -602,12 +606,11 @@ textarea {
 
 .reviewinfo {
     display: flex;
-    width: 85%;
+    width: 75%;
     flex-direction: column;
     margin-bottom: 1em;
     height: auto;
     background: white;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
 
 #submitcontainer {
@@ -626,17 +629,19 @@ textarea {
 }
 
 .dormmetrics {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    height: auto;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 575px;
+  background: white;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
 
 .commentcontainer {
     display: flex;
     width: 90%;
     flex-direction: row;
-    margin: 1em;
+    margin: 0.5em;
 }
 
 .commentrate {
@@ -670,7 +675,7 @@ h7 {
     font-size: 25px;
     font-weight:500;
     margin: .75em .5em;
-    color: grey;
+    color: white;
 }
 
 #hamburger {
@@ -922,17 +927,16 @@ h9 {
     flex-direction: row;
     justify-content: center;
     width: auto;
-    background: grey;
+    background: #63707f;
     height: auto;
     flex: 5;
-     border-right: solid 2px white;
-    border-bottom: solid 2px lightgrey;
+    border-right: solid 2px white;
 }
 
 p2 {
     display: inline-block;
     color: white;
-    font-weight: bold;
+    font-weight: regular;
     margin-top: .4em;
     margin-right: 1em;
     font-size: 15px;
@@ -967,7 +971,7 @@ h9 {
     width: auto;
     justify-content: flex-end;
     flex-direction: column;
- border-left: solid 2px lightgrey;
+ border-left: solid 1px lightgrey;
 
 }
 
@@ -1008,7 +1012,7 @@ h10 {
 }
 
 p3 {
-    color: grey;
+    color: #63707f;
     font-size: 15px;
     font-weight: bold;
 }
@@ -1024,11 +1028,11 @@ p3 {
 p4 {
     color: #97C0E4;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: regular;
 }
 
 p11 {
-    color: grey;
+    color: #63707f;
     margin: 0em .5em;
     font-weight: bold;
 }
@@ -1038,15 +1042,17 @@ p11 {
     width: 100%;
     flex-direction: row;
     justify-content: center;
-    background-color: white;
     flex-direction: row;
     max-height: 100%;
 }
 
 .comment {
-    width: 100%;
-    border-top: solid 1px lightgrey;
-    min-height: 150px;
+  width: 100%;
+  min-height: 150px;
+  background: white;
+  margin: .5em 0em;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  border-radius: 5px;
 }
 
 .tagscontainer {
@@ -1059,10 +1065,10 @@ p11 {
 
 .tagstitle {
     display: flex;
-    background: grey;
+    background: #63707f;
     min-width: 70px;
     border-right: solid 2px white;
-
+    border-radius: 5px 0px 0px;
 }
 
 .tag {
@@ -1075,7 +1081,7 @@ p11 {
 }
 
 .year {
-     background: lightgrey;
+     background: #63707f;
     min-width: 70px;
     border-right: solid 2px white;
     display: flex;
@@ -1086,7 +1092,7 @@ p11 {
 p5 {
     color: white;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: regular;
     margin: .5em;
 }
 
@@ -1172,8 +1178,8 @@ p5 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    border-top: solid 2px lightgrey;
-    border-bottom: solid 2px lightgrey;
+    border-top: solid 1px lightgrey;
+    border-bottom: solid 1px lightgrey;
 }
 
 #headercontainer {
@@ -1227,14 +1233,12 @@ p5 {
     border: none;
     height: auto;
     padding: 0px;
-    background: grey;
+    background: #63707f;
     flex: 1;
-    border-bottom: solid 2px lightgrey;
 }
 
 .locationbutton:hover {
     background: lightgrey;
-    border-bottom: solid 2px grey;
 }
 
 .locationicon {
@@ -1273,7 +1277,7 @@ p5 {
 }
 
 .box {
-    background: grey;
+    background: #63707f;
     min-width: 32px;
     min-height: 32px;
     display: flex;
@@ -1285,7 +1289,7 @@ p5 {
 p6 {
     display: inline-block;
     color: white;
-    font-weight: bold;
+    font-weight: regular;
     margin: .5em;
     font-size: 15px;
     text-align: center;
@@ -1338,7 +1342,7 @@ p6 {
 }
 
 .box4 {
-    border: solid 2px grey;
+    border: solid 2px #63707f;
     min-width: 20px;
     min-height: 20px;
     display: flex;
@@ -1351,7 +1355,7 @@ p8 {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    color: grey;
+    color: #63707f;
     font-weight: bold;
     margin: .3em;
     font-size: 10px;
@@ -1381,7 +1385,7 @@ p7 {
 }
 
 p9 {
-    color: grey;
+    color: #63707f;
     font-size: 15px;
 }
 
@@ -1392,7 +1396,7 @@ p9 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    margin: 1em .5em;
+    margin: 0 1em .5em;
 
 }
 
@@ -1458,6 +1462,7 @@ p9 {
 #dormsearch {
     width: 70%;
     height: 80%;
+    display:flex;
     background: white;
     flex-direction: column;
     justify-content: flex-start;
@@ -1491,11 +1496,10 @@ p9 {
 
 .rankingheader {
     width: 100%;
-    height: 10vh;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
-
 }
 
 .number {
@@ -1611,10 +1615,14 @@ h14 {
     #dormsearch {
         width: 100%;
     }
+
+    input[type=range] {
+        width: 40%;
+    }
 }
 
 #maincontain {
-    height: 500px;
+    height: 100%;
     padding-top: 70px;
     background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/bikes.JPG');
     background-size: cover;
@@ -1735,40 +1743,47 @@ p13 {
 }
 
 #dropdown {
-width: 100%;
-max-height: 245px;
-background: white;
-display: flex;
-flex-direction: column;
-align-self: center;
-border-top: solid lightgrey 1px;
-    background: #f4f5f7;
-    overflow-y: scroll;
+  width: 33.2%;
+  max-height: 245px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-top: solid #ececec 1px;
+      background: white;
+      overflow-y: scroll;
+     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+      border-radius: 0 0 5px 5px;
+      z-index: 1;
+      position: fixed;
+      margin-top: 33px;
 }
 
 #dropdowncontainer {
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-self: center;
+  z-index: 1;
+  margin-top: 5px;
 }
 
 .dropdowncontent {
     width: 100%;
     text-align: left;
-    box-shadow: 0px 1px 0px lightgrey;
+    box-shadow: 0px 1px 0px #ececec;
 }
 
 p14 {
    text-align: left;
     font-size: 15px;
     font-weight: 500;
-    color: black;
+    color: #63707f;
     display: flex;
     flex-direction: column;
     align-self: center;
-    margin: .5em;
+    margin: .75em;
 }
 
 .dropdowncontent {
@@ -1851,9 +1866,50 @@ p14:hover {
 
 }
 
+#headersearch {
+    height: 33px;
+    border: none;
+    padding:0px;
+    border-radius: 0 5px 5px 0;
+}
+
+#headersearch, textarea {
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#searchtype{
+    width: 45px;
+     -webkit-appearance: none;
+    background: #63707f;
+    border-radius: 0px;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+#writerev:hover {
+    border-bottom: solid 2px white;
+    cursor: default;
+}
+
+#headersearch[type=text] {
+    width: 160px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+#headersearch[type=text]:focus {
+    width: 100%;
+}
 
 .stepHeader {
-  background: grey;
+  background: #63707f;
   width: 100%;
   display: flex;
   justify-content: center;

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <link rel="stylesheet" href="RateYourDormsMain.css">
+    <link rel="stylesheet" href="../css/RateYourDormsMain.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
@@ -22,12 +22,12 @@ $(document).ready(function(){
     $("#hamburger").click(function(){
         $("#mobilepopup").show();
     });
-    
+
     $("#exitMobilePopup").click(function(){
         console.log("button presed");
         $("#mobilepopup").hide();
     })
-    
+
     /*$("#hamburger").click(function() {
     var this = $("#mobilepopup");
     if (this.hasClass("clicked-once")) {
@@ -44,25 +44,52 @@ $(document).ready(function(){
 </head>
 <body>
 <div class="main">
-        <div id="logobar">
-            <div class="socialmedia">
-                <button style="width: 130px; background-color: grey; border-color: grey; color;white;">Write a Review</button>
-                <div id="socialicons">
-                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                </div>
-            </div>
-            <div id="logo">
-                <a href="#"><img id="navlogo" class="navlogo" src="rateyourdorms.png" ></a>
-            </div>
-            <div class="signup">
-                <!--div><button type="button" class="loginsignup" style="border:none;"  onclick="document.getElementById('id01').style.display='flex'">Login</button></div-->
-                <div><button style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find A Dorm</button>
-                </div>
-            </div>
-            <div id="hamburgercontainer"><img id="hamburger" src="hamburger.png"></div>
-        </div>
+  <div id="logobar">
+              <div id="logo">
+                  <a href="#"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
+              </div>
+              <div class="socialmedia">
+                  <div id="dropdowncontainer">
+              <div style="display: flex; width: 100%; flex-direction: row;">
+                  <select id="searchtype">
+                          <option>Dorm</option>
+                          <option>School</option>
+                      </select>
+                  <input type="text" placeholder="Find a dorm..." id="headersearch">
+
+                  </div>
+              <div id="dropdown">
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+
+              </div>
+              </div>
+              </div>
+              <div class="signup">
+                  <div id="socialicons"><p6 id="writerev">Write a Review</p6></div><div id="socialicons"><p6>|</p6></div>
+                  <div id="socialicons">
+                  <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                  <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                  <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                  </div>
+                  <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+              </div>
+          </div>
         <div id="legal">
             <p3>
             <div id="viewmore2"><h3>Rate Your Dorms Terms of Service</h3></div>
@@ -89,7 +116,7 @@ You are responsible for your use of the Services and for any Content you provide
 Any use or reliance on any Content or materials posted via the Services or obtained by you through the Services is at your own risk. We do not endorse, support, represent or guarantee the completeness, truthfulness, accuracy, or reliability of any Content or communications posted via the Services or endorse any opinions expressed via the Services. You understand that by using the Services, you may be exposed to Content that might be offensive, harmful, inaccurate or otherwise inappropriate, or in some cases, postings that have been mislabeled or are otherwise deceptive. All Content is the sole responsibility of the person who originated such Content. We may not monitor or control the Content posted via the Services and, we cannot take responsibility for such Content.
 
 Your Rights
-You retain your rights to any Content you submit, post or display on or through the Services. 
+You retain your rights to any Content you submit, post or display on or through the Services.
 By submitting Content on or through the Services, you grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such Content in any and all media or distribution methods (now known or later developed). This license authorizes us to make your Content available to the rest of the world and to let others do the same. You agree that this license includes the right for Rate Your Dorms to provide, promote, and improve the Services and to make Content submitted to or through the Services available to other companies, organizations or individuals for the syndication, broadcast, distribution, promotion or publication of such Content on other media and services, subject to our terms and conditions for such Content use. Such additional uses by Rate Your Dorms, or other companies, organizations or individuals, may be made with no compensation paid to you with respect to the Content that you submit, post, transmit or otherwise make available through the Services.
 
 4. Using the Services
@@ -101,7 +128,7 @@ Your Account
 You may need to create an account to use some of our Services. You are responsible for safeguarding your account, so use a strong password and limit its use to this account. We cannot and will not be liable for any loss or damage arising from your failure to comply with the above.
 
 Ending These Terms
-You may end your legal agreement with Rate Your Dorms at any time by deactivating your account and discontinuing your use of the Services. We may suspend or terminate your account or cease providing you with all or part of the Services at any time for any or no reason, including, but not limited to, if we reasonably believe: (i) you have violated these Terms or the Rate Your Dorms Site Guidelines, (ii) you create risk or possible legal exposure for us; (iii) your account should be removed due to prolonged inactivity; or (iv) our provision of the Services to you is no longer commercially viable. We will make reasonable efforts to notify you by the email address associated with your account or the next time you attempt to access your account, depending on the circumstances. 
+You may end your legal agreement with Rate Your Dorms at any time by deactivating your account and discontinuing your use of the Services. We may suspend or terminate your account or cease providing you with all or part of the Services at any time for any or no reason, including, but not limited to, if we reasonably believe: (i) you have violated these Terms or the Rate Your Dorms Site Guidelines, (ii) you create risk or possible legal exposure for us; (iii) your account should be removed due to prolonged inactivity; or (iv) our provision of the Services to you is no longer commercially viable. We will make reasonable efforts to notify you by the email address associated with your account or the next time you attempt to access your account, depending on the circumstances.
 
 5. Rate Your Dorms Site Guidelines
 Please review the following guidelines before posting a rating and/or comment on the Site:
@@ -142,7 +169,7 @@ TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE RATE YOUR DORMS ENTITIES 
 
             </p3>
         </div>
- 
+
 </div>
    <div class="footer">
             <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
@@ -164,10 +191,7 @@ TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE RATE YOUR DORMS ENTITIES 
                 </div>
             </div-->
     </div>
-    
+
 </body>
-    
+
 </html>
-    
-    
-    

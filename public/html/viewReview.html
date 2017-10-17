@@ -1,11 +1,12 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/RateYourDormsMain.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title>Rate Your Dorms</title>
     <script>
@@ -55,24 +56,52 @@ $(document).ready(function(){
 <body>
 <div class="main">
   <div id="logobar">
-              <div class="socialmedia">
-                  <div><button class="respond"style="width: 130px;" type="button" class="loginsignup" onclick="document.getElementById('findadorm').style.display='flex'">Find a Dorm</button>
-                  </div>
-                  <img id="barsearch" src="../images/glasswhite.png">
-              </div>
               <div id="logo">
-                  <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/rydlogo.png" ></a>
+                  <a href="#"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
               </div>
-        <div class="signup">
-              <button id="writeReview" class="respond" style="width: 130px; border-color:white; " class="loginsignup">Write a Review</button>
-              <div id="socialicons">
-                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+              <div class="socialmedia">
+                  <div id="dropdowncontainer">
+              <div style="display: flex; width: 100%; flex-direction: row;">
+                  <select id="searchtype">
+                          <option>Dorm</option>
+                          <option>School</option>
+                      </select>
+                  <input type="text" placeholder="Find a dorm..." id="headersearch">
+
+                  </div>
+              <div id="dropdown">
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+
               </div>
-            <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
-        </div>
-    </div>
+              </div>
+              </div>
+              <div class="signup">
+                  <div id="socialicons"><p6 id="writerev">Write a Review</p6></div><div id="socialicons"><p6>|</p6></div>
+                  <div id="socialicons">
+                  <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                  <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                  <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                  </div>
+                  <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+              </div>
+          </div>
+
  <div id="findadorm" class="modal">
                   <div class="mapcontent animate">
                       <div id="dormsearch">
@@ -197,6 +226,7 @@ $(document).ready(function(){
   </form>
 </div>
 <div id=reviewcontainer>
+  <div style="width: 40%; height: 100%; display: flex; flex-direction: row; justify-content: center;">
     <div class="dormmetrics">
         <div id="maininfo">
             <div id="fixwidth">
@@ -296,6 +326,7 @@ $(document).ready(function(){
             <div></div>
             <div></div>
         </div-->
+      </div>
     </div>
     <div id="writereview">
         <div id="id03" class="modal">
