@@ -5,6 +5,9 @@ $("#writeReview").click(function(){
   window.location="../html/writeReview.html";
 })
 
+$("#dropdown").hide();
+$("#dropdown").empty();
+
 //Class to be placed into arrays, holding average ratings for the various facets of a dorm
 //Need to add getters for this class
 
@@ -20,8 +23,15 @@ for(var i=0; i<dormNames.length; i++){
   "<div class=\'name\'><h11>" + dormNames[i] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
 }
 
+//Get dorm name and render appropriate information.
+var currentDormSelected = $(".dormtitle").children("h2").html().toLowerCase();
+for(var i=0; i<dormNames.length; i++){
+  if(dormNames[i].toLowerCase() == currentDormSelected){
+    currentDormSelected = dormNames[i];
+  }
+}
 
-var currentDormSelected = "Alderman"
+console.log(currentDormSelected);
 $("#reviewHolder").empty();
 getCurrentInfo();
 
@@ -373,3 +383,61 @@ function getSortedCultures(arr){//array of reviewObjects; this will sort the arr
   return arr2;
 
 }
+
+$("#writerev").click(function(){
+  window.location = "../writeReview.html";
+})
+
+
+//Managing search bar navigation
+$("#headersearch").keyup(function(event){
+  $("#dropdown").show();
+  var keyPress;
+  if(window.event){//IE
+    keyPress = event.which;
+  }else{keyPress = event.keyCode;}
+
+  if(keyPress == 13){//If enter button is pressed either redirect to top match, or print error.
+    if(currentOptions.length == 0){
+      console.log("no matches with our dorm");
+    }else{
+      console.log("redirect to " + currentOptions[0] + " review page");
+    }
+  }else{
+    $("#dropdown").empty();
+    currentOptions = [];
+  }
+
+  var userInput = $("#headersearch").val();
+  //Get dorms that match the current query in the search bar entered by user
+  for(var i=0; i<dormNames.length; i++){
+    if(userInput.length>dormNames[i].length){
+      continue;
+    }
+
+
+    if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
+      currentOptions.push(dormNames[i]);
+      $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+
+      //console.log(dormNames[i]);
+    }
+
+  }
+})
+
+$(document).on("mousedown", "div.dropdowncontent", function(){
+  $("#logobar").focus();
+  console.log("captured dropdowncontent event");
+  var dormName = $(this).children("p14").html().replace("- UNC", "");
+  window.location = dormName + ".html";
+})
+
+$("#logobar").focusout(function(){
+  $("#dropdown").hide();
+  $("#headersearch").val("");
+  /**if(!($(".dropdowncontent").is(":focus"))){
+    $("#dropdown").hide();
+    console.log("inside of if statement for focus out");
+  }*/
+})

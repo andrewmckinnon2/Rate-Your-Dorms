@@ -1,37 +1,11 @@
-var dormNames = [];
-$(document).ready(function(){
-  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snap){
-    dormNames.push(snap.key);
-  })
+$("#writerev").click(function(){
+  window.location = "../writeReview.html";
 })
 $("#dropdown").hide();
 $("#dropdown").empty();
 
-$("#writeReview").click(function(){
-  window.location="html/writeReview.html"
-  console.log('event fired');
-})
-
-$("#searchbar").click(function(){
-  for(var i=0; i<dormNames.length; i++){
-    //console.log(dormNames[i]);
-  }
-})
-
-$("#findADorm").click(function(){
-  window.location="html/Landingpage.html";
-})
-
-$("#contactUs").click(function(){
-  window.location = "html/contact.html";
-})
-
-$("#writerev").click(function(){
-  window.location = "html/writeReview.html";
-})
-
-var currentOptions = [];
-$("#searchbar").keyup(function(event){
+//Managing search bar navigation
+$("#headersearch").keyup(function(event){
   $("#dropdown").show();
   var keyPress;
   if(window.event){//IE
@@ -49,7 +23,7 @@ $("#searchbar").keyup(function(event){
     currentOptions = [];
   }
 
-  var userInput = $("#searchbar").val();
+  var userInput = $("#headersearch").val();
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
     if(userInput.length>dormNames[i].length){
@@ -71,11 +45,12 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
   console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace("- UNC", "");
-  window.location = "html/dorms/" + dormName + ".html";
+  window.location = "dorms/" + dormName + ".html";
 })
 
 $("#logobar").focusout(function(){
   $("#dropdown").hide();
+  $("#headersearch").val("");
   /**if(!($(".dropdowncontent").is(":focus"))){
     $("#dropdown").hide();
     console.log("inside of if statement for focus out");
