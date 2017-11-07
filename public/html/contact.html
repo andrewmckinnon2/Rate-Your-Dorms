@@ -28,17 +28,6 @@ $(document).ready(function(){
         $("#mobilepopup").hide();
     })
 
-    /*$("#hamburger").click(function() {
-    var this = $("#mobilepopup");
-    if (this.hasClass("clicked-once")) {
-        // already been clicked once, hide it
-        this.hide();
-        this.removeClass("clicked-once");
-    }
-    else {
-        // first time this is clicked, mark it
-        this.addClass("clicked-once");
-    }*/
 });
 </script>
 </head>
@@ -46,7 +35,7 @@ $(document).ready(function(){
 <div class="main">
   <div id="logobar">
               <div id="logo">
-                  <a href="#"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
+                  <a href="index.html"><img id="navlogo" class="navlogo" src= "../images/RateYourDormsVertical.png" ></a>
               </div>
               <div class="socialmedia">
                   <div id="dropdowncontainer">
@@ -55,37 +44,19 @@ $(document).ready(function(){
                           <option>Dorm</option>
                           <option>School</option>
                       </select>
-                  <input type="text" placeholder="Find a dorm..." id="headersearch">
+                  <input type="text" placeholder="Find a dorm..." id="searchbar">
 
                   </div>
-              <div id="dropdown">
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
-
-              </div>
+                  <div id="dropdown">
+                  </div>
               </div>
               </div>
               <div class="signup">
                   <div id="socialicons"><p6 id="writerev">Write a Review</p6></div><div id="socialicons"><p6>|</p6></div>
                   <div id="socialicons">
-                  <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                  <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                  <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
+                    <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
                   </div>
                   <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
               </div>
@@ -100,19 +71,19 @@ $(document).ready(function(){
                     <p3>Name*</p3>
                 </div>
                 <div class="contactfeild">
-                    <input autofocus="" type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4;">
+                    <input id="name" autofocus="" type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4;">
                 </div>
                  <div class="contactlabel">
                     <p3>Email Address*</p3>
                 </div>
                  <div class="contactfeild">
-                    <input autofocus="" type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4;">
+                    <input id="emailAddress" autofocus="" type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4;">
                 </div>
                 <div class="contactlabel">
                     <p3>Message*</p3>
                 </div>
                  <div class="contactfeild">
-                   <textarea style="border: solid 2px #97C0E4; width: 100%; margin: 8px 0px;" rows="10" cols="100" onclick="clearText(this)">Message...
+                   <textarea id="messageField" style="border: solid 2px #97C0E4; width: 100%; margin: 8px 0px;" rows="10" cols="100">Message...
                     </textarea>
                 </div>
                  <div class="contactfeild">

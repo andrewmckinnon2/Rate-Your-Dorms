@@ -67,6 +67,14 @@ $("#searchbar").keyup(function(event){
   }
 })
 
+$("#searchbar").click(function(){
+  $(this).attr("placeholder", "");
+  $("#dropdown").show();
+  for(var i=0; i<dormNames.length; i++){
+    $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "-UNC</p14></div>");
+  }
+})
+
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
   console.log("captured dropdowncontent event");
@@ -76,6 +84,7 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 
 $("#logobar").focusout(function(){
   $("#dropdown").hide();
+  $("#searchbar").attr("placeholder", "Find a dorm...");
   /**if(!($(".dropdowncontent").is(":focus"))){
     $("#dropdown").hide();
     console.log("inside of if statement for focus out");
