@@ -85,7 +85,7 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 $("#logobar").focusout(function(){
   $("#dropdown").hide();
   $("#searchbar").attr("placeholder", "Find a dorm...");
-  /**if(!($(".dropdowncontent").is(":focus"))){
+  /**if(!($("#dropdowncontent").is(":focus"))){
     $("#dropdown").hide();
     console.log("inside of if statement for focus out");
   }*/

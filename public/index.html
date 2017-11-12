@@ -1,32 +1,33 @@
- <!doctype html>
+<!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <link rel="stylesheet" href="css/RateYourDormsMain.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<title>Rate Your Dorms</title>
-    <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
+   <meta name="viewport" content="width=device-width, initial-scale=1"-->
+   <link rel="stylesheet" href="css/RateYourDormsMain.css">
+   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <title>Rate Your Dorms</title>
+   <script>
+       // Get the modal
+       var modal = document.getElementById('id01');
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+       // When the user clicks anywhere outside of the modal, close it
+       window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
 $(document).ready(function(){
-    $("#hamburger").click(function(){
-        $("#mobilepopup").show();
-    });
+   $("#hamburger").click(function(){
+       $("#mobilepopup").show();
+   });
 
-    $("#exitMobilePopup").click(function(){
-        console.log("button presed");
-        $("#mobilepopup").hide();
-    })
+   $("#exitMobilePopup").click(function(){
+       console.log("button presed");
+       $("#mobilepopup").hide();
+   })
 });
 </script>
 </head>
@@ -34,182 +35,201 @@ $(document).ready(function(){
 <div class="main">
   <div id="logobar">
               <div id="logo">
-                  <a href="index.html"><img id="navlogo" class="navlogo" src= "images/RateYourDormsVertical.png" ></a>
+                  <a href="index.html"><img id="navlogo" class="navlogo" src="images/RateYourDormsVertical.png" ></a>
               </div>
               <div class="socialmedia">
                   <div id="dropdowncontainer">
-              <div style="display: flex; width: 100%; flex-direction: row;">
+              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                  <input type="text" placeholder="Search..." id="searchbar">
+                   <div id="barcontain">
                   <select id="searchtype">
                           <option>Dorm</option>
                           <option>School</option>
                       </select>
-                  <input type="text" placeholder="Find a dorm..." id="searchbar">
+                    </div>
+                  <div id="searchbutton">
+                      <img src="images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                  </div>
 
                   </div>
-              <div id="dropdown">
+                    <div id="dropdown">
+                      <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+
+                    </div>
+
               </div>
-              </div>
+                 <div id="hamburgercontainer"><img id="hamburger" src="images/searchicon.png"></div>
+                <div id="hamburgercontainer"><img id="hamburger" src="images/reviewwhite.png"></div>
               </div>
               <div class="signup">
-                  <div id="socialicons"><p6 id="writerev">Write a Review</p6></div><div id="socialicons"><p6>|</p6></div>
                   <div id="socialicons">
                   <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
                   <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
                   <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
                   </div>
-                  <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+                  <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
               </div>
           </div>
-
 <div id="mobilepopup">
-    <span class="close" id="exitMobilePopup" title="Close Modal">&times;</span>
-    <div id="mobilemenu">
-        <h7>WRITE A REVIEW</h7>
-        <h7>READ A REVIEW</h7>
-        <h7>ABOUT</h7>
-        <h7>LEGAL</h7>
-        <h7>CONTACT</h7>
+    <div style="width: 100%;height: 100%; z-index:1; background: #e5e9f1;">
+             <div id="mobiledropdowncontainer">
+              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                  <input type="text" placeholder="Search..." id="searchbar">
+                   <div id="barcontain">
+                  <select id="searchtype">
+                          <option>Dorm</option>
+                          <option>School</option>
+                      </select>
+                    </div>
+                  <div id="searchbutton">
+                      <span id="closepop">&times;</span>
+                  </div>
+
+                  </div>
+              <div id="dropdown">
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+
+              </div>
+              </div>
     </div>
 </div>
-        <div class="bottom">
-          <div id="dropdowncontainer">
-          </div>-->
-          </div>
-        </div>
+       <div class="bottom">
+           <div style="display: flex; flex-direction: column;margin-top: 6em;">
+           <div class="teamcenter" style="margin-bottom: 2em;">
+           <h3 style="color: white;">Write a review for your school today</h3>
+           </div>
+            <div class="teamcenter">
+           <button class="submit" id="writeAReviewCenter" style="border: #97C0E4; margin-right:5px;">Write a Review</button>
+           <button class="submit" id="ViewSchoolOverviewCenter" style="border: #97C0E4; margin-left:5px">UNC Dorms</button>
+           </div>
+           </div>
+       </div>
+
 
 <div id="id01" class="modal">
 
-  <form class="modal-content animate" action="/action_page.php">
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="images/RateYourDormBlack.png" class="popuplogo">
-    </div>
+ <form class="modal-content animate" action="/action_page.php">
+   <div class="imgcontainer">
+     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+     <img src="images/RateYourDormBlack.png" class="popuplogo">
+   </div>
 
-    <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+   <div class="container">
+     <label><b>Username</b></label>
+     <input type="text" placeholder="Enter Username" name="uname" required>
 
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+     <label><b>Password</b></label>
+     <input type="password" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
-    </div>
+     <button type="submit">Login</button>
+     <input type="checkbox" checked="checked"> Remember me
+   </div>
 
-    <div class="container" style="background-color:#f1f1f1">
-       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-  </form>
+   <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+     <span class="psw">Forgot <a href="#">password?</a></span>
+   </div>
+ </form>
 </div>
 
-    <div class="infographic">
-        <div id="read">
+   <div class="infographic">
+       <div id="read">
+           <div class="iconcontainer">
+               <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/read.png">
+           </div>
+           <div class="infoheading"><h3>Read.</h3></div>
+           <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
+           <div class="infobody"><p>Hear what student’s have to say about their dorm experience.</p></div>
+       </div>
+       <div id="review">
             <div class="iconcontainer">
-                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/read.png">
-            </div>
-            <div class="infoheading"><h3>Read.</h3></div>
-            <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
-            <div class="infobody"><p>Hear what student’s have to say about their dorm experience.</p></div>
-        </div>
-        <div id="review">
-             <div class="iconcontainer">
-                <img style="width: 63px; height: 70px; margin: .75em;" class="" src="images/review.png">
-            </div>
-            <div class="infoheading"><h3>Review.</h3></div>
-            <div class="infobody"><p>Tell incoming students what to expect from their dorms.</p></div>
+               <img style="width: 63px; height: 70px; margin: .75em;" class="" src="images/review.png">
+           </div>
+           <div class="infoheading"><h3>Review.</h3></div>
+           <div class="infobody"><p>Tell incoming students what to expect from their dorms.</p></div>
 
-        </div>
-        <div id="livebetter">
-             <div class="iconcontainer">
-                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/livebetter.png">
-            </div>
-            <div class="infoheading"><h3>Live Better.</h3></div>
-            <div class="infobody"><p>Enjoy a healthy, happy, and prosperous year living on campus.</p></div>
-        </div>
-    </div>
-    <div id="theteam">
-        <div id="teamheader">
-            <h3 style="margin-top: .5em;color: white;">ABOUT</h3>
-        </div>
-        <div id="teamheader">
-            <div class="barline" style="background: white;"></div>
-        </div>
-        <div id="teamheader">
-            <div style="width: 70%; text-align: center;">
-            <p style="color:white;">Rate Your Dorms was conceptualized in January of 2017 by two first year students. While in a study room of Ehinghaus dorm, the two students discussed the various needs of other first year students. The most common complaint of our peers was the first year living situation and the lack of information. It is now our mission to provide students the information they need on campus dorms to live a happy and healthy college career.
-            </p>
-            </div>
-        </div>
-        <div class="bottomcontainer">
-        <button style="border: #97C0E4" id="contactUs">Contact Us</button>
-        </div>
-    </div>
-    </div>
-    <div class="inputcenter"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
-    <div class="inputcenter">
-        <div class="barline"></div>
-    </div>
-    <div class="infographic">
-        <div id="read">
+       </div>
+       <div id="livebetter">
             <div class="iconcontainer">
-                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/jasper.jpg">
-            </div>
-            <div class="infoheading"><h11>Jasper Brindis</h11></div>
-            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
-            <div class="infobody2"><p13>Jasper is a Sophomore at UNC, studiny business. He enjoys piano, soccer, and BIG numbers.</p13></div>
-        </div>
-          <div id="read">
-            <div class="iconcontainer">
-                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewm.jpg">
-            </div>
-            <div class="infoheading"><h11>Andrew Mckinnon</h11></div>
-            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
-            <div class="infobody2"><p13>Andrew is a sophomore at UNC studying Computer Science and Business. He is an avid soccer fan, and loves to spend time grubbin on good food with good people.</p13></div>
-        </div>
-          <div id="read">
-            <div class="iconcontainer">
-                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewl.png">
-            </div>
-            <div class="infoheading"><h11>Andrew Lee</h11></div>
-            <div class="infobody2"><p12  style="margin: .5em;">Co-Founder & CEO</p12></div>
-            <div class="infobody2"><p13>Andrew is a Junior at UNC, studying business. He enjoys searching for cute food truck spots in Chapell Hill in his free time.</p13></div>
-        </div>
-    </div>
-    <div class="footer">
-            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
-            <div id="list">
-                    <li>Contact</li>
-                    <li>|</li>
-                    <li>Legal</li>
-                    <li>|</li>
-                    <li>About</li>
-            </div>
-            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
-            <!--div id=footersocialcontainer>
-                <div id="footersocial">
-                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                </div>
-            </div-->
-    </div>
+               <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/livebetter.png">
+           </div>
+           <div class="infoheading"><h3>Live Better.</h3></div>
+           <div class="infobody"><p>Enjoy a healthy, happy, and prosperous year living on campus.</p></div>
+       </div>
+   </div>
+   <div id="theteam">
+       <div id="teamheader">
+           <h3 style="margin-top: .5em;color: white;">ABOUT</h3>
+       </div>
+       <div id="teamheader">
+           <div class="barline" style="background: white;"></div>
+       </div>
+       <div id="teamheader">
+           <div style="width: 70%; text-align: center;">
+           <p style="color:white;">Rate Your Dorms was conceptualized in January of 2017 by two first year students. While in a study room of Ehinghaus dorm, the two students discussed the various needs of other first year students. The most common complaint of our peers was the first year living situation and the lack of information. It is now our mission to provide students the information they need on campus dorms to live a happy and healthy college career.
+           </p>
+           </div>
+       </div>
+       <div class="bottomcontainer">
+       <button style="border: #97C0E4" class="submit">Contact Us</button>
+       </div>
+   </div>
+   <div class="teamcenter"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
+   <div class="teamcenter">
+       <div class="barline"></div>
+   </div>
+   <div class="infographic">
+       <div id="read">
+           <div class="iconcontainer">
+               <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/jasper.jpg">
+           </div>
+           <div class="infoheading"><h11>Jasper Brindis</h11></div>
+           <div class="infobody2"><p12  style="margin: .5em;">Business Development</p12></div>
+           <div class="infobody2"><p13>Jasper Brindis is a sophomore studying Business at The University of North Carolina at Chapel Hill. He is from Cary, North Carolina. Jasper leads business development and is a HUGE numbers guy. In his free time, Jasper enjoys chess and banging on piano keys.</p13></div>
+       </div>
+         <div id="read">
+           <div class="iconcontainer">
+               <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewm.jpg">
+           </div>
+           <div class="infoheading"><h11>Andrew Mckinnon</h11></div>
+           <div class="infobody2"><p12  style="margin: .5em;">Back-end Development</p12></div>
+           <div class="infobody2"><p13>Andrew is a sophomore studying Computer Science at The University of North Carolina at Chapel Hill. He is from Greenville, North Carolina. Andrew leads back end web development and helps curate business strategies. Andrew is an avid soccer fan, and enjoys spending time with his friends and family.</p13></div>
+       </div>
+         <div id="read">
+           <div class="iconcontainer">
+               <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/andrewl.png">
+           </div>
+           <div class="infoheading"><h11>Andrew Lee</h11></div>
+           <div class="infobody2"><p12  style="margin: .5em;">Front-End Development</p12></div>
+           <div class="infobody2"><p13>Andrew is a junior at studying Business at The University of North Carolina at Chapel Hill. He is from Cary, North Carolina. Andrew leads front end web development and creates marketing materials. Andrew loves rapping to fresh beats and finding cute food truck stops around campus.
+</p13></div>
+       </div>
+   </div>
+    <div class="footer" style=" flex-shrink: 0;">
+           <div id="list">
+                   <li>Contact</li>
+                   <li style="text-decoration:none;">|</li>
+                   <li>Legal</li>
+                   <li style="text-decoration:none;">|</li>
+                   <li>About</li>
+           </div>
+
+   </div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 <script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
-    authDomain: "rate-your-dorms.firebaseapp.com",
-    databaseURL: "https://rate-your-dorms.firebaseio.com",
-    projectId: "rate-your-dorms",
-    storageBucket: "",
-    messagingSenderId: "440378393666"
-  };
-  firebase.initializeApp(config);
+ // Initialize Firebase
+ var config = {
+   apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+   authDomain: "rate-your-dorms.firebaseapp.com",
+   databaseURL: "https://rate-your-dorms.firebaseio.com",
+   projectId: "rate-your-dorms",
+   storageBucket: "",
+   messagingSenderId: "440378393666"
+ };
+ firebase.initializeApp(config);
 </script>
 <script src="javascript/index.js"></script>
-
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-html {
+searchbarhtml {
     padding: 0;
     margin: 0;
 	height:100%;
@@ -10,7 +10,7 @@ html {
 body {
     padding: 0;
     margin: 0;
-	  height:100%;
+	  height:auto;
     width: 100%;
     font-family: helvetica, neue, sans-serif;
 }
@@ -18,10 +18,7 @@ body {
 select {
     font-size: 15px;
     font-weight: 600px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    appearance: none;
+    outline: none;
 }
 
 #rankings{
@@ -45,15 +42,9 @@ select {
     position: fixed;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
     height: 50px;
+    z-index: 1;
 }
 
-.signup {
-    display: flex;
-    flex-wrap: wrap;
-    flex: 2;
-    justify-content: center;
-    flex-direction: row;
-}
 
 #logo {
     display: flex;
@@ -89,9 +80,9 @@ select {
     background-repeat: no-repeat;
     width: 100%;
     height: 450px;
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 79px;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 
@@ -122,6 +113,8 @@ button {
     font-family: helvetica neue;
     text-align: center;
     min-width:100px;
+    border-radius: 5px;
+    outline: none;
 }
 
 .loginsignup:hover {
@@ -158,7 +151,8 @@ h2 {
 }
 
 .fa {
-    padding: 10px;
+    padding-top: 15px;
+    padding-right: 30px;
     width: 20px;
     text-align: center;
     text-decoration: none;
@@ -186,6 +180,7 @@ input[type=text], input[type=password] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size:16px;
+    outline: none;
 }
 
 /* Extra styles for the cancel button */
@@ -280,6 +275,15 @@ span.psw {
     .cancelbtn {
        width: 100%;
     }
+    .navlogo {
+        width: 220px
+    }
+}
+
+@media screen and (max-width: 350px) {
+     .navlogo {
+        width: 220px
+    }
 }
 
 .infographic {
@@ -288,6 +292,8 @@ span.psw {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 90%;
+    align-self: center;
 }
 
 @media only screen and (max-width: 600px) {
@@ -336,11 +342,10 @@ span.psw {
 }
 .footer {
     width: 100%;
-    min-height: 100px;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     background: black;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 
@@ -387,10 +392,11 @@ h3 {
     font-weight: bold;
     font-size: 35px;
     margin: 0px;
+    text-align: center;
 }
 
 p {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .infoheading {
@@ -462,7 +468,12 @@ p {
 }
 
 li {
-    padding-top: 40px;
+    margin: 25px 0px;
+}
+
+li:hover {
+    text-decoration: underline;
+    cursor: default;
 }
 
 .footerlogo {
@@ -503,7 +514,7 @@ li {
 #reviewcontainer {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding-top: 63px;
     height: auto;
     background-color: #e5e9f1;
@@ -555,9 +566,9 @@ h5 {
 }
 
 h4 {
-    color: grey;
+    color: #63707f;
     display: flex;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     margin: .5em;
 }
@@ -565,11 +576,12 @@ h4 {
 .reviewquestion {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 97%;
     align-self: center;
     background: white;
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
     margin-bottom: 0.5em;
+    border-radius: 5px 5px 5px 5px;
 }
 
 
@@ -591,9 +603,8 @@ h6 {
     color: black;
     font-weight: 1200;
     font-size: 12px;
-    margin: .25em;
+    margin: 0 0 .25em 0;
     display: flex;
-    padding-left: 20px;
 }
 
 textarea {
@@ -602,15 +613,18 @@ textarea {
     font-family: helvetica neue;
     font-size: 15px;
     color: grey;
+    outline: none;
 }
 
 .reviewinfo {
     display: flex;
-    width: 75%;
+    width: 95%;
     flex-direction: column;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     height: auto;
     background: white;
+    border-radius: 5px 5px 5px 5px;
+    align-self: center;
 }
 
 #submitcontainer {
@@ -626,29 +640,33 @@ textarea {
     justify-content: center;
     width: 100%;
     box-shadow: 0px 1px 0px lightgrey;
+    border-radius: 0 0 5px 5px;
 }
 
 .dormmetrics {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  height: 575px;
+  width: 92%;
+  height: fit-content;
   background: white;
   box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-bottom: 1em;
 }
 
 .commentcontainer {
     display: flex;
     width: 90%;
-    flex-direction: row;
-    margin: 0.5em;
+    flex-direction: column;
+    margin: .5em .5em .5em 2em;
+
 }
 
 .commentrate {
     display: flex;
     width: auto;
     justify-content: flex-start;
-    flex-direction: column;
+    flex-direction: row;
 
 }
 
@@ -674,16 +692,41 @@ h7 {
     text-align: center;
     font-size: 25px;
     font-weight:500;
-    margin: .75em .5em;
-    color: white;
+    margin: 0 0 .5em 0;
+    color: #63707f;
+    font-weight: bold;
 }
 
 #hamburger {
     display: none;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+    padding: .5em;
 }
 
+.signup {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 2;
+    justify-content: flex-end;
+    flex-direction: row;
+    height: 100%;
+}
+
+#dropdown {
+  width: 33.33%;
+  max-height: 245px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+      background: white;
+      overflow-y: scroll;
+     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+      border-radius: 0 0 5px 5px;
+      z-index: 1;
+    position: fixed;
+    margin-top: 33px;
+}
 
 @media only screen and (max-width: 907px) {
     #socialicons {
@@ -693,12 +736,35 @@ h7 {
     #container3 {
         display: none;
     }
+    .signup {
+        flex: 1;
+    }
+    .socialmedia {
+        flex: 3;
+    }
+     #dropdown {
+        width: 50%;
+    }
 }
+
+@media screen and (max-width: 825px) {
+    .signup {
+        display: none;
+    }
+    .socialmedia {
+        margin: 0 .5em 0 0;
+    }
+    #dropdown {
+        width: 100%;
+        margin-right: 10px;
+    }
+
+}
+
 
 
 input[type=range] {
   -webkit-appearance: none;
-  width: 20%;
   background: transparent;
 }
 
@@ -780,14 +846,14 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     width: 100%;
 }
 
-#submit:hover {
+.submit:hover {
     background: lightgrey;
 }
 
 
-input[type=checkbox] {
+/*input[type=checkbox] {
 	visibility: hidden;
-}
+}*/
 
 .checkboxFour {
 	width: 20px;
@@ -820,12 +886,21 @@ input[type=checkbox] {
 }
 
 h8 {
-    margin: 0 .5em;
-    font-size: 17px;
-    color: black;
+        text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    margin: .1em 1em;
+    color: white;
 }
 
 .inputcenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.teamcenter {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -834,14 +909,13 @@ h8 {
 #mobilepopup {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 0;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: white;
-    padding-top: 40px;
+    padding-top: 50px;
 }
 
 
@@ -887,9 +961,7 @@ h8 {
     justify-content: center;
 }
 
-#hamburger:hover {
-    opacity: .6;
-}
+
 
 
 
@@ -931,6 +1003,7 @@ h9 {
     height: auto;
     flex: 5;
     border-right: solid 2px white;
+    border-radius: 5px 0px 0px 0px;
 }
 
 p2 {
@@ -993,7 +1066,7 @@ p1 {
 #dormmain {
     display: flex;
     flex-direction: row;
-    margin: .5em 0em;
+    padding: .5em 0em;
     justify-content: center;
 }
 
@@ -1033,27 +1106,20 @@ p4 {
 
 p11 {
     color: #63707f;
-    margin: 0em .5em;
+    margin: 0em .25em;
     font-weight: bold;
 }
 
 #commentheader {
     display: flex;
-    width: 100%;
+    width: 95%;
     flex-direction: row;
     justify-content: center;
     flex-direction: row;
     max-height: 100%;
+    align-self: center;
 }
 
-.comment {
-  width: 100%;
-  min-height: 150px;
-  background: white;
-  margin: .5em 0em;
-  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-  border-radius: 5px;
-}
 
 .tagscontainer {
     width: 100%;
@@ -1100,7 +1166,7 @@ p5 {
     display: flex;
     flex-direction: column;
     width: auto;
-    height: 100%;
+    height: auto;
     margin-right: 2em;
 }
 
@@ -1130,6 +1196,8 @@ p5 {
     justify-content: center;
     width: 100%;
     height: auto;
+    margin-top: .2em;
+    margin-bottom: 1em;
 }
 
 
@@ -1146,7 +1214,7 @@ p5 {
     display: flex;
     flex-direction: row;
     height: atuo;
-    margin: .5em;
+    margin: .5em .5em .5em 0;
 }
 
 #distToStudy {
@@ -1161,15 +1229,13 @@ p5 {
 
 #distToGym {
     width: 60%;
-    background: #84b9e8;
+    background: #70b1ea;
 }
 
 .label {
     display: flex;
     flex-direction: row;
     height: 30px;
-    margin-left: .5em;
-
 }
 
 #graphcontainer {
@@ -1214,7 +1280,7 @@ p5 {
 }
 
 .closemap {
-    color: white;
+    color: #63707f;
     font-size: 35px;
     font-weight: bold;
     margin-top: none;
@@ -1235,6 +1301,7 @@ p5 {
     padding: 0px;
     background: #63707f;
     flex: 1;
+    border-radius: 0px 5px 0px 0px;
 }
 
 .locationbutton:hover {
@@ -1242,8 +1309,8 @@ p5 {
 }
 
 .locationicon {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     margin: .35em 1em;
 
 }
@@ -1348,7 +1415,7 @@ p6 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: .5em .2em;
+    margin: .5em .2em .5em 0;
 }
 
 p8 {
@@ -1370,7 +1437,7 @@ p8 {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: .5em .2em;
+   margin: .5em .2em .5em .2em;
 }
 
 p7 {
@@ -1407,11 +1474,16 @@ p9 {
     flex-direction: column;
     justify-content: center;
     width: auto;
+    height: auto;
+    background: #63707f;
+    align-self: center;
+    border-radius: 5px
 }
 
 #leftarrow{
-    width: 40px;
-    height: 40px;
+    width: 15px;
+    height: 25px;
+    margin: .5em;
 }
 
 .arrow:hover {
@@ -1419,8 +1491,9 @@ p9 {
 }
 
 #rightarrow{
-    width: 40px;
-    height: 40px;
+    width: 15px;
+    height: 25px;
+     margin: .5em;
 }
 
 .img1 {
@@ -1444,7 +1517,7 @@ p9 {
 }
 
 #margin {
-     margin: 0em .5em;
+     margin: 0em .5em .5em 0;
 }
 
 .popupimage {
@@ -1466,19 +1539,20 @@ p9 {
     background: white;
     flex-direction: column;
     justify-content: flex-start;
-    background: #f4f5f7;
+    background: #e5e9f1;
     overflow: hidden;
+    border-radius: 5px;
 }
 
 #dormsearchwide {
-    padding-top: 70px;
+    padding-top: 50px;
     width: 100%;
     height: 100%;
     display: flex;
     background: white;
     flex-direction: column;
     justify-content: flex-start;
-    background: #f4f5f7;
+    background: #e5e9f1;
 }
 
 .ranking {
@@ -1531,8 +1605,7 @@ p9 {
 h11 {
     text-align: center;
     font-size: 20px;
-    font-weight: 500;
-    font-weight: 500;
+    font-weight: 600;
     color: #97C0E4;
     display: flex;
     flex-direction: column;
@@ -1541,7 +1614,7 @@ h11 {
 
 h12 {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     color: black;
     margin: .1em;
@@ -1551,7 +1624,7 @@ h13 {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
-    color: grey;
+    color: #63707f;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -1565,7 +1638,19 @@ h14 {
 }
 
 .ranking:hover {
-    background:  #f4f5f7;
+    background:  #97C0E4;
+}
+
+.ranking:hover h11{
+    color: white;
+}
+
+.ranking:hover h12{
+    color: white;
+}
+
+.ranking:hover h13{
+    color: white;
 }
 
 #viewmore2 {
@@ -1602,13 +1687,15 @@ h14 {
     opacity: .3;
 }
 
+#cultureSelector {
+        width: 25%;
+    }
 
 #reviewcontainer2 {
   width: 40%;
-  height: 100%;
+  height: fit-content;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
 }
 
 @media screen and (max-width: 750px) {
@@ -1617,7 +1704,7 @@ h14 {
     }
 
     input[type=range] {
-        width: 40%;
+        width: 80%;
     }
 }
 
@@ -1646,8 +1733,8 @@ h14 {
 }
 
 #collegebackground {
-    height: 300px;
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/rateyourdormshome1.jpg');
+    height: 200px;
+    background: #63707f;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -1671,6 +1758,7 @@ h15 {
     text-align: center;
     margin: none;
     font-weight: bold;
+    width: 70px;
 }
 
 #contactcontainer {
@@ -1681,6 +1769,7 @@ h15 {
     justify-content: center;
     flex-direction: row;
     padding-top: 77px;
+    height: 100%;
 }
 
 #contactwidth {
@@ -1697,6 +1786,9 @@ h15 {
 @media screen and (max-width: 500px) {
     #contactwidth {
         width: 95%;
+    }
+    #cultureSelector {
+        width: 40%;
     }
 
 }
@@ -1730,7 +1822,7 @@ p12 {
 
 p13 {
     font-size: 15px;
-    color: black;
+    color: #63707f;
     margin-bottom: 40px;
 }
 
@@ -1742,22 +1834,6 @@ p13 {
     justify-content: center;
 }
 
-#dropdown {
-  width: 33.2%;
-  max-height: 245px;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  border-top: solid #ececec 1px;
-      background: white;
-      overflow-y: scroll;
-     box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-      border-radius: 0 0 5px 5px;
-      z-index: 1;
-      position: fixed;
-      margin-top: 33px;
-}
 
 #dropdowncontainer {
   width: 100%;
@@ -1766,13 +1842,13 @@ p13 {
   height: auto;
   align-self: center;
   z-index: 1;
-  margin-top: 5px;
 }
 
 .dropdowncontent {
     width: 100%;
     text-align: left;
     box-shadow: 0px 1px 0px #ececec;
+    min-height: 40px;
 }
 
 p14 {
@@ -1791,13 +1867,38 @@ p14 {
 }
 .dropdowncontent:hover {
     background: #97C0E4;
-    : white;
 }
-p14:hover {
+.dropdowncontent:hover p14 {
     color: white;
 }
 
-@media only screen and (max-width: 730px) {
+.comment {
+  width: 95%;
+  min-height: 120px;
+  background: white;
+  margin: .5em 0em;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  align-self:center;
+}
+
+.stepHeader {
+  background: #63707f;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+    border-radius: 5px 5px 0px 0px;
+}
+
+#infodorm {
+    height: fit-content;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 930px) {
     #reviewcontainer2{
       width:100%;
     }
@@ -1813,10 +1914,35 @@ p14:hover {
     .reviewinfo {
         width: 100%;
     }
+    #infodorm {
+        width: 100%;
+    }
     .dormmetrics {
         display: flex;
         flex-direction: column;
         width: 100%;
+    }
+    #reviewcontainer {
+        padding-top: 50px;
+    }
+
+    .comment {
+        width: 100%;
+    }
+
+    .dormtitle {
+        border-radius: 0px;
+    }
+    .locationbutton {
+        border-radius: 0px;
+    }
+
+    .stepHeader {
+        border-radius: 0px;
+    }
+
+    .reviewquestion {
+        width:100%;
     }
 
  }
@@ -1832,6 +1958,15 @@ p14:hover {
 
 #barsearch:hover {
     opacity: .6;
+}
+
+#searchbutton {
+    background: #63707f;
+    width: 70px;
+    border-radius: 0px 5px 5px 0px;
+    height: auto;
+    display: flex;
+    justify-content: center;
 }
 
 @media only screen and (max-width: 500px) {
@@ -1855,27 +1990,38 @@ p14:hover {
         flex-direction: row;
     }
     #dropdowncontainer {
-        width: 100%;
-        margin-top: 0px;
-        position: fixed;
+        display: none;
+    }
+    .socialmedia {
+        justify-content: flex-end
     }
     #dropdown {
-        padding-top: 50px;
-        max-height: 100%;
+        width: 100%;
+        border-radius: 0px;
     }
+
+    #searchbutton {
+        border-radius: 0px;
+    }
+
+    #searchbar {
+        border-radius: 0px;
+    }
+
 
 }
 
-#headersearch {
+#searchbar {
     height: 33px;
     border: none;
     padding:0px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
 }
 
-#headersearch, textarea {
+#searchbar, textarea {
     font-size: 15px;
-    padding-left: 10px;
+    padding-left: 6px;
 }
 
 ::-webkit-scrollbar {
@@ -1883,34 +2029,149 @@ p14:hover {
 }
 
 #searchtype{
-    width: 45px;
+    width: 50px;
      -webkit-appearance: none;
-    background: #63707f;
-    border-radius: 0px;
-    color: white;
+    background: white;
+    color: grey;
     text-align: center;
     border: none;
-    border-radius: 5px 0 0 5px;
+    outline: none;
 }
 
-#writerev:hover {
-    border-bottom: solid 2px white;
+#writeareview:hover {
+    background: #63707f;
     cursor: default;
 }
 
-#headersearch[type=text] {
-    width: 160px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-#headersearch[type=text]:focus {
+#searchbar[type=text] {
     width: 100%;
 }
 
-.stepHeader {
-  background: #63707f;
+#searchbar[type=text]:focus {
+    width: 100%;
+}
+
+
+#barcontain {
+    width: 100px;
+    background: white;
+    display: flex;
+    height: auto;
+    justify-content: center;
+    border-left: solid 1px grey;
+    margin: .4em 0em;
+}
+
+
+
+#searchbutton:hover {
+    background: lightgrey;
+}
+
+#writeareview {
+    border-left: solid 2px white;
+    height: 100%;
+}
+
+p15 {
+    font-size: 14px;
+    color: black;
+    font-weight: 550;
+}
+
+
+.map {
+    width: 80%;
+    height: 300px;
+    align-self: center;
+    margin: 1em 0;
+}
+
+#mobiledropdowncontainer {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  height: auto;
+  align-self: center;
+  z-index: 1;
+}
+
+#commentsHolder {
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+#closeReviewNav {
+    margin-right: .5em;
+}
+
+#terms:hover {
+    color: #63707f;
+    cursor: default;
+}
+
+#hamburgercontainer {
+    background: #63707f;
+    border-radius: 5px;
+    margin-left: .5em;
+}
+
+#hamburgercontainer:hover {
+    background: lightgrey;
+}
+
+#closepop {
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: none;
+    color: white;
+}
+
+#closepop:hover {
+    cursor: default;
+}
+
+#sortButton:hover {
+    background: lightgrey;
+}
+
+#filterButton:hover {
+    background: lightgrey;
+}
+
+.recommend {
+    margin: 1em 0;
+}
+
+.slidercontainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.proximity {
+    width: 60%;
+    margin: 1.5em;
+    display: flex;
+    align-self: center;
+}
+
+
+h16 {
+    color: #63707f;
+    display: flex;
+    font-weight: 400;
+    text-align: center;
+    margin: .5em 0 1.5em 0;
+}
+
+@media screen and (max-width: 450px) {
+    .slider {
+        flex-direction: column;
+    }
+    .proximity {
+    width: 40%;
+    }
 }

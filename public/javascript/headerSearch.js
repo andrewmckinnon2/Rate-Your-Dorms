@@ -5,7 +5,7 @@ $("#dropdown").hide();
 $("#dropdown").empty();
 
 //Managing search bar navigation
-$("#headersearch").keyup(function(event){
+$("#searchbar").keyup(function(event){
   $("#dropdown").show();
   var keyPress;
   if(window.event){//IE
@@ -23,7 +23,7 @@ $("#headersearch").keyup(function(event){
     currentOptions = [];
   }
 
-  var userInput = $("#headersearch").val();
+  var userInput = $("#searchbar").val();
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
     if(userInput.length>dormNames[i].length){
@@ -50,7 +50,7 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 
 $("#logobar").focusout(function(){
   $("#dropdown").hide();
-  $("#headersearch").val("");
+  $("#searchbar").val("");
   /**if(!($(".dropdowncontent").is(":focus"))){
     $("#dropdown").hide();
     console.log("inside of if statement for focus out");

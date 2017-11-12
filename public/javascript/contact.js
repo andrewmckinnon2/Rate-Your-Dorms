@@ -45,6 +45,7 @@ $("#writeReview").click(function(){
 
 var currentOptions = [];
 $("#searchbar").keyup(function(event){
+  console.log("searchbar listener is working");
   $("#dropdown").show();
   var keyPress;
   if(window.event){//IE

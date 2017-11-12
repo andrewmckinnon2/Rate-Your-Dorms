@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title>Rate Your Dorms</title>
     <script>
@@ -35,32 +36,62 @@ $(document).ready(function(){
 <div class="main">
   <div id="logobar">
               <div id="logo">
-                  <a href="index.html"><img id="navlogo" class="navlogo" src= "../images/RateYourDormsVertical.png" ></a>
+                  <a href="index.html"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
               </div>
               <div class="socialmedia">
                   <div id="dropdowncontainer">
-              <div style="display: flex; width: 100%; flex-direction: row;">
+              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                  <input type="text" placeholder="Search..." id="searchbar">
+                   <div id="barcontain">
                   <select id="searchtype">
                           <option>Dorm</option>
                           <option>School</option>
                       </select>
-                  <input type="text" placeholder="Find a dorm..." id="searchbar">
+                    </div>
+                  <div id="searchbutton">
+                      <img src="../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                  </div>
 
                   </div>
-                  <div id="dropdown">
-                  </div>
+                    <div id="dropdown">
+                    </div>
+
               </div>
+                 <div id="hamburgercontainer"><img id="hamburger" src="../images/searchicon.png"></div>
+                <div id="hamburgercontainer"><img id="hamburger" src="../images/reviewwhite.png"></div>
               </div>
               <div class="signup">
-                  <div id="socialicons"><p6 id="writerev">Write a Review</p6></div><div id="socialicons"><p6>|</p6></div>
                   <div id="socialicons">
-                    <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
-                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                    <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
+                  <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
+                  <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                  <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
                   </div>
-                  <div id="hamburgercontainer"><img id="hamburger" src="../images/hamburger.png"></div>
+                  <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
               </div>
           </div>
+  <div id="mobilepopup">
+    <div style="width: 100%;height: 100%; z-index:1; background: #e5e9f1;">
+             <div id="mobiledropdowncontainer">
+              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                  <input type="text" placeholder="Search..." id="searchbar">
+                   <div id="barcontain">
+                  <select id="searchtype">
+                          <option>Dorm</option>
+                          <option>School</option>
+                      </select>
+                    </div>
+                  <div id="searchbutton">
+                      <span id="closepop">&times;</span>
+                  </div>
+
+                  </div>
+              <div id="dropdown">
+                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+
+              </div>
+              </div>
+    </div>
+  </div>
 
             <div id="contactcontainer">
                 <div id="contactwidth">
@@ -83,11 +114,11 @@ $(document).ready(function(){
                     <p3>Message*</p3>
                 </div>
                  <div class="contactfeild">
-                   <textarea id="messageField" style="border: solid 2px #97C0E4; width: 100%; margin: 8px 0px;" rows="10" cols="100">Message...
+                   <textarea id="messageField" style="border: solid 2px #97C0E4; width: 100%; margin: 0 0 8px 0px;" rows="10" cols="100">Message...
                     </textarea>
                 </div>
-                 <div class="contactfeild">
-                     <button id="submit" style="border:#97C0E4;">Submit</button>
+                 <div style="margin-bottom: 2em;" class="contactfeild">
+                     <button id="submit" class="submit" style="border:#97C0E4;">Submit</button>
                 </div>
                 </div>
             </div>

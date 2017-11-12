@@ -24,7 +24,7 @@ for(var i=0; i<dormNames.length; i++){
 }
 
 //Get dorm name and render appropriate information.
-var currentDormSelected = $(".dormtitle").children("h2").html().toLowerCase();
+var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
 for(var i=0; i<dormNames.length; i++){
   if(dormNames[i].toLowerCase() == currentDormSelected){
     currentDormSelected = dormNames[i];
@@ -40,7 +40,7 @@ $(".ranking").click(function(){
   $("#closeReviewNav").click();
   $("#reviewHolder").empty();
   $(".dormtitle > h8").empty();
-  $(".dormtitle > h2").text(currentDormSelected);
+  $(".dormtitle > h8").text(currentDormSelected);
   getCurrentInfo();
 })
 
@@ -390,7 +390,7 @@ $("#writerev").click(function(){
 
 
 //Managing search bar navigation
-$("#headersearch").keyup(function(event){
+$("#searchbar").keyup(function(event){
   $("#dropdown").show();
   var keyPress;
   if(window.event){//IE
@@ -408,7 +408,7 @@ $("#headersearch").keyup(function(event){
     currentOptions = [];
   }
 
-  var userInput = $("#headersearch").val();
+  var userInput = $("#searchbar").val();
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
     if(userInput.length>dormNames[i].length){
@@ -435,9 +435,22 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 
 $("#logobar").focusout(function(){
   $("#dropdown").hide();
-  $("#headersearch").val("");
+  $("#searchbar").val("");
   /**if(!($(".dropdowncontent").is(":focus"))){
     $("#dropdown").hide();
     console.log("inside of if statement for focus out");
   }*/
+})
+
+
+$("#contactLink").click(function(){
+  window.location = "../contact.html";
+})
+
+$("#legalLink").click(function(){
+  window.location = "../Legal.html";
+})
+
+$("#aboutLink").click(function(){
+  window.location = "../../index.html#theteam";
 })
