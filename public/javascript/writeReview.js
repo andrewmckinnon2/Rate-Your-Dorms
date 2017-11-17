@@ -20,27 +20,20 @@ $("#submit").click(function(){
   if(checkForInputs() == false){
     alert("Please make sure all fields are filled in.");
   }else{
+    console.log("checkForInputs returned true");
     var reviewerName = $("#name").val();
+    var email = $("#email").val();
     var yearInDorm = $("#yearSelector").find(":selected").text();
     var dorm = $("#dormName").find(":selected").text();
-    var bathroomRating = parseInt($("#slider3").val());
-    var cleanlinessRating = parseInt($("#slider6").val());
-    var kitchenRating = parseInt($("#slider4").val());
+    var bathroomRating = $("input:radio[name ='bathroomStar']:checked").val();
+    var buildingRating = $("input:radio[name ='buildingStar']:checked").val();
+    var roomRating = $("input:radio[name ='roomStar']:checked").val();
     var studyProximityRating = parseInt($("#slider1").val());
     var partyProximityRating = parseInt($("#slider2").val());
-    var gymProximityRating = parseInt($("#slider5").val());
+    var gymProximityRating = parseInt($("#slider6").val());
     var cultureReview = $("#cultureSelector").find(":selected").text();
-    var email = $("#email").val();
     var writtenReview = $("#textReview").val();
-    var roomRating = parseInt($("#slider7").val());
-
-    if($("#hasLaundry").find(":selected").text() == "Yes"){
-      hasLaundry = true;
-    }
-
-    if(writtenReview.includes("Additional Comments")){
-      writtenReview = "";
-    }
+    var recommendationVal = $("input:radio[name ='recommend']:checked").val();
 
     var database = firebase.database();
     var dormRatingNode = database.ref("UNC-CH/ratings/" + dorm + "/");
@@ -53,15 +46,15 @@ $("#submit").click(function(){
       name: reviewerName,
       email: email,
       year: yearInDorm,
-      bathroom: bathroomRating,
-      cleanliness: cleanlinessRating,
-      kitchen: kitchenRating,
+      bathroom:bathroomRating,
+      building: buildingRating,
       studyProximity: studyProximityRating,
       partyProximity: partyProximityRating,
       gymProximity: gymProximityRating,
       culture: cultureReview,
       review: writtenReview,
       room: roomRating,
+      recomendation:recommendationVal,
       date: dateWritten
     });
 
@@ -93,9 +86,8 @@ $("#submit").click(function(){
         alert("current number of updated ratings is " + currentNumberOfRatings);
       }).then(function(){ //Update the averages for this dorm.
       var avgGymDist;
-      var avgKitchen;
       var avgBathroom;
-      var avgCleanliness;
+      var avgBuilding; //Changed from avgCleanliness to avgBuilding
       var avgStudyDist;
       var avgPartyDist;
       var avgCulture;
@@ -110,14 +102,6 @@ $("#submit").click(function(){
           }else{
             dormRatingNode.child("avgGymDist").set(parseInt(gymProximityRating));
           }
-          if(snapshot.hasChild("avgKitchen")){
-            avgKitchen = snapshot.child("avgKitchen").val();
-            avgKitchen = (avgKitchen)*(currentNumberOfRatings-1) + parseInt(kitchenRating);
-            avgKitchen = Math.round(avgKitchen/currentNumberOfRatings);
-            dormRatingNode.child("avgKitchen").set(parseInt(avgKitchen));
-          }else{
-            dormRatingNode.child("avgKitchen").set(parseInt(kitchenRating));
-          }
           if(snapshot.hasChild("avgBathroom")){
             avgBathroom = snapshot.child("avgBathroom").val();
             avgBathroom = (avgBathroom)*(currentNumberOfRatings -1) + parseInt(bathroomRating);
@@ -126,13 +110,14 @@ $("#submit").click(function(){
           }else{
             dormRatingNode.child("avgBathroom").set(parseInt(bathroomRating));
           }
-          if(snapshot.hasChild("avgCleanliness")){
-            avgCleanliness = snapshot.child("avgCleanliness").val();
-            avgCleanliness = (avgCleanliness)*(currentNumberOfRatings - 1) + parseInt(cleanlinessRating);
-            avgCleanliness = Math.round(avgCleanliness/currentNumberOfRatings);
-            dormRatingNode.child("avgCleanliness").set(parseInt(avgCleanliness));
+          //Updated avgCleanliness to be avgBuilding
+          if(snapshot.hasChild("avgBuilding")){
+            avgBuilding = snapshot.child("avgBuilding").val();
+            avgBuilding = (avgBuilding)*(currentNumberOfRatings - 1) + parseInt(buildingRating);
+            avgBuilding = Math.round(avgBuilding/currentNumberOfRatings);
+            dormRatingNode.child("avgBuilding").set(parseInt(avgBuilding));
           }else{
-            dormRatingNode.child("avgCleanliness").set(parseInt(cleanlinessRating));
+            dormRatingNode.child("avgbuilding").set(parseInt(buildingRating));
           }
           if(snapshot.hasChild("avgStudyDist")){
             avgStudyDist = snapshot.child("avgStudyDist").val();
@@ -178,7 +163,7 @@ $("#submit").click(function(){
       })
     })
   }
-  });
+});
 
 function checkForInputs(){
   //return true or false depending on whether or not values from inputs have been chosen
@@ -186,7 +171,23 @@ function checkForInputs(){
     return false;
   }else if($("#cultureSelector").find(":selected").text() == "Selected"){
     return false;
+  }else if($("input:radio[name ='recommend']:checked").val() == undefined){
+    return false;
+  }else if($("input:radio[name ='bathroomStar']:checked").val() == undefined || $("input:radio[name ='buildingStar']:checked").val() == undefined
+      || $("input:radio[name ='roomStar']:checked").val() == undefined){
+        return false;
+  }else if($("#name").val() == ""){
+    return false;
+  }else if($("#email").val() == ""){
+    return false
+  }else if(!($("#agreeToTerms").is(":checked"))){
+    return false;
+  }else if($("#textReview").val().split(' ').length <15){
+    return false;
+  }else{
+    return true;
   }
+
 }
 
 $("#hamburger").click(function(){
@@ -201,16 +202,6 @@ $("#exitMobilePopup").click(function(){
 $("#writeReview").click(function(){
   window.location = "writeReview.html";
 })
-
-var clicked = false;
-$("#textReview").click(function(){
-
-  if(clicked == false){
-    $(this).val("");
-    clicked = true;
-  }
-  console.log("text box was clicked");
-});
 
 $("#findADorm").click(function(){
   window.location="Landingpage.html";

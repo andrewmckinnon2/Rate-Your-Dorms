@@ -1,6 +1,6 @@
 var roomObjects = []; //This is where objects representing all the dorms will be placed
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
-const topPossibleScore = 20; //4 different areas of quantitative review therefore, with each one out of 5, top score possible is 20;
+const topPossibleScore = 15; //3 different areas of quantitative review therefore, with each one out of 5, top score possible is 20;
 $("#writeReview").click(function(){
   window.location="../html/writeReview.html";
 })
@@ -58,13 +58,11 @@ function getCurrentInfo(){
   var grandStudyDist = 0;
   var grandPartyDist = 0;
   var grandGymDist = 0;
-  var grandKitchenScore = 0;
 
   var avgBathroom;
-  var avgCleanliness;
+  var avgBuilding;
   var avgCulture;
   var avgGymDist;
-  var avgKitchen;
   var partyDist;
   var avgRoom;
   var avgStudyDist;
@@ -78,10 +76,9 @@ function getCurrentInfo(){
       numReviews = parseInt(snap.val().numReviews);
       topTotalScorePossible = topPossibleScore * numReviews;
       avgBathroom = parseInt(snap.val().avgBathroom);
-      avgCleanliness = parseInt(snap.val().avgCleanliness);
+      avgBuilding = parseInt(snap.val().avgbuilding);
       avgCulture = parseInt(snap.val().avgCulture);
       avgGymDist = parseInt(snap.val().avgGymDist);
-      avgKitchen = parseInt(snap.val().avgKitchen);
       avgPartyDist = parseInt(snap.val().avgPartyDist);
       avgRoom = parseInt(snap.val().avgRoom);
       avgStudyDist = parseInt(snap.val().avgStudyDist);
@@ -108,12 +105,11 @@ function getCurrentInfo(){
 
         snap.forEach(function(childSnap){
           if(childSnap.key != "numReviews" && childSnap.key !="Objective Info" && childSnap.key!="avgBathroom" &&
-        childSnap.key!="avgCleanliness" && childSnap.key!="avgCulture" && childSnap.key!="avgGymDist" && childSnap.key!="avgKitchen"
-      && childSnap.key!="avgPartyDist" && childSnap.key!="avgRoom" && childSnap.key!="avgStudyDist" && childSnap.key!="culture"){
+        childSnap.key!="avgbuilding" && childSnap.key!="avgCulture" && childSnap.key!="avgGymDist" && childSnap.key!="avgPartyDist" && childSnap.key!="avgRoom" && childSnap.key!="avgStudyDist" && childSnap.key!="culture"){
             var ratingInfo = childSnap.val();
             var bathroom = parseInt(ratingInfo.bathroom);
-            var cleanliness = parseInt(ratingInfo.cleanliness);
-            var kitchen = parseInt(ratingInfo.kitchen);
+            console.log("building sore is " + ratingInfo.building);
+            var building = parseInt(ratingInfo.building);
             var room = parseInt(ratingInfo.room);
             var writtenReview = ratingInfo.review;
             var name = ratingInfo.name;
@@ -124,45 +120,42 @@ function getCurrentInfo(){
             var partyDist = parseInt(ratingInfo.partyProximity);
             var studyDist = parseInt(ratingInfo.studyProximity);
             var gymDist = parseInt(ratingInfo.gymProximity);
-            var overall = Math.round((bathroom + cleanliness + kitchen + partyDist + studyDist + gymDist)/(15*6)*100);
-            overall = ((overall * 5)/100).toFixed(1); //Corrects the percentage to be out of 5.
+            var overall = Math.round((bathroom + building + room)/(5*3));
 
             var clean = "dirty";
-            if(cleanliness >=7){
+            if(building >=7){
               clean="clean";
             }
 
-            var totalScore = bathroom + cleanliness + kitchen + room;
-            var weightedScore = totalScore/topPossibleScore;
-            var weightedScorePercent = Math.round(weightedScore*100);
+            var totalScore = bathroom + building + room;
+            //var weightedScore = totalScore/topPossibleScore;
+            //var weightedScorePercent = Math.round(weightedScore*100);
             grandScore = grandScore + totalScore;
-            grandPartyDist = grandPartyDist + partyDist;
-            grandStudyDist = grandStudyDist + studyDist;
-            grandGymDist = grandGymDist + gymDist;
-            grandKitchenScore = grandKitchenScore + kitchen;
 
             $("#commentsHolder").append("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
             "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
             "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
             "<p8>" + overall + "</p8></div><div class=\"description1\"><p8 class=\"info2\">OVERALL</p8></div></div>" +
             "<div class=\"row\"><div class=\"box3\"><p7>" + room + "</p7></div><div class=\"description1\"><p7 class=\"info2\">ROOM</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + building + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BUILDING</p7></div></div>" +
             "<div class=\"row\"><div class=\"box3\"><p7>" + bathroom + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BATHROOM</p7></div></div>" +
-            "<div class=\"row\"><div class=\"box3\"><p7>" + kitchen + "</p7></div><div class=\"description1\"><p7 class=\"info2\">KITCHEN</p7></div></div>" +
             "</div></div>" + "<div class=\"commentsection\"><p9>" + writtenReview + "</p9></div></div></div>");
           }
         })
     }).then(function(){
-      var finalPercentage = Number(grandScore/topTotalScorePossible).toFixed(2);
-      console.log(finalPercentage);
+      console.log("grandScore val is " + grandScore);
+      console.log("topTotalScorePossible val is " + topTotalScorePossible);
+      var finalScore = Number((grandScore/topTotalScorePossible)*5).toFixed(1);
+      console.log(finalScore);
       console.log("here is where we write to dorm title");
       $(".dormtitle").empty();
       $(".dormtitle").append("<h8>" + currentDormSelected + "</h8>");
       $(".left > h10").empty();
-      $(".left > h10").append((finalPercentage*5).toFixed(2));
+      $(".left > h10").append(finalScore);
 
       $("#roomPar").text(avgRoom);
       $("#bathroomPar").text(avgBathroom);
-      $("#kitchenPar").text(avgKitchen);
+      $("#kitchenPar").text(avgBuilding)
 
       var studyDistPerc = Math.round((avgStudyDist/15)*50) + 50;
       $("#distToStudy").width(studyDistPerc+"%");
@@ -272,18 +265,17 @@ $("#filterButton").click(function(){
   })
   //Need to close pop up and return to newly rendered information
 
-function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, study, culture){
+function roomObj(dormName, bathroom, building, gym, party, room, study, culture){
     this.dormName = dormName;
     this.bathroom = bathroom;
-    this.cleanliness = cleanliness;
+    this.building = building;
     this.gym = gym;
-    this.kitchen = kitchen;
     this.party = party;
     this.room = room;
     this.study = study;
     this.culture = culture;
 
-    this.overall = Math.round((bathroom+cleanliness+gym+kitchen+party+room+study)/7);
+    this.overall = Math.round((bathroom+building+gym+party+room+study)/7);
 
   this.get = function(aspect){
     if(aspect == "Overall Rating"){
@@ -292,8 +284,6 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
       return this.room;
     }else if(aspect == "Bathroom Rating"){
       return this.bathroom;
-    }else if(aspect == "Kitchen Rating"){
-      return this.kitchen;
     }else if(aspect == "Proximity to Study"){
       return this.study;
     }else if(aspect == "Proximity to Party"){
@@ -321,16 +311,12 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
     return this.bathroom;
   }
 
-  this.getCleanliness = function(){
-    return this.cleanliness
+  this.getBuilding = function(){
+    return this.building
   }
 
   this.getGym = function(){
     return this.gym;
-  }
-
-  this.getKitchen = function(){
-    return this.kitchen;
   }
 
   this.getParty = function(){
@@ -349,7 +335,7 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
 function generateDormObjects(){
   firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snapshot){
     var snapVal = snapshot.val();
-    var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgCleanliness, snapVal.avgGymDist, snapVal.avgKitchen, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
+    var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
     roomObjects.push(room);
     currentRooms.push(room);
   })
@@ -442,6 +428,15 @@ $("#logobar").focusout(function(){
   }*/
 })
 
+$(".ranking").click(function(){
+  var dormName = $(this).find("h11").html();
+  window.location = dormName + ".html";
+})
+
+$("#searchbutton").click(function(){ //Same id is used twice, need to change this and fix that ish. HIGH IMPORTANCE
+  $("#mobilepopup").hide();
+  console.log("searchButton listener entered");
+})
 
 $("#contactLink").click(function(){
   window.location = "../contact.html";
