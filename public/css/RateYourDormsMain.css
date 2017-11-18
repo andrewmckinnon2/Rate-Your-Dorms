@@ -177,7 +177,6 @@ input[type=text], input[type=password] {
     padding: 6px 7px;
     margin: 0px 0;
     display: inline-block;
-    border: 1px solid #ccc;
     box-sizing: border-box;
     font-size:16px;
     outline: none;
@@ -518,6 +517,7 @@ li:hover {
     padding-top: 63px;
     height: auto;
     background-color: #e5e9f1;
+    min-height: 100vh;
 }
 
 div.stars {
@@ -1090,6 +1090,10 @@ p3 {
     font-weight: bold;
 }
 
+.contacttext {
+    margin: .5em 0em;
+}
+
 
 .row {
     display: flex;
@@ -1468,8 +1472,6 @@ p9 {
 }
 
 .arrow {
-     -ms-flex: auto;
-    flex: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1547,7 +1549,7 @@ p9 {
 #dormsearchwide {
     padding-top: 50px;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     background: white;
     flex-direction: column;
@@ -1618,6 +1620,7 @@ h12 {
     font-weight: bold;
     color: black;
     margin: .1em;
+    align-self: center;
 }
 
 h13 {
@@ -1635,6 +1638,8 @@ h14 {
     font-size: 25px;
     font-weight: bold;
     color: white;
+    flex-direction: column;
+    align-self: center;
 }
 
 .ranking:hover {
@@ -1709,15 +1714,13 @@ h14 {
 }
 
 #maincontain {
-    height: 100%;
+    min-height: 100vh;
     padding-top: 70px;
-    background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('../images/bikes.JPG');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: white;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 #writebutton:hover{
@@ -1726,14 +1729,14 @@ h14 {
 
 #legal {
     width: 100%;
-    height: auto;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
-    padding-top: 100px;
+    padding-top: 33px;
 }
 
 #collegebackground {
-    height: 200px;
+    height: 250px;
     background: #63707f;
     background-size: cover;
     background-repeat: no-repeat;
@@ -1769,7 +1772,7 @@ h15 {
     justify-content: center;
     flex-direction: row;
     padding-top: 77px;
-    height: 100%;
+    min-height: 100vh;
 }
 
 #contactwidth {
@@ -1969,6 +1972,22 @@ p14 {
     justify-content: center;
 }
 
+#closemobile {
+    background: #63707f;
+    width: 70px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.searchbar {
+    height: 33px;
+    border: none;
+    padding:0px;
+    border-radius: 5px 0px 0px 5px;
+    outline: none;
+}
+
 @media only screen and (max-width: 500px) {
     #hamburger {
     display: flex;
@@ -2000,24 +2019,25 @@ p14 {
         border-radius: 0px;
     }
 
-    #searchbutton {
-        border-radius: 0px;
-    }
-
     .searchbar {
         border-radius: 0px;
+        height: 40px;
+    }
+
+    #container2 {
+        display: none;
+    }
+
+    .dropdown {
+        margin-top: 40px;
+        max-height: 100vh;
+        overflow-y: scroll;
     }
 
 
 }
 
-.searchbar {
-    height: 33px;
-    border: none;
-    padding:0px;
-    border-radius: 5px 0px 0px 5px;
-    outline: none;
-}
+
 
 .searchbar, textarea {
     font-size: 15px;
@@ -2068,6 +2088,10 @@ p14 {
     background: lightgrey;
 }
 
+#closemobile:hover {
+    background: lightgrey;
+}
+
 #writeareview {
     border-left: solid 2px white;
     height: 100%;
@@ -2077,6 +2101,12 @@ p15 {
     font-size: 14px;
     color: black;
     font-weight: 550;
+}
+
+p16 {
+    color: #63707f;
+    font-size: 15px;
+    font-weight: regular;
 }
 
 
@@ -2127,6 +2157,7 @@ p15 {
     font-weight: bold;
     margin-top: none;
     color: white;
+    padding-top: 3px;
 }
 
 #closepop:hover {
@@ -2152,7 +2183,7 @@ p15 {
 }
 
 .proximity {
-    width: 60%;
+    width: 70%;
     margin: 1.5em;
     display: flex;
     align-self: center;
@@ -2174,4 +2205,12 @@ h16 {
     .proximity {
     width: 40%;
     }
+}
+
+.popupback {
+    width: 100%;
+    height: 100%;
+    z-index:1;
+    background: rgba(0,0,0,0.4);
+
 }
