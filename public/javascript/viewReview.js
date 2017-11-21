@@ -19,7 +19,7 @@ var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
 "Winston", "Granville"];
 
 for(var i=0; i<dormNames.length; i++){
-  $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + i + "</h12></div>" +
+  $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + (i+1) + "</h12></div>" +
   "<div class=\'name\'><h11>" + dormNames[i] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
 }
 
@@ -120,7 +120,7 @@ function getCurrentInfo(){
             var partyDist = parseInt(ratingInfo.partyProximity);
             var studyDist = parseInt(ratingInfo.studyProximity);
             var gymDist = parseInt(ratingInfo.gymProximity);
-            var overall = Math.round((bathroom + building + room)/(3));
+            var overall = Number((bathroom + building + room)/(3)).toFixed(1);
 
             var clean = "dirty";
             if(building >=7){
@@ -257,12 +257,11 @@ $("#filterButton").click(function(){
     $("#sortButton").click();
 });
 
-  //Need to add listener for if any of the dorms are clicked after they are filtered and displayed.
-  $("#rankings").children().click(function(){
-    currentDormSelected = $("#rankings > .ranking > .name > h11").text();
-    getCurrentInfo();
-    $("#closeReviewNav").click();
-  })
+/*$("#rankings").children().click(function(){
+  currentDormSelected = $("#rankings > .ranking > .name > h11").text();
+  getCurrentInfo();
+  $("#closeReviewNav").click();
+})*/
   //Need to close pop up and return to newly rendered information
 
 function roomObj(dormName, bathroom, building, gym, party, room, study, culture){
@@ -282,6 +281,8 @@ function roomObj(dormName, bathroom, building, gym, party, room, study, culture)
       return this.overall;
     }else if(aspect == "Room Rating"){
       return this.room;
+    }else if(aspect == "Building Rating"){
+      return this.building;
     }else if(aspect == "Bathroom Rating"){
       return this.bathroom;
     }else if(aspect == "Proximity to Study"){
@@ -404,12 +405,12 @@ $(".searchbar").keyup(function(event){
 
     if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
 
     if(dormNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
 
   }
@@ -418,7 +419,8 @@ $(".searchbar").keyup(function(event){
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
   console.log("captured dropdowncontent event");
-  var dormName = $(this).children("p14").html().replace("- UNC", "");
+  var dormName = $(this).children("p14").html().replace(" - UNC", "");
+  console.log("dormName var is " + dormName)
   window.location = dormName + ".html";
 })
 
@@ -426,10 +428,22 @@ $("#logobar").focusout(function(){
   $(".dropdown").hide();
   $(".searchbar").css("border-radius","5px 0px 0px 5px");
   $("#searchbutton").css("border-radius","0px 5px 5px 0px");
-  $(".searchbar").attr("placeholder", "Search...");
+  $(".searchbar").val("");
+  /**if(!($(".dropdowncontent").is(":focus"))){
+    $(".dropdown").hide();
+    console.log("inside of if statement for focus out");
+  }*/
 })
 
 $(".ranking").click(function(){
+  console.log(".ranking click function fired");
+  var dormName = $(this).find("h11").html();
+  window.location = dormName + ".html";
+})
+
+//Same functionality of listener above (".ranking").click...but allows for dynamic binding whenever a ".ranking" element is created
+$("#rankings").on("click", ".ranking", function(){
+  console.log(".ranking click function fired");
   var dormName = $(this).find("h11").html();
   window.location = dormName + ".html";
 })
@@ -442,8 +456,8 @@ $(".searchbutton").click(function(){ //Same id is used twice, need to change thi
   $(".dropdown1").show();
   $(".dropdown2").show();
   for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>")
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
   }
 })
 
@@ -457,4 +471,20 @@ $("#legalLink").click(function(){
 
 $("#aboutLink").click(function(){
   window.location = "../../index.html#theteam";
+})
+
+$(".mobileReview").click(function(){
+  window.location = "../writeReview.html";
+})
+
+$(".searchbar").click(function(){
+  $(this).css("border-radius","5px 0px 0px 0px");
+  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
+
+  $(".dropdown1").show();
+  $(".dropdown2").show();
+  for(var i=0; i<dormNames.length; i++){
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
+  }
 })

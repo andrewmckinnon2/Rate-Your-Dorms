@@ -57,12 +57,12 @@ $(".searchbar").keyup(function(event){
 
     if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
 
     if(dormNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
   }
 })
@@ -75,14 +75,14 @@ $(".searchbar").click(function(){
   $(".dropdown1").show();
   $(".dropdown2").show();
   for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>")
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
   }
 })
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  var dormName = $(this).children("p14").html().replace("- UNC", "");
+  var dormName = $(this).children("p14").html().replace(" - UNC", "");
   window.location = "html/dorms/" + dormName + ".html";
 })
 
@@ -129,5 +129,6 @@ $("#aboutLink").click(function(){
 })
 
 $(".mobileReview").click(function(){
-  window.location = "html/wirteReview.html";
+  console.log('mobileReview action listener was entered');
+  window.location = "html/writeReview.html";
 })

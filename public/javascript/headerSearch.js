@@ -36,34 +36,33 @@ $(".searchbar").keyup(function(event){
 
     if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
 
     if(dormNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
     }
 
   }
 })
 
 $(".searchbar").click(function(){
-  $(this).attr("placeholder", "");
   $(this).css("border-radius","5px 0px 0px 0px");
   $("#searchbutton").css("border-radius","0px 5px 0px 0px");
 
   $(".dropdown1").show();
   $(".dropdown2").show();
   for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>")
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
   }
 })
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
   console.log("captured dropdowncontent event");
-  var dormName = $(this).children("p14").html().replace("- UNC", "");
+  var dormName = $(this).children("p14").html().replace(" - UNC", "");
   window.location = "dorms/" + dormName + ".html";
 })
 

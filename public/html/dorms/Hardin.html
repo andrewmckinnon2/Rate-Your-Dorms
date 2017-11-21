@@ -126,22 +126,25 @@ $(document).ready(function(){
                        </div>
                        <div class="rankingheader" style="height: 70px;">
                            <select id="sortOption" style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .25em;"><option>Sort by</option>
-                               <option>Overall Rating</option>
-                               <option>Room Rating</option>
-                               <option>Bathroom Rating</option>
-                               <option>Kitchen Rating</option>
-                               <option>Proximity to Study</option>
-                               <option>Proximity to Party</option>
-                               <option>Proximity to Workout</option>
+                             <option>Overall Rating</option>
+                             <option>Room Rating</option>
+                             <option>Bathroom Rating</option>
+                             <option>Building Rating</option>
+                             <option>Proximity to Study</option>
+                             <option>Proximity to Party</option>
+                             <option>Proximity to Workout</option>
                            </select>
                            <button id="sortButton"style="border:none; margin: .25em;">Sort</button>
                            <select id="filterOption" style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .25em;">
-                               <option>Filter by</option>
-                               <option>Rowdy</option>
-                               <option>Work-hard</option>
-                               <option>Play-hard</option>
-                               <option>Greek</option>
-                               <option>Chill</option>
+                             <option>Filter by</option>
+                             <option>Social</option>
+                             <option>Work-hard</option>
+                             <option>Play-hard</option>
+                             <option>Greek</option>
+                             <option>Quiet</option>
+                             <option>Hipster</option>
+                             <option>Social</option>
+                             <option>Sporty</option>
                            </select>
                            <button id="filterButton" style="border:none; margin: .25em;">Filter</button>
                        </div>
@@ -258,17 +261,16 @@ $(document).ready(function(){
       </div>
     </div>
     <div id="writereview">
-        <div id="commentheader">
-            <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
-            <div class="imagecontainer" onclick="showPicker()"><img src="http://s.newsweek.com/sites/www.newsweek.com/files/2017/04/27/dorm-room.JPG" class="img1"></div>
-            <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="http://www.trimarkproperties.com/dorms/img/windsor/double/uf-double-dorm-rooms-windsor.jpg" class="img1"></div>
-            <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="https://i.pinimg.com/originals/de/df/15/dedf153d1bfd54a8ca71a738086887f2.jpg" class="img1"></div>
-            <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
-        </div>
-        <div id="commentsHolder">
-
-        </div>
-    </div>
+      <div id="commentheader">
+          <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
+          <div class="imagecontainer" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6 style="margin: .5em .3em .5em 0;"><b>Click to upload</b></p6><img src="../../images/upload.png" class="uploader"></div></div>
+          <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
+      </div>
+      <div id="commentsHolder">
+      </div>
+  </div>
 </div>
 <div class="footer" style=" flex-shrink: 0;">
         <div id="list">

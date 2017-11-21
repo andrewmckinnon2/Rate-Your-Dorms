@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"-->
     <link rel="stylesheet" href="../css/RateYourDormsMain.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -114,7 +114,7 @@
               <h7 style="margin: .25em; color: white;">STEP 2: About your Dorm</h7>
             </div>
               <div class="subject"><h5>Building</h5></div>
-              <div class="description"><h4>Was there yak on the stairs? General cleanliness of elevators and common rooms</h4></div>
+              <div class="description"><h4>Was the building up-to-date? Were the common spaces and elevators clean?</h4></div>
               <div class="stars">
                 <form>
                     <input value="5" class="star star-5" id="cleanliness1" type="radio" name="buildingStar"/>
@@ -132,7 +132,7 @@
       </div>
     <div class="reviewquestion">
                 <div class="subject"><h5>Room itself</h5></div>
-                <div class="description"><h4>How was your room overall? Hella small? Hella big? Sick layout? Not so sick layout?</h4></div>
+                <div class="description"><h4>How was the size of the room? Were the desks and dressers modern and usable?</h4></div>
                 <div class="stars">
                     <form action="">
                         <input value="5" class="star star-5" id="roomItself1" type="radio" name="roomStar"/>
@@ -150,7 +150,7 @@
     </div>
         <div class="reviewquestion">
                 <div class="subject"><h5>Bathroom</h5></div>
-                <div class="description"><h4>Were there enough showers and toilets? Was it clean?</h4></div>
+                <div class="description"><h4>Were there enough toilets and showers? How was the lighting and cleanliness?</h4></div>
                 <div class="stars">
                   <form action="">
                         <input value="5" class="star star-5" id="bathroom1" type="radio" name="bathroomStar"/>
@@ -169,6 +169,9 @@
         <div class="reviewquestion">
                 <div class="subject">
                     <h5>Proximity to</h5>
+                </div>
+                <div class="description">
+                  <h4>Approximately how close were you to:</h4>
                 </div>
                 <div class="slider">
                     <div class="slidercontainer">
@@ -233,13 +236,14 @@
         </div>
         <div class="reviewquestion">
                 <div class="subject"><h5>Review</h5></div>
-                <div class="description"><h4>Got any more to say? Love your dorm or hate it, let everyone know! <b> &nbsp;(15 word min)</b></h4></div>
+                <div class="description"><h4><b>(15 word min)&nbsp;</b>What more do you have to say?</h4></div>
                 <div class="subject">
                     <textarea  placeholder="Additional comments..."id="textReview" style="border: solid 2px #97C0E4; margin-bottom: 2em;padding-top: 6px;" rows="10" cols="100"></textarea>
                     </div>
         </div>
-        <div id="submitcontainer">
-            <button id="submit" class="submit" style="border: none; width: 25%;">Submit</button>
+        <div class="load" id="submitcontainer">
+            <button id="submit" class="submit loadPlaceHolder" style="border: none; width: 25%; flex-direction: row; align-self: center;">Submit</button>
+            <div class="loader loadPlaceHolder" style="display:none;"></div>
         </div>
     </div>
 </div>
@@ -269,4 +273,5 @@
 </script>
 <script src="../javascript/writeReview.js"></script>
 <script src="../javascript/headerSearch.js"></script>
+<script src="../javascript/footer.js"></script>
 </html>

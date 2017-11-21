@@ -16,11 +16,14 @@ var cleanlinessRadios = $(".cleanlinessRating");
 var kitchenRadios = $(".kitchenRating");
 
 $("#submit").click(function(){
-  $(this).html("Loading...")
+
+
   console.log("submit event click fired");
   if(checkForInputs() == false){
     alert("Please make sure all fields are filled in.");
   }else{
+    $('.loadPlaceHolder').toggle();
+    $(this).css("cursor", "wait");
     console.log("checkForInputs returned true");
     var reviewerName = $("#name").val();
     var email = $("#email").val();
@@ -96,7 +99,6 @@ $("#submit").click(function(){
       var avgRoom;
       dormRatingNode.once("value").then(function(snapshot){
           if(snapshot.hasChild("avgGymDist")){
-            alert("entered the snapshot.hasChild('avgGymDist') listener");
             avgGymDist = snapshot.child("avgGymDist").val();
             avgGymDist = (avgGymDist)*(currentNumberOfRatings-1) + parseInt(gymProximityRating);
             avgGymDist = Math.round(avgGymDist/currentNumberOfRatings);
@@ -105,7 +107,6 @@ $("#submit").click(function(){
             dormRatingNode.child("avgGymDist").set(parseInt(gymProximityRating));
           }
           if(snapshot.hasChild("avgBathroom")){
-            alert("entered the snapshot.hasChild('avgBathroom') listener");
             avgBathroom = snapshot.child("avgBathroom").val();
             avgBathroom = (avgBathroom)*(currentNumberOfRatings -1) + parseInt(bathroomRating);
             avgBathroom = Math.round(avgBathroom/currentNumberOfRatings);
@@ -115,7 +116,6 @@ $("#submit").click(function(){
           }
           //Updated avgCleanliness to be avgBuilding
           if(snapshot.hasChild("avgBuilding")){
-            alert("entered the snapshot.hasChild('avgBuilding') listener");
             avgBuilding = snapshot.child("avgBuilding").val();
             avgBuilding = (avgBuilding)*(currentNumberOfRatings - 1) + parseInt(buildingRating);
             avgBuilding = Math.round(avgBuilding/currentNumberOfRatings);
@@ -124,7 +124,6 @@ $("#submit").click(function(){
             dormRatingNode.child("avgbuilding").set(parseInt(buildingRating));
           }
           if(snapshot.hasChild("avgStudyDist")){
-            alert("entered the snapshot.hasChild('avgStudyDist') listener");
             avgStudyDist = snapshot.child("avgStudyDist").val();
             avgStudyDist = (avgStudyDist)*(currentNumberOfRatings - 1) + parseInt(studyProximityRating);
             avgStudyDist = Math.round(avgStudyDist/currentNumberOfRatings);
@@ -134,7 +133,6 @@ $("#submit").click(function(){
           }
 
           if(snapshot.hasChild("avgPartyDist")){
-            alert("entered the snapshot.hasChild('avgPartyDist') listener");
             avgPartyDist = snapshot.child("avgPartyDist").val();
             avgPartyDist = (avgPartyDist)*(currentNumberOfRatings - 1) + parseInt(partyProximityRating);
             avgPartyDist = Math.round(avgPartyDist/currentNumberOfRatings);
@@ -153,11 +151,9 @@ $("#submit").click(function(){
           }
 
           if(snapshot.hasChild("avgRoom")){
-            alert("entered the snapshot.hasChild('avgRoom') listener");
             avgRoom = snapshot.child("avgRoom").val();
             avgRoom = (avgRoom)*(currentNumberOfRatings - 1) + parseInt(roomRating);
             avgRoom = Math.round(avgRoom/currentNumberOfRatings);
-            alert("new avgRoom score is " + avgRoom);
             dormRatingNode.child("avgRoom").set(parseInt(avgRoom));
           }else{
             dormRatingNode.child("avgRoom").set(parseInt(roomRating));
