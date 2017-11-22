@@ -27,19 +27,19 @@ $(document).ready(function(){
 $("#dropdown").hide();
 
 $("#findADorm").click(function(){
-  window.location="html/Landingpage.html";
+  window.location="../html/Landingpage.html";
 })
 
 $("#contactUs").click(function(){
-  window.location = "html/contact.html";
+  window.location = "../html/contact.html";
 })
 
 $("#writerev").click(function(){
-  window.location = "html/writeReview.html";
+  window.location = "../html/writeReview.html";
 })
 
 $("#writeReview").click(function(){
-  window.location="html/writeReview.html"
+  window.location="../html/writeReview.html"
   console.log('event fired');
 })
 

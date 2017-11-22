@@ -19,6 +19,8 @@ var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
 generateDormObjects()
 getSchoolOverall();
 
+
+
 $("#sortButton").click(function(){
   var sortParam = $("#sortOption").find(":selected").text();
   var filterParam = $("#filterOption").find(":selected").text();
@@ -87,10 +89,10 @@ $("#filterButton").click(function(){
 });
 
 
-function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, study, culture){
+function roomObj(dormName, bathroom, building, gym, kitchen, party, room, study, culture){
     this.dormName = dormName;
     this.bathroom = bathroom;
-    this.cleanliness = cleanliness;
+    this.building = building;
     this.gym = gym;
     this.kitchen = kitchen;
     this.party = party;
@@ -98,7 +100,7 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
     this.study = study;
     this.culture = culture;
 
-    this.overall = Math.round((bathroom+cleanliness+gym+kitchen+party+room+study)/7);
+    this.overall = Math.round((bathroom+building+gym+kitchen+party+room+study)/7);
 
   this.get = function(aspect){
     if(aspect == "Overall Rating"){
@@ -107,8 +109,8 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
       return this.room;
     }else if(aspect == "Bathroom Rating"){
       return this.bathroom;
-    }else if(aspect == "Kitchen Rating"){
-      return this.kitchen;
+    }else if(aspect == "Building Rating"){
+      return this.building;
     }else if(aspect == "Proximity to Study"){
       return this.study;
     }else if(aspect == "Proximity to Party"){
@@ -136,8 +138,8 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
     return this.bathroom;
   }
 
-  this.getCleanliness = function(){
-    return this.cleanliness
+  this.getBuilding = function(){
+    return this.Building
   }
 
   this.getGym = function(){
@@ -163,11 +165,15 @@ function roomObj(dormName, bathroom, cleanliness, gym, kitchen, party, room, stu
 
 //will populate the roomObjects array with rommObj that reflect the values currently stored in the database
 function generateDormObjects(){
-  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snapshot){
-    var snapVal = snapshot.val();
-    var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgCleanliness, snapVal.avgGymDist, snapVal.avgKitchen, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
-    roomObjects.push(room);
-    currentRooms.push(room);
+  firebase.database().ref("/UNC-CH/ratings").once("value").then(function(snap){
+    snap.forEach(function(snapshot){
+      var snapVal = snapshot.val();
+      var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgKitchen, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
+      roomObjects.push(room);
+      currentRooms.push(room);
+    })
+  }).then(function(){
+    listInitialDorms();
   })
 }
 
@@ -178,15 +184,32 @@ function getSchoolOverall(){
   firebase.database().ref("/UNC-CH/ratings").once("value").then(function(snapshot){
     snapshot.forEach(function(childSnap){
       var snapVal = childSnap.val();
-      var totalScoreValsUnder5 = snapVal.avgBathroom + snapVal.avgCleanliness + snapVal.avgKitchen + snapVal.avgRoom;
-      var totalScoreValsOver5 = snapVal.avgStudyDist + snapVal.avgPartyDist + snapVal.avgGymDist;
-
-      totalScoreValsUnder5 = totalScoreValsUnder5 * 3; //mult by 3 to standardize the value to be out of 15
-      var totalScoresAdjusted = (totalScoreValsUnder5 + totalScoreValsOver5)/7
-      schoolTotal = schoolTotal + totalScoresAdjusted;
+      var totalScoreVals = snapVal.avgBathroom + snapVal.avgbuilding + snapVal.avgRoom;
+      //var totalScoreValsOver5 = snapVal.avgStudyDist + snapVal.avgPartyDist + snapVal.avgGymDist;
+      schoolTotal = schoolTotal + totalScoreVals;
     })
   }).then(function(){
+    console.log("school total after computation is " + schoolTotal);
       schoolAvg = (schoolTotal/(dormNames.length)).toFixed(2);
+      console.log("school avg after computation is " + schoolAvg);
       $("#schoolOverall").text(schoolAvg);
   })
+}
+
+$(document).on("mousedown", ".ranking", function(){
+  var dormName = $(this).find("h11").html();
+  window.location = "dorms/" + dormName + ".html";
+})
+
+
+function listInitialDorms(){
+  console.log("inside of listInitialDorms() function");
+  console.log("length of roomObjects is " + roomObjects.length);
+  $("#rankings").empty();
+  console.log("#rankings should be emptied now");
+  for(var i=0; i<roomObjects.length; i++){
+    $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>#" + parseInt(i+1) + "</h12></div>" +
+  "<div class=\'name\'><h11>" + roomObjects[i].getDormName() + "</h11></div>" + "<div class=\'overallscore\'><h13>" + roomObjects[i].get("Overall Rating") + "</h13></div>" +
+  "<div class=\'landtags\'><div class=\'box2\'><p6>" + roomObjects[i].getCulture() + "</p6></div></div></div>");
+  }
 }

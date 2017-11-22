@@ -9,6 +9,9 @@
     <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title>Rate Your Dorms</title>
+  <script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <!--<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4HWq7ZLTFqypyM3aH1vtxl5nTxHhj9WY&callback=initMap" type="text/javascript"></script>-->
+
     <script>
         // Get the modal
         var modal = document.getElementById('id01');
@@ -28,152 +31,105 @@ $(document).ready(function(){
         console.log("button presed");
         $("#mobilepopup").hide();
     })
-
-    /*$("#hamburger").click(function() {
-    var this = $("#mobilepopup");
-    if (this.hasClass("clicked-once")) {
-        // already been clicked once, hide it
-        this.hide();
-        this.removeClass("clicked-once");
-    }
-    else {
-        // first time this is clicked, mark it
-        this.addClass("clicked-once");
-    }*/
 });
 </script>
 </head>
 <body>
 <div class="main">
-  <div id="logobar">
-              <div id="logo">
-                  <a href="index.html"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
-              </div>
-              <div class="socialmedia">
-                  <div id="dropdowncontainer">
-              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
-                  <input type="text" placeholder="Search..." id="searchbar">
-                   <div id="barcontain">
-                  <select id="searchtype">
-                          <option>Dorm</option>
-                          <option>School</option>
-                      </select>
-                    </div>
-                  <div id="searchbutton">
-                      <img src="../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
-                  </div>
-
-                  </div>
-                    <div id="dropdown">
-
+  <div class="main">
+    <div id="logobar">
+                <div id="logo">
+                    <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
+                </div>
+                <div class="socialmedia">
+                    <div id="dropdowncontainer">
+                <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                    <input type="text" placeholder="Search..." class="searchbar searchBar1">
+                     <div id="barcontain">
+                    <select id="searchtype">
+                            <option>Dorm</option>
+                            <option>School</option>
+                        </select>
+                      </div>
+                    <div id="searchbutton">
+                        <img src="../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
                     </div>
 
-              </div>
-                 <div id="hamburgercontainer"><img id="hamburger" src="../images/searchicon.png"></div>
-                <div id="hamburgercontainer"><img id="hamburger" src="../images/reviewwhite.png"></div>
-              </div>
-              <div class="signup">
-                  <div id="socialicons">
-                  <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
-                  <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                  <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
-                  </div>
-                  <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
-              </div>
-          </div>
-  <div id="mobilepopup">
-   <div class="popupback">
-             <div id="mobiledropdowncontainer">
-              <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
-                  <input type="text" placeholder="Search..." id="searchbar">
-                   <div id="barcontain">
-                  <select id="searchtype">
-                          <option>Dorm</option>
-                          <option>School</option>
-                      </select>
                     </div>
-                  <div id="searchbutton">
-                      <span id="closepop">&times;</span>
-                  </div>
+                      <div class="dropdown dropdown1">
 
-                  </div>
-              <div id="dropdown">
-                  <div class="dropdowncontent"><p14>Hinton James - UNC</p14></div>
+                      </div>
 
-              </div>
-              </div>
-    </div>
-  </div>
-    <div id="dormsearchwide">
-            <div id="collegebackground">
-                <div id="resolvewidth">
-                    <div id="viewmore2"><h3 style="color: white;">UNIVERSITY OF NORTH CAROLINA AT CHAPEL HILL</h3></div>
-                    <div id="viewmore2"><h14>OVERALL:</h14><h15 style="margin: .2em; border: solid 4px white;"><div id="schoolOverall" style="margin: .2em;">4.5</div></h15></div>
+                </div>
+                   <div id="hamburgercontainer"><img id="hamburger" src="../images/searchicon.png"></div>
+                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../images/reviewwhite.png"></div>
+                </div>
+                <div class="signup">
+                    <div id="socialicons">
+                    <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
+                    </div>
+                    <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
                 </div>
             </div>
-                        <div class="rankingheader" style="border-bottom: solid 1px lightgrey;">
-                            <select id="sortOption"style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;"><option>Sort by</option>
-                                <option>Overall Rating</option>
-                                <option>Room Rating</option>
-                                <option>Bathroom Rating</option>
-                                <option>Kitchen Rating</option>
-                                <option>Proximity to Study</option>
-                                <option>Proximity to Party</option>
-                                <option>Proximity to Workout</option>
+  <div id="mobilepopup">
+     <div class="popupback">
+               <div id="mobiledropdowncontainer">
+                <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                    <input type="text" placeholder="Search..." class="searchbar searchBar2">
+                     <div id="barcontain">
+                    <select id="searchtype">
+                            <option>Dorm</option>
+                            <option>School</option>
+                        </select>
+                      </div>
+                    <div id="closemobile">
+                        <span id="closepop">&times;</span>
+                    </div>
+
+                    </div>
+                <div class="dropdown dropdown2">
+                </div>
+                </div>
+      </div>
+  </div>
+<div class="landing">
+  <div id="dormsearchwide">
+            <div id="collegebackground">
+                <div class="overallcontainer"><h8 style="margin: 0 .5em; align-self:center;" id="schoolOverall">4.5</h8></div>
+
+                <div id="resolvewidth">
+
+                    <div id="viewmore2"><h8 style="color: white;">UNC Chapel Hill</h8></div>
+
+                </div>
+            </div>
+                        <div class="rankingheader">
+                            <select id="sortOption"style="width:25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .5em;"><option>Sort by</option>
+                              <option>Overall Rating</option>
+                              <option>Room Rating</option>
+                              <option>Bathroom Rating</option>
+                              <option>Building Rating</option>
+                              <option>Proximity to Study</option>
+                              <option>Proximity to Party</option>
+                              <option>Proximity to Workout</option>
                             </select>
                             <button id="sortButton" style="border:none; margin: .5em;">Sort</button>
-                            <select id="filterOption" style="width:20%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .75em;">
-                                <option>Filter by</option>
-                                <option>Rowdy</option>
-                                <option>Work-Hard</option>
-                                <option>Play-hard</option>
-                                <option>Greek</option>
-                                <option>Chill</option>
+                            <select id="filterOption" style="width:25%; border-radius: 0px; border: solid 2px #97C0E4; height: 35px; border-radius: 0px; background: white; margin: .5em;">
+                              <option>Filter by</option>
+                              <option>Social</option>
+                              <option>Work-hard</option>
+                              <option>Play-hard</option>
+                              <option>Greek</option>
+                              <option>Quiet</option>
+                              <option>Hipster</option>
+                              <option>Social</option>
+                              <option>Sporty</option>
                             </select>
                             <button id="filterButton" style="border:none; margin: .5em;">Filter</button>
                         </div>
-                        <!--div class="ranking" style="background: grey; height: 20px;">
-                            <div class="number"><h14>RANKING:</h14></div>
-                            <div class="name"><h14>NAME:</h14></div>
-                            <div class="overallscore"><h14>RATING:</h14></div>
-                        </div-->
-                      <div id="rankings">
-                        <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
-                         <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
-                        <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
-                        <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
-                        <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
-                        <div class="ranking">
-                            <div class="number"><h12>#1</h12></div>
-                            <div class="name"><h11>Hinton James</h11></div>
-                            <div class="overallscore"><h13>4.5</h13></div>
-                            <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
-                        </div>
+      <div id="rankings">
                         <div class="ranking">
                             <div class="number"><h12>#1</h12></div>
                             <div class="name"><h11>Hinton James</h11></div>
@@ -181,34 +137,88 @@ $(document).ready(function(){
                             <div class="landtags"><div class="box2"><p6>ROWDY</p6></div></div>
                         </div>
                       </div>
-                        <div id="viewmore1">
-                            <div id="viewmore2" style="background: #f4f5f7;">
-                             <div id="viewleft" class="centerelement"><img src="../images/left.png" style="width: 30px; height:30px;"></div><div class="centerelement"><p3>VIEW MORE</p3></div><div id="viewright"class="centerelement"><img src="../images/right.png" style="width: 30px; height:30px;"></div></div>
-                        </div>
+  </div>
+   <div id="map" >
+</div>
+<script type="text/javascript">
+    var locations = [
+        ['Alderman', 35.914746, -79.048227, 1],
+        ['Alexander', 35.9113359, -79.04643620000002, 2],
+        ['Avery', 35.9062164, -79.04424890000001, 3],
+        ['Aycock', 35.836256, -79.03805699999998, 4],
+        ['Carmichael', 35.9082038, -79.04584299999999, 5],
+        ['Cobb', 35.9123755, -79.04472049999998, 6],
+        ['Connor', 35.9108235, -79.04607349999998, 7],
+        ['Craige', 35.90272420000001, -79.04518109999998, 8],
+        ['Craige North', 35.903533, -79.0459004, 9],
+        ['Ehringhaus', 35.9043529, -79.04291339999997, 10],
+        ['Everett', 35.9125871, -79.04639680000002, 11],
+        ['Graham', 35.9130342, -79.0466376, 12],
+        ['Grimes', 35.9124259, -79.04847419999999, 13],
+        ['Granville', 35.910389, -79.057435, 14],
+        ['Hardin', 35.90396529999999, -79.04611820000002, 15],
+        ['Hinton James', 35.9023883, -79.04329029999997, 16],
+        ['Horton', 35.9031294, -79.04364720000001, 17],
+        ['Joyner', 35.91176309999999, -79.04679110000001, 18],
+        ['Kenan', 35.9145763, -79.04751540000001, 19],
+        ['Koury', 35.90356999999999, -79.04347710000002, 20],
+        ['Lewis', 35.9123592, -79.04699019999998, 21],
+        ['Mangum', 35.9120168, -79.04751090000002, 22],
+        ['Manly', 35.91263240000001, -79.04792329999998, 23],
+        ['McIver', 35.9140016, -79.04786530000001, 24],
+        ['Morrison', 35.9044505, -79.0462187, 25],
+        ['Old East', 35.9122676, -79.05077829999999, 26],
+        ['Old West', 35.9119912, -79.05177950000001, 27],
+        ['Parker', 35.9069686, -79.04441910000003, 28],
+        ['Ruffin', 35.9117983, -79.04808459999998, 29],
+        ['Spencer', 35.91490849999999, -79.04935999999998, 30],
+        ['Stacy', 35.9129844, -79.04613059999997, 31],
+        ['Teague', 35.90766300000001, -79.04506140000001, 32],
+        ['Winston', 35.91032779999999, -79.04615590000003, 33],
 
+
+
+
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 16,
+      center: new google.maps.LatLng(35.90980520000001, -79.04834340000002),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        icon: "../images/mapicon.png",
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  </script>
               </div>
     </div>
-<div class="footer">
-            <!--div class="footerlogo"><img style="margin: 1em;" src="RateYourDorms.png"></div-->
-            <div id="list">
-                    <li>Contact</li>
-                    <li>|</li>
-                    <li>Legal</li>
-                    <li>|</li>
-                    <li>About</li>
-                    <li>|</li>
-                    <li>© Copyright 2017 Rate Your Dorms</li>
-            </div>
-            <!--div id=copyright><li>Copyright © 2017 Rate Your Dorms</li></div-->
-            <!--div id=footersocialcontainer>
-                <div id="footersocial">
-                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
-                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
-                    <a href="https://www.instagram.com/rateyourdorms/" target="_blank" class="fa fa-instagram"></a>
-                </div>
-            </div-->
     </div>
+    <div class="footer" style=" flex-shrink: 0;">
+             <div id="list">
+                     <li id="contactLink">Contact</li>
+                     <li style="text-decoration:none;">|</li>
+                     <li id="legalLink">Legal</li>
+                     <li style="text-decoration:none;">|</li>
+                     <li id="aboutLink">About</li>
+             </div>
 
+     </div>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 <script>
@@ -224,5 +234,7 @@ $(document).ready(function(){
   firebase.initializeApp(config);
 </script>
 <script src="../javascript/Landingpage.js"></script>
+<script src="../javascript/headerSearch.js"></script>
+<script src="../javascript/footer.js"></script>
 
 </html>

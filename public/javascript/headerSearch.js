@@ -1,5 +1,11 @@
+var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
+"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes", "Granville",
+"Hardin", "Hinton James", "Horton", "Joyner", "Kenan", "Koury", "Lewis", "Mangum", "Manly",
+"McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
+"Winston", ];
+
 $("#writerev").click(function(){
-  window.location = "../writeReview.html";
+  window.location = "../html/writeReview.html";
 })
 $(".dropdown").hide();
 $(".dropdown").empty();
@@ -64,6 +70,8 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
   console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace(" - UNC", "");
   window.location = "dorms/" + dormName + ".html";
+  $.mobile.changePage(dormName + ".html");
+  location.href= "dorms/" + dormName + ".html";
 })
 
 $("#logobar").focusout(function(){
@@ -71,13 +79,14 @@ $("#logobar").focusout(function(){
   $(".searchbar").css("border-radius","5px 0px 0px 5px");
   $("#searchbutton").css("border-radius","0px 5px 5px 0px");
   $(".searchbar").val("");
-  /**if(!($(".dropdowncontent").is(":focus"))){
-    $(".dropdown").hide();
-    console.log("inside of if statement for focus out");
-  }*/
 })
 
 $("#closemobile").click(function(){
   $("#mobilepopup").toggle();
   console.log("close popup handler triggered.");
+})
+
+$(".mobileReview").click(function(){
+  console.log("#hamburger click listener fired");
+  window.location = "../html/writeReview.html";
 })

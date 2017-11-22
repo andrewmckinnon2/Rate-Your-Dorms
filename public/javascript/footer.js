@@ -9,5 +9,5 @@ $("#legalLink").click(function(){
 })
 
 $("#aboutLink").click(function(){
-  window.location = "../index.html#infographic";
+  window.location = "../index.html#theteam";
 })

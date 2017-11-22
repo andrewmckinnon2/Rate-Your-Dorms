@@ -421,7 +421,9 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
   console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace(" - UNC", "");
   console.log("dormName var is " + dormName)
-  window.location = dormName + ".html";
+  window.location = "dorms/" + dormName + ".html";
+  $.mobile.changePage("dorms/" + dormName + ".html");
+  location.href = "dorms/" + dormName + ".html"
 })
 
 $("#logobar").focusout(function(){
