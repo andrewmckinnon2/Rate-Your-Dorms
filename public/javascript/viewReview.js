@@ -371,7 +371,7 @@ function getSortedCultures(arr){//array of reviewObjects; this will sort the arr
 
 }
 
-$("#writerev").click(function(){
+$("#writeareview").click(function(){
   window.location = "../writeReview.html";
 })
 
@@ -418,12 +418,10 @@ $(".searchbar").keyup(function(event){
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace(" - UNC", "");
-  console.log("dormName var is " + dormName)
-  window.location = "dorms/" + dormName + ".html";
-  $.mobile.changePage("dorms/" + dormName + ".html");
-  location.href = "dorms/" + dormName + ".html"
+  window.location = dormName + ".html";
+  $.mobile.changePage(dormName + ".html");
+  location.href = dormName + ".html"
 })
 
 $("#logobar").focusout(function(){

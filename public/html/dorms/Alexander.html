@@ -1,6 +1,13 @@
 <!doctype html>
 <html>
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110093163-1');
+  </script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../../css/RateYourDormsMain.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -261,13 +268,13 @@ $(document).ready(function(){
       </div>
     </div>
     <div id="writereview">
-        <div id="commentheader">
-            <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
-            <div class="imagecontainer" onclick="showPicker()"><img src="http://s.newsweek.com/sites/www.newsweek.com/files/2017/04/27/dorm-room.JPG" class="img1"></div>
-            <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="http://www.trimarkproperties.com/dorms/img/windsor/double/uf-double-dorm-rooms-windsor.jpg" class="img1"></div>
-            <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="https://i.pinimg.com/originals/de/df/15/dedf153d1bfd54a8ca71a738086887f2.jpg" class="img1"></div>
-            <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
-        </div>
+      <div id="commentheader">
+          <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
+          <div class="imagecontainer" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6 style="margin: .5em .3em .5em 0;"><b>Click to upload</b></p6><img src="../../images/upload.png" class="uploader"></div></div>
+          <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
+      </div>
         <div id="commentsHolder">
 
         </div>

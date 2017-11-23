@@ -4,7 +4,7 @@ var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
 "McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
 "Winston", ];
 
-$("#writerev").click(function(){
+$("#writeareview").click(function(){
   window.location = "../html/writeReview.html";
 })
 $(".dropdown").hide();

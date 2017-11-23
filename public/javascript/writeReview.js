@@ -188,6 +188,8 @@ function checkForInputs(){
     return false;
   }else if($("#textReview").val().split(' ').length <15){
     return false;
+  }else if($("#dormName").find(":selected").text() == "Select"){
+    return false;
   }else{
     return true;
   }

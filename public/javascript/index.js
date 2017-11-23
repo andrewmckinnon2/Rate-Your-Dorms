@@ -20,7 +20,7 @@ $("#contactUs").click(function(){
   window.location = "html/contact.html";
 })
 
-$("#writerev").click(function(){
+$("#writeareview").click(function(){
   window.location = "html/writeReview.html";
 })
 
@@ -125,7 +125,7 @@ $("#legalLink").click(function(){
 })
 
 $("#aboutLink").click(function(){
-  window.location = "index.html#infographic";
+  window.location = "index.html#theteam";
 })
 
 $(".mobileReview").click(function(){
