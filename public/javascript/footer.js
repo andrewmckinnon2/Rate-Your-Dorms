@@ -1,5 +1,3 @@
-console.log("footer.js loaded");
-
 $("#contactLink").click(function(){
   window.location = "../html/contact.html";
 })

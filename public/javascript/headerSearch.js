@@ -20,9 +20,9 @@ $(".searchbar").keyup(function(event){
 
   if(keyPress == 13){//If enter button is pressed either redirect to top match, or print error.
     if(currentOptions.length == 0){
-      console.log("no matches with our dorm");
+      //Need to add redirect code
     }else{
-      console.log("redirect to " + currentOptions[0] + " review page");
+
     }
   }else{
     $(".dropdown").empty();
@@ -31,8 +31,6 @@ $(".searchbar").keyup(function(event){
 
   var userInput = $(".searchBar1").val();
   var userInput2 = $(".searchBar2").val();
-  console.log("user input is "+ userInput);
-  console.log("user input2 is " + userInput2);
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
     if(userInput.length>dormNames[i].length){
@@ -67,7 +65,6 @@ $(".searchbar").click(function(){
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace(" - UNC", "");
   window.location = "dorms/" + dormName + ".html";
   $.mobile.changePage(dormName + ".html");
@@ -83,10 +80,8 @@ $("#logobar").focusout(function(){
 
 $("#closemobile").click(function(){
   $("#mobilepopup").toggle();
-  console.log("close popup handler triggered.");
 })
 
 $(".mobileReview").click(function(){
-  console.log("#hamburger click listener fired");
   window.location = "../html/writeReview.html";
 })

@@ -27,7 +27,6 @@ $(".dormPicHolder").each(function(){
     var image = $(this).css("background-image");
     image = image.replace("url(\"", "");
     image = image.replace("\")", "");
-    console.log(image);
     $("<img src=\"" + image + "\"" + ">").hide().delay(1000).appendTo("#infoDisplay").fadeIn();
   })
 });

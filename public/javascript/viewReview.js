@@ -31,7 +31,6 @@ for(var i=0; i<dormNames.length; i++){
   }
 }
 
-console.log(currentDormSelected);
 $("#reviewHolder").empty();
 getCurrentInfo();
 
@@ -71,7 +70,6 @@ function getCurrentInfo(){
     population = snapshot.child("Population").val();
     laundry = snapshot.child("Laundry").val();
     dormStyle = snapshot.child("Dorm Style").val();
-    console.log("dormStyle is " + dormStyle);
   }).then(function(){
     firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
       numReviews = parseInt(snap.val().numReviews);
@@ -101,7 +99,6 @@ function getCurrentInfo(){
           cultureArr[4] = new reviewObject(numWorkHardReviews, "Work-hard");
 
           sortedCulture = getSortedCultures(cultureArr);
-          console.log("sorted culture array is " + sortedCulture[0].getName() + " " + sortedCulture[1].getName() + " " + sortedCulture[2].getName());
 
 
         snap.forEach(function(childSnap){
@@ -109,7 +106,6 @@ function getCurrentInfo(){
         childSnap.key!="avgbuilding" && childSnap.key!="avgCulture" && childSnap.key!="avgGymDist" && childSnap.key!="avgPartyDist" && childSnap.key!="avgRoom" && childSnap.key!="avgStudyDist" && childSnap.key!="culture"){
             var ratingInfo = childSnap.val();
             var bathroom = parseInt(ratingInfo.bathroom);
-            console.log("building sore is " + ratingInfo.building);
             var building = parseInt(ratingInfo.building);
             var room = parseInt(ratingInfo.room);
             var writtenReview = ratingInfo.review;
@@ -144,11 +140,7 @@ function getCurrentInfo(){
           }
         })
     }).then(function(){
-      console.log("grandScore val is " + grandScore);
-      console.log("topTotalScorePossible val is " + topTotalScorePossible);
       var finalScore = Number((avgRoom+avgBathroom+avgBuilding)/3).toFixed(1);
-      console.log(finalScore);
-      console.log("here is where we write to dorm title");
       $(".dormtitle").empty();
       $(".dormtitle").append("<h8>" + currentDormSelected + "</h8>");
       $(".left > h10").empty();
@@ -216,7 +208,6 @@ $("#sortButton").click(function(){
   }
 
   if(sortParam == "Proximity to Study" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
-    console.log("if statement for sorting was entered");
     for(var n=0; n<newDorms.length; n++){
       for(var i=newDorms.length-1; i>0; i--){
         if(newDorms[i].get(sortParam) < newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
@@ -227,13 +218,11 @@ $("#sortButton").click(function(){
       }
     }
   }else{//Sort the list of dorms after filtering
-    console.log("else statement for sorting was entered");
     for(var n=0;n<newDorms.length; n++){
       var debuggingString = ""
       for(var j=0; j<newDorms.length; j++){
         debuggingString = debuggingString + " " + newDorms[j].getDormName() + "-" + newDorms[j].get(sortParam);
       }
-      console.log("array is " + debuggingString + " after " + n + "th iteration");
       for(var i=0;i<newDorms.length-1; i++){
         if(newDorms[i].get(sortParam) < newDorms[i+1].get(sortParam) || newDorms[i].get(sortParam) == undefined){
           var temp = newDorms[i];
@@ -358,7 +347,6 @@ function reviewObject(score, name){//Store the name of a culture review and the 
 
 function getSortedCultures(arr){//array of reviewObjects; this will sort the array according to score val.
   var arr2 = arr;
-  console.log("get sorted cultures was called");
   for(var j=0; j<arr.length-1; j++){
     for(var i=0; i<arr.length-1; i++){
       if(arr[i].getScore() < arr[i+1].getScore()){
@@ -387,9 +375,9 @@ $(".searchbar").keyup(function(event){
 
   if(keyPress == 13){//If enter button is pressed either redirect to top match, or print error.
     if(currentOptions.length == 0){
-      console.log("no matches with our dorm");
+      //Need to add redirect code
     }else{
-      console.log("redirect to " + currentOptions[0] + " review page");
+      //Need to add redirect code
     }
   }else{
     $(".dropdown").empty();
@@ -430,21 +418,15 @@ $("#logobar").focusout(function(){
   $(".searchbar").css("border-radius","5px 0px 0px 5px");
   $("#searchbutton").css("border-radius","0px 5px 5px 0px");
   $(".searchbar").val("");
-  /**if(!($(".dropdowncontent").is(":focus"))){
-    $(".dropdown").hide();
-    console.log("inside of if statement for focus out");
-  }*/
 })
 
 $(".ranking").click(function(){
-  console.log(".ranking click function fired");
   var dormName = $(this).find("h11").html();
   window.location = dormName + ".html";
 })
 
 //Same functionality of listener above (".ranking").click...but allows for dynamic binding whenever a ".ranking" element is created
 $("#rankings").on("click", ".ranking", function(){
-  console.log(".ranking click function fired");
   var dormName = $(this).find("h11").html();
   window.location = dormName + ".html";
 })
@@ -492,5 +474,4 @@ $(".searchbar").click(function(){
 
 $("#closemobile").click(function(){
   $("#mobilepopup").toggle();
-  console.log("close popup handler triggered.");
 });

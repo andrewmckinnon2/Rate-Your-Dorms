@@ -5,7 +5,6 @@ $("#submit").click(function(){
       var emailVal = $("#emailAddress").val();
       var nameVal = $("#name").val();
       var messageVal = $("#messageField").val();
-      console.log("emailval is " + emailVal + " nameVal is " + nameVal + " messageVal is " + messageVal);
       newNode.set({
         Email: emailVal,
         Message: messageVal,
@@ -40,12 +39,10 @@ $("#writerev").click(function(){
 
 $("#writeReview").click(function(){
   window.location="../html/writeReview.html"
-  console.log('event fired');
 })
 
 var currentOptions = [];
 $("#searchbar").keyup(function(event){
-  console.log("searchbar listener is working");
   $("#dropdown").show();
   var keyPress;
   if(window.event){//IE
@@ -54,9 +51,7 @@ $("#searchbar").keyup(function(event){
 
   if(keyPress == 13){//If enter button is pressed either redirect to top match, or print error.
     if(currentOptions.length == 0){
-      console.log("no matches with our dorm");
     }else{
-      console.log("redirect to " + currentOptions[0] + " review page");
     }
   }else{
     $("#dropdown").empty();
@@ -75,7 +70,6 @@ $("#searchbar").keyup(function(event){
       currentOptions.push(dormNames[i]);
       $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "- UNC</p14></div>");
 
-      //console.log(dormNames[i]);
     }
 
   }
@@ -91,7 +85,6 @@ $("#searchbar").click(function(){
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  console.log("captured dropdowncontent event");
   var dormName = $(this).children("p14").html().replace("- UNC", "");
   window.location = "../html/dorms/" + dormName + ".html";
 })

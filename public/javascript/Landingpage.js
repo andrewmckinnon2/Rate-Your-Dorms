@@ -1,7 +1,6 @@
 var roomObjects = []; //This is where objects representing all the dorms will be placed
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
 
-console.log("Landingpage.js loaded.");
 
 $("#findADorm").click(function(){
   window.location = "Landingpage.html";
@@ -45,7 +44,6 @@ $("#sortButton").click(function(){
   }
 
   if(sortParam == "Proximity to Study" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
-    console.log("if statement for sorting was entered");
     for(var n=0; n<newDorms.length; n++){
       for(var i=newDorms.length-1; i>0; i--){
         if(newDorms[i].get(sortParam) < newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
@@ -56,13 +54,7 @@ $("#sortButton").click(function(){
       }
     }
   }else{//Sort the list of dorms after filtering
-    console.log("else statement for sorting was entered");
     for(var n=0;n<newDorms.length; n++){
-      /**var debuggingString = ""
-      for(var j=0; j<newDorms.length; j++){
-        debuggingString = debuggingString + " " + newDorms[j].getDormName() + "-" + newDorms[j].get(sortParam);
-      }*/
-      //console.log("array is " + debuggingString + " after " + n + "th iteration");
       for(var i=0;i<newDorms.length-1; i++){
         if(newDorms[i].get(sortParam) < newDorms[i+1].get(sortParam) || newDorms[i].get(sortParam) == undefined){
           var temp = newDorms[i];
@@ -189,9 +181,7 @@ function getSchoolOverall(){
       schoolTotal = schoolTotal + totalScoreVals;
     })
   }).then(function(){
-    console.log("school total after computation is " + schoolTotal);
       schoolAvg = (schoolTotal/(dormNames.length)).toFixed(2);
-      console.log("school avg after computation is " + schoolAvg);
       $("#schoolOverall").text(schoolAvg);
   })
 }
@@ -203,10 +193,7 @@ $(document).on("mousedown", ".ranking", function(){
 
 
 function listInitialDorms(){
-  console.log("inside of listInitialDorms() function");
-  console.log("length of roomObjects is " + roomObjects.length);
   $("#rankings").empty();
-  console.log("#rankings should be emptied now");
   for(var i=0; i<roomObjects.length; i++){
     $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>#" + parseInt(i+1) + "</h12></div>" +
   "<div class=\'name\'><h11>" + roomObjects[i].getDormName() + "</h11></div>" + "<div class=\'overallscore\'><h13>" + roomObjects[i].get("Overall Rating") + "</h13></div>" +

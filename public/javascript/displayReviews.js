@@ -23,7 +23,6 @@ $("#dormName").change(function(){
       var partyProximity = rating.partyProximity;
       var studyProximity = rating.studyProximity;
       var year = rating.year;
-      console.log("rating is " + rating + " bathroom score is " + bathroomScore);
 
       $("#writtenReviewsdisplay").append("<div class=\"writenReview\">" + "<div class=\"headOfReview\">" + "<p>" + name + "</p>");
       $("#writtenReviewsdisplay").append("<p>" + year + "</p>");

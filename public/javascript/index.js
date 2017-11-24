@@ -9,7 +9,6 @@ $(".dropdown").empty();
 
 $("#writeReview").click(function(){
   window.location="html/writeReview.html"
-  console.log('event fired');
 })
 
 $("#findADorm").click(function(){
@@ -27,7 +26,6 @@ $("#writeareview").click(function(){
 var currentOptions = [];
 $(".searchbar").keyup(function(event){
   $(".dropdown").show();
-  console.log(".searchbar.keyup event triggered");
   var keyPress;
   if(window.event){//IE
     keyPress = event.which;
@@ -35,9 +33,9 @@ $(".searchbar").keyup(function(event){
 
   if(keyPress == 13){//.searchbarton is pressed either redirect to top match, or print error.
     if(currentOptions.length == 0){
-      console.log("no matches with our dorm");
+      //Need to add redirect
     }else{
-      console.log("redirect to " + currentOptions[0] + " review page");
+      //Need to add redirect
     }
   }else{
     $(".dropdown").empty();
@@ -46,8 +44,6 @@ $(".searchbar").keyup(function(event){
 
   var userInput = $(".searchBar1").val();
   var userInput2 = $(".searchBar2").val();
-  console.log("user input is "+ userInput);
-  console.log("user input2 is " + userInput2);
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
     if(userInput.length>dormNames[i].length){
@@ -91,10 +87,6 @@ $("#logobar").focusout(function(){
   $(".searchbar").css("border-radius","5px 0px 0px 5px");
   $("#searchbutton").css("border-radius","0px 5px 5px 0px");
   $(".searchbar").attr("placeholder", "Search...");
-  /**if(!($(".dropdowncontent").is(":focus"))){
-    $(".dropdown").hide();
-    console.log("inside of if statement for focus out");
-  }*/
 })
 
 $("#writeAReviewCenter").click(function(){
@@ -107,14 +99,12 @@ $("#ViewSchoolOverviewCenter").click(function(){
 
 $("#closemobile").click(function(){
   $("#mobilepopup").toggle();
-  console.log("close popup handler triggered.");
 })
 
 $("#contactUs").click(function(){
   window.location = "html/contact.html";
 })
 
-console.log("footer.js loaded");
 
 $("#contactLink").click(function(){
   window.location = "html/contact.html";
@@ -129,6 +119,5 @@ $("#aboutLink").click(function(){
 })
 
 $(".mobileReview").click(function(){
-  console.log('mobileReview action listener was entered');
   window.location = "html/writeReview.html";
 })

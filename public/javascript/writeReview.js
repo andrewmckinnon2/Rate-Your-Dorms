@@ -65,9 +65,7 @@ $("#submit").click(function(){
     dormRatingNode.once("value").then(function(snap){
       if(snap.hasChild("culture")){
         var currentCulture = snap.child("culture").child(cultureReview).val();
-        alert("currentCulture before adding anything is " + currentCulture);
         currentCulture = currentCulture + 1;
-        alert("after addition, currentCulture is " + currentCulture);
 
         dormRatingNode.child("culture").child(cultureReview).set(currentCulture);
         var currentHighestVotes = snap.child("avgCulture").val();
