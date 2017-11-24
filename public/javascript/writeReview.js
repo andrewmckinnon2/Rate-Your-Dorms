@@ -65,8 +65,9 @@ $("#submit").click(function(){
     dormRatingNode.once("value").then(function(snap){
       if(snap.hasChild("culture")){
         var currentCulture = snap.child("culture").child(cultureReview).val();
-
+        alert("currentCulture before adding anything is " + currentCulture);
         currentCulture = currentCulture + 1;
+        alert("after addition, currentCulture is " + currentCulture);
 
         dormRatingNode.child("culture").child(cultureReview).set(currentCulture);
         var currentHighestVotes = snap.child("avgCulture").val();
@@ -143,7 +144,7 @@ $("#submit").click(function(){
 
           var numOfCulturePoints = snapshot.child("culture").child(cultureReview).val();
           numOfCulturePoints = numOfCulturePoints + 1;
-          dormRatingNode.child("culture").child(cultureReview).set(numOfCulturePoints);
+          //dormRatingNode.child("culture").child(cultureReview).set(numOfCulturePoints);
           var currentPopularCulture = snapshot.child("avgCulture").val();
           var currentVotesMostPopular = snapshot.child("culture").child(currentPopularCulture).val();
           if(numOfCulturePoints > currentVotesMostPopular){

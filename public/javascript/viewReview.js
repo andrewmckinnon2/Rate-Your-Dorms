@@ -70,7 +70,8 @@ function getCurrentInfo(){
   firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/Objective Info/").once("value").then(function(snapshot){
     population = snapshot.child("Population").val();
     laundry = snapshot.child("Laundry").val();
-    dormStyle = snapshot.child("Dorm Style");
+    dormStyle = snapshot.child("Dorm Style").val();
+    console.log("dormStyle is " + dormStyle);
   }).then(function(){
     firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
       numReviews = parseInt(snap.val().numReviews);
@@ -488,3 +489,8 @@ $(".searchbar").click(function(){
     $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
   }
 })
+
+$("#closemobile").click(function(){
+  $("#mobilepopup").toggle();
+  console.log("close popup handler triggered.");
+});
