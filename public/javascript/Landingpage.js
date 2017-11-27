@@ -43,7 +43,7 @@ $("#sortButton").click(function(){
     }
   }
 
-  if(sortParam == "Proximity to Study" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
+  if(sortParam == "Proximity to Class" || sortParam == "Proximity to Party" || sortParam == "Proximity to Workout"){
     for(var n=0; n<newDorms.length; n++){
       for(var i=newDorms.length-1; i>0; i--){
         if(newDorms[i].get(sortParam) < newDorms[i-1].get(sortParam) || newDorms[i-1].get(sortParam) == undefined){
@@ -103,7 +103,7 @@ function roomObj(dormName, bathroom, building, gym, kitchen, party, room, study,
       return this.bathroom;
     }else if(aspect == "Building Rating"){
       return this.building;
-    }else if(aspect == "Proximity to Study"){
+    }else if(aspect == "Proximity to Class"){
       return this.study;
     }else if(aspect == "Proximity to Party"){
       return this.party;

@@ -85,6 +85,31 @@ select {
     justify-content: flex-start;
 }
 
+.homePageButton{
+  border: #97C0E4;
+  margin-right:20px;
+  width:165px;
+  height:55px;
+  font-size:16px;
+}
+
+.teamcenter {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+@media screen and (max-width: 500px) {
+.homePageButton{
+  margin: 0 0 10px 0;
+}
+.teamcenter{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+}
+
 
 .searchBar {
     display: flex;
@@ -144,7 +169,7 @@ h2 {
 
 #homecontainer {
     height: 300px;
-    display; flex;
+    display: flex;
     width: 500px;
     justify-content: center;
 
@@ -616,6 +641,10 @@ textarea {
     outline: none;
 }
 
+a {
+  color: #97C0E4;
+}
+
 .reviewinfo {
     display: flex;
     width: 95%;
@@ -733,12 +762,13 @@ h7 {
       border-radius: 0 0 5px 5px;
       z-index: 1;
     position: fixed;
+    margin-top: 33px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0)
+/*@media screen and (-webkit-min-device-pixel-ratio:0)
   and (min-resolution:.001dpcm) {
     .dropdown{margin-top:33px;}
-}
+}*/
 
 @media only screen and (max-width: 907px) {
     #socialicons {
@@ -912,11 +942,6 @@ h8 {
 }
 
 
-.teamcenter {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
 
 #mobilepopup {
     display: none;
@@ -2319,5 +2344,26 @@ h16 {
     background: linear-gradient( rgba(0,0,0,0.1), rgba(0,0,0,0.1) ), url('../images/rateyourdormshome2.jpg');
     background-size:cover;
     background-repeat:no-repeat;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+
+  .commentcontainer {
+    margin: .5em .5em .5em 1em
+  }
+  .box4 {
+    margin: .5em 0em .5em 0;
+  }
+  .box3 {
+    margin: .5em 0em .5em 0em
+  }
+  p7 {
+    font-size: 9px;
+    align-self: center;
+  }
+  p8 {
+    font-size: 9px;
+      align-self: center;
   }
 }
