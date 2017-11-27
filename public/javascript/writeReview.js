@@ -114,11 +114,11 @@ $("#submit").click(function(){
             dormRatingNode.child("avgBathroom").set(parseInt(bathroomRating));
           }
           //Updated avgCleanliness to be avgBuilding
-          if(snapshot.hasChild("avgBuilding")){
-            avgBuilding = snapshot.child("avgBuilding").val();
+          if(snapshot.hasChild("avgbuilding")){
+            avgBuilding = snapshot.child("avgbuilding").val();
             avgBuilding = (avgBuilding)*(currentNumberOfRatings - 1) + parseInt(buildingRating);
             avgBuilding = Math.round(avgBuilding/currentNumberOfRatings);
-            dormRatingNode.child("avgBuilding").set(parseInt(avgBuilding));
+            dormRatingNode.child("avgbuilding").set(parseInt(avgBuilding));
           }else{
             dormRatingNode.child("avgbuilding").set(parseInt(buildingRating));
           }

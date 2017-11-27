@@ -92,7 +92,7 @@ function roomObj(dormName, bathroom, building, gym, kitchen, party, room, study,
     this.study = study;
     this.culture = culture;
 
-    this.overall = Math.round((bathroom+building+gym+kitchen+party+room+study)/7);
+    this.overall = Math.round((bathroom+building+room)/3);
 
   this.get = function(aspect){
     if(aspect == "Overall Rating"){
