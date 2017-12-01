@@ -1,5 +1,6 @@
 var dormNames = [];
 $(document).ready(function(){
+  $("#starFive").click();
   firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snap){
     dormNames.push(snap.key);
   })
@@ -66,6 +67,7 @@ $(".searchbar").keyup(function(event){
 $(".searchbar").click(function(){
   $(this).attr("placeholder", "");
   $(this).css("border-radius","5px 0px 0px 0px");
+  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
   $("#searchbutton").css("border-radius","0px 5px 0px 0px");
 
   $(".dropdown1").show();

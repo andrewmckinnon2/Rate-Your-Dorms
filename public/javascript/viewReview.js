@@ -83,20 +83,27 @@ function getCurrentInfo(){
       avgStudyDist = parseInt(snap.val().avgStudyDist);
     }).then(function(){
       firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
-          var numChillReviews = snap.child("culture").child("Chill").val();
-          cultureArr[0] = new reviewObject(numChillReviews,"Chill");
 
           var numGreekReviews = snap.child("culture").child("Greek").val();
-          cultureArr[1] = new reviewObject(numGreekReviews, "Greek");
+          cultureArr[0] = new reviewObject(numGreekReviews, "Greek");
+
+          var numHipsterReviews = snap.child("culture").child("Hipster").val();
+          cultureArr[1] = new reviewObject(numHipsterReviews, "Hipster");
 
           var numPlayHardReviews = snap.child("culture").child("Play-hard").val();
           cultureArr[2] = new reviewObject(numPlayHardReviews, "Play-hard");
 
-          var numRowdyReviews = snap.child("culture").child("Rowdy").val();
-          cultureArr[3] = new reviewObject(numRowdyReviews, "Rowdy");
+          var numQuietReviews = snap.child("culture").child("Quiet").val();
+          cultureArr[3] = new reviewObject(numQuietReviews, "Quiet");
+
+          var numSocialReviews = snap.child("culture").child("Social").val();
+          cultureArr[4] = new reviewObject(numSocialReviews, "Social");
+
+          var numSportyReviews = snap.child("culture").child("Sporty").val();
+          cultureArr[5] = new reviewObject(numSportyReviews, "Sporty");
 
           var numWorkHardReviews = snap.child("culture").child("Work-hard").val();
-          cultureArr[4] = new reviewObject(numWorkHardReviews, "Work-hard");
+          cultureArr[6] = new reviewObject(numWorkHardReviews, "Work-hard");
 
           sortedCulture = getSortedCultures(cultureArr);
 
@@ -164,7 +171,7 @@ function getCurrentInfo(){
 
       $("#dormmain div:nth-child(2) > p6").text(sortedCulture[0].getName());
       $("#dormmain div:nth-child(3) > p6").text(sortedCulture[1].getName());
-      $("#dormmain div:nth-child(4) > p6").text(sortedCulture[2].getName());
+      //$("#dormmain div:nth-child(4) > p6").text(sortedCulture[2].getName());
 
 
       $("#population").text(population + " RESIDENTS")
@@ -246,13 +253,6 @@ $("#sortButton").click(function(){
 $("#filterButton").click(function(){
     $("#sortButton").click();
 });
-
-/*$("#rankings").children().click(function(){
-  currentDormSelected = $("#rankings > .ranking > .name > h11").text();
-  getCurrentInfo();
-  $("#closeReviewNav").click();
-})*/
-  //Need to close pop up and return to newly rendered information
 
 function roomObj(dormName, bathroom, building, gym, party, room, study, culture){
     this.dormName = dormName;
@@ -415,7 +415,8 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 
 $("#logobar").focusout(function(){
   $(".dropdown").hide();
-  $(".searchbar").css("border-radius","5px 0px 0px 5px");
+  $(".searchBar1").css("border-radius","5px 0px 0px 5px");
+  $(".searchBar2").css("border-radius", "0px 0px 0px 0px");
   $("#searchbutton").css("border-radius","0px 5px 5px 0px");
   $(".searchbar").val("");
 })
@@ -462,6 +463,7 @@ $(".mobileReview").click(function(){
 
 $(".searchbar").click(function(){
   $(this).css("border-radius","5px 0px 0px 0px");
+  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
   $("#searchbutton").css("border-radius","0px 5px 0px 0px");
 
   $(".dropdown1").show();

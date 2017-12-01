@@ -3,10 +3,10 @@
 <head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-110093163-1');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-110093163-1');
 </script>
    <meta name="viewport" content="width=device-width, initial-scale=1"-->
    <link rel="stylesheet" href="css/RateYourDormsMain.css">
@@ -80,7 +80,7 @@ $(document).ready(function(){
     <div class="popupback">
              <div id="mobiledropdowncontainer">
               <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
-                  <input type="text" placeholder="Search..." class="searchbar searchBar2">
+                  <input id="mobileSearch" type="text" placeholder="Search..." class="searchbar searchBar2">
                    <div id="barcontain">
                   <select id="searchtype">
                           <option>Dorm</option>
@@ -99,70 +99,62 @@ $(document).ready(function(){
     </div>
 </div>
        <div class="bottom">
-           <div style="display: flex; flex-direction: column;margin-top: 7em;">
-           <div class="teamcenter" style="margin-bottom: 2em;">
-           <h3 style="color: white;">Write a review for your dorm today</h3>
-           </div>
-            <div class="teamcenter">
+           <div class="graphic">
+             <div class="teamcenter" id="homeright">
+            <h7>Write a Review Today</h7>
            <button class="submit homePageButton" id="writeAReviewCenter">Write a Review</button>
+           </div>
+           <div class="teamcenter">
+
+            <img src="images/homecomp.png" class="computer">
+                <form style="align-self: center;">
+                    <input value="5" class="star star-5" id="cleanliness1" type="radio" name="buildingStar"/>
+                    <label id="starFive" class="star star-5" for="cleanliness1"></label>
+                    <input value="4" class="star star-4" id="cleanliness2" type="radio" name="buildingStar"/>
+                    <label class="star star-4" for="cleanliness2"></label>
+                    <input value="3" class="star star-3" id="cleanliness3" type="radio" name="buildingStar"/>
+                    <label class="star star-3" for="cleanliness3"></label>
+                    <input value="2" class="star star-2" id="cleanliness4" type="radio" name="buildingStar"/>
+                    <label class="star star-2" for="cleanliness4"></label>
+                    <input value="1"class="star star-1" id="cleanliness5" type="radio" name="buildingStar"/>
+                    <label class="star star-1" for="cleanliness5"></label>
+              </form>
+           </div>
+            <div class="teamcenter" id="homeright">
+            <h7>Check out UNC Dorms</h7>
            <button class="submit homePageButton" id="ViewSchoolOverviewCenter">UNC Dorms</button>
            </div>
            </div>
        </div>
 
 
-<div id="id01" class="modal">
-
- <form class="modal-content animate" action="/action_page.php">
-   <div class="imgcontainer">
-     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-     <img src="images/RateYourDormBlack.png" class="popuplogo">
-   </div>
-
-   <div class="container">
-     <label><b>Username</b></label>
-     <input type="text" placeholder="Enter Username" name="uname" required>
-
-     <label><b>Password</b></label>
-     <input type="password" placeholder="Enter Password" name="psw" required>
-
-     <button type="submit">Login</button>
-     <input type="checkbox" checked="checked"> Remember me
-   </div>
-
-   <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-     <span class="psw">Forgot <a href="#">password?</a></span>
-   </div>
- </form>
-</div>
 
    <div class="infographic">
        <div id="read">
            <div class="iconcontainer">
                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/read.png">
            </div>
-           <div class="infoheading"><h3>Read.</h3></div>
+           <div class="infoheading"><h3 class="white">Read.</h3></div>
            <!--div class="infoicon"><img class="book" src="images/book.png"></div-->
-           <div class="infobody"><p>Hear what student’s have to say about their dorm experience.</p></div>
+           <div class="infobody"><p class="white">Hear what student’s have to say about their dorm experience.</p></div>
        </div>
        <div id="review">
             <div class="iconcontainer">
                <img style="width: 63px; height: 70px; margin: .75em;" class="" src="images/review.png">
            </div>
-           <div class="infoheading"><h3>Review.</h3></div>
-           <div class="infobody"><p>Tell incoming students what to expect from their dorms.</p></div>
+           <div class="infoheading"><h3 class="white">Review.</h3></div>
+           <div class="infobody"><p class="white">Tell incoming students what to expect from their dorms.</p></div>
 
        </div>
        <div id="livebetter">
             <div class="iconcontainer">
                <img style="width: 70px; height: 70px; margin: .75em;" class="" src="images/livebetter.png">
            </div>
-           <div class="infoheading"><h3>Live Better.</h3></div>
-           <div class="infobody"><p>Enjoy a healthy, happy, and prosperous year living on campus.</p></div>
+           <div class="infoheading"><h3 class="white">Live Better.</h3></div>
+           <div class="infobody"><p class="white">Enjoy a healthy, happy, and prosperous year living on campus.</p></div>
        </div>
    </div>
-   <div id="theteam">
+<div id="theteam">
        <div id="teamheader">
            <h3 style="margin-top: .5em;color: white;">ABOUT</h3>
        </div>
@@ -175,15 +167,12 @@ $(document).ready(function(){
            </p>
            </div>
        </div>
-       <div class="bottomcontainer">
-       <button style="border: #97C0E4" id="contactUs"class="submit">Contact Us</button>
-       </div>
-   </div>
+    </div>
    <div class="teamcenter"><h3 style="margin-top: .5em;">THE TEAM</h3></div>
    <div class="teamcenter">
        <div class="barline"></div>
    </div>
-   <div class="infographic">
+   <div class="infographic" style="background: white;">
        <div id="read">
            <div class="iconcontainer">
                <img style="width: 140px; height: 140px; margin: .5em; border-radius: 100px;" class="" src="images/jasper.jpg">
@@ -210,6 +199,7 @@ $(document).ready(function(){
 </p13></div>
        </div>
    </div>
+
     <div class="footer" style=" flex-shrink: 0;">
            <div id="list">
                    <li id="contactLink">Contact</li>
