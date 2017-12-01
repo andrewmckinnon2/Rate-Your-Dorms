@@ -75,11 +75,17 @@ $("#searchbar").keyup(function(event){
   }
 })
 
-$("#searchbar").click(function(){
+$(".searchbar").click(function(){
   $(this).attr("placeholder", "");
-  $("#dropdown").show();
+  $(this).css("border-radius","5px 0px 0px 0px");
+  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
+  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
+
+  $(".dropdown1").show();
+  $(".dropdown2").show();
   for(var i=0; i<dormNames.length; i++){
-    $("#dropdown").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + "-UNC</p14></div>");
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
   }
 })
 
@@ -90,12 +96,10 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 })
 
 $("#logobar").focusout(function(){
-  $("#dropdown").hide();
-  $("#searchbar").attr("placeholder", "Find a dorm...");
-  /**if(!($(".dropdowncontent").is(":focus"))){
-    $("#dropdown").hide();
-    console.log("inside of if statement for focus out");
-  }*/
+  $(".dropdown").hide();
+  $(".searchbar").css("border-radius","5px 0px 0px 5px");
+  $("#searchbutton").css("border-radius","0px 5px 5px 0px");
+  $(".searchbar").val("");
 })
 
 $("#messageField").click(function(){
