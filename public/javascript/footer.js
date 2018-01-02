@@ -1,11 +1,12 @@
+//Purely for linking pages from footer to other pages in the site
 $("#contactLink").click(function(){
-  window.location = "../html/contact.html";
+  window.location = "contact.html";
 })
 
 $("#legalLink").click(function(){
-  window.location = "../html/Legal.html";
+  window.location = "Legal.html";
 })
 
 $("#aboutLink").click(function(){
-  window.location = "../index.html#theteam";
+  window.location = "index.html#theteam";
 })

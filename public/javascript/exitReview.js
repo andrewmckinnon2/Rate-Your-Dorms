@@ -1,15 +1,7 @@
-$("#findADorm").click(function(){
-  window.location = "../html/Landingpage.html";
-})
-
 $("#returnHome").click(function(){
-  window.location = "../index.html";
-})
-
-$("#writeReview").click(function(){
-  window.location = "../html/writeReview.html";
+  window.location = "index.html";
 })
 
 $("#writeReviews").click(function(){
-  window.location = "../html/writeReview.html";
+  window.location = "writeReview.html";
 })

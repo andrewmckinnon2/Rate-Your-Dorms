@@ -80,87 +80,12 @@ $("#filterButton").click(function(){
     $("#sortButton").click();
 });
 
-
-function roomObj(dormName, bathroom, building, gym, kitchen, party, room, study, culture){
-    this.dormName = dormName;
-    this.bathroom = bathroom;
-    this.building = building;
-    this.gym = gym;
-    this.kitchen = kitchen;
-    this.party = party;
-    this.room = room;
-    this.study = study;
-    this.culture = culture;
-
-    this.overall = Math.round((bathroom+building+room)/3);
-
-  this.get = function(aspect){
-    if(aspect == "Overall Rating"){
-      return this.overall;
-    }else if(aspect == "Room Rating"){
-      return this.room;
-    }else if(aspect == "Bathroom Rating"){
-      return this.bathroom;
-    }else if(aspect == "Building Rating"){
-      return this.building;
-    }else if(aspect == "Proximity to Class"){
-      return this.study;
-    }else if(aspect == "Proximity to Party"){
-      return this.party;
-    }else if(aspect == "Proximity to Workout"){
-      return this.gym;
-    }else if(aspect == this.culture){
-      return this.culture;
-    }
-  }
-
-  this.getCulture = function(){
-    return this.culture;
-  }
-
-  this.getOverall = function(){
-    return this.overall;
-  }
-
-  this.getDormName = function(){
-    return this.dormName;
-  }
-
-  this.getBathroom = function(){
-    return this.bathroom;
-  }
-
-  this.getBuilding = function(){
-    return this.Building
-  }
-
-  this.getGym = function(){
-    return this.gym;
-  }
-
-  this.getKitchen = function(){
-    return this.kitchen;
-  }
-
-  this.getParty = function(){
-    return this.party;
-  }
-
-  this.getRoom = function(){
-    return this.room;
-  }
-
-  this.getStudy = function(){
-    return this.study;
-  }
-}
-
 //will populate the roomObjects array with rommObj that reflect the values currently stored in the database
 function generateDormObjects(){
   firebase.database().ref("/UNC-CH/ratings").once("value").then(function(snap){
     snap.forEach(function(snapshot){
       var snapVal = snapshot.val();
-      var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgKitchen, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
+      var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
       roomObjects.push(room);
       currentRooms.push(room);
     })
@@ -188,7 +113,7 @@ function getSchoolOverall(){
 
 $(document).on("mousedown", ".ranking", function(){
   var dormName = $(this).find("h11").html();
-  window.location = "dorms/" + dormName + ".html";
+  window.location = "UNC-CH/" + dormName + ".html";
 })
 
 

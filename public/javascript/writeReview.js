@@ -1,27 +1,34 @@
-var currentNumberOfRatings;
-var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
-"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes", "Granville",
-"Hardin", "Hinton James", "Horton", "Joyner", "Kenan", "Koury", "Lewis", "Mangum", "Manly",
-"McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
-"Winston", ];
+var currentNumberOfRatings;//Global var to be updated with the current number of ratings
+//dormNamesWritRev holds names of all dorms we will display as review options
+var dormNamesWriteRev = []
+//Add all possible dorm names to dormNamesWriteRev array upon loading of html page
+//Also, the dormNamesWriteRev variable mimics what dormNames accomplishes in headerSearch.js but needs different name to allow for seperate array
+$(document).ready(function(){
+    //Add every dorm name in dormNamesWriteRev to the dropdown for selecting what dorm to review
+    firebase.database().ref("/UNC-CH/ratings").once('value').then(function(snap){
+      snap.forEach(function(childSnap){
+        dormNamesWriteRev.push(childSnap.key);
+      })
+    }).then(function(){
+      for(var i=0; i<dormNamesWriteRev.length; i++){
+        $("#dormName").append("<option id=\"" + dormNamesWriteRev[i].toLowerCase() + "\">" + dormNamesWriteRev[i] + "</option>")
+      }
+    })
+})
 
-var cultureArr = ["Rowdy", "Work-hard", "Play-hard", "Greek", "Chill"];
-
-for(var i=0; i<dormNames.length; i++){
-  $("#dormName").append("<option id=\"" + dormNames[i].toLowerCase() + "\">" + dormNames[i] + "</option>");
-}
+var cultureArr = ["Greek", "Work-hard", "Play-hard", "Hipster", "Quiet", "Social", "Sporty"];
 
 var bathroomRadios = $(".bathroomRating");
 var cleanlinessRadios = $(".cleanlinessRating");
 var kitchenRadios = $(".kitchenRating");
 
+//On submit check that all fields are filled in and update appropriate database fields
 $("#submit").click(function(){
-
-
-  console.log("submit event click fired");
+  //Check for all inputs
   if(checkForInputs() == false){
     alert("Please make sure all fields are filled in.");
   }else{
+    //Get all inputs from appropriate jquery selectors and make mouse wait
     $('.loadPlaceHolder').toggle();
     $(this).css("cursor", "wait");
     console.log("checkForInputs returned true");
@@ -39,6 +46,7 @@ $("#submit").click(function(){
     var writtenReview = $("#textReview").val();
     var recommendationVal = $("input:radio[name ='recommend']:checked").val();
 
+    //Initialize firebase database var, dormRatingNode var, get date, and generate new node
     var database = firebase.database();
     var dormRatingNode = database.ref("UNC-CH/ratings/" + dorm + "/");
     var d = new Date();
@@ -62,8 +70,10 @@ $("#submit").click(function(){
       date: dateWritten
     });
 
+    //Update culture rating in firebase
     dormRatingNode.once("value").then(function(snap){
       if(snap.hasChild("culture")){
+        //increment score for selected culture rating and update highest score
         var currentCulture = snap.child("culture").child(cultureReview).val();
         currentCulture = currentCulture + 1;
 
@@ -73,6 +83,7 @@ $("#submit").click(function(){
           dormRatingNode.child("avgCulture").set(cultureReview);
         }
       }else{
+        //Initialize culture ratings at 0, and set avgCulture as the selected culture
         for(var i=0; i<cultureArr.length; i++){
           if(cultureArr[i]!=cultureReview){
             dormRatingNode.child("culture").child(cultureArr[i]).set(0);
@@ -82,87 +93,94 @@ $("#submit").click(function(){
         }
         dormRatingNode.child("avgCulture").set(cultureReview);
       }
+
     }).then(function(){
+        //Update number of ratings in firebase
         dormRatingNode.once("value").then(function(snap){//update the number of ratings
         currentNumberOfRatings = parseInt(snap.val().numReviews);
 
         currentNumberOfRatings = currentNumberOfRatings+1;
         dormRatingNode.child("numReviews").set(currentNumberOfRatings);
-      }).then(function(){ //Update the averages for this dorm.
-      var avgGymDist;
-      var avgBathroom;
-      var avgBuilding; //Changed from avgCleanliness to avgBuilding
-      var avgStudyDist;
-      var avgPartyDist;
-      var avgCulture;
-      var avgRoom;
-      dormRatingNode.once("value").then(function(snapshot){
-          if(snapshot.hasChild("avgGymDist")){
-            avgGymDist = snapshot.child("avgGymDist").val();
-            avgGymDist = (avgGymDist)*(currentNumberOfRatings-1) + parseInt(gymProximityRating);
-            avgGymDist = Math.round(avgGymDist/currentNumberOfRatings);
-            dormRatingNode.child("avgGymDist").set(parseInt(avgGymDist));
-          }else{
-            dormRatingNode.child("avgGymDist").set(parseInt(gymProximityRating));
-          }
-          if(snapshot.hasChild("avgBathroom")){
-            avgBathroom = snapshot.child("avgBathroom").val();
-            avgBathroom = (avgBathroom)*(currentNumberOfRatings -1) + parseInt(bathroomRating);
-            avgBathroom = Math.round(avgBathroom/currentNumberOfRatings);
-            dormRatingNode.child("avgBathroom").set(parseInt(avgBathroom));
-          }else{
-            dormRatingNode.child("avgBathroom").set(parseInt(bathroomRating));
-          }
-          //Updated avgCleanliness to be avgBuilding
-          if(snapshot.hasChild("avgbuilding")){
-            avgBuilding = snapshot.child("avgbuilding").val();
-            avgBuilding = (avgBuilding)*(currentNumberOfRatings - 1) + parseInt(buildingRating);
-            avgBuilding = Math.round(avgBuilding/currentNumberOfRatings);
-            dormRatingNode.child("avgbuilding").set(parseInt(avgBuilding));
-          }else{
-            dormRatingNode.child("avgbuilding").set(parseInt(buildingRating));
-          }
-          if(snapshot.hasChild("avgStudyDist")){
-            avgStudyDist = snapshot.child("avgStudyDist").val();
-            avgStudyDist = (avgStudyDist)*(currentNumberOfRatings - 1) + parseInt(studyProximityRating);
-            avgStudyDist = Math.round(avgStudyDist/currentNumberOfRatings);
-            dormRatingNode.child("avgStudyDist").set(parseInt(avgStudyDist));
-          }else{
-            dormRatingNode.child("avgStudyDist").set(parseInt(studyProximityRating));
-          }
+      }).then(function(){
+        //Update the averages for this dorm.
+        var avgGymDist;
+        var avgBathroom;
+        var avgBuilding;
+        var avgStudyDist;
+        var avgPartyDist;
+        var avgCulture;
+        var avgRoom;
+        dormRatingNode.once("value").then(function(snapshot){
+          //Update avgGymDist score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgGymDist")){
+              avgGymDist = snapshot.child("avgGymDist").val();
+              avgGymDist = (avgGymDist)*(currentNumberOfRatings-1) + parseInt(gymProximityRating);
+              avgGymDist = Math.round(avgGymDist/currentNumberOfRatings);
+              dormRatingNode.child("avgGymDist").set(parseInt(avgGymDist));
+            }else{
+              dormRatingNode.child("avgGymDist").set(parseInt(gymProximityRating));
+            }
+          //Update avgBathr0om score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgBathroom")){
+              avgBathroom = snapshot.child("avgBathroom").val();
+              avgBathroom = (avgBathroom)*(currentNumberOfRatings -1) + parseInt(bathroomRating);
+              avgBathroom = Math.round(avgBathroom/currentNumberOfRatings);
+              dormRatingNode.child("avgBathroom").set(parseInt(avgBathroom));
+            }else{
+              dormRatingNode.child("avgBathroom").set(parseInt(bathroomRating));
+            }
+          //Update avgbuilding score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgbuilding")){
+              avgBuilding = snapshot.child("avgbuilding").val();
+              avgBuilding = (avgBuilding)*(currentNumberOfRatings - 1) + parseInt(buildingRating);
+              avgBuilding = Math.round(avgBuilding/currentNumberOfRatings);
+              dormRatingNode.child("avgbuilding").set(parseInt(avgBuilding));
+            }else{
+              dormRatingNode.child("avgbuilding").set(parseInt(buildingRating));
+            }
+          //Update avgStudyDist score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgStudyDist")){
+              avgStudyDist = snapshot.child("avgStudyDist").val();
+              avgStudyDist = (avgStudyDist)*(currentNumberOfRatings - 1) + parseInt(studyProximityRating);
+              avgStudyDist = Math.round(avgStudyDist/currentNumberOfRatings);
+              dormRatingNode.child("avgStudyDist").set(parseInt(avgStudyDist));
+            }else{
+              dormRatingNode.child("avgStudyDist").set(parseInt(studyProximityRating));
+            }
+          //Update avgPartyDist score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgPartyDist")){
+              avgPartyDist = snapshot.child("avgPartyDist").val();
+              avgPartyDist = (avgPartyDist)*(currentNumberOfRatings - 1) + parseInt(partyProximityRating);
+              avgPartyDist = Math.round(avgPartyDist/currentNumberOfRatings);
+              dormRatingNode.child("avgPartyDist").set(parseInt(avgPartyDist));
+            }else{
+              dormRatingNode.child("avgPartyDist").set(parseInt(partyProximityRating));
+            }
 
-          if(snapshot.hasChild("avgPartyDist")){
-            avgPartyDist = snapshot.child("avgPartyDist").val();
-            avgPartyDist = (avgPartyDist)*(currentNumberOfRatings - 1) + parseInt(partyProximityRating);
-            avgPartyDist = Math.round(avgPartyDist/currentNumberOfRatings);
-            dormRatingNode.child("avgPartyDist").set(parseInt(avgPartyDist));
-          }else{
-            dormRatingNode.child("avgPartyDist").set(parseInt(partyProximityRating));
-          }
+          //Update culture score from this review (not sure if this was already accomplished in earlier portion of review)
+            var numOfCulturePoints = snapshot.child("culture").child(cultureReview).val();
+            numOfCulturePoints = numOfCulturePoints + 1;
+            var currentPopularCulture = snapshot.child("avgCulture").val();
+            var currentVotesMostPopular = snapshot.child("culture").child(currentPopularCulture).val();
+            if(numOfCulturePoints > currentVotesMostPopular){
+              dormRatingNode.child("avgCulture").set(cultureReview);
+            }
+          //Update avgRoom score if it exists, otherwise initialize to score from this review
+            if(snapshot.hasChild("avgRoom")){
+              avgRoom = snapshot.child("avgRoom").val();
+              avgRoom = (avgRoom)*(currentNumberOfRatings - 1) + parseInt(roomRating);
+              avgRoom = Math.round(avgRoom/currentNumberOfRatings);
+              dormRatingNode.child("avgRoom").set(parseInt(avgRoom));
+            }else{
+              dormRatingNode.child("avgRoom").set(parseInt(roomRating));
+            }
+          }).then(function(){
+            //Redirect after 3 seconds; long enough to write review information to firebase
+            setTimeout(function(){
+              window.location = "exitReview.html";
+            }, 3000)
 
-          var numOfCulturePoints = snapshot.child("culture").child(cultureReview).val();
-          numOfCulturePoints = numOfCulturePoints + 1;
-          //dormRatingNode.child("culture").child(cultureReview).set(numOfCulturePoints);
-          var currentPopularCulture = snapshot.child("avgCulture").val();
-          var currentVotesMostPopular = snapshot.child("culture").child(currentPopularCulture).val();
-          if(numOfCulturePoints > currentVotesMostPopular){
-            dormRatingNode.child("avgCulture").set(cultureReview);
-          }
-
-          if(snapshot.hasChild("avgRoom")){
-            avgRoom = snapshot.child("avgRoom").val();
-            avgRoom = (avgRoom)*(currentNumberOfRatings - 1) + parseInt(roomRating);
-            avgRoom = Math.round(avgRoom/currentNumberOfRatings);
-            dormRatingNode.child("avgRoom").set(parseInt(avgRoom));
-          }else{
-            dormRatingNode.child("avgRoom").set(parseInt(roomRating));
-          }
-        }).then(function(){
-          setTimeout(function(){
-            window.location = "../html/exitReview.html";
-          }, 3000)
-
-        });
+          });
       })
     })
   }
@@ -194,38 +212,3 @@ function checkForInputs(){
   }
 
 }
-
-$("#hamburger").click(function(){
-    $("#mobilepopup").show();
-});
-
-$("#exitMobilePopup").click(function(){
-    console.log("button presed");
-    $("#mobilepopup").hide();
-})
-
-$("#writeReview").click(function(){
-  window.location = "writeReview.html";
-})
-
-$("#findADorm").click(function(){
-  window.location="Landingpage.html";
-});
-
-$(".mobileReview").click(function(){
-  window.location="writeReview.html";
-})
-
-$(".searchbar").click(function(){
-  $(this).attr("placeholder", "");
-  $(this).css("border-radius","5px 0px 0px 0px");
-  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
-  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
-
-  $(".dropdown1").show();
-  $(".dropdown2").show();
-  for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
-  }
-})

@@ -1,62 +1,45 @@
 var roomObjects = []; //This is where objects representing all the dorms will be placed
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
 const topPossibleScore = 15; //3 different areas of quantitative review therefore, with each one out of 5, top score possible is 20;
-$("#writeReview").click(function(){
-  window.location="../html/writeReview.html";
-})
 
+//hide and empty dropdown when page is loaded
 $(".dropdown").hide();
 $(".dropdown").empty();
 
-//Class to be placed into arrays, holding average ratings for the various facets of a dorm
-//Need to add getters for this class
+generateDormObjects();
 
-generateDormObjects()
-var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
-"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes",
-"Hardin", "Hinton James", "Horton", "Joyner", "Kenan", "Koury", "Lewis", "Mangum", "Manly",
-"McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
-"Winston", "Granville"];
-
-for(var i=0; i<dormNames.length; i++){
-  $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + (i+1) + "</h12></div>" +
-  "<div class=\'name\'><h11>" + dormNames[i] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
-}
-
-//Get dorm name and render appropriate information.
+dormNames = [];
 var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
-for(var i=0; i<dormNames.length; i++){
-  if(dormNames[i].toLowerCase() == currentDormSelected){
-    currentDormSelected = dormNames[i];
-  }
-}
-
-$("#reviewHolder").empty();
-getCurrentInfo();
-
-$(".ranking").click(function(){
-  currentDormSelected = $(this).children(".name").children("h11").text()
-  $("#closeReviewNav").click();
-  $("#reviewHolder").empty();
-  $(".dormtitle > h8").empty();
-  $(".dormtitle > h8").text(currentDormSelected);
-  getCurrentInfo();
+$(document).ready(function(){
+  //Add every dorm to the dormNames array
+  firebase.database().ref("/UNC-CH/ratings").once('value').then(function(snap){
+    snap.forEach(function(childSnap){
+      dormNames.push(childSnap.key);
+    })
+  }).then(function(){
+    for(var i=0; i<dormNames.length; i++){
+      $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + (i+1) + "</h12></div>" +
+      "<div class=\'name\'><h11>" + dormNames[i] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
+    }
+    //Get dorm name with correct case from list generated previously
+    for(var i=0; i<dormNames.length; i++){
+      if(dormNames[i].toLowerCase() == currentDormSelected){
+        currentDormSelected = dormNames[i];
+      }
+    }
+    getCurrentInfo();
+  })
 })
 
+//Populate the page with reviews and avg scores for this dorm from firebase
 function getCurrentInfo(){
-  var cultureArr = [4];
-  var sortedCulture = [4]
-  $("#reviewHolder").empty();
-  $("#commentsHolder").empty();
+  var cultureArr = [7];
+  var sortedCulture = [7]
+  $("#commentsHolder").empty(); //Remove reviews so new ones can populate
   var numReviews;
-  var topTotalScorePossible;
   var dormStyle;
   var laundry;
   var population;
-  var grandScore = 0;
-  var grandStudyDist = 0;
-  var grandPartyDist = 0;
-  var grandGymDist = 0;
 
   var avgBathroom;
   var avgBuilding;
@@ -66,14 +49,15 @@ function getCurrentInfo(){
   var avgRoom;
   var avgStudyDist;
 
+  //Get static information i.e. not user generated
   firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/Objective Info/").once("value").then(function(snapshot){
     population = snapshot.child("Population").val();
     laundry = snapshot.child("Laundry").val();
     dormStyle = snapshot.child("Dorm Style").val();
   }).then(function(){
+    //Get all average scores and the number of reviews from the currently selected dorm
     firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
       numReviews = parseInt(snap.val().numReviews);
-      topTotalScorePossible = topPossibleScore * numReviews;
       avgBathroom = parseInt(snap.val().avgBathroom);
       avgBuilding = parseInt(snap.val().avgbuilding);
       avgCulture = parseInt(snap.val().avgCulture);
@@ -82,33 +66,36 @@ function getCurrentInfo(){
       avgRoom = parseInt(snap.val().avgRoom);
       avgStudyDist = parseInt(snap.val().avgStudyDist);
     }).then(function(){
+      //Fill the cultureArr with the score for each culture and sort array once filled
       firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
 
           var numGreekReviews = snap.child("culture").child("Greek").val();
-          cultureArr[0] = new reviewObject(numGreekReviews, "Greek");
+          cultureArr[0] = new cultureReviewObject(numGreekReviews, "Greek");
 
           var numHipsterReviews = snap.child("culture").child("Hipster").val();
-          cultureArr[1] = new reviewObject(numHipsterReviews, "Hipster");
+          cultureArr[1] = new cultureReviewObject(numHipsterReviews, "Hipster");
 
           var numPlayHardReviews = snap.child("culture").child("Play-hard").val();
-          cultureArr[2] = new reviewObject(numPlayHardReviews, "Play-hard");
+          cultureArr[2] = new cultureReviewObject(numPlayHardReviews, "Play-hard");
 
           var numQuietReviews = snap.child("culture").child("Quiet").val();
-          cultureArr[3] = new reviewObject(numQuietReviews, "Quiet");
+          cultureArr[3] = new cultureReviewObject(numQuietReviews, "Quiet");
 
           var numSocialReviews = snap.child("culture").child("Social").val();
-          cultureArr[4] = new reviewObject(numSocialReviews, "Social");
+          cultureArr[4] = new cultureReviewObject(numSocialReviews, "Social");
 
           var numSportyReviews = snap.child("culture").child("Sporty").val();
-          cultureArr[5] = new reviewObject(numSportyReviews, "Sporty");
+          cultureArr[5] = new cultureReviewObject(numSportyReviews, "Sporty");
 
           var numWorkHardReviews = snap.child("culture").child("Work-hard").val();
-          cultureArr[6] = new reviewObject(numWorkHardReviews, "Work-hard");
+          cultureArr[6] = new cultureReviewObject(numWorkHardReviews, "Work-hard");
 
+          //Set sortedCulture equal to the sorted cultureArr
           sortedCulture = getSortedCultures(cultureArr);
 
-
+        //snap is equal to the json object representing this dorm
         snap.forEach(function(childSnap){
+          //Iterate through each review and populate page appropriately, while ignoring all reviews that don't correspond to a user review
           if(childSnap.key != "numReviews" && childSnap.key !="Objective Info" && childSnap.key!="avgBathroom" &&
         childSnap.key!="avgbuilding" && childSnap.key!="avgCulture" && childSnap.key!="avgGymDist" && childSnap.key!="avgPartyDist" && childSnap.key!="avgRoom" && childSnap.key!="avgStudyDist" && childSnap.key!="culture"){
             var ratingInfo = childSnap.val();
@@ -127,15 +114,11 @@ function getCurrentInfo(){
             var overall = Number((bathroom + building + room)/(3)).toFixed(1);
 
             var clean = "dirty";
-            if(building >=7){
+            if(building >=3){
               clean="clean";
             }
 
-            var totalScore = bathroom + building + room;
-            //var weightedScore = totalScore/topPossibleScore;
-            //var weightedScorePercent = Math.round(weightedScore*100);
-            grandScore = grandScore + totalScore;
-
+            //Append all info inside of the commentsHolder
             $("#commentsHolder").append("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
             "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
             "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
@@ -147,7 +130,7 @@ function getCurrentInfo(){
           }
         })
     }).then(function(){
-      var finalScore = Number((avgRoom+avgBathroom+avgBuilding)/3).toFixed(1);
+      var finalScore = Number((avgRoom+avgBathroom+avgBuilding)/3).toFixed(1);//Get the avg overall score to one decimal point
       $(".dormtitle").empty();
       $(".dormtitle").append("<h8>" + currentDormSelected + "</h8>");
       $(".left > h10").empty();
@@ -171,7 +154,6 @@ function getCurrentInfo(){
 
       $("#dormmain div:nth-child(2) > p6").text(sortedCulture[0].getName());
       $("#dormmain div:nth-child(3) > p6").text(sortedCulture[1].getName());
-      //$("#dormmain div:nth-child(4) > p6").text(sortedCulture[2].getName());
 
 
       $("#population").text(population + " RESIDENTS")
@@ -192,13 +174,53 @@ function getCurrentInfo(){
   });
 }
 
+//Populates both the roomObjects and currentRooms arrays with all values from the appropriate firebase node
+function generateDormObjects(){
+  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snapshot){
+    var snapVal = snapshot.val();
+    var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
+    roomObjects.push(room);
+    currentRooms.push(room);
+  })
+}
+
+//Store the name of a culture review and the number of votes is has
+function cultureReviewObject(score, name){
+  this.score = score;
+  this.name = name;
+
+  this.getScore = function(){
+    return this.score;
+  }
+
+  this.getName = function(){
+    return this.name;
+  }
+}
+
+function getSortedCultures(arr){//array of cultureReviewObjects; this will sort the array according to score val.
+  var arr2 = arr;
+  for(var j=0; j<arr.length-1; j++){
+    for(var i=0; i<arr.length-1; i++){
+      if(arr[i].getScore() < arr[i+1].getScore()){
+        var temp = arr2[i];
+        arr2[i] = arr2[i+1];
+        arr2[i+1] = temp;
+      }
+    }
+  }
+  return arr2;
+}
+
 $("#sortButton").click(function(){
+  console.log("Entered sortButton handler");
   var sortParam = $("#sortOption").find(":selected").text();
   var filterParam = $("#filterOption").find(":selected").text();
   var noSortParam = false; //should be true if no sort parameter is selected
   var noFilterParam = false; // should be true if no filter parameter is selected
   if(sortParam == "Sort by"){
     noSortParam = true;
+    sortParam = "Overall Rating"; //If no sortParam is selected, filter by overall rating
   }
 
   if(filterParam == "Filter by"){
@@ -224,12 +246,8 @@ $("#sortButton").click(function(){
         }
       }
     }
-  }else{//Sort the list of dorms after filtering
+  }else{//Sort the list of dorms after filtering based on sortParam
     for(var n=0;n<newDorms.length; n++){
-      var debuggingString = ""
-      for(var j=0; j<newDorms.length; j++){
-        debuggingString = debuggingString + " " + newDorms[j].getDormName() + "-" + newDorms[j].get(sortParam);
-      }
       for(var i=0;i<newDorms.length-1; i++){
         if(newDorms[i].get(sortParam) < newDorms[i+1].get(sortParam) || newDorms[i].get(sortParam) == undefined){
           var temp = newDorms[i];
@@ -238,6 +256,7 @@ $("#sortButton").click(function(){
         }
       }
     }
+
   }
 
   //Now that dorms are sorted, we write them to page
@@ -253,112 +272,6 @@ $("#sortButton").click(function(){
 $("#filterButton").click(function(){
     $("#sortButton").click();
 });
-
-function roomObj(dormName, bathroom, building, gym, party, room, study, culture){
-    this.dormName = dormName;
-    this.bathroom = bathroom;
-    this.building = building;
-    this.gym = gym;
-    this.party = party;
-    this.room = room;
-    this.study = study;
-    this.culture = culture;
-
-    this.overall = Number((building+bathroom+room)/3).toFixed(1);
-
-  this.get = function(aspect){
-    if(aspect == "Overall Rating"){
-      return this.overall;
-    }else if(aspect == "Room Rating"){
-      return this.room;
-    }else if(aspect == "Building Rating"){
-      return this.building;
-    }else if(aspect == "Bathroom Rating"){
-      return this.bathroom;
-    }else if(aspect == "Proximity to Class"){
-      return this.study;
-    }else if(aspect == "Proximity to Party"){
-      return this.party;
-    }else if(aspect == "Proximity to Workout"){
-      return this.gym;
-    }else if(aspect == this.culture){
-      return this.culture;
-    }
-  }
-
-  this.getCulture = function(){
-    return this.culture;
-  }
-
-  this.getOverall = function(){
-    return this.overall;
-  }
-
-  this.getDormName = function(){
-    return this.dormName;
-  }
-
-  this.getBathroom = function(){
-    return this.bathroom;
-  }
-
-  this.getBuilding = function(){
-    return this.building
-  }
-
-  this.getGym = function(){
-    return this.gym;
-  }
-
-  this.getParty = function(){
-    return this.party;
-  }
-
-  this.getRoom = function(){
-    return this.room;
-  }
-
-  this.getStudy = function(){
-    return this.study;
-  }
-}
-
-function generateDormObjects(){
-  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snapshot){
-    var snapVal = snapshot.val();
-    var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
-    roomObjects.push(room);
-    currentRooms.push(room);
-  })
-}
-
-function reviewObject(score, name){//Store the name of a culture review and the number of votes is has.
-  this.score = score;
-  this.name = name;
-
-  this.getScore = function(){
-    return this.score;
-  }
-
-  this.getName = function(){
-    return this.name;
-  }
-}
-
-function getSortedCultures(arr){//array of reviewObjects; this will sort the array according to score val.
-  var arr2 = arr;
-  for(var j=0; j<arr.length-1; j++){
-    for(var i=0; i<arr.length-1; i++){
-      if(arr[i].getScore() < arr[i+1].getScore()){
-        var temp = arr2[i];
-        arr2[i] = arr2[i+1];
-        arr2[i+1] = temp;
-      }
-    }
-  }
-  return arr2;
-
-}
 
 $("#writeareview").click(function(){
   window.location = "../writeReview.html";
@@ -459,6 +372,10 @@ $("#aboutLink").click(function(){
 
 $(".mobileReview").click(function(){
   window.location = "../writeReview.html";
+})
+
+$("#writeReview").click(function(){
+  window.location="../html/writeReview.html";
 })
 
 $(".searchbar").click(function(){
