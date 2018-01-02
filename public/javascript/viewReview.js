@@ -367,7 +367,7 @@ $("#legalLink").click(function(){
 })
 
 $("#aboutLink").click(function(){
-  window.location = "../../index.html#theteam";
+  window.location = "../index.html#theteam";
 })
 
 $(".mobileReview").click(function(){
@@ -375,7 +375,7 @@ $(".mobileReview").click(function(){
 })
 
 $("#writeReview").click(function(){
-  window.location="../html/writeReview.html";
+  window.location="/writeReview.html";
 })
 
 $(".searchbar").click(function(){

@@ -70,7 +70,7 @@ $(".searchbar").click(function(){
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
   var dormName = $(this).children("p14").html().replace(" - UNC", "");
-  window.location = "UNC-CH/dorms/" + dormName + ".html";
+  window.location = "UNC-CH/" + dormName + ".html";
 })
 
 //When user clicks outside of logobar hide dropdown, fix corners, and replace the searchbar text
