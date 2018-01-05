@@ -9,10 +9,10 @@
     gtag('config', 'UA-110093163-1');
   </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
-    <link rel="stylesheet" href="topLevel.css">
+    <link rel="stylesheet" href="css/UNC-CHMAIN.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<title>Rate Your Dorms</title>
   <script src="https://maps.google.com/maps/api/js?key=AIzaSyAnSW1UKH-KRw-HfuWokqp6MPDh4ldYfgA" type="text/javascript"></script>
@@ -45,7 +45,7 @@ $(document).ready(function(){
   <div class="main">
     <div id="logobar">
                 <div id="logo">
-                    <a href="index.html"><img id="navlogo" class="navlogo" src="images/RateYourDormsVertical.png" ></a>
+                    <a href="../../index.html"><img id="navlogo" class="navlogo" src="../../images/RateYourDormsVertical.png" ></a>
                 </div>
                 <div class="socialmedia">
                     <div id="dropdowncontainer">
@@ -58,7 +58,7 @@ $(document).ready(function(){
                         </select>
                       </div>
                     <div id="searchbutton">
-                        <img src="images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                        <img src="../../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
                     </div>
 
                     </div>
@@ -67,8 +67,8 @@ $(document).ready(function(){
                       </div>
 
                 </div>
-                   <div id="hamburgercontainer"><img id="hamburger" src="images/searchicon.png"></div>
-                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="images/reviewwhite.png"></div>
+                   <div id="hamburgercontainer"><img id="hamburger" src="../../images/searchicon.png"></div>
+                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../../images/reviewwhite.png"></div>
                 </div>
                 <div class="signup">
                     <div id="socialicons">
@@ -195,7 +195,7 @@ $(document).ready(function(){
     for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        icon: "images/mapicon.png",
+        icon: "../../images/mapicon.png",
         map: map
       });
 
@@ -234,9 +234,9 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 </script>
-<script src="javascript/Landingpage.js"></script>
-<script src="javascript/roomObj.js"></script>
-<script src="javascript/headerSearch.js"></script>
-<script src="javascript/footer.js"></script>
+<script src="../../javascript/Landingpage.js"></script>
+<script src="../../javascript/roomObj.js"></script>
+<script src="../../javascript/headerSearch.js"></script>
+<script src="../../javascript/footer.js"></script>
 
 </html>

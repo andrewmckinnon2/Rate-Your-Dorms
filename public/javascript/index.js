@@ -88,7 +88,7 @@ $("#writeAReviewCenter").click(function(){
 })
 
 $("#ViewSchoolOverviewCenter").click(function(){
-  window.location= "Landingpage.html";
+  window.location= "dorms/UNC-CH/Landingpage.html";
 })
 
 $("#closemobile").click(function(){
