@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/UNC-CHMAIN.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -36,18 +36,6 @@ $(document).ready(function(){
         console.log("button presed");
         $("#mobilepopup").hide();
     })
-
-    /*$("#hamburger").click(function() {
-    var this = $("#mobilepopup");
-    if (this.hasClass("clicked-once")) {
-        // already been clicked once, hide it
-        this.hide();
-        this.removeClass("clicked-once");
-    }
-    else {
-        // first time this is clicked, mark it
-        this.addClass("clicked-once");
-    }*/
 });
 </script>
 <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
@@ -62,10 +50,11 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+  <p id="schoolName">UNC-CH</p>
   <div class="main">
     <div id="logobar">
                 <div id="logo">
-                    <a href="../index.html"><img id="navlogo" class="navlogo" src="../images/RateYourDormsVertical.png" ></a>
+                    <a href="../../index.html"><img id="navlogo" class="navlogo" src="../../images/RateYourDormsVertical.png" ></a>
                 </div>
                 <div class="socialmedia">
                     <div id="dropdowncontainer">
@@ -78,7 +67,7 @@ $(document).ready(function(){
                         </select>
                       </div>
                     <div id="searchbutton">
-                        <img src="../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                        <img src="../../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
                     </div>
 
                     </div>
@@ -87,8 +76,8 @@ $(document).ready(function(){
                       </div>
 
                 </div>
-                   <div id="hamburgercontainer"><img id="hamburger" src="../images/searchicon.png"></div>
-                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../images/reviewwhite.png"></div>
+                   <div id="hamburgercontainer"><img id="hamburger" src="../../images/searchicon.png"></div>
+                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../../images/reviewwhite.png"></div>
                 </div>
                 <div class="signup">
                     <div id="socialicons">
@@ -173,7 +162,7 @@ $(document).ready(function(){
                     <div class="dormtitle">
                             <h8>Koury</h8>
                     </div>
-                    <div class="locationbutton" type="button" onclick="document.getElementById('findadorm').style.display='flex'" ><div class="footerlogo"><img src="../images/sort.png" class="locationicon"></div></div>
+                    <div class="locationbutton" type="button" onclick="document.getElementById('findadorm').style.display='flex'" ><div class="footerlogo"><img src="../../images/sort.png" class="locationicon"></div></div>
                     <div>
                     </div>
                 </div>
@@ -230,9 +219,9 @@ $(document).ready(function(){
         <div id=graphcontainer>
             <div id="graph">
                 <div class="label"><p3 style="margin: none;">PROXIMITY TO:</p3></div>
-                <div class="barcontainer"><div class="bar" id="distToStudy"><img src="../images/book.png" class="distanceicon"><p2>CLASS</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
-                <div class="barcontainer"><div class="bar" id="distToParty"><img src="../images/cup.png" class="distanceicon"><p2>PARTY</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
-                <div class="barcontainer"><div class="bar" id="distToGym"><img src="../images/weight.png" class="distanceicon"><p2>WORKOUT</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+                <div class="barcontainer"><div class="bar" id="distToStudy"><img src="../../images/book.png" class="distanceicon"><p2>CLASS</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+                <div class="barcontainer"><div class="bar" id="distToParty"><img src="../../images/cup.png" class="distanceicon"><p2>PARTY</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+                <div class="barcontainer"><div class="bar" id="distToGym"><img src="../../images/weight.png" class="distanceicon"><p2>WORKOUT</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
             </div>
         </div>
             <div id=dormmain style="border-bottom:solid 1px lightgrey;">
@@ -269,11 +258,11 @@ $(document).ready(function(){
     </div>
     <div id="writereview">
       <div id="commentheader">
-          <div class="arrow"><div class="description"><img id="leftarrow" src="../images/leftblue.png"></div></div>
-          <div class="imagecontainer" onclick="showPicker()"><img src="../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
-          <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="../images/dorm.jpg" class="img1"><div class="imgupload"><p6 style="margin: .5em .3em .5em 0;"><b>Click to upload</b></p6><img src="../images/upload.png" class="uploader"></div></div>
-          <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
-          <div class="arrow"><div class="description"><img id="rightarrow" src="../images/rightblue.png"></div></div>
+          <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
+          <div class="imagecontainer" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6 style="margin: .5em .3em .5em 0;"><b>Click to upload</b></p6><img src="../../images/upload.png" class="uploader"></div></div>
+          <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="../../images/dorm.jpg" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
       </div>
       <div id="commentsHolder">
       </div>
@@ -304,6 +293,6 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 </script>
-<script src="../javascript/viewReview.js"></script>
-<script src="../javascript/roomObj.js"></script>
+<script src="../../javascript/viewReview.js"></script>
+<script src="../../javascript/roomObj.js"></script>
 </html>

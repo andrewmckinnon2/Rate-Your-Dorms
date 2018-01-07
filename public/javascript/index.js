@@ -2,9 +2,19 @@ var dormNames = [];
 //When html has loaded, create list of dormNames and set stars to 5
 $(document).ready(function(){
   $("#starFive").click();
-  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snap){
-    //TODO: add the dorms from other schools (will need double for loop to go through all schools and gather dorms)
-    dormNames.push(snap.key);
+  firebase.database().ref("/").on("child_added", function(snap){
+    var key = snap.key;
+    var ratings = snap.val().ratings;
+    if(!(snap.key == "Contact Messages")){
+      for(dorm in ratings){
+        //Create a 2d array, where first element is name of dorm, second is name of school and push to dormNames
+        newDorm = [];
+        newDorm.push(dorm);
+        newDorm.push(key);
+        console.log(newDorm);
+        dormNames.push(newDorm);
+      }
+    }
   })
 })
 $(".dropdown").hide();
@@ -34,24 +44,25 @@ $(".searchbar").keyup(function(event){
   var userInput2 = $(".searchBar2").val(); //Mobile search bar val.
   //Get dorms that match the current query in the search bar entered by user
   for(var i=0; i<dormNames.length; i++){
-    if(userInput.length>dormNames[i].length){
+    if(userInput.length>dormNames[i][0].length){
       continue;
     }
 
     //If the letters currently in the search are equal to those letter in a dorm, append them to the courrentOptions
-    if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
+    if(dormNames[i][0].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
       currentOptions.push(dormNames[i]);
-      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
     }
     //Same operation for the mobile search bar
-    if(dormNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
-      currentOptions.push(dormNames[i]);
-      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
+    if(dormNames[i][0].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
+      currentOptions.push(dormNames[i][0]);
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
     }
   }
 })
 //Listen for the user to click on the search bar and append all dorms to the dropdown when they do.
 $(".searchbar").click(function(){
+  console.log(dormNames);
   $(this).attr("placeholder", "");//Clear text in search bar
   //Fix corners of search button
   $(this).css("border-radius","5px 0px 0px 0px");
@@ -61,16 +72,17 @@ $(".searchbar").click(function(){
   $(".dropdown1").show();//Show normal dropdown
   $(".dropdown2").show();//Show mobile dropdown
   for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>")
   }
 })
 
 //Listen for click on dropdown to redirect to clicked on dorm
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  var dormName = $(this).children("p14").html().replace(" - UNC", "");
-  window.location = "UNC-CH/" + dormName + ".html";
+  var dormName = $(this).children("p14").html().split(" - ")[0];
+  var schoolName = $(this).children("p14").html().split(" - ")[1];
+  window.location = "dorms/" + schoolName + "/" + dormName + ".html";
 })
 
 //When user clicks outside of logobar hide dropdown, fix corners, and replace the searchbar text

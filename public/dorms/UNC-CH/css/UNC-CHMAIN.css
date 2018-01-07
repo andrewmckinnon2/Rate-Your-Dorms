@@ -2402,3 +2402,7 @@ h16 {
     margin: 1em 0 1em 0;
     border-radius: 5px;
 }
+
+#schoolName{
+  display:none;
+}

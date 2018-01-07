@@ -10,9 +10,11 @@ generateDormObjects();
 
 dormNames = [];
 var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
+var schoolName = $("#schoolName").html();
+console.log("school name is " + schoolName);
 $(document).ready(function(){
   //Add every dorm to the dormNames array
-  firebase.database().ref("/UNC-CH/ratings").once('value').then(function(snap){
+  firebase.database().ref("/" + schoolName + "/ratings").once('value').then(function(snap){
     snap.forEach(function(childSnap){
       dormNames.push(childSnap.key);
     })
@@ -50,13 +52,13 @@ function getCurrentInfo(){
   var avgStudyDist;
 
   //Get static information i.e. not user generated
-  firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/Objective Info/").once("value").then(function(snapshot){
+  firebase.database().ref("/" + schoolName + "/ratings/" + currentDormSelected + "/Objective Info/").once("value").then(function(snapshot){
     population = snapshot.child("Population").val();
     laundry = snapshot.child("Laundry").val();
     dormStyle = snapshot.child("Dorm Style").val();
   }).then(function(){
     //Get all average scores and the number of reviews from the currently selected dorm
-    firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
+    firebase.database().ref("/" + schoolName + "/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
       numReviews = parseInt(snap.val().numReviews);
       avgBathroom = parseInt(snap.val().avgBathroom);
       avgBuilding = parseInt(snap.val().avgbuilding);
@@ -67,7 +69,7 @@ function getCurrentInfo(){
       avgStudyDist = parseInt(snap.val().avgStudyDist);
     }).then(function(){
       //Fill the cultureArr with the score for each culture and sort array once filled
-      firebase.database().ref("UNC-CH/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
+      firebase.database().ref("/" + schoolName + "/ratings/" + currentDormSelected + "/").once("value").then(function(snap){
 
           var numGreekReviews = snap.child("culture").child("Greek").val();
           cultureArr[0] = new cultureReviewObject(numGreekReviews, "Greek");
@@ -176,7 +178,7 @@ function getCurrentInfo(){
 
 //Populates both the roomObjects and currentRooms arrays with all values from the appropriate firebase node
 function generateDormObjects(){
-  firebase.database().ref("/UNC-CH/ratings").on("child_added", function(snapshot){
+  firebase.database().ref("/" + schoolName + "/ratings").on("child_added", function(snapshot){
     var snapVal = snapshot.val();
     var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
     roomObjects.push(room);
