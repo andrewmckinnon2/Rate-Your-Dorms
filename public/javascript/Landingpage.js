@@ -1,6 +1,7 @@
 var roomObjects = []; //This is where objects representing all the dorms will be placed
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
 
+var schoolName = $("#schoolName").html();
 
 $("#findADorm").click(function(){
   window.location = "Landingpage.html";
@@ -9,11 +10,6 @@ $("#findADorm").click(function(){
 $("#writeAReview").click(function(){
   window.location = "writeReview.html";
 })
-
-var dormNames = ["Alderman", "Alexander", "Avery", "Aycock", "Carmichael",
-"Cobb","Connor", "Craige", "Craige North", "Ehringhaus", "Everett", "Graham", "Grimes",
-"McIver", "Morrison", "Old East", "Old West", "Parker", "Ruffin", "Spencer", "Stacy", "Teague",
-"Winston", "Granville"];
 
 generateDormObjects()
 getSchoolOverall();
@@ -82,7 +78,7 @@ $("#filterButton").click(function(){
 
 //will populate the roomObjects array with rommObj that reflect the values currently stored in the database
 function generateDormObjects(){
-  firebase.database().ref("/UNC-CH/ratings").once("value").then(function(snap){
+  firebase.database().ref("/" + schoolName + "/ratings").once("value").then(function(snap){
     snap.forEach(function(snapshot){
       var snapVal = snapshot.val();
       var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
@@ -98,22 +94,23 @@ function generateDormObjects(){
 function getSchoolOverall(){
   var schoolTotal = 0; //Should hold total summed total of avg. dorm scores for all dorms in the school.
   var schoolAvg = 0; //will be updated to hold (schoolTotal / number of dorms)
-  firebase.database().ref("/UNC-CH/ratings").once("value").then(function(snapshot){
+  var numOfDorms = 0;
+  firebase.database().ref("/" + schoolName + "/ratings").once("value").then(function(snapshot){
+    numOfDorms = numOfDorms + 1;
     snapshot.forEach(function(childSnap){
       var snapVal = childSnap.val();
       var totalScoreVals = snapVal.avgBathroom + snapVal.avgbuilding + snapVal.avgRoom;
-      //var totalScoreValsOver5 = snapVal.avgStudyDist + snapVal.avgPartyDist + snapVal.avgGymDist;
       schoolTotal = schoolTotal + totalScoreVals;
     })
   }).then(function(){
-      schoolAvg = (schoolTotal/(dormNames.length)).toFixed(2);
+      schoolAvg = (schoolTotal/(numOfDorms)).toFixed(2);
       $("#schoolOverall").text(schoolAvg);
   })
 }
 
 $(document).on("mousedown", ".ranking", function(){
   var dormName = $(this).find("h11").html();
-  window.location = "UNC-CH/" + dormName + ".html";
+  window.location = "../" + schoolName + "/" + dormName + ".html";
 })
 
 

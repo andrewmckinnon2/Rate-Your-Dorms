@@ -35,18 +35,6 @@ $(document).ready(function(){
        console.log("button presed");
        $("#mobilepopup").hide();
    })
-
-   /*$("#hamburger").click(function() {
-   var this = $("#mobilepopup");
-   if (this.hasClass("clicked-once")) {
-       // already been clicked once, hide it
-       this.hide();
-       this.removeClass("clicked-once");
-   }
-   else {
-       // first time this is clicked, mark it
-       this.addClass("clicked-once");
-   }*/
 });
 </script>
 </head>
@@ -200,7 +188,19 @@ TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE RATE YOUR DORMS ENTITIES 
          </div>
 
  </div>
-
+ <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+ </script>
 </body>
 <script src="javascript/headerSearch.js"></script>
 <script src="javascript/footer.js"></script>

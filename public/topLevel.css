@@ -79,7 +79,7 @@ select {
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    min-height: 425px;
+    min-height: 408px;
     flex-direction: column;
     margin-top: 50px;
     justify-content: flex-start;
@@ -370,7 +370,7 @@ span.psw {
     width: 100%;
     display: flex;
     flex-flow: column;
-    background: black;
+    background: #586471;
     justify-content: flex-end;
 }
 
@@ -594,7 +594,7 @@ h5 {
 }
 
 h4 {
-    color: #63707f;
+    color: #586471;
     display: flex;
     font-weight: 400;
     text-align: center;
@@ -624,6 +624,7 @@ h4 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin: 0 2em;
 
 }
 
@@ -733,7 +734,7 @@ h7 {
     font-size: 25px;
     font-weight:500;
     margin: 0 0 .5em 0;
-    color: #63707f;
+    color: #586471;
     font-weight: bold;
 }
 
@@ -892,7 +893,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .submit:hover {
-    background: lightgrey;
+    background: #586471;
 }
 
 
@@ -1039,7 +1040,7 @@ h9 {
     flex-direction: row;
     justify-content: center;
     width: auto;
-    background: #63707f;
+    background: #586471;
     height: auto;
     flex: 5;
     border-right: solid 2px white;
@@ -1125,7 +1126,7 @@ h10 {
 }
 
 p3 {
-    color: #63707f;
+    color: #586471;
     font-size: 15px;
     font-weight: bold;
 }
@@ -1149,7 +1150,7 @@ p4 {
 }
 
 p11 {
-    color: #63707f;
+    color: #586471;
     margin: 0em .25em;
     font-weight: bold;
 }
@@ -1175,7 +1176,7 @@ p11 {
 
 .tagstitle {
     display: flex;
-    background: #63707f;
+    background: #586471;
     min-width: 70px;
     border-right: solid 2px white;
     border-radius: 5px 0px 0px;
@@ -1191,7 +1192,7 @@ p11 {
 }
 
 .year {
-     background: #63707f;
+     background: #586471;
     min-width: 70px;
     border-right: solid 2px white;
     display: flex;
@@ -1324,7 +1325,7 @@ p5 {
 }
 
 .closemap {
-    color: #63707f;
+    color: #586471;
     font-size: 35px;
     font-weight: bold;
     margin-top: none;
@@ -1343,7 +1344,7 @@ p5 {
     border: none;
     height: auto;
     padding: 0px;
-    background: #63707f;
+    background: #586471;
     flex: 1;
     border-radius: 0px 5px 0px 0px;
 }
@@ -1388,7 +1389,7 @@ p5 {
 }
 
 .box {
-    background: #63707f;
+    background: #586471;
     min-width: 32px;
     min-height: 32px;
     display: flex;
@@ -1453,7 +1454,7 @@ p6 {
 }
 
 .box4 {
-    border: solid 2px #63707f;
+    border: solid 2px #586471;
     min-width: 20px;
     min-height: 20px;
     display: flex;
@@ -1466,7 +1467,7 @@ p8 {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    color: #63707f;
+    color: #586471;
     font-weight: bold;
     margin: .3em;
     font-size: 10px;
@@ -1496,7 +1497,7 @@ p7 {
 }
 
 p9 {
-    color: #63707f;
+    color: #586471;
     font-size: 15px;
 }
 
@@ -1517,7 +1518,7 @@ p9 {
     justify-content: center;
     width: auto;
     height: auto;
-    background: #63707f;
+    background: #586471;
     align-self: center;
     border-radius: 5px
 }
@@ -1666,7 +1667,7 @@ h13 {
     text-align: center;
     font-size: 20px;
     font-weight: regular;
-    color: #63707f;
+    color: #586471;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -1783,7 +1784,7 @@ h14 {
 
 #collegebackground {
     height: auto;
-    background: #63707f;
+    background: #586471;
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -1865,6 +1866,11 @@ h15 {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    margin: .5em 0 .1em 0;
+}
+
+#messageField {
+    padding: 6px 0 0 6px;
 }
 
 .barline {
@@ -1883,7 +1889,7 @@ p12 {
 
 p13 {
     font-size: 15px;
-    color: #63707f;
+    color: #586471;
     margin-bottom: 40px;
 }
 
@@ -1917,7 +1923,7 @@ p14 {
    text-align: left;
     font-size: 15px;
     font-weight: 500;
-    color: #63707f;
+    color: #586471;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -1945,7 +1951,7 @@ p14 {
 }
 
 .stepHeader {
-  background: #63707f;
+  background: #586471;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -2023,7 +2029,7 @@ p14 {
 }
 
 #searchbutton {
-    background: #63707f;
+    background: #586471;
     width: 70px;
     border-radius: 0px 5px 5px 0px;
     height: auto;
@@ -2032,7 +2038,7 @@ p14 {
 }
 
 #closemobile {
-    background: #63707f;
+    background: #586471;
     width: 70px;
     height: auto;
     display: flex;
@@ -2116,7 +2122,7 @@ p14 {
 }
 
 #writeareview:hover {
-    background: #63707f;
+    background: #586471;
     cursor: default;
 }
 
@@ -2161,7 +2167,7 @@ p15 {
 }
 
 p16 {
-    color: #63707f;
+    color: #586471;
     font-size: 15px;
     font-weight: regular;
 }
@@ -2195,12 +2201,12 @@ p16 {
 }
 
 #terms:hover {
-    color: #63707f;
+    color: #586471;
     cursor: default;
 }
 
 #hamburgercontainer {
-    background: #63707f;
+    background: #586471;
     border-radius: 5px;
     margin-left: .5em;
 }
@@ -2248,7 +2254,7 @@ p16 {
 
 
 h16 {
-    color: #63707f;
+    color: #586471;
     display: flex;
     font-weight: 400;
     text-align: center;
@@ -2289,7 +2295,7 @@ h16 {
 }
 
 .imgupload {
-    background: #63707f;
+    background: #586471;
     width: 100%;
     height: auto;
     display: flex;
@@ -2357,13 +2363,35 @@ h16 {
     margin-top: 3em;
 }
 
+.schoolsGraphic {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: center;
+}
+
+.schoolLink {
+    display: flex;
+    width: 33.33%;
+    height: 60px;
+    margin-right: 1px;
+    justify-content: center;
+}
 
 @media screen and (max-width: 750px){
   .graphic{
     flex-direction: column;
   }
+  .schoolsGraphic {
+      flex-direction: column;
+      width: 100%;
+    }
+    .schoolLink {
+        width: 100%;
+        height: 100px;
+    }
     .bottom {
-        height:550px;
+        min-height: 550px;
         margin-top: 1em;
     }
 }
@@ -2401,4 +2429,35 @@ h16 {
 #homeright {
     margin: 1em 0 1em 0;
     border-radius: 5px;
+}
+
+
+.schoolLink:hover {
+    opacity: .7;
+    cursor: default;
+}
+
+#unc {
+    background: #97C0E4;
+}
+
+#ncstate {
+    background: #de6363;
+}
+
+#duke {
+    background: #4f88d6;
+}
+
+p17 {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-self: center;
+}
+
+#returnHome:hover {
+    background: #586471;
 }

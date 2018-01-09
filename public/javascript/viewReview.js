@@ -8,27 +8,39 @@ $(".dropdown").empty();
 
 generateDormObjects();
 
-dormNames = [];
+dormNames = []; //Empty array, will be populated with names of all dorms and corresponding school
+schoolNames = []; //Empty array, will be populated with names of all schools
 var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
 var schoolName = $("#schoolName").html();
-console.log("school name is " + schoolName);
 $(document).ready(function(){
   //Add every dorm to the dormNames array
-  firebase.database().ref("/" + schoolName + "/ratings").once('value').then(function(snap){
-    snap.forEach(function(childSnap){
-      dormNames.push(childSnap.key);
-    })
+  firebase.database().ref("/").once('value').then(function(snap){
+    for(node in snap.val()){
+      if(!(node == "Contact Messages")){
+      schoolNames.push(node);
+      var key = node;
+      var ratings = snap.val()[node].ratings;
+      for(dorm in ratings){
+          //Create a 2d array, where first element is name of dorm, second is name of school and push to dormNames
+          newDorm = [];
+          newDorm.push(dorm);
+          newDorm.push(key);
+          dormNames.push(newDorm);
+      }
+    }
+  }
   }).then(function(){
     for(var i=0; i<dormNames.length; i++){
       $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + (i+1) + "</h12></div>" +
-      "<div class=\'name\'><h11>" + dormNames[i] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
+      "<div class=\'name\'><h11>" + dormNames[i][0] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
     }
     //Get dorm name with correct case from list generated previously
     for(var i=0; i<dormNames.length; i++){
-      if(dormNames[i].toLowerCase() == currentDormSelected){
-        currentDormSelected = dormNames[i];
+      if(dormNames[i][0].toLowerCase() == currentDormSelected){
+        currentDormSelected = dormNames[i][0];
       }
     }
+  }).then(function(){
     getCurrentInfo();
   })
 })
@@ -215,7 +227,6 @@ function getSortedCultures(arr){//array of cultureReviewObjects; this will sort 
 }
 
 $("#sortButton").click(function(){
-  console.log("Entered sortButton handler");
   var sortParam = $("#sortOption").find(":selected").text();
   var filterParam = $("#filterOption").find(":selected").text();
   var noSortParam = false; //should be true if no sort parameter is selected
@@ -276,12 +287,13 @@ $("#filterButton").click(function(){
 });
 
 $("#writeareview").click(function(){
-  window.location = "../writeReview.html";
+  window.location = "../../writeReview.html";
 })
 
 
 //Managing search bar navigation
 $(".searchbar").keyup(function(event){
+  var searchType = $("#searchtype").find(":selected").text();
   $(".dropdown").show();
   var keyPress;
   if(window.event){//IE
@@ -301,31 +313,85 @@ $(".searchbar").keyup(function(event){
 
   var userInput = $(".searchBar1").val();
   var userInput2 = $(".searchBar2").val();
-  //Get dorms that match the current query in the search bar entered by user
-  for(var i=0; i<dormNames.length; i++){
-    if(userInput.length>dormNames[i].length){
-      continue;
-    }
+  if(searchType == "Dorm"){
+    //Get dorms that match the current query in the search bar entered by user
+    for(var i=0; i<dormNames.length; i++){
+      if(userInput.length>dormNames[i][0].length){
+        continue;
+      }
 
-    if(dormNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
-      currentOptions.push(dormNames[i]);
-      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    }
+      //If query matches corresponding characters in dorms, add to currentOptions and append to dropdown
+      if(dormNames[i][0].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
+        currentOptions.push(dormNames[i]);
+        //Standard dropdown
+        $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+      }
 
-    if(dormNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
-      currentOptions.push(dormNames[i]);
-      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    }
+      if(dormNames[i][0].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
+        currentOptions.push(dormNames[i]);
+        //mobile dropdown
+        $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+      }
 
+    }
+  }else{
+    for(var i=0; i<schoolNames.length; i++){
+      if(userInput.length>schoolNames[i].length){
+        continue;
+      }
+
+      //If query matches corresponding characters in schools, add to current options and append to dropdown
+      if(schoolNames[i].slice(0,userInput.length).toLowerCase() == userInput.toLowerCase()){
+        currentOptions.push(schoolNames[i]);
+        //Standard dropdown
+        $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+      }
+
+      if(schoolNames[i].slice(0,userInput2.length).toLowerCase() == userInput2.toLowerCase()){
+        currentOptions.push(schoolNames[i]);
+        //mobile dropdown
+        $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+      }
+    }
   }
+})
+
+//Listener for click in search bar. On click adjust corners of search bar, make dropdown visible and append all dorms
+$(".searchbar").click(function(){
+  var searchType = $("#searchtype").find(":selected").text();
+  $(this).attr("placeholder", "");
+  $(this).css("border-radius","5px 0px 0px 0px");
+  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
+  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
+
+  $(".dropdown1").empty();
+  $(".dropdown2").empty();
+  if(searchType == "Dorm"){
+    for(var i=0; i<dormNames.length; i++){
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+    }
+  }else{
+    for(var i=0; i<schoolNames.length; i++){
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+    }
+  }
+  $(".dropdown1").show();//Show normal drop down
+  $(".dropdown2").show();//Show mobile drop down
 })
 
 $(document).on("mousedown", "div.dropdowncontent", function(){
   $("#logobar").focus();
-  var dormName = $(this).children("p14").html().replace(" - UNC", "");
-  window.location = dormName + ".html";
-  $.mobile.changePage(dormName + ".html");
-  location.href = dormName + ".html"
+  var searchType = $("#searchtype").find(":selected").text();
+  if(searchType == "Dorm"){
+    var dormName = $(this).children("p14").html().split(" - ")[0];
+    var schoolName = $(this).children("p14").html().split(" - ")[1];
+    window.location = "../" + schoolName + "/" + dormName + ".html";
+  }else{
+    var schoolName = $(this).children("p14").html();
+    window.location = "../" + schoolName + "/Landingpage.html";
+  }
 })
 
 $("#logobar").focusout(function(){
@@ -338,46 +404,33 @@ $("#logobar").focusout(function(){
 
 $(".ranking").click(function(){
   var dormName = $(this).find("h11").html();
-  window.location = dormName + ".html";
+  window.location = "../" + schoolName + "/" + dormName + ".html";
 })
 
 //Same functionality of listener above (".ranking").click...but allows for dynamic binding whenever a ".ranking" element is created
 $("#rankings").on("click", ".ranking", function(){
   var dormName = $(this).find("h11").html();
-  window.location = dormName + ".html";
-})
-
-$(".searchbutton").click(function(){ //Same id is used twice, need to change this and fix that ish. HIGH IMPORTANCE
-  $(this).attr("placeholder", "");
-  $(this).css("border-radius","5px 0px 0px 0px");
-  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
-
-  $(".dropdown1").show();
-  $(".dropdown2").show();
-  for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
-  }
+  window.location = "../" + schoolName + "/" + dormName + ".html";
 })
 
 $("#contactLink").click(function(){
-  window.location = "../contact.html";
+  window.location = "../../contact.html";
 })
 
 $("#legalLink").click(function(){
-  window.location = "../Legal.html";
+  window.location = "../../Legal.html";
 })
 
 $("#aboutLink").click(function(){
-  window.location = "../index.html#theteam";
+  window.location = "../../index.html#theteam";
 })
 
 $(".mobileReview").click(function(){
-  window.location = "../writeReview.html";
+  window.location = "../../writeReview.html";
 })
 
 $("#writeReview").click(function(){
-  window.location="/writeReview.html";
+  window.location="../../writeReview.html";
 })
 
 $(".searchbar").click(function(){
@@ -388,8 +441,8 @@ $(".searchbar").click(function(){
   $(".dropdown1").show();
   $(".dropdown2").show();
   for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i] + " - UNC</p14></div>")
+    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>")
   }
 })
 
