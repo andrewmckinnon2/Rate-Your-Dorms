@@ -366,6 +366,7 @@ $(".searchbar").click(function(){
 
   $(".dropdown1").empty();
   $(".dropdown2").empty();
+  console.log("dropdown should be emptied");
   if(searchType == "Dorm"){
     for(var i=0; i<dormNames.length; i++){
       $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
@@ -377,6 +378,7 @@ $(".searchbar").click(function(){
       $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
     }
   }
+  console.log(dormNames);
   $(".dropdown1").show();//Show normal drop down
   $(".dropdown2").show();//Show mobile drop down
 })
@@ -431,19 +433,6 @@ $(".mobileReview").click(function(){
 
 $("#writeReview").click(function(){
   window.location="../../writeReview.html";
-})
-
-$(".searchbar").click(function(){
-  $(this).css("border-radius","5px 0px 0px 0px");
-  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
-  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
-
-  $(".dropdown1").show();
-  $(".dropdown2").show();
-  for(var i=0; i<dormNames.length; i++){
-    $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
-    $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>")
-  }
 })
 
 $("#closemobile").click(function(){

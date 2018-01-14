@@ -1,20 +1,36 @@
 var currentNumberOfRatings;//Global var to be updated with the current number of ratings
 //dormNamesWritRev holds names of all dorms we will display as review options
-var dormNamesWriteRev = []
+var dormNamesWriteRev = [];
+var schoolNamesWriteRev = [];
 //Add all possible dorm names to dormNamesWriteRev array upon loading of html page
 //Also, the dormNamesWriteRev variable mimics what dormNames accomplishes in headerSearch.js but needs different name to allow for seperate array
 $(document).ready(function(){
     //Add every dorm name in dormNamesWriteRev to the dropdown for selecting what dorm to review
-    firebase.database().ref("/UNC-CH/ratings").once('value').then(function(snap){
-      snap.forEach(function(childSnap){
-        dormNamesWriteRev.push(childSnap.key);
+    firebase.database().ref("/").once("value").then(function(snap){
+      snap.forEach(function(schoolNode){
+        var key = schoolNode.key;
+        var ratings = schoolNode.val().ratings;
+        if(!(key == "Contact Messages")){
+          schoolNamesWriteRev.push(key);
+          for (dorm in ratings){
+            //Create array, where first element is name of dorm, second is name of school.
+            var nextDorm = [];
+            nextDorm.push(dorm);
+            nextDorm.push(key);
+            dormNamesWriteRev.push(nextDorm);
+          }
+        }
       })
     }).then(function(){
-      for(var i=0; i<dormNamesWriteRev.length; i++){
-        $("#dormName").append("<option id=\"" + dormNamesWriteRev[i].toLowerCase() + "\">" + dormNamesWriteRev[i] + "</option>")
+      console.log(dormNamesWriteRev);
+      console.log(schoolNamesWriteRev);
+      for(var i=0; i<schoolNamesWriteRev.length; i++){
+        $("#school").append("<option id=\"" + schoolNamesWriteRev[i].toLowerCase() + "\">" + schoolNamesWriteRev[i] + "</option>");
       }
     })
 })
+
+
 
 var cultureArr = ["Greek", "Work-hard", "Play-hard", "Hipster", "Quiet", "Social", "Sporty"];
 
@@ -45,10 +61,11 @@ $("#submit").click(function(){
     var cultureReview = $("#cultureSelector").find(":selected").text();
     var writtenReview = $("#textReview").val();
     var recommendationVal = $("input:radio[name ='recommend']:checked").val();
+    var school = $("#school").find(":selected").text();
 
     //Initialize firebase database var, dormRatingNode var, get date, and generate new node
     var database = firebase.database();
-    var dormRatingNode = database.ref("UNC-CH/ratings/" + dorm + "/");
+    var dormRatingNode = database.ref("/" + school + "/ratings/" + dorm + "/");
     var d = new Date();
     var dateWritten = (d.getMonth()+1).toString() + "/" + d.getDate().toString() + "/" + d.getFullYear().toString();
 
@@ -207,8 +224,35 @@ function checkForInputs(){
     return false;
   }else if($("#dormName").find(":selected").text() == "Select"){
     return false;
+  }else if($("#school").find(":selected").text() == "Select"){
+    return false;
   }else{
     return true;
   }
-
 }
+
+//Logic to handle school and dorm selection; force user to select a school before selecting a dorm, and toggle list of dorms based on school selected.
+$("#school").change(function(){
+  //Empty options and then write Select as first option
+  $("#dormName").empty();
+  $("#dormName").append("<option>Select</option>")
+  if($("#school").find(":selected").text() != "Selected"){
+    $("#chooseSchool").css("visibility", "hidden");
+    $("#school").css("border", "solid 2px #97C0E4");
+  }
+  for(var i=0; i<dormNamesWriteRev.length; i++){
+    //Check if the school for current dorm matches the school just selected
+    if(dormNamesWriteRev[i][1] == $("#school").find(":selected").text()){
+      $("#dormName").append("<option id=\"" + dormNamesWriteRev[i][0].toLowerCase() + "\">" + dormNamesWriteRev[i][0] + "</option>");
+    }else{
+      continue;
+    }
+  }
+})
+//If user clicks choose a dorm selector before the school selector, redirect them to pick school
+$("#dormName").click(function(){
+  if($("#school").find(":selected").text() == "Select"){
+    $("#chooseSchool").css("visibility", "visible");
+    $("#school").css("border", "solid 2px #ff0000");
+  }
+})

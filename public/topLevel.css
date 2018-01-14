@@ -2461,3 +2461,11 @@ p17 {
 #returnHome:hover {
     background: #586471;
 }
+
+.errorMessage{
+  margin-top:0px;
+  margin-bottom:0px;
+  font-size:10px;
+  color: red;
+  visibility: hidden;
+}
