@@ -94,7 +94,7 @@ $(".searchbar").click(function(){
 
   $(".dropdown1").empty();
   $(".dropdown2").empty();
-  
+
   if(searchType == "Dorm"){
     for(var i=0; i<dormNames.length; i++){
       $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
@@ -139,7 +139,7 @@ $("#writeAReviewCenter").click(function(){
 })
 
 $("#ViewSchoolOverviewCenter").click(function(){
-  window.location= "dorms/UNC-CH/Landingpage.html";
+  window.location= "writeReview.html";
 })
 
 $("#closemobile").click(function(){

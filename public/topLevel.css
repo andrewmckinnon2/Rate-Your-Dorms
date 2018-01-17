@@ -515,6 +515,7 @@ li:hover {
     width: 100%;
     min-height: 500px;
     background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('images/realdorm.JPG');
+    min-height: 300px;
 }
 
 

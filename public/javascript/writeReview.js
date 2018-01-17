@@ -256,3 +256,54 @@ $("#dormName").click(function(){
     $("#school").css("border", "solid 2px #ff0000");
   }
 })
+
+//Listen to dropdown even when on mobile
+$(document).on("mousedown", "div.dropdowncontent", function(){
+  $("#logobar").focus();
+  var searchType = $("#searchtype").find(":selected").text();
+  if(searchType == "Dorm"){
+    var dormName = $(this).children("p14").html().split(" - ")[0];
+    var schoolName = $(this).children("p14").html().split(" - ")[1];
+    window.location = "dorms/" + schoolName + "/" + dormName + ".html";
+  }else{
+    var schoolName = $(this).children("p14").html();
+    window.location = "dorms/" + schoolName + "/Landingpage.html";
+  }
+})
+
+//Listen for the user to click on the search bar and append all dorms to the dropdown when they do.
+$(".searchbar").click(function(){
+  var searchType = $("#searchtype").find(":selected").text();
+  $(this).attr("placeholder", "");//Clear text in search bar
+  console.log(".searchbar listener has been triggered");
+  //Fix corners of search button
+  $(this).css("border-radius","5px 0px 0px 0px");
+  $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");
+  $("#searchbutton").css("border-radius","0px 5px 0px 0px");
+
+  $(".dropdown1").empty();
+  $(".dropdown2").empty();
+
+  if(searchType == "Dorm"){
+    for(var i=0; i<dormNames.length; i++){
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
+    }
+  }else{
+    for(var i=0; i<schoolNames.length; i++){
+      $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+      $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
+    }
+  }
+  $(".dropdown1").show();//Show normal drop down
+  $(".dropdown2").show();//Show mobile drop down
+})
+
+
+//When user clicks outside of logobar hide dropdown, fix corners, and replace the searchbar text
+$("#logobar").focusout(function(){
+  $(".dropdown").hide();
+  $(".searchbar").css("border-radius","5px 0px 0px 5px");
+  $("#searchbutton").css("border-radius","0px 5px 5px 0px");
+  $(".searchbar").attr("placeholder", "Search...");
+})
