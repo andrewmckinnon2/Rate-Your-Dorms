@@ -92,18 +92,21 @@ function generateDormObjects(){
 
 //Calculate the average overall for all dorms in the school and display this value.
 function getSchoolOverall(){
+  console.log("inside of getSchoolOverall");
   var schoolTotal = 0; //Should hold total summed total of avg. dorm scores for all dorms in the school.
   var schoolAvg = 0; //will be updated to hold (schoolTotal / number of dorms)
   var numOfDorms = 0;
   firebase.database().ref("/" + schoolName + "/ratings").once("value").then(function(snapshot){
-    numOfDorms = numOfDorms + 1;
     snapshot.forEach(function(childSnap){
+      numOfDorms = numOfDorms + 1;
       var snapVal = childSnap.val();
       var totalScoreVals = snapVal.avgBathroom + snapVal.avgbuilding + snapVal.avgRoom;
       schoolTotal = schoolTotal + totalScoreVals;
     })
   }).then(function(){
-      schoolAvg = (schoolTotal/(numOfDorms)).toFixed(2);
+      console.log("numOfDorms is " + numOfDorms);
+      console.log("schoolTotal is " + schoolTotal);
+      schoolAvg = (schoolTotal/(numOfDorms * 3)).toFixed(2);
       $("#schoolOverall").text(schoolAvg);
   })
 }

@@ -5,13 +5,14 @@ const topPossibleScore = 15; //3 different areas of quantitative review therefor
 //hide and empty dropdown when page is loaded
 $(".dropdown").hide();
 $(".dropdown").empty();
+var schoolName = $("#schoolName").html();
+var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
 
 generateDormObjects();
 
 dormNames = []; //Empty array, will be populated with names of all dorms and corresponding school
 schoolNames = []; //Empty array, will be populated with names of all schools
-var currentDormSelected = $(".dormtitle").children("h8").html().toLowerCase();
-var schoolName = $("#schoolName").html();
+
 $(document).ready(function(){
   //Add every dorm to the dormNames array
   firebase.database().ref("/").once('value').then(function(snap){
@@ -30,9 +31,14 @@ $(document).ready(function(){
     }
   }
   }).then(function(){
+    //Filter by only including dorms where school name is equal to the dorms school
+    var count = 0;
     for(var i=0; i<dormNames.length; i++){
-      $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + (i+1) + "</h12></div>" +
-      "<div class=\'name\'><h11>" + dormNames[i][0] + "</h11></div>" + "<div class=\'overallscore\'><h13>" + 1.0 + "</h13></div></div>");
+      if(schoolName == dormNames[i][1]){
+        count = count+1;
+        $("#rankings").append("<div class=\'ranking\'><div class=\'number\'><h12>" + count + "</h12></div>" +
+        "<div class=\'name\'><h11>" + dormNames[i][0] + "</h11></div>" + "<div class=\'overallscore\'><h13> </h13></div></div>");
+      }
     }
     //Get dorm name with correct case from list generated previously
     for(var i=0; i<dormNames.length; i++){
@@ -190,7 +196,7 @@ function getCurrentInfo(){
 
 //Populates both the roomObjects and currentRooms arrays with all values from the appropriate firebase node
 function generateDormObjects(){
-  firebase.database().ref("/" + schoolName + "/ratings").on("child_added", function(snapshot){
+  firebase.database().ref("/" + schoolName + "/ratings/").on("child_added", function(snapshot){
     var snapVal = snapshot.val();
     var room = new roomObj(snapshot.key, snapVal.avgBathroom, snapVal.avgbuilding, snapVal.avgGymDist, snapVal.avgPartyDist, snapVal.avgRoom, snapVal.avgStudyDist, snapVal.avgCulture);
     roomObjects.push(room);
@@ -366,7 +372,6 @@ $(".searchbar").click(function(){
 
   $(".dropdown1").empty();
   $(".dropdown2").empty();
-  console.log("dropdown should be emptied");
   if(searchType == "Dorm"){
     for(var i=0; i<dormNames.length; i++){
       $(".dropdown1").append("<div class=\'dropdowncontent\'><p14>" + dormNames[i][0] + " - " + dormNames[i][1] + "</p14></div>");
@@ -378,7 +383,6 @@ $(".searchbar").click(function(){
       $(".dropdown2").append("<div class=\'dropdowncontent\'><p14>" + schoolNames[i] + "</p14></div>");
     }
   }
-  console.log(dormNames);
   $(".dropdown1").show();//Show normal drop down
   $(".dropdown2").show();//Show mobile drop down
 })
