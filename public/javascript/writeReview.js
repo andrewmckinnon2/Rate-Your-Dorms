@@ -22,8 +22,6 @@ $(document).ready(function(){
         }
       })
     }).then(function(){
-      console.log(dormNamesWriteRev);
-      console.log(schoolNamesWriteRev);
       for(var i=0; i<schoolNamesWriteRev.length; i++){
         $("#school").append("<option id=\"" + schoolNamesWriteRev[i].toLowerCase() + "\">" + schoolNamesWriteRev[i] + "</option>");
       }
@@ -47,7 +45,6 @@ $("#submit").click(function(){
     //Get all inputs from appropriate jquery selectors and make mouse wait
     $('.loadPlaceHolder').toggle();
     $(this).css("cursor", "wait");
-    console.log("checkForInputs returned true");
     var reviewerName = $("#name").val();
     var email = $("#email").val();
     var yearInDorm = $("#yearSelector").find(":selected").text();
@@ -207,7 +204,7 @@ function checkForInputs(){
   //return true or false depending on whether or not values from inputs have been chosen
   if($("#yearSelector").find(":selected").text() == "Select"){
     return false;
-  }else if($("#cultureSelector").find(":selected").text() == "Selected"){
+  }else if($("#cultureSelector").find(":selected").text() == "Select"){
     return false;
   }else if($("input:radio[name ='recommend']:checked").val() == undefined){
     return false;
@@ -275,7 +272,6 @@ $(document).on("mousedown", "div.dropdowncontent", function(){
 $(".searchbar").click(function(){
   var searchType = $("#searchtype").find(":selected").text();
   $(this).attr("placeholder", "");//Clear text in search bar
-  console.log(".searchbar listener has been triggered");
   //Fix corners of search button
   $(this).css("border-radius","5px 0px 0px 0px");
   $("#mobileSearch").css("border-radius", "0px 0px 0px 0px");

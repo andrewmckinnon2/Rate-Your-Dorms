@@ -179,6 +179,8 @@ function getCurrentInfo(){
       $("#population").text(population + " RESIDENTS")
       if(dormStyle == "Hall"){
         $("#hallStyle").text("HALL STYLE");
+      }else if(dormStyle == "none"){
+        $("#hallStyle").css('display', 'none');
       }else{
         $("#hallStyle").text("SUITE STYLE");
       }
