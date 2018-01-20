@@ -181,6 +181,12 @@ function getCurrentInfo(){
         $("#hallStyle").text("HALL STYLE");
       }else if(dormStyle == "none"){
         $("#hallStyle").css('display', 'none');
+      }else if(dormStyle == "Apartment"){
+        $("#hallStyle").text("APARTMENT STYLE");
+      }else if(dormStyle == "Tower"){
+        $("#hallStyle").text("TOWER STYLE");
+      }else if(dormStyle == "Greek"){
+        $("#hallStyle").text("GREEK STYLE");
       }else{
         $("#hallStyle").text("SUITE STYLE");
       }
