@@ -178,6 +178,6 @@ $("#ncstate").click(function(){
   window.location = "dorms/NC-STATE/Landingpage.html";
 })
 
-$("#duke").click(function(){
-  window.location = "dorms/DUKE/Landingpage.html";
+$("#uncc").click(function(){
+  window.location = "dorms/UNC-C/Landingpage.html";
 })
