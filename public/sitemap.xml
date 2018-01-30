@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://rateyourdorms.com</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://rateyourdorms.com/writeReview</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://rateyourdorms.com/contact</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://rateyourdorms.com/writeReview/dorms/NC-STATE/Landingpage</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://rateyourdorms.com/writeReview/dorms/UNC-C/Landingpage</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://rateyourdorms.com/writeReview/dorms/UNC-Ch/Landingpage</loc>
+    <lastmod>2018-01-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
