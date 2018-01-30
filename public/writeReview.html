@@ -125,13 +125,13 @@
         <h6>FIRST NAME* (will remain anonymous)</h6>
          <div class="inputcenter"><input id="name"autofocus type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4; margin: .75em 0em;"  style="font-family: 'Muli', sans-serif; margin: 0 1em;"></div>
         <h6>EMAIL ADDRESS*</h6>
-         <div class="inputcenter"><input id="email"autofocus type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4; margin: .75em 0em;"  id="name" style="font-family: 'Muli', sans-serif; margin: 0 1em;"></div>
-         <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 1em;"><input id="agreeToTerms"style="visibilty: visible;" type="checkbox"/><p15>I agree to the <u id="terms"><a href="Legal.html">Terms of Services Agreement</a></u></p15></div>
+         <div class="inputcenter"><input id="email" autofocus type="text" name="search" style="width:100%; border-radius: 0px; border: solid 2px #97C0E4; margin: .75em 0em;"  style="font-family: 'Muli', sans-serif; margin: 0 1em;"></div>
+         <div id="agreeToTerms" style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 1em;"><input style="visibilty: visible;" type="checkbox"/><p15>I agree to the <u id="terms"><a href="Legal.html">Terms of Services Agreement</a></u></p15></div>
         </div>
     </div>
   </div>
     <div id="writereview">
-      <div class="reviewquestion">
+      <div class="reviewquestion" id="buildingHolder">
             <div class="stepHeader">
               <h7 style="margin: .25em; color: white;">STEP 2: About your Dorm</h7>
             </div>
@@ -152,7 +152,7 @@
               </form>
             </div>
       </div>
-    <div class="reviewquestion">
+    <div class="reviewquestion" id="roomHolder">
                 <div class="subject"><h5>Room itself</h5></div>
                 <div class="description"><h4>How was the size of the room? Were the desks and dressers modern and usable?</h4></div>
                 <div class="stars">
@@ -170,7 +170,7 @@
                     </form>
               </div>
     </div>
-        <div class="reviewquestion">
+        <div class="reviewquestion" id="bathroomHolder">
                 <div class="subject"><h5>Bathroom</h5></div>
                 <div class="description"><h4>Were there enough toilets and showers? How was the lighting and cleanliness?</h4></div>
                 <div class="stars">
@@ -252,7 +252,9 @@
         <div class="reviewquestion">
                 <div class="subject"><h5>Recommendation</h5></div>
                 <div class="description"><h4>Would you recommend this dorm to a friend?</h4></div>
-                <div class="divider"> <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 1em;"><input value="would recommned"class="recommend" style="visibilty: visible;" type="radio" name="recommend"><h4>Yes</h4><input value="would not recommend"class="recommend" style="visibilty: visible;" type="radio" name="recommend"><h4>No</h4>
+                <div class="divider"> <div id="recommendationSelector" style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 1em;">
+                  <input value="would recommned"class="recommend" style="visibilty: visible;" type="radio" name="recommend"><h4>Yes</h4>
+                  <input value="would not recommend"class="recommend" style="visibilty: visible;" type="radio" name="recommend"><h4>No</h4>
                 </div>
                 </div>
         </div>

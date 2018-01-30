@@ -202,30 +202,92 @@ $("#submit").click(function(){
 
 function checkForInputs(){
   //return true or false depending on whether or not values from inputs have been chosen
+  var isIncomplete = true;
   if($("#yearSelector").find(":selected").text() == "Select"){
-    return false;
-  }else if($("#cultureSelector").find(":selected").text() == "Select"){
-    return false;
-  }else if($("input:radio[name ='recommend']:checked").val() == undefined){
-    return false;
-  }else if($("input:radio[name ='bathroomStar']:checked").val() == undefined || $("input:radio[name ='buildingStar']:checked").val() == undefined
-      || $("input:radio[name ='roomStar']:checked").val() == undefined){
-        return false;
-  }else if($("#name").val() == ""){
-    return false;
-  }else if($("#email").val() == ""){
-    return false
-  }else if(!($("#agreeToTerms").is(":checked"))){
-    return false;
-  }else if($("#textReview").val().split(' ').length <15){
-    return false;
-  }else if($("#dormName").find(":selected").text() == "Select"){
-    return false;
-  }else if($("#school").find(":selected").text() == "Select"){
-    return false;
+    $("#yearSelector").css("border", "solid 2px red");
+    isIncomplete = false;
   }else{
-    return true;
+    $("#yearSelector").css("border", "solid 2px #97C0E4");
   }
+
+ if($("#cultureSelector").find(":selected").text() == "Select"){
+   $("#cultureSelector").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#cultureSelector").css("border", "solid 2px #97C0E4");
+  }
+
+  if($("input:radio[name ='recommend']:checked").val() == undefined){
+    $("#recommendationSelector").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#recommendationSelector").css("border", "0");
+  }
+
+  if($("input:radio[name ='bathroomStar']:checked").val() == undefined){
+    $("#roomHolder").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#roomHolder").css("border", "0");
+  }
+
+  if($("input:radio[name ='buildingStar']:checked").val() == undefined){
+    $("#buildingHolder").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#buildingHolder").css("border", "0");
+  }
+
+  if($("input:radio[name ='roomStar']:checked").val() == undefined){
+    $("#bathroomHolder").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#bathroomHolder").css("border", "0");
+  }
+
+  if($("#name").val() == ""){
+    $("#name").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#name").css("border", "solid 2px #97C0E4");
+  }
+
+  if($("#email").val() == ""){
+    $("#email").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#email").css("border", "solid 2px #97C0E4");
+  }
+
+  if(!($("#agreeToTerms").is(":checked"))){
+    $("#agreeToTerms").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#agreeToTerms").css("border", "0");
+  }
+
+  if($("#textReview").val().split(' ').length <15){
+    $("#textReview").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#textReview").css("border", "solid 2px #97C0E4");
+  }
+
+  if($("#dormName").find(":selected").text() == "Select"){
+    $("#dormName").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#dormName").css("border", "solid 2px #97C0E4");
+  }
+
+  if($("#school").find(":selected").text() == "Select"){
+    $("#school").css("border", "solid 2px red");
+    isIncomplete = false;
+  }else{
+    $("#school").css("border", "solid 2px #97C0E4");
+  }
+
+  return isIncomplete;
 }
 
 //Logic to handle school and dorm selection; force user to select a school before selecting a dorm, and toggle list of dorms based on school selected.
