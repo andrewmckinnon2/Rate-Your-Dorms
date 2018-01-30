@@ -260,10 +260,12 @@ function checkForInputs(){
   }
 
   if(!($("#agreeToTerms").is(":checked"))){
-    $("#agreeToTerms").css("border", "solid 2px red");
+    console.log("agreeToTerms isn't checked");
+    $("#agreeToTermsHolder").css("border", "solid 2px red");
     isIncomplete = false;
   }else{
-    $("#agreeToTerms").css("border", "0");
+    console.log("agreeToTerms is checked");
+    $("#agreeToTermsHolder").css("border", "0");
   }
 
   if($("#textReview").val().split(' ').length <15){
