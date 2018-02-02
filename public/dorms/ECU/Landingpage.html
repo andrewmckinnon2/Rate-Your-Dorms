@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110093163-1');
+  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"-->
+    <meta name="descrption" content="Welcome to Rate Your Dorms for NC State, read and write reviews on your NC State housing experience today">
+    <link rel="stylesheet" href="css/NC-STATEMAIN.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+  <script src="https://maps.google.com/maps/api/js?key=AIzaSyAnSW1UKH-KRw-HfuWokqp6MPDh4ldYfgA" type="text/javascript"></script>
+  <!--<script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4HWq7ZLTFqypyM3aH1vtxl5nTxHhj9WY&callback=initMap" type="text/javascript"></script>-->
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+});
+</script>
+</head>
+<body>
+<p id="schoolName">ECU</p>
+  <div class="main">
+    <div class="main">
+      <div id="logobar">
+                  <div id="logo">
+                      <a href="../../index.html"><img id="navlogo" class="navlogo" src="../../images/RateYourDormsVertical.png" ></a>
+                  </div>
+                  <div class="socialmedia">
+                      <div id="dropdowncontainer">
+                  <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                      <input type="text" placeholder="Search..." class="searchbar searchBar1">
+                       <div id="barcontain">
+                      <select id="searchtype">
+                              <option>Dorm</option>
+                              <option>School</option>
+                          </select>
+                        </div>
+                      <div id="searchbutton">
+                          <img src="../../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                      </div>
+
+                      </div>
+                        <div class="dropdown dropdown1">
+
+                        </div>
+
+                  </div>
+                     <div id="hamburgercontainer"><img id="hamburger" src="../../images/searchicon.png"></div>
+                    <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../../images/reviewwhite.png"></div>
+                  </div>
+                  <div class="signup">
+                      <div id="socialicons">
+                      <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
+                      <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                      <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
+                      </div>
+                      <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
+                  </div>
+              </div>
+    <div id="mobilepopup">
+       <div class="popupback">
+                 <div id="mobiledropdowncontainer">
+                  <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                      <input id="mobileSearch" type="text" placeholder="Search..." class="searchbar searchBar2">
+                       <div id="barcontain">
+                      <select id="searchtype">
+                              <option>Dorm</option>
+                              <option>School</option>
+                          </select>
+                        </div>
+                      <div id="closemobile">
+                          <span id="closepop">&times;</span>
+                      </div>
+
+                      </div>
+                  <div class="dropdown dropdown2">
+                  </div>
+                  </div>
+        </div>
+    </div>
+  <div class="landing">
+    <div id="dormsearchwide">
+              <div id="collegebackground">
+                  <div class="overallcontainer"><h8 style="margin: 0 .5em; align-self:center;" id="schoolOverall">4.5</h8></div>
+
+                  <div id="resolvewidth">
+
+                      <div id="viewmore2"><h8 style="color: white;">NC State</h8></div>
+
+                  </div>
+              </div>
+                          <div class="rankingheader">
+                              <select id="sortOption"><option>Sort by</option>
+                                <option>Overall Rating</option>
+                                <option>Room Rating</option>
+                                <option>Bathroom Rating</option>
+                                <option>Building Rating</option>
+                                <option>Proximity to Class</option>
+                                <option>Proximity to Party</option>
+                                <option>Proximity to Workout</option>
+                              </select>
+                              <button id="sortButton" style="border:none; margin: .5em;">Sort</button>
+                              <select id="filterOption">
+                                <option>Filter by</option>
+                                <option>Social</option>
+                                <option>Work-hard</option>
+                                <option>Play-hard</option>
+                                <option>Greek</option>
+                                <option>Quiet</option>
+                                <option>Hipster</option>
+                                <option>Social</option>
+                                <option>Sporty</option>
+                              </select>
+                              <button id="filterButton" style="border:none; margin: .5em;">Filter</button>
+                          </div>
+        <div id="rankings">
+
+        </div>
+    </div>
+     <div id="map" >
+  </div>
+  <script type="text/javascript">
+      var locations = [
+          ['Clement', 35.6094102, -77.37160619999997, 1],
+          ['Cotten', 35.6077134, -77.36548549999998, 2],
+          ['Fleming', 35.6082136, -77.36626380000001, 3],
+          ['Fletcher', 35.6096932, -77.37040460000003, 4],
+          ['Garrett', 35.6095111, -77.36945430000003, 5],
+          ['Gateway', 35.5997867, -77.36434170000001, 6],
+          ['Jarvis', 35.6084838, -77.36704129999998, 7],
+          ['Jones', 35.60099569999999, -77.3623225, 8],
+          ['Legacy', 35.6004736, -77.36272919999999, 9],
+          ['Scott', 35.5997006, -77.36276529999998, 10],
+          ['Tyler', 35.6003846, -77.36457489999998, 11],
+          ['Umstead', 35.60509210000001, -77.36699290000001, 12],
+          ['White', 35.60912939999999, -77.3713371, 13],
+      ];
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: new google.maps.LatLng(35.7867904,-78.66996219999999),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          icon: "../../images/mapiconncstate.png",
+          map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
+    </script>
+                </div>
+      </div>
+    </div>
+    <div class="footer" style=" flex-shrink: 0;">
+             <div id="list">
+                     <li id="contactLink">Contact</li>
+                     <li style="text-decoration:none;">|</li>
+                     <li id="legalLink">Legal</li>
+                     <li style="text-decoration:none;">|</li>
+                     <li id="aboutLink">About</li>
+             </div>
+
+     </div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../../javascript/Landingpage.js"></script>
+<script src="../../javascript/roomObj.js"></script>
+<script src="../../javascript/LandingPageHeaderSearch.js"></script>
+<script src="../../javascript/footer.js"></script>
+
+</html>
