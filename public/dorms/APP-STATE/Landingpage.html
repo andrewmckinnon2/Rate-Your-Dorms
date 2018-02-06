@@ -3,10 +3,10 @@
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-110093163-1');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110093163-1');
   </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
     <meta name="descrption" content="Welcome to Rate Your Dorms for NC State, read and write reviews on your NC State housing experience today">
@@ -151,7 +151,7 @@ $(document).ready(function(){
           ['Cannon Hall', 36.21389490000001, -81.67590669999998, 4],
           ['Coltrane Hall', 36.2124315, -81.683423, 5],
           ['Cone Hall', 36.2146051, -81.6772393, 6],
-          ['Doughton Hall', 35.7856165, -78.6764235, 7],
+          ['Doughton Hall', 36.21462959999999, -81.67588460000002, 7],
           ['East Hall', 36.2137115, -81.67691639999998, 8],
           ['Eggers Hall', 36.2139474, -81.68611829999998, 9],
           ['Frank Hall', 36.214726, -81.68572360000002, 10],
@@ -168,7 +168,7 @@ $(document).ready(function(){
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: new google.maps.LatLng(35.7867904,-78.66996219999999),
+        center: new google.maps.LatLng(36.2134842,-81.68414480000001),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
@@ -179,7 +179,7 @@ $(document).ready(function(){
       for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          icon: "../../images/mapiconncstate.png",
+          icon: "../../images/mapiconapp.png",
           map: map
         });
 

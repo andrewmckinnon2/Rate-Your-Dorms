@@ -3,14 +3,14 @@
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-110093163-1');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110093163-1');
   </script>
     <meta name="viewport" content="width=device-width, initial-scale=1"-->
     <meta name="descrption" content="Welcome to Rate Your Dorms for NC State, read and write reviews on your NC State housing experience today">
-    <link rel="stylesheet" href="css/NC-STATEMAIN.css">
+    <link rel="stylesheet" href="css/ECUMAIN.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
@@ -109,7 +109,7 @@ $(document).ready(function(){
 
                   <div id="resolvewidth">
 
-                      <div id="viewmore2"><h8 style="color: white;">NC State</h8></div>
+                      <div id="viewmore2"><h8 style="color: white;">ECU</h8></div>
 
                   </div>
               </div>
@@ -162,7 +162,7 @@ $(document).ready(function(){
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: new google.maps.LatLng(35.7867904,-78.66996219999999),
+        center: new google.maps.LatLng(35.6055108,-77.36456529999998),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
@@ -173,7 +173,7 @@ $(document).ready(function(){
       for (i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-          icon: "../../images/mapiconncstate.png",
+          icon: "../../images/mapiconecu.png",
           map: map
         });
 

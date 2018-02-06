@@ -175,8 +175,12 @@ function getCurrentInfo(){
       $("#dormmain div:nth-child(2) > p6").text(sortedCulture[0].getName());
       $("#dormmain div:nth-child(3) > p6").text(sortedCulture[1].getName());
 
+      if(population == "none"){
+        $("#population").css('display','none');
+      }else{
+        $("#population").text(population + " RESIDENTS");
+      }
 
-      $("#population").text(population + " RESIDENTS")
       if(dormStyle == "Hall"){
         $("#hallStyle").text("HALL STYLE");
       }else if(dormStyle == "none"){
