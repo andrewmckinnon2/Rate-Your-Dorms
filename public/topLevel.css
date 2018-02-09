@@ -2470,3 +2470,15 @@ p17 {
   color: red;
   visibility: hidden;
 }
+
+#ecu {
+    background: #7b47b3;
+}
+
+#appstate {
+    background: #ffcc00
+}
+
+#utaustin {
+    background: #ce6916;
+}

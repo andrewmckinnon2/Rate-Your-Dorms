@@ -181,3 +181,15 @@ $("#ncstate").click(function(){
 $("#uncc").click(function(){
   window.location = "dorms/UNC-C/Landingpage.html";
 })
+
+$("#ecu").click(function(){
+  window.location = "dorms/ECU/Landingpage.html";
+})
+
+$("#appstate").click(function(){
+  window.location = "dorms/APP-STATE/Landingpage.html";
+})
+
+$("#utaustin").click(function(){
+  window.location = "dorms/UT-AUSTIN/Landingpage.html";
+})
