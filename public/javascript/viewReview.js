@@ -54,7 +54,8 @@ $(document).ready(function(){
 //Populate the page with reviews and avg scores for this dorm from firebase
 function getCurrentInfo(){
   var cultureArr = [7];
-  var sortedCulture = [7]
+  var sortedCulture = [7];
+  var reviewsToAppend = []; //Will be a 2-d array holding all the reviews, position 0 is string to append; position 1 is date (what we filter by)
   $("#commentsHolder").empty(); //Remove reviews so new ones can populate
   var numReviews;
   var dormStyle;
@@ -137,9 +138,9 @@ function getCurrentInfo(){
             if(building >=3){
               clean="clean";
             }
-
+            var reviewHolder = [];
             //Append all info inside of the commentsHolder
-            $("#commentsHolder").append("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
+            reviewHolder.push("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
             "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
             "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
             "<p8>" + overall + "</p8></div><div class=\"description1\"><p8 class=\"info2\">OVERALL</p8></div></div>" +
@@ -147,6 +148,17 @@ function getCurrentInfo(){
             "<div class=\"row\"><div class=\"box3\"><p7>" + building + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BUILDING</p7></div></div>" +
             "<div class=\"row\"><div class=\"box3\"><p7>" + bathroom + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BATHROOM</p7></div></div>" +
             "</div></div>" + "<div class=\"commentsection\"><p9>" + writtenReview + "</p9></div></div></div>");
+            reviewHolder.push(date);
+
+            /*$("#commentsHolder").append("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
+            "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
+            "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
+            "<p8>" + overall + "</p8></div><div class=\"description1\"><p8 class=\"info2\">OVERALL</p8></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + room + "</p7></div><div class=\"description1\"><p7 class=\"info2\">ROOM</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + building + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BUILDING</p7></div></div>" +
+            "<div class=\"row\"><div class=\"box3\"><p7>" + bathroom + "</p7></div><div class=\"description1\"><p7 class=\"info2\">BATHROOM</p7></div></div>" +
+            "</div></div>" + "<div class=\"commentsection\"><p9>" + writtenReview + "</p9></div></div></div>");*/
+            reviewsToAppend.push(reviewHolder);
           }
         })
     }).then(function(){
@@ -199,6 +211,14 @@ function getCurrentInfo(){
         $("#laundry").text("LAUNDRY ROOMS");
       }else{
         $("#laundry").text("NO LAUNDRY ROOMS");
+      }
+
+      //Sort reviews and Append
+      console.log("reviews to append before sorting is the following:");
+      console.log(reviewsToAppend);
+      reviewsToAppend = sortByDate(reviewsToAppend);
+      for(var i=0; i<reviewsToAppend.length; i++){
+        $("#commentsHolder").append(reviewsToAppend[i][0]);
       }
     })
 
@@ -454,3 +474,53 @@ $("#writeReview").click(function(){
 $("#closemobile").click(function(){
   $("#mobilepopup").toggle();
 });
+
+
+function sortByDate(reviewsToAppend) {
+  console.log("called sortByDate");
+  for(var i=0; i<reviewsToAppend.length; i++){
+    for(var k=0; k<reviewsToAppend.length-1; k++){
+      var thisReviewDate = reviewsToAppend[k][1].split("/");
+      var nextReviewDate = reviewsToAppend[k+1][1].split("/");
+      console.log("the following are thisReviewDate and nextReviewDate based after split");
+      console.log(thisReviewDate);
+      console.log(nextReviewDate);
+
+      if(compareDates(thisReviewDate, nextReviewDate)){
+        console.log("swapping the following dates");
+        console.log(thisReviewDate);
+        console.log(nextReviewDate);
+        var temp = reviewsToAppend[k];
+        reviewsToAppend[k] = reviewsToAppend[k+1];
+        reviewsToAppend[k+1] = temp;
+      }
+    }
+  }
+  return reviewsToAppend;
+}
+
+//Helper function used in sortByDate to check two arrays with the following indexes:
+//0 - month; 1 - day; 2 - year
+//Should return true if switch is needed; false if switch is not needed
+function compareDates(thisReviewDate, nextReviewDate){
+  console.log("entered compareDates");
+  if(parseInt(thisReviewDate[2]) > parseInt(nextReviewDate[2])){
+    return false;
+  }else if(parseInt(thisReviewDate[2]) < parseInt(nextReviewDate[2])){
+    return true;
+  }
+
+  if(parseInt(thisReviewDate[0]) > parseInt(nextReviewDate[0])){
+    return false;
+  }else if(parseInt(thisReviewDate[0]) < parseInt(nextReviewDate[0])){
+    return true;
+  }
+
+  if(parseInt(thisReviewDate[1]) > parseInt(nextReviewDate[1])){
+    return false;
+  }else if(parseInt(thisReviewDate[1]) < parseInt(nextReviewDate[1])){
+    return true;
+  }
+
+  return false;
+}
