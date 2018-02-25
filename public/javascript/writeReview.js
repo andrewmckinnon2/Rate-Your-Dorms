@@ -23,7 +23,14 @@ $(document).ready(function(){
       })
     }).then(function(){
       for(var i=0; i<schoolNamesWriteRev.length; i++){
-        $("#school").append("<option id=\"" + schoolNamesWriteRev[i].toLowerCase() + "\">" + schoolNamesWriteRev[i] + "</option>");
+        if(schoolNamesWriteRev[i] == "UNC-C"){
+          $("#school").append("<option id=\"" + schoolNamesWriteRev[i] + "\">" + "UNC Charlotte" + "</option>");
+        }else if(schoolNamesWriteRev[i] == "UNC-CH"){
+          $("#school").append("<option id=\"" + schoolNamesWriteRev[i] + "\">" + "UNC Chapel Hill" + "</option>")
+        }else{
+          $("#school").append("<option id=\"" + schoolNamesWriteRev[i] + "\">" + schoolNamesWriteRev[i] + "</option>");
+        }
+
       }
     })
 })
@@ -59,6 +66,12 @@ $("#submit").click(function(){
     var writtenReview = $("#textReview").val();
     var recommendationVal = $("input:radio[name ='recommend']:checked").val();
     var school = $("#school").find(":selected").text();
+
+    if(school == "UNC Chapel Hill"){
+      school = "UNC-CH";
+    }else if(school == "UNC Charlotte"){
+      school = "UNC-C"
+    }
 
     //Initialize firebase database var, dormRatingNode var, get date, and generate new node
     var database = firebase.database();
@@ -303,8 +316,8 @@ $("#school").change(function(){
   }
   for(var i=0; i<dormNamesWriteRev.length; i++){
     //Check if the school for current dorm matches the school just selected
-    if(dormNamesWriteRev[i][1] == $("#school").find(":selected").text()){
-      $("#dormName").append("<option id=\"" + dormNamesWriteRev[i][0].toLowerCase() + "\">" + dormNamesWriteRev[i][0] + "</option>");
+    if(dormNamesWriteRev[i][1] == $("#school").find(":selected").attr('id')){
+      $("#dormName").append("<option id=\"" + dormNamesWriteRev[i][0] + "\">" + dormNamesWriteRev[i][0] + "</option>");
     }else{
       continue;
     }
