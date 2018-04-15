@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093163-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110093163-1');
+  </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/UNC-WMAIN.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<title>Rate Your Dorms</title>
+    <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+$(document).ready(function(){
+    $("#hamburger").click(function(){
+        $("#mobilepopup").show();
+    });
+
+    $("#exitMobilePopup").click(function(){
+        console.log("button presed");
+        $("#mobilepopup").hide();
+    })
+
+});
+</script>
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+<script>
+    var client = filestack.init('ASW8Bcl6YSNKtbhYbNt7Xz');
+    function showPicker() {
+        client.pick({
+        }).then(function(result) {
+            console.log(JSON.stringify(result.filesUploaded))
+        });
+    }
+</script>
+</head>
+<body>
+  <p id="schoolName">UNC-W</p>
+  <div class="main">
+    <div id="logobar">
+                <div id="logo">
+                    <a href="../../index.html"><img id="navlogo" class="navlogo" src="../../images/RateYourDormsVertical.png" ></a>
+                </div>
+                <div class="socialmedia">
+                    <div id="dropdowncontainer">
+                <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                    <input type="text" placeholder="Search..." class="searchbar searchBar1">
+                     <div id="barcontain">
+                    <select id="searchtype">
+                            <option>Dorm</option>
+                            <option>School</option>
+                        </select>
+                      </div>
+                    <div id="searchbutton">
+                        <img src="../../images/searchicon.png" style="width: 20px; height: 20px;display: flex; flex-direction: column; align-self: center;">
+                    </div>
+
+                    </div>
+                      <div class="dropdown dropdown1">
+
+                      </div>
+
+                </div>
+                   <div id="hamburgercontainer"><img id="hamburger" src="../../images/searchicon.png"></div>
+                  <div id="hamburgercontainer"><img id="hamburger" class="mobileReview" src="../../images/reviewwhite.png"></div>
+                </div>
+                <div class="signup">
+                    <div id="socialicons">
+                    <a href="https://www.facebook.com/rateyourdorms/?ref=bookmarks" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://twitter.com/rateyourdorms" target="_blank" class="fa fa-twitter"></a>
+                    <a href="https://www.instagram.com/rateyourdorms/?hl=en" target="_blank" class="fa fa-instagram"></a>
+                    </div>
+                    <div id="writeareview"><div></div><p6 style="margin: 1em;" id="writerev">Write a Review</p6></div>
+                </div>
+            </div>
+  <div id="mobilepopup">
+      <div class="popupback">
+               <div id="mobiledropdowncontainer">
+                <div style="display: flex; width: 100%; flex-direction: row; background: white;border-radius: 5px;">
+                    <input id="mobileSearch" type="text" placeholder="Search..." class="searchbar searchBar2">
+                     <div id="barcontain">
+                    <select id="searchtype">
+                            <option>Dorm</option>
+                            <option>School</option>
+                        </select>
+                      </div>
+                    <div id="closemobile">
+                        <span id="closepop">&times;</span>
+                    </div>
+
+                    </div>
+                <div class="dropdown dropdown2">
+
+                </div>
+                </div>
+      </div>
+  </div>
+
+         <div id="findadorm" class="modal">
+                 <div class="mapcontent animate">
+                     <div id="dormsearch">
+                       <div class="rankingheader" style="justify-content: flex-end;">
+                           <div><span id="closeReviewNav"onclick="document.getElementById('findadorm').style.display='none'" class="closemap" title="Close Modal">&times;</span></div>
+                       </div>
+                       <div  class="rankingheader">
+                       <h7>FIND A DORM</h7>
+                       </div>
+                       <div class="rankingheader" style="height: 70px;">
+                           <select id="sortOption" ><option>Sort by</option>
+                               <option>Overall Rating</option>
+                               <option>Room Rating</option>
+                               <option>Bathroom Rating</option>
+                               <option>Building Rating</option>
+                               <option>Proximity to Class</option>
+                               <option>Proximity to Party</option>
+                               <option>Proximity to Workout</option>
+                           </select>
+                           <button id="sortButton"style="border:none; margin: .25em;">Sort</button>
+                           <select id="filterOption" >
+                               <option>Filter by</option>
+                               <option>Social</option>
+                               <option>Work-hard</option>
+                               <option>Play-hard</option>
+                               <option>Greek</option>
+                               <option>Quiet</option>
+                               <option>Hipster</option>
+                               <option>Social</option>
+                               <option>Sporty</option>
+                           </select>
+                           <button id="filterButton" style="border:none; margin: .25em;">Filter</button>
+                       </div>
+
+                       <div id="rankings">
+
+                       </div>
+                       </div>
+                     </div>
+</div>
+
+<div id=reviewcontainer>
+  <div id="infodorm">
+    <div class="dormmetrics">
+        <div id="maininfo">
+            <div id="fixwidth">
+                <div id="headercontainer">
+                    <div class="dormtitle">
+                            <h8>Belk Hall</h8>
+                    </div>
+                    <div class="locationbutton" type="button" onclick="document.getElementById('findadorm').style.display='flex'" ><div class="footerlogo"><img src="../../images/sort.png" class="locationicon"></div></div>
+                    <div>
+                    </div>
+                </div>
+
+
+                        <div id="dormmain">
+                            <div class="left">
+                                <p3>OVERALL RATING:</p3>
+                                <h10></h10>
+
+                            </div>
+                            <div class="right">
+                                     <div class="row">
+                                    <div  class="box"><p6 id="roomPar" ></p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3  class="info2">ROOM</p3>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div  class="box"><p6 id="bathroomPar" ></p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3  class="info2">BATHROOM</p3>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div  class="box"><p6 id="kitchenPar" ></p6>
+                                    </div>
+                                    <div class="description1">
+                                    <p3 class="info2">BUILDING</p3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+            </div>
+        </div>
+             <div id="dormmain">
+
+                    <div class="description2"><p3>CULTURE:</p3></div>
+
+                    <div class="box2"><p6></p6>
+                    </div>
+
+                    <div class="box2"><p6></p6>
+                    </div>
+
+                    <!--<div class="box2"><p6></p6>
+                    </div>-->
+
+            </div>
+
+        <div id=graphcontainer>
+            <div id="graph">
+                <div class="label"><p3 style="margin: none;">PROXIMITY TO:</p3></div>
+                <div class="barcontainer"><div class="bar" id="distToStudy"><img src="../../images/book.png" class="distanceicon"><p2>CLASS</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+                <div class="barcontainer"><div class="bar" id="distToParty"><img src="../../images/cup.png" class="distanceicon"><p2>PARTY</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+                <div class="barcontainer"><div class="bar" id="distToGym"><img src="../../images/weight.png" class="distanceicon"><p2>WORKOUT</p2></div><p3 style="display:flex; flex-direction:column; justify-content:center;"> </p3></div>
+            </div>
+        </div>
+            <div id=dormmain style="border-bottom:solid 1px lightgrey;">
+                <div id="geninfo">
+                    <div class="gencontainer"><div class="bar"><p3>GENERAL INFO:</p3></div><div id="margin"><p4 id="hallStyle">STYLE</p4><p11>|</p11><p4 id="population">RESIDENTS</p4><p11>|</p11><p4>STUDY ROOMS</p4><p11>|</p11>
+                      <p4 id="laundry">LAUNDRY ROOMS</p4></div></div>
+
+                </div>
+            </div>
+            <iframe class="map"
+              width="90%"
+              height="80%"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDR7DFQIBGumoziD6B6a0n2EZgrKhQOWS4
+                &q=belk+hall+wilmington" allowfullscreen>
+            </iframe>
+      </div>
+    </div>
+    <div id="writereview">
+      <div id="commentheader">
+          <div class="arrow"><div class="description"><img id="leftarrow" src="../../images/leftblue.png"></div></div>
+          <div class="imagecontainer" onclick="showPicker()"><img src="../../images/placeholder.png" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="imagecontainer" id="container2" onclick="showPicker()"><img src="../../images/placeholder.png" class="img1"><div class="imgupload"><p6 style="margin: .5em .3em .5em 0;"><b>Click to upload</b></p6><img src="../../images/upload.png" class="uploader"></div></div>
+          <div class="imagecontainer" id="container3" onclick="showPicker()"><img src="../../images/placeholder.png" class="img1"><div class="imgupload"><p6>Coming soon!</p6></div></div>
+          <div class="arrow"><div class="description"><img id="rightarrow" src="../../images/rightblue.png"></div></div>
+      </div>
+      <div id="commentsHolder">
+      </div>
+  </div>
+</div>
+<div class="footer" style=" flex-shrink: 0;">
+        <div id="list">
+                <li id="contactLink">Contact</li>
+                <li style="text-decoration:none;">|</li>
+                <li id="legalLink">Legal</li>
+                <li style="text-decoration:none;">|</li>
+                <li id="aboutLink">About</li>
+        </div>
+
+</div>
+</div>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDjv6q0lOgsUNQbDo5rfXJ1XA4eV_piPyE",
+    authDomain: "rate-your-dorms.firebaseapp.com",
+    databaseURL: "https://rate-your-dorms.firebaseio.com",
+    projectId: "rate-your-dorms",
+    storageBucket: "",
+    messagingSenderId: "440378393666"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="../../javascript/viewReview.js"></script>
+<script src="../../javascript/roomObj.js"></script>
+</html>
