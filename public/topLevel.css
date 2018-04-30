@@ -2374,8 +2374,9 @@ h16 {
 .schoolLink {
     display: flex;
     width: 33.33%;
-    height: 60px;
+    height: 57px;
     margin-right: 1px;
+    margin-bottom: 1px;
     justify-content: center;
 }
 
@@ -2452,7 +2453,7 @@ h16 {
 
 p17 {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: white;
     text-align: center;
     display: flex;
@@ -2481,4 +2482,12 @@ p17 {
 
 #utaustin {
     background: #ce6916;
+}
+
+#uncg {
+    background: #244e77;
+}
+
+#uncw {
+    background: #007E79;
 }

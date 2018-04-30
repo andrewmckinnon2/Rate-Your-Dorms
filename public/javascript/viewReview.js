@@ -2,6 +2,11 @@ var roomObjects = []; //This is where objects representing all the dorms will be
 var currentRooms = []; //This is where objects representing the currently displayed dorms will be placed.
 const topPossibleScore = 15; //3 different areas of quantitative review therefore, with each one out of 5, top score possible is 20;
 
+/*TODO: store session data related to upvote and downvote in 2d array. First index is email associated with review, second is integer
+containing 1, 0, or -1 depending on whether review was upvoted, not voted on, or down voted. Need to read vote tallies from firebase
+before appending to page and get up and downvote icons from Andrew Lee.
+*/
+
 //hide and empty dropdown when page is loaded
 $(".dropdown").hide();
 $(".dropdown").empty();
@@ -120,6 +125,7 @@ function getCurrentInfo(){
           if(childSnap.key != "numReviews" && childSnap.key !="Objective Info" && childSnap.key!="avgBathroom" &&
         childSnap.key!="avgbuilding" && childSnap.key!="avgCulture" && childSnap.key!="avgGymDist" && childSnap.key!="avgPartyDist" && childSnap.key!="avgRoom" && childSnap.key!="avgStudyDist" && childSnap.key!="culture"){
             var ratingInfo = childSnap.val();
+            var email = ratingInfo.email;
             var bathroom = parseInt(ratingInfo.bathroom);
             var building = parseInt(ratingInfo.building);
             var room = parseInt(ratingInfo.room);
@@ -140,7 +146,7 @@ function getCurrentInfo(){
             }
             var reviewHolder = [];
             //Append all info inside of the commentsHolder
-            reviewHolder.push("<div class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
+            reviewHolder.push("<div id=\"" + email + "\" class=\"comment\"><div class=\"tagscontainer\"><div class=\"tagstitle\"><p5>" + date +
             "</p5></div><div class=\"year\"><p5>" + year + "</p5></div><div class=\"tag\"><p5>" + culture + "</p5></div></div>" +
             "<div class=\"commentcontainer\"><div class=\"dormrating\"><div class=\"commentrate\"><div class=\"row\"><div class=\"box4\">" +
             "<p8>" + overall + "</p8></div><div class=\"description1\"><p8 class=\"info2\">OVERALL</p8></div></div>" +
@@ -152,6 +158,7 @@ function getCurrentInfo(){
             reviewsToAppend.push(reviewHolder);
           }
         })
+        console.log("exited reviewHolder populater");
     }).then(function(){
       var finalScore = Number((avgRoom+avgBathroom+avgBuilding)/3).toFixed(1);//Get the avg overall score to one decimal point
       $(".dormtitle").empty();
@@ -473,14 +480,8 @@ function sortByDate(reviewsToAppend) {
     for(var k=0; k<reviewsToAppend.length-1; k++){
       var thisReviewDate = reviewsToAppend[k][1].split("/");
       var nextReviewDate = reviewsToAppend[k+1][1].split("/");
-      console.log("the following are thisReviewDate and nextReviewDate based after split");
-      console.log(thisReviewDate);
-      console.log(nextReviewDate);
 
       if(compareDates(thisReviewDate, nextReviewDate)){
-        console.log("swapping the following dates");
-        console.log(thisReviewDate);
-        console.log(nextReviewDate);
         var temp = reviewsToAppend[k];
         reviewsToAppend[k] = reviewsToAppend[k+1];
         reviewsToAppend[k+1] = temp;
@@ -494,7 +495,6 @@ function sortByDate(reviewsToAppend) {
 //0 - month; 1 - day; 2 - year
 //Should return true if switch is needed; false if switch is not needed
 function compareDates(thisReviewDate, nextReviewDate){
-  console.log("entered compareDates");
   if(parseInt(thisReviewDate[2]) > parseInt(nextReviewDate[2])){
     return false;
   }else if(parseInt(thisReviewDate[2]) < parseInt(nextReviewDate[2])){
@@ -515,3 +515,22 @@ function compareDates(thisReviewDate, nextReviewDate){
 
   return false;
 }
+/*
+//Listener for upvote
+$(document).on("click",".upvote",function(){
+  //TODO: add code to write to review on firebase
+  console.log("clicked upvote");
+});
+
+//Listener for downvote
+$(document).on("click",".downvote",function(){
+  //TODO: add code to write to review on firebase
+  console.log("clicked downvote");
+});
+
+//Listener for reported posts
+$(document).on("click",".report",function(){
+  //TODO: add code to write to review on firebase
+  console.log("clicked report");
+});
+*/

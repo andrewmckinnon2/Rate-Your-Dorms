@@ -193,3 +193,11 @@ $("#appstate").click(function(){
 $("#utaustin").click(function(){
   window.location = "dorms/UT-AUSTIN/Landingpage.html";
 })
+
+$("#uncg").click(function(){
+  window.location = "dorms/UNC-G/Landingpage.html";
+})
+
+$("#uncw").click(function(){
+  window.location = "dorms/UNC-W/Landingpage.html";
+})
