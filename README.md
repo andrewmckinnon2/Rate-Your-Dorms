@@ -13,4 +13,4 @@ This repo follows a typical site organization with all original code held within
 * Andrew Lee
 
 ## Link to live site
-rateyourdorms.com
+* [Rate Your Dorms](https://rateyourdorms.com)
